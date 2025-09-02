@@ -2,7 +2,7 @@ module.exports = function(eleventyConfig) {
   // ეს ხაზი აკოპირებს assets საქაღალდეს (CSS, სურათები და ა.შ.)
   eleventyConfig.addPassthroughCopy("src/assets");
   
-  // ეს ახალი ხაზი აკოპირებს admin საქაღალდეს
+  // ეს ხაზი აკოპირებს admin საქაღალდეს
   eleventyConfig.addPassthroughCopy("src/admin");
 
   return {
