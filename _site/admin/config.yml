@@ -1,0 +1,26 @@
+backend:
+  name: test-repo
+
+media_folder: "src/assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: "pages"
+    label: "გვერდები"
+    files:
+      - file: "src/index.md"
+        label: "მთავარი გვერდი"
+        name: "index"
+        fields:
+          - { label: "გვერდის სათაური (ბრაუზერისთვის)", name: "title", widget: "string" }
+          - { label: "მთავარი დიდი სათაური", name: "hero_title", widget: "string" }
+          - { label: "ქვესათაური (პარაგრაფი)", name: "hero_subtitle", widget: "text" }
+          - { label: "სერვისების სექციის სათაური", name: "services_title", widget: "string" }
+          - name: "services_list"
+            label: "სერვისების სია"
+            widget: "list"
+            fields:
+              - { label: "სერვისის სათაური", name: "title", widget: "string" }
+              - { label: "სერვისის აღწერა", name: "description", widget: "text" }
+              - { label: "იკონის ფერი", name: "icon_color", widget: "select", options: ["lavender", "pink"] }
+              - { label: "ანიმაციის დაყოვნება (ms)", name: "aos_delay", widget: "string", hint: "მაგ: 0, 100, 200..." }
