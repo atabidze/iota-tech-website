@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  branch: main # <<< დავამატეთ ეს ხაზი, რომ მივუთითოთ სწორი შტო
 
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
