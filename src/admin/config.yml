@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway # შევცვალეთ github -> git-gateway-ზე
+  name: git-gateway
 
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
@@ -24,3 +24,17 @@ collections:
               - { label: "სერვისის აღწერა", name: "description", widget: "text" }
               - { label: "იკონის ფერი", name: "icon_color", widget: "select", options: ["lavender", "pink"] }
               - { label: "ანიმაციის დაყოვნება (ms)", name: "aos_delay", widget: "string", hint: "მაგ: 0, 100, 200..." }
+      
+      - file: "src/about.md"
+        label: "ჩვენ შესახებ"
+        name: "about"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "გვერდის ტექსტი", name: "body", widget: "markdown" }
+
+      - file: "src/contact.md"
+        label: "კონტაქტი"
+        name: "contact"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "გვერდის ტექსტი", name: "body", widget: "markdown" }
