@@ -1,7 +1,5 @@
 backend:
-  name: github
-  repo: atabidze/iota-tech-website # თქვენი GitHub რეპოზიტორია
-  branch: main # თქვენი მთავარი შტო
+  name: git-gateway # შევცვალეთ github -> git-gateway-ზე
 
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
