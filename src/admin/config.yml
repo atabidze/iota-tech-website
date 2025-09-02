@@ -13,7 +13,7 @@ collections:
         label: "მთავარი გვერდი"
         name: "index"
         fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
+          - { label: "გვერდის სათაური (ბრაუზერისთვის)", name: "title", widget: "string" }
           - { label: "Hero-ს დიდი სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
           - { label: "სერვისების სექციის სათაური", name: "services_title", widget: "string" }
@@ -39,8 +39,8 @@ collections:
       - { label: "სათაური", name: "title", widget: "string" }
       - { label: "აღწერა", name: "description", widget: "text" }
       - { label: "იკონის ფერი", name: "icon_color", widget: "select", options: ["lavender", "pink"] }
-      - { label: "იკონი", name: "icon", widget: "select", options: ["mobile", "security", "cloud"] }
-      - { label: "ანიმაციის დაყოვნება", name: "aos_delay", widget: "string" }
+      - { label: "იკონი", name: "icon", widget: "select", options: ["mobile", "security", "cloud", "consulting"] }
+      - { label: "ანიმაციის დაყოვნება (ms)", name: "aos_delay", widget: "string" }
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
