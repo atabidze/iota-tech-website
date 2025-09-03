@@ -8,6 +8,12 @@
   --accent-lavender: #9A8CFF;
   --font-family: 'Roboto', sans-serif;
 }
+
+/* --- დავამატეთ რბილი სქროლვა --- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family); margin: 0; padding: 0;
   background-color: transparent; color: var(--text-primary);
@@ -45,7 +51,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-section { padding: 6rem 0; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
 
-/* --- ახალი სტილები სერვისების გვერდისთვის --- */
+/* --- სტილები სერვისების გვერდისთვის --- */
 .services-page-section {
     padding: 4rem 0;
 }
@@ -55,9 +61,9 @@ a { text-decoration: none; color: var(--text-primary); }
     align-items: flex-start;
 }
 .services-nav {
-    flex: 0 0 250px; /* ფიქსირებული სიგანე */
+    flex: 0 0 250px;
     position: sticky;
-    top: 120px; /* ჰედერის სიმაღლეს + დაშორება */
+    top: 120px;
 }
 .services-nav h3 {
     font-size: 1.2rem;
@@ -81,10 +87,12 @@ a { text-decoration: none; color: var(--text-primary); }
     color: var(--accent-pink);
 }
 .services-content {
-    flex: 1; /* იკავებს დარჩენილ ადგილს */
+    flex: 1;
 }
 .service-category {
     margin-bottom: 4rem;
+    /* --- მთავარი შესწორება --- */
+    scroll-margin-top: 120px; /* სქროლვისას დავტოვოთ 120px ადგილი ჰედერისთვის */
 }
 .service-category h2 {
     font-size: 2rem;
