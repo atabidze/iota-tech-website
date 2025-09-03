@@ -1,5 +1,5 @@
 ---
-title: ჩვენი სერვისები 1
+title: "ჩვენი სერვისები "
 layout: base.njk
 permalink: /services/index.html
 service_categories:
