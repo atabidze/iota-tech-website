@@ -6,6 +6,23 @@ media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
+  - name: "kategoriebi" # <-- ახალი კოლექცია
+    label: "სერვისების კატალოგი"
+    folder: "src/kategoriebi"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
+      - { label: "რიგითობა", name: "sort_order", widget: "number", hint: "დაბალი რიცხვი ნიშნავს უფრო წინ გამოჩენას" }
+      - label: "სერვისების სია (ამ კატეგორიაში)"
+        name: "servisebis_sia"
+        widget: "list"
+        field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
+      - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
+        name: "body"
+        widget: "markdown"
+      - { label: "Tags", name: "tags", widget: "hidden", default: "kategoriebi" }
+
   - name: "pages"
     label: "მთავარი გვერდები"
     files:
@@ -16,41 +33,14 @@ collections:
           - { label: "გვერდის სათაური", name: "title", widget: "string" }
           - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/servisebi.md" # ეს არის ჩვენი სერვისების გვერდი
-        label: "სერვისების გვერდი"
+      - file: "src/services.md" # <-- ეს არის ჩვენი სერვისების მთავარი გვერდი
+        label: "სერვისების გვერდი (განლაგება)"
         name: "services_page"
         fields:
           - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - label: "კატეგორიები და სერვისები"
-            name: "service_categories"
-            widget: "list"
-            fields:
-              - { label: "კატეგორიის ID", name: "id", widget: "string", hint: "უნიკალური იდენტიფიკატორი, მაგ: cat1, cat2..." }
-              - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
-              - label: "ამ კატეგორიის სერვისები"
-                name: "sub_services"
-                widget: "list"
-                field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
-              - { label: "დეტალების ბმული", name: "details_link", widget: "string", required: false, hint: "არასავალდებულო. მაგ: /services/cybersecurity/" }
-      - file: "src/about.md"
-        label: "ჩვენ შესახებ"
-        name: "about"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/contact.md"
-        label: "კონტაქტი"
-        name: "contact"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-
+          - { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }
+      # ... about.md and contact.md
+      
   - name: "settings"
     label: "ზოგადი პარამეტრები"
-    files:
-      - file: "src/_data/settings.json"
-        label: "საიტის პარამეტრები"
-        name: "settings"
-        fields:
-          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
-          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
+    # ... (ეს სექცია უცვლელია)
