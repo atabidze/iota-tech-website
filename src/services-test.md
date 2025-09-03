@@ -7,6 +7,7 @@ permalink: /services-test/index.html
 <section class="services-page-section">
     <div class="container">
         <div class="services-page-layout">
+            
             <aside class="services-nav" data-aos="fade-right">
                 <h3>კატეგორიები</h3>
                 <ul>
@@ -31,6 +32,7 @@ permalink: /services-test/index.html
                         <li>ოპერაციული სისტემების მართვა</li>
                         <li>მობილური მოწყობილობების მართვა (MDM)</li>
                     </ul>
+                    <a href="/services/cybersecurity/" class="details-link">დეტალურად →</a>
                 </div>
 
                 <div id="cat2" class="service-category" data-aos="fade-up">
@@ -41,6 +43,7 @@ permalink: /services-test/index.html
                         <li>VPN გადაწყვეტილებები</li>
                         <li>ქსელის მონიტორინგი</li>
                     </ul>
+                    <a href="/services/cybersecurity/" class="details-link">დეტალურად →</a>
                 </div>
 
                 <div id="cat3" class="service-category" data-aos="fade-up">
@@ -51,6 +54,7 @@ permalink: /services-test/index.html
                         <li>მონაცემთა შენახვის სისტემები (Storage)</li>
                         <li>მონაცემთა რეზერვირება და აღდგენა (Backup & Recovery)</li>
                     </ul>
+                    <a href="/services/cybersecurity/" class="details-link">დეტალურად →</a>
                 </div>
 
                 <div id="cat4" class="service-category" data-aos="fade-up">
@@ -60,6 +64,7 @@ permalink: /services-test/index.html
                         <li>SaaS ადმინისტრირება: Microsoft 365 და Google Workspace</li>
                         <li>ღრუბელში მიგრაცია</li>
                     </ul>
+                    <a href="/services/cybersecurity/" class="details-link">დეტალურად →</a>
                 </div>
 
                 <div id="cat5" class="service-category" data-aos="fade-up">
@@ -79,6 +84,7 @@ permalink: /services-test/index.html
                         <li>ვიდეო მონიტორინგის სისტემები (CCTV / IP კამერები)</li>
                         <li>დაშვების კონტროლის სისტემები (Access Control Systems)</li>
                     </ul>
+                    <a href="/services/cybersecurity/" class="details-link">დეტალურად →</a>
                 </div>
                 
                 <div id="cat7" class="service-category" data-aos="fade-up">
@@ -88,6 +94,7 @@ permalink: /services-test/index.html
                         <li>კორპორატიული ელ. ფოსტის სისტემების მართვა</li>
                         <li>ვიდეო კონფერენციის სისტემების ინტეგრაცია</li>
                     </ul>
+                    <a href="/services/cybersecurity/" class="details-link">დეტალურად →</a>
                 </div>
 
                 <div id="cat8" class="service-category" data-aos="fade-up">
@@ -100,6 +107,7 @@ permalink: /services-test/index.html
                         <li>პროექტების მართვა</li>
                         <li>მომწოდებლებთან ურთიერთობა (Vendor Management)</li>
                     </ul>
+                    <a href="/services/cybersecurity/" class="details-link">დეტალურად →</a>
                 </div>
             </div>
         </div>
