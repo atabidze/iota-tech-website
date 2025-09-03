@@ -6,7 +6,7 @@ media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "kategoriebi" # <-- ახალი კოლექცია
+  - name: "kategoriebi"
     label: "სერვისების კატალოგი"
     folder: "src/kategoriebi"
     create: true
@@ -22,6 +22,9 @@ collections:
         name: "body"
         widget: "markdown"
       - { label: "Tags", name: "tags", widget: "hidden", default: "kategoriebi" }
+      # --- მთავარი დამატება: ეს ხაზები ავტომატურად ქმნის დეტალურ გვერდს ---
+      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 
   - name: "pages"
     label: "მთავარი გვერდები"
@@ -33,7 +36,7 @@ collections:
           - { label: "გვერდის სათაური", name: "title", widget: "string" }
           - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/services.md" # <-- ეს არის ჩვენი სერვისების მთავარი გვერდი
+      - file: "src/services.md"
         label: "სერვისების გვერდი (განლაგება)"
         name: "services_page"
         fields:
