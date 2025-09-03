@@ -2,7 +2,7 @@
 <html lang="ka">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale-1.0">
   <title>{{ title }}</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,12 +47,19 @@
   
   <script>
     AOS.init({ duration: 800, once: true });
+
     tsParticles.load("tsparticles-bg", {
       "fullScreen": { "enable": false },
-      "background": { "color": { "value": "#121212" }},
+      // --- მთავარი შესწორება ---
+      "background": {
+        "color": {
+          "value": "#121212" // ვუთითებთ ანიმაციის მუქ ფონს
+        }
+      },
       "particles": {
         "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
-        "color": { "value": "#e84a5f" }, "shape": { "type": "circle" },
+        "color": { "value": "#e84a5f" },
+        "shape": { "type": "circle" },
         "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }},
         "size": { "value": 2, "random": true },
         "line_linked": { "enable": true, "distance": 150, "color": "#333333", "opacity": 0.4, "width": 1 },
