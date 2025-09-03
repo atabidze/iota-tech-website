@@ -9,7 +9,27 @@ collections:
   - name: "pages"
     label: "მთავარი გვერდები"
     files:
-      # ... (pages კოლექცია უცვლელია)
+      - file: "src/index.md"
+        label: "მთავარი გვერდი"
+        name: "index"
+        fields:
+          - { label: "გვერდის სათაური (ბრაუზერისთვის)", name: "title", widget: "string" }
+          - { label: "მთავარი დიდი სათაური", name: "hero_title", widget: "string" }
+          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
+          - { label: "სერვისების სექციის სათაური", name: "services_title", widget: "string" }
+      - file: "src/about.md"
+        label: "ჩვენ შესახებ"
+        name: "about"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "გვერდის ტექსტი", name: "body", widget: "markdown" }
+      - file: "src/contact.md"
+        label: "კონტაქტი"
+        name: "contact"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "გვერდის ტექსტი", name: "body", widget: "markdown" }
+
   - name: "services"
     label: "სერვისები"
     folder: "src/services"
@@ -18,7 +38,6 @@ collections:
     fields:
       - { label: "სათაური", name: "title", widget: "string" }
       - { label: "აღწერა", name: "description", widget: "text" }
-      # --- მთავარი ცვლილება ---
       - label: "იკონის სახელი (Lucide)"
         name: "icon"
         widget: "string"
@@ -30,4 +49,9 @@ collections:
   - name: "settings"
     label: "ზოგადი პარამეტრები"
     files:
-      # ... (settings კოლექცია უცვლელია)
+      - file: "src/_data/settings.json"
+        label: "საიტის პარამეტრები"
+        name: "settings"
+        fields:
+          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
+          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
