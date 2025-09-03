@@ -14,7 +14,7 @@ collections:
         name: "index"
         fields:
           - { label: "გვერდის სათაური (ბრაუზერისთვის)", name: "title", widget: "string" }
-          - { label: "Hero-ს დიდი სათაური", name: "hero_title", widget: "string" }
+          - { label: "მთავარი დიდი სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
           - { label: "სერვისების სექციის სათაური", name: "services_title", widget: "string" }
       - file: "src/about.md"
@@ -34,7 +34,8 @@ collections:
     label: "სერვისები"
     folder: "src/services"
     create: true
-    slug: "{{slug}}"
+    # --- მთავარი ცვლილება ---
+    slug: "{{slug}}" # შევცვალეთ slug-ი, რომ ფაილის სახელი სათაურიდან ავტომატურად შეიქმნას (ლათინურად)
     fields:
       - { label: "სათაური", name: "title", widget: "string" }
       - { label: "აღწერა", name: "description", widget: "text" }
