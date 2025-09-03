@@ -13,38 +13,37 @@ collections:
         label: "მთავარი გვერდი"
         name: "index"
         fields:
-          - { label: "გვერდის სათაური (ბრაუზერისთვის)", name: "title", widget: "string" }
-          - { label: "მთავარი დიდი სათაური", name: "hero_title", widget: "string" }
+          - { label: "გვერდის სათაური", name: "title", widget: "string" }
+          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-          - { label: "სერვისების სექციის სათაური", name: "services_title", widget: "string" }
+      - file: "src/servisebi.md" # ეს არის ჩვენი სერვისების გვერდი
+        label: "სერვისების გვერდი"
+        name: "services_page"
+        fields:
+          - { label: "გვერდის სათაური", name: "title", widget: "string" }
+          - label: "კატეგორიები და სერვისები"
+            name: "service_categories"
+            widget: "list"
+            fields:
+              - { label: "კატეგორიის ID", name: "id", widget: "string", hint: "უნიკალური იდენტიფიკატორი, მაგ: cat1, cat2..." }
+              - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
+              - label: "ამ კატეგორიის სერვისები"
+                name: "sub_services"
+                widget: "list"
+                field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
+              - { label: "დეტალების ბმული", name: "details_link", widget: "string", required: false, hint: "არასავალდებულო. მაგ: /services/cybersecurity/" }
       - file: "src/about.md"
         label: "ჩვენ შესახებ"
         name: "about"
         fields:
           - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "გვერდის ტექსტი", name: "body", widget: "markdown" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
       - file: "src/contact.md"
         label: "კონტაქტი"
         name: "contact"
         fields:
           - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "გვერდის ტექსტი", name: "body", widget: "markdown" }
-
-  - name: "services"
-    label: "სერვისები"
-    folder: "src/services"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "სათაური", name: "title", widget: "string" }
-      - { label: "აღწერა", name: "description", widget: "text" }
-      - label: "იკონის სახელი (Lucide)"
-        name: "icon"
-        widget: "string"
-        hint: "შედით lucide.dev-ზე, იპოვეთ იკონი და ჩაწერეთ მისი სახელი. მაგ: server, shield, cloud"
-      - { label: "იკონის ფერი", name: "icon_color", widget: "select", options: ["lavender", "pink"] }
-      - { label: "ანიმაციის დაყოვნება (ms)", name: "aos_delay", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
