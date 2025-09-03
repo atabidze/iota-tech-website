@@ -18,11 +18,12 @@ collections:
       - label: "სერვისების სია (ამ კატეგორიაში)"
         name: "servisebis_sia"
         widget: "list"
-        field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
+        # --- მთავარი შესწორება: field -> fields ---
+        fields: 
+          - { label: "სერვისის დასახელება", name: "name", widget: "string" }
       - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
-      # --- მთავარი შესწორება: ვამატებთ თეგს, რომ Eleventy-მ კოლექცია სწორად შექმნას ---
       - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
