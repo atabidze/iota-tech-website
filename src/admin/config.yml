@@ -39,8 +39,25 @@ collections:
         fields:
           - { label: "გვერდის სათაური", name: "title", widget: "string" }
           - { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }
-      # ... about.md and contact.md
-      
+      - file: "src/about.md"
+        label: "ჩვენ შესახებ"
+        name: "about"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
+      - file: "src/contact.md"
+        label: "კონტაქტი"
+        name: "contact"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
+
   - name: "settings"
     label: "ზოგადი პარამეტრები"
-    # ... (ეს სექცია უცვლელია)
+    files:
+      - file: "src/_data/settings.json"
+        label: "საიტის პარამეტრები"
+        name: "settings"
+        fields:
+          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
+          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
