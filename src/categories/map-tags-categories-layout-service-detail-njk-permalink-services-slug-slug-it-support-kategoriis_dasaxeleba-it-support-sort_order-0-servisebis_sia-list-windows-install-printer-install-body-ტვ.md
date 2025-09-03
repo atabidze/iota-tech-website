@@ -1,5 +1,5 @@
 ---
-slug: it-support
+slug: it
 kategoriis_dasaxeleba: IT support
 sort_order: 0
 servisebis_sia:
