@@ -34,19 +34,15 @@ collections:
     label: "სერვისები"
     folder: "src/services"
     create: true
-    # --- მთავარი ცვლილება: ფაილის სახელს ვიღებთ ახალი "slug" ველიდან ---
-    slug: "{{fields.slug}}" 
+    slug: "{{slug}}"
     fields:
-      # --- დაემატა ახალი ველი ---
-      - label: "ფაილის სახელი (ლათინურად)"
-        name: "slug"
-        widget: "string"
-        hint: "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე (-). მაგ: kiber-usafrtkhoeba"
       - { label: "სათაური", name: "title", widget: "string" }
       - { label: "აღწერა", name: "description", widget: "text" }
       - { label: "იკონის ფერი", name: "icon_color", widget: "select", options: ["lavender", "pink"] }
       - { label: "იკონი", name: "icon", widget: "select", options: ["mobile", "security", "cloud", "consulting"] }
       - { label: "ანიმაციის დაყოვნება (ms)", name: "aos_delay", widget: "string" }
+      # --- მთავარი ცვლილება: ვამატებთ დამალულ თეგს ---
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
