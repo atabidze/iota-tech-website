@@ -1,6 +1,6 @@
 :root {
   --dark-bg: #121212;
-  --card-bg: #1E1E1E;
+  --card-bg: #1E1E1E; /* rgb(30, 30, 30) */
   --border-color: #333333;
   --text-primary: #FFFFFF;
   --text-secondary: #AAAAAA;
@@ -22,12 +22,25 @@ h2 { font-size: 2.5rem; }
 h3 { font-size: 1.5rem; }
 p { color: var(--text-secondary); }
 a { text-decoration: none; color: var(--text-primary); }
-.glass-panel { background-color: rgba(30, 30, 30, 0.75); backdrop-filter: blur(10px); border: 1px solid var(--border-color); }
-.site-header { position: sticky; top: 0; z-index: 100; width: 100%; border-width: 0 0 1px 0; padding: 1rem 0; }
+
+.glass-panel {
+  background-color: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+.site-header {
+  position: sticky; top: 0; z-index: 100; width: 100%;
+  border-width: 0 0 1px 0;
+  padding: 1rem 0;
+}
 .header-container { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-weight: 700; font-size: 1.5rem; }
 .main-nav a { margin: 0 1rem; font-weight: 500; transition: color 0.3s; }
-.cta-button.header-cta { background-color: var(--accent-pink); color: #fff; padding: 0.6rem 1.5rem; border-radius: 5px; font-weight: 600; transition: background-color 0.3s; }
+.cta-button.header-cta {
+  background-color: var(--accent-pink); color: #fff;
+  padding: 0.6rem 1.5rem; border-radius: 5px; font-weight: 600;
+  transition: background-color 0.3s;
+}
 .hero-section { padding: 8rem 0; text-align: center; }
 .services-section { padding: 6rem 0; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
@@ -44,37 +57,23 @@ a { text-decoration: none; color: var(--text-primary); }
 .service-category h2 { font-size: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
 .service-category ul { list-style: none; padding: 0; }
 .service-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
-
-/* --- ახალი სტილები --- */
 .details-link {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--accent-pink);
-    font-weight: 700;
+    display: inline-block; margin-top: 1.5rem;
+    color: var(--accent-pink); font-weight: 700;
     transition: transform 0.3s;
 }
-.details-link:hover {
-    transform: translateX(5px);
-}
+.details-link:hover { transform: translateX(5px); }
 
-.service-detail-section {
-    padding: 6rem 0;
-}
-.service-detail-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem;
-}
-.service-detail-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-.service-detail-content ul {
-    list-style: none;
-    padding: 0;
-}
+.service-detail-section { padding: 6rem 0; }
+.service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
+.service-detail-content { max-width: 800px; margin: 0 auto; }
+.service-detail-content ul { list-style: none; padding: 0; }
+
+/* --- მთავარი შესწორება --- */
 .service-detail-content li {
-    background-color: var(--card-bg);
+    background-color: rgba(30, 30, 30, 0.5); /* ნახევრად-გამჭვირვალე ფონი */
+    backdrop-filter: blur(5px); /* ფონის დაბურვა */
+    border: 1px solid var(--border-color);
     padding: 1.5rem;
     border-radius: 10px;
     margin-bottom: 1rem;
