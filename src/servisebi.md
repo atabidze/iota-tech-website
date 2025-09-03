@@ -1,6 +1,7 @@
 ---
 title: ჩვენი სერვისები
 layout: base.njk
+permalink: /services/index.html
 ---
 
 <section class="services-section">
@@ -9,9 +10,9 @@ layout: base.njk
             <h1>ჩვენი სერვისები</h1>
         </div>
         <div class="service-list">
-            {# ეს კოდი ავტომატურად წამოიღებს ყველა სერვისს, რომელსაც ადმინ პანელში დაამატებთ #}
+            {# ეს კოდი ახლა უშეცდომოდ წამოიღებს ყველა სერვისს #}
             {% for service in collections.services %}
-            <div class="service-row glass-panel" data-aos="fade-up" data-aos-delay="{{ service.data.aos_delay }}">
+            <div class="service-row glass-panel" data-aos="fade-up" data-aos-delay="{{ service.data.aos_delay | default(0) }}">
                 <div class="service-icon-container">
                     <div class="icon-bg {{ service.data.icon_color }}">
                         {% if service.data.icon == "mobile" %}
