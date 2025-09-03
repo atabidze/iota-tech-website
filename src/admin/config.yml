@@ -18,51 +18,15 @@ collections:
       - label: "სერვისების სია (ამ კატეგორიაში)"
         name: "servisebis_sia"
         widget: "list"
-        # --- მთავარი შესწორება: field -> fields ---
-        # ეს უზრუნველყოფს, რომ სია სწორი ფორმატით შეინახოს
-        fields: 
+        fields: # <<< ეს იყო მთავარი შეცდომა, field-ის ნაცვლად უნდა იყოს fields
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
       - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
       - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
-      # --- წავშალეთ layout და permalink, რადგან მათ Eleventy მართავს ---
+      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 
   - name: "pages"
     label: "მთავარი გვერდები"
-    files:
-      - file: "src/index.md"
-        label: "მთავარი გვერდი"
-        name: "index"
-        fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
-          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/services.md"
-        label: "სერვისების გვერდი (განლაგება)"
-        name: "services_page"
-        fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }
-      - file: "src/about.md"
-        label: "ჩვენ შესახებ"
-        name: "about"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/contact.md"
-        label: "კონტაქტი"
-        name: "contact"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-
-  - name: "settings"
-    label: "ზოგადი პარამეტრები"
-    files:
-      - file: "src/_data/settings.json"
-        label: "საიტის პარამეტრები"
-        name: "settings"
-        fields:
-          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
-          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
+    # ... (დანარჩენი კოდი უცვლელია)
