@@ -50,16 +50,6 @@ a { text-decoration: none; color: var(--text-primary); }
 
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
-
-/* --- ახალი სტილები სურათისთვის --- */
-.service-banner-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    margin-bottom: 3rem;
-    border: 1px solid var(--border-color);
-}
-
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .service-detail-content ul { list-style: none; padding: 0; }
 .service-detail-content li {

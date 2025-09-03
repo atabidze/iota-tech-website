@@ -7,9 +7,6 @@ permalink: /services/cybersecurity/index.html
 <section class="service-detail-section">
     <div class="container">
         <div class="service-detail-header" data-aos="fade-up">
-            <!-- სურათის დამატება -->
-            <img src="/assets/img/cybersecurity-banner.png" alt="Cybersecurity illustration" class="service-banner-image">
-            
             <h1>კიბერუსაფრთხოება</h1>
             <p>ჩვენი მიზანია, თქვენი ბიზნესი ვაქციოთ ციფრულ ციხესიმაგრედ. ჩვენ გთავაზობთ კომპლექსურ მიდგომას კიბერუსაფრთხოების უზრუნველსაყოფად.</p>
         </div>
