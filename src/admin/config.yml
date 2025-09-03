@@ -34,9 +34,14 @@ collections:
     label: "სერვისები"
     folder: "src/services"
     create: true
-    # --- მთავარი ცვლილება ---
-    slug: "{{slug}}" # შევცვალეთ slug-ი, რომ ფაილის სახელი სათაურიდან ავტომატურად შეიქმნას (ლათინურად)
+    # --- მთავარი ცვლილება: ფაილის სახელს ვიღებთ ახალი "slug" ველიდან ---
+    slug: "{{fields.slug}}" 
     fields:
+      # --- დაემატა ახალი ველი ---
+      - label: "ფაილის სახელი (ლათინურად)"
+        name: "slug"
+        widget: "string"
+        hint: "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე (-). მაგ: kiber-usafrtkhoeba"
       - { label: "სათაური", name: "title", widget: "string" }
       - { label: "აღწერა", name: "description", widget: "text" }
       - { label: "იკონის ფერი", name: "icon_color", widget: "select", options: ["lavender", "pink"] }
