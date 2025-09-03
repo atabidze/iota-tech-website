@@ -1,5 +1,5 @@
 ---
-slug: Help Desk
+slug: Help-Desk
 kategoriis_dasaxeleba: ჰელპ დესკი
 sort_order: -1
 servisebis_sia:
