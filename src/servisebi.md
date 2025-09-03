@@ -1,5 +1,5 @@
 ---
-title: ჩვენი სერვისები
+title: ჩვენი სერვისები 1
 layout: base.njk
 permalink: /services/index.html
 service_categories:
@@ -8,13 +8,13 @@ service_categories:
     sub_services:
       - name: ტექნიკური მხარდაჭერა (Help Desk)
       - name: ადგილზე მომსახურება (On-site Support)
-    details_link: ''
+    details_link: ""
   - id: cat2
     title: II. ქსელური ინფრასტრუქტურა
     sub_services:
       - name: ლოკალური ქსელის (LAN) და უსადენო ქსელის (Wi-Fi) დაგეგმვა და მართვა
       - name: ქსელური მოწყობილობების კონფიგურაცია
-    details_link: ''
+    details_link: ""
 ---
 
 <section class="services-page-section">
