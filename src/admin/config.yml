@@ -6,9 +6,9 @@ media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "categories" # <-- შეიცვალა სახელი
+  - name: "categories"
     label: "სერვისების კატალოგი"
-    folder: "src/categories" # <-- შეიცვალა მისამართი
+    folder: "src/categories"
     create: true
     slug: "{{slug}}"
     fields:
@@ -22,6 +22,8 @@ collections:
       - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
+      # --- მთავარი შესწორება: ვამატებთ თეგს, რომ Eleventy-მ კოლექცია სწორად შექმნას ---
+      - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 

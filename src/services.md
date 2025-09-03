@@ -11,7 +11,7 @@ katalogis_dasaxeleba: კატეგორიები
             <aside class="services-nav" data-aos="fade-right">
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
-                    {# შევცვალეთ კოლექციის სახელი #}
+                    {# --- მთავარი შესწორება: ვაბრუნებთ სწორ კოლექციას --- #}
                     {% for category in collections.categories %}
                         <li><a href="#{{ category.fileSlug }}">{{ category.data.kategoriis_dasaxeleba | replace("I. ", "") | replace("II. ", "") | replace("III. ", "") | replace("IV. ", "") | replace("V. ", "") | replace("VI. ", "") | replace("VII. ", "") | replace("VIII. ", "") }}</a></li>
                     {% endfor %}
@@ -19,7 +19,7 @@ katalogis_dasaxeleba: კატეგორიები
             </aside>
 
             <div class="services-content">
-                {# შევცვალეთ კოლექციის სახელი #}
+                {# --- მთავარი შესწორება: ვაბრუნებთ სწორ კოლექციას --- #}
                 {% for category in collections.categories %}
                     <div id="{{ category.fileSlug }}" class="service-category" data-aos="fade-up">
                         <h2>{{ category.data.kategoriis_dasaxeleba }}</h2>
