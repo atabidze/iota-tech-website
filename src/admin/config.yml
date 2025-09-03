@@ -19,14 +19,14 @@ collections:
         name: "servisebis_sia"
         widget: "list"
         # --- მთავარი შესწორება: field -> fields ---
+        # ეს უზრუნველყოფს, რომ სია სწორი ფორმატით შეინახოს
         fields: 
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
       - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
       - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
+      # --- წავშალეთ layout და permalink, რადგან მათ Eleventy მართავს ---
 
   - name: "pages"
     label: "მთავარი გვერდები"
