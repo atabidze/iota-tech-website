@@ -6,12 +6,13 @@ media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "kategoriebi"
+  - name: "categories" # <-- შეიცვალა სახელი
     label: "სერვისების კატალოგი"
-    folder: "src/kategoriebi"
+    folder: "src/categories" # <-- შეიცვალა მისამართი
     create: true
     slug: "{{slug}}"
     fields:
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება გვერდის ბმული." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", hint: "დაბალი რიცხვი ნიშნავს უფრო წინ გამოჩენას" }
       - label: "სერვისების სია (ამ კატეგორიაში)"
@@ -21,8 +22,6 @@ collections:
       - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
-      - { label: "Tags", name: "tags", widget: "hidden", default: "kategoriebi" }
-      # --- მთავარი დამატება: ეს ხაზები ავტომატურად ქმნის დეტალურ გვერდს ---
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 

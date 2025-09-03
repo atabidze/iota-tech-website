@@ -2,10 +2,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // ეს ეუბნება Eleventy-ს, რომ ყველა ფაილი "kategoriebi" თეგით
-  // გამოიყენოს დინამიური გვერდების შესაქმნელად service-detail.njk შაბლონით
-  eleventyConfig.addCollection("kategoriebi", function(collectionApi) {
-    return collectionApi.getFilteredByTag("kategoriebi").sort((a, b) => {
+  // შევცვალეთ კოლექციის სახელი და მისამართი
+  eleventyConfig.addCollection("categories", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/categories/*.md").sort((a, b) => {
         return (a.data.sort_order || 99) - (b.data.sort_order || 99);
     });
   });
