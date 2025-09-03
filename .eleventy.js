@@ -2,7 +2,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // --- მთავარი შესწორება: ვაბრუნებთ "თეგებით" ფილტრაციის საიმედო მეთოდს ---
   eleventyConfig.addCollection("categories", function(collectionApi) {
     return collectionApi.getFilteredByTag("categories").sort((a, b) => {
         return (a.data.sort_order || 99) - (b.data.sort_order || 99);

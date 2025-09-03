@@ -22,11 +22,9 @@ katalogis_dasaxeleba: კატეგორიები
                     <div id="{{ category.fileSlug }}" class="service-category" data-aos="fade-up">
                         <h2>{{ category.data.kategoriis_dasaxeleba }}</h2>
                         <ul>
-                            {% if category.data.servisebis_sia %}
-                                {% for service in category.data.servisebis_sia %}
-                                    <li>{{ service.name }}</li>
-                                {% endfor %}
-                            {% endif %}
+                            {% for service in category.data.servisebis_sia %}
+                                <li>{{ service.name }}</li>
+                            {% endfor %}
                         </ul>
                         <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
                     </div>
