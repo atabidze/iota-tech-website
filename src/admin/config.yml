@@ -10,7 +10,8 @@ collections:
     label: "სერვისების კატალოგი"
     folder: "src/categories"
     create: true
-    slug: "{{slug}}"
+    # --- მთავარი შესწორება: slug-ის უფრო ზუსტი მითითება ---
+    slug: "{{fields.slug}}"
     fields:
       - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება გვერდის ბმული." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
@@ -18,7 +19,7 @@ collections:
       - label: "სერვისების სია (ამ კატეგორიაში)"
         name: "servisebis_sia"
         widget: "list"
-        fields: # <<< ეს იყო მთავარი სინტაქსური შეცდომა, field-ის ნაცვლად უნდა იყოს fields
+        fields: # <<< ეს იყო მთავარი სინტაქსური შეცდომა
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
       - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
         name: "body"
@@ -29,6 +30,7 @@ collections:
 
   - name: "pages"
     label: "მთავარი გვერდები"
+    # ... (დანარჩენი კოდი უცვლელია, დატოვეთ როგორც არის)
     files:
       - file: "src/index.md"
         label: "მთავარი გვერდი"
@@ -58,6 +60,7 @@ collections:
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
+    # ... (ეს სექცია უცვლელია, დატოვეთ როგორც არის)
     files:
       - file: "src/_data/settings.json"
         label: "საიტის პარამეტრები"
