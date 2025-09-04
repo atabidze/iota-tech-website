@@ -16,22 +16,6 @@ layout: base.njk
             <div class="main-description" data-aos="fade-up" data-aos-delay="100">
                 {{ content | safe }}
             </div>
-            
-            {% if servisebis_sia and servisebis_sia.length > 0 %}
-            <div class="sub-services-list" data-aos="fade-up" data-aos-delay="200">
-                <!-- სათაური "ძირითადი მიმართულებები:" წაშლილია -->
-                <ul>
-                    {% for service in servisebis_sia %}
-                        <li class="glass-panel">
-                            {% if service.icon %}
-                                <i data-lucide="{{ service.icon }}"></i>
-                            {% endif %}
-                            <span>{{ service.name }}</span>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endif %}
         </div>
     </div>
 </section>
