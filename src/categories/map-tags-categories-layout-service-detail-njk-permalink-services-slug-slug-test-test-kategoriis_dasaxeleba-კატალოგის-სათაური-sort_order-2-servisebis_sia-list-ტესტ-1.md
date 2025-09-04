@@ -1,7 +1,7 @@
 ---
 slug: test-test
-kategoriis_dasaxeleba: კატალოგის სათაური
-sort_order: -2
+kategoriis_dasaxeleba: ჰელპ დესკი
+sort_order: 1
 servisebis_sia:
   - ტესტ 1
   - ტესტ 2
