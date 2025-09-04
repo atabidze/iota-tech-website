@@ -12,14 +12,15 @@ katalogis_dasaxeleba: კატეგორიები
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
                     {% for category in collections.categories %}
-                        <li><a href="#{{ category.fileSlug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
+                        {# ბმული მარცხენა მენიუში #}
+                        <li><a href="#{{ category.data.slug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
                     {% endfor %}
                 </ul>
             </aside>
 
             <div class="services-content">
                 {% for category in collections.categories %}
-                    <div id="{{ category.fileSlug }}" class="service-category" data-aos="fade-up">
+                    <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
                         <h2>{{ category.data.kategoriis_dasaxeleba }}</h2>
                         <ul>
                             {% if category.data.servisebis_sia %}
@@ -28,6 +29,7 @@ katalogis_dasaxeleba: კატეგორიები
                                 {% endfor %}
                             {% endif %}
                         </ul>
+                        {# "დეტალურად" ბმული, რომელიც იყენებს Eleventy-ს გენერირებულ მისამართს #}
                         <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
                     </div>
                 {% endfor %}
