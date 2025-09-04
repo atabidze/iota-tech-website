@@ -12,7 +12,7 @@ collections:
     label: "სერვისების კატალოგი"
     folder: "src/categories"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.slug}}"
     sortable_fields: ['sort_order']
     fields:
       - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk. ეს იქნება გვერდის ბმული." }
