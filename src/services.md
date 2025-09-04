@@ -12,6 +12,7 @@ katalogis_dasaxeleba: კატეგორიები
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
                     {% for category in collections.categories %}
+                        {# --- მთავარი შესწორება: ვიყენებთ slug-ს ფაილის სახელის ნაცვლად --- #}
                         <li><a href="#{{ category.data.slug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
                     {% endfor %}
                 </ul>
@@ -20,24 +21,15 @@ katalogis_dasaxeleba: კატეგორიები
             <div class="services-content">
                 {% for category in collections.categories %}
                     <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
-                        <div class="category-title-wrapper">
-                            {% if category.data.icon %}
-                                <i data-lucide="{{ category.data.icon }}"></i>
-                            {% endif %}
-                            <h2>{{ category.data.kategoriis_dasaxeleba }}</h2>
-                        </div>
+                        <h2>{{ category.data.kategoriis_dasaxeleba }}</h2>
                         <ul>
                             {% if category.data.servisebis_sia %}
                                 {% for service in category.data.servisebis_sia %}
-                                    <li>
-                                        {% if service.icon %}
-                                            <i data-lucide="{{ service.icon }}"></i>
-                                        {% endif %}
-                                        <span>{{ service.name }}</span>
-                                    </li>
+                                    <li>{{ service.name }}</li>
                                 {% endfor %}
                             {% endif %}
                         </ul>
+                        {# "დეტალურად" ბმული, რომელიც იყენებს Eleventy-ს გენერირებულ მისამართს #}
                         <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
                     </div>
                 {% endfor %}
