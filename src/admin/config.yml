@@ -18,7 +18,7 @@ collections:
       - label: "სერვისების სია (ამ კატეგორიაში)"
         name: "servisebis_sia"
         widget: "list"
-        fields: # <<< ეს იყო მთავარი სინტაქსური შეცდომა
+        fields: # <<< ეს იყო მთავარი სინტაქსური შეცდომა, field-ის ნაცვლად უნდა იყოს fields
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
       - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
         name: "body"
