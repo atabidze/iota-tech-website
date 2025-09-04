@@ -2,8 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-# --- მთავარი დამატება ---
-# ეს რთავს სამუშაო პროცესის (Draft/Review/Publish) რეჟიმს
+# Editorial Workflow-ს ჩართვა
 publish_mode: editorial_workflow
 
 media_folder: "src/assets/img"
@@ -71,3 +70,4 @@ collections:
         fields:
           - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
           - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
+
