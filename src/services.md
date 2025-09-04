@@ -12,14 +12,14 @@ katalogis_dasaxeleba: კატეგორიები
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
                     {% for category in collections.categories %}
-                        <li><a href="#{{ category.data.slug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
+                        <li><a href="#{{ category.fileSlug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
                     {% endfor %}
                 </ul>
             </aside>
 
             <div class="services-content">
                 {% for category in collections.categories %}
-                    <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
+                    <div id="{{ category.fileSlug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
                             {% if category.data.icon %}
                                 <i data-lucide="{{ category.data.icon }}"></i>

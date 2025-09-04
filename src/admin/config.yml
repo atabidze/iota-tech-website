@@ -13,12 +13,11 @@ collections:
     folder: "src/categories"
     create: true
     slug: "{{slug}}"
-    sortable_fields: ['sort_order']
+    identifier_field: "kategoriis_dasaxeleba"
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number" }
-      - { label: "იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. მაგ: server, shield" }
+      - { label: "რიგითობა", name: "sort_order", widget: "number", hint: "დაბალი რიცხვი ნიშნავს უფრო წინ გამოჩენას" }
+      - { label: "მთავარი იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. შედით lucide.dev-ზე და ჩაწერეთ სახელი. მაგ: server" }
       - label: "სერვისების სია (მთავარი გვერდისთვის)"
         name: "servisebis_sia"
         widget: "list"
