@@ -5,10 +5,33 @@ layout: base.njk
 <section class="service-detail-section">
     <div class="container">
         <div class="service-detail-header" data-aos="fade-up">
-            <h1>{{ kategoriis_dasaxeleba }}</h1>
+            <div class="category-title-wrapper">
+                {% if icon %}
+                    <i data-lucide="{{ icon }}"></i>
+                {% endif %}
+                <h1>{{ kategoriis_dasaxeleba }}</h1>
+            </div>
         </div>
-        <div class="service-detail-content" data-aos="fade-up" data-aos-delay="100">
-            {{ content | safe }}
+        <div class="service-detail-content">
+            <div class="main-description" data-aos="fade-up" data-aos-delay="100">
+                {{ content | safe }}
+            </div>
+            
+            {% if servisebis_sia %}
+            <div class="sub-services-list" data-aos="fade-up" data-aos-delay="200">
+                <h3>ძირითადი მიმართულებები:</h3>
+                <ul>
+                    {% for service in servisebis_sia %}
+                        <li class="glass-panel">
+                            {% if service.icon %}
+                                <i data-lucide="{{ service.icon }}"></i>
+                            {% endif %}
+                            <span>{{ service.name }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
         </div>
     </div>
 </section>

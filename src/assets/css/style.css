@@ -30,35 +30,39 @@ a { text-decoration: none; color: var(--text-primary); }
 .main-nav a { margin: 0 1rem; font-weight: 500; transition: color 0.3s; }
 .cta-button.header-cta { background-color: var(--accent-pink); color: #fff; padding: 0.6rem 1.5rem; border-radius: 5px; font-weight: 600; }
 .hero-section { padding: 8rem 0; text-align: center; }
-.services-section { padding: 6rem 0; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
-.service-row { display: flex; align-items: center; gap: 3rem; padding: 2.5rem; border-radius: 20px; margin-bottom: 2rem; }
-.service-icon-container { flex-shrink: 0; }
-.icon-bg { width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; transition: transform 0.3s; }
-.service-row:hover .icon-bg { transform: scale(1.1); }
-.icon-bg.lavender { background-color: var(--accent-lavender); }
-.icon-bg.pink { background-color: var(--accent-pink); }
-.icon-bg i { width: 40px; height: 40px; stroke: #fff; stroke-width: 1.5; }
-.service-text h3 { margin-top: 0; margin-bottom: 0.5rem; }
-.service-text p { margin-top: 0; }
 
-/* --- სტილები services-test გვერდისთვის (გასწორებული) --- */
+/* --- სერვისების გვერდი --- */
 .services-page-section { padding: 4rem 0; }
-.services-page-layout { display: flex; gap: 4rem; align-items: flex-start; }
-.services-nav { flex: 0 0 250px; position: sticky; top: 120px; }
+.services-page-layout { display: flex; gap: 4rem; align-items: flex-start; max-width: 1240px; }
+.services-nav { flex: 0 0 280px; position: sticky; top: 120px; }
 .services-nav h3 { font-size: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
 .services-nav ul { list-style: none; padding: 0; margin: 0; }
 .services-nav li a { display: block; padding: 0.75rem 0; color: var(--text-secondary); font-weight: 500; transition: color 0.3s; }
 .services-nav li a:hover { color: var(--accent-pink); }
 .services-content { flex: 1; }
 .service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
-.service-category h2 { font-size: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+.category-title-wrapper { display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+.category-title-wrapper i { width: 32px; height: 32px; color: var(--accent-lavender); }
+.service-category h2 { border: none; padding: 0; margin: 0; font-size: 2rem; }
 .service-category ul { list-style: none; padding: 0; }
-.service-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
-.details-link { display: inline-block; margin-top: 1.5rem; color: var(--accent-pink); font-weight: 700; transition: transform 0.3s; }
-.details-link:hover { transform: translateX(5px); }
+.service-category li { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
+.service-category li i { width: 20px; height: 20px; color: var(--accent-pink); }
+.details-link { display: inline-block; margin-top: 1.5rem; color: var(--accent-pink); font-weight: 700; }
+
+/* --- სერვისის დეტალური გვერდი --- */
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
+.service-detail-header .category-title-wrapper { justify-content: center; }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
-.service-detail-content ul { list-style: none; padding: 0; }
-.service-detail-content li { background-color: rgba(30, 30, 30, 0.5); backdrop-filter: blur(5px); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; border-left: 5px solid var(--accent-lavender); }
+.main-description { margin-bottom: 3rem; }
+.sub-services-list h3 { margin-bottom: 1.5rem; }
+.sub-services-list ul { list-style: none; padding: 0; }
+.sub-services-list li {
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border-left: 5px solid var(--accent-lavender);
+}
+.sub-services-list li i { width: 24px; height: 24px; color: var(--accent-lavender); flex-shrink: 0; }
