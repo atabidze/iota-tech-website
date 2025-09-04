@@ -11,7 +11,6 @@ collections:
     folder: "src/categories"
     create: true
     slug: "{{slug}}"
-    sortable_fields: ['sort_order']
     fields:
       - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება გვერდის ბმული." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
@@ -19,9 +18,9 @@ collections:
       - label: "სერვისების სია (ამ კატეგორიაში)"
         name: "servisebis_sia"
         widget: "list"
-        fields: 
+        fields: # <<< ეს იყო მთავარი სინტაქსური შეცდომა
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
+      - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
       - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
