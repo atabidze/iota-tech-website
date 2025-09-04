@@ -42,9 +42,11 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-content { flex: 1; }
 .service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
 .category-title-wrapper { display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
+.category-title-wrapper i { width: 32px; height: 32px; color: var(--accent-lavender); flex-shrink: 0; }
 .service-category h2 { border: none; padding: 0; margin: 0; font-size: 2rem; }
 .service-category ul { list-style: none; padding: 0; }
 .service-category li { display: flex; align-items: center; gap: 1rem; padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
+.service-category li i { width: 20px; height: 20px; color: var(--accent-pink); flex-shrink: 0; }
 .details-link { display: inline-block; margin-top: 1.5rem; color: var(--accent-pink); font-weight: 700; }
 
 .service-detail-section { padding: 6rem 0; }
@@ -52,7 +54,6 @@ a { text-decoration: none; color: var(--text-primary); }
 .service-detail-header .category-title-wrapper { justify-content: center; }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .main-description { margin-bottom: 3rem; }
-
 .main-description ul { list-style: none; padding: 0; }
 .main-description li {
   padding: 1.5rem;

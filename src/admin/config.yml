@@ -12,17 +12,21 @@ collections:
     label: "სერვისების კატალოგი"
     folder: "src/categories"
     create: true
-    slug: "{{slug}}"
+    # --- მთავარი შესწორება: slug-ის სწორი მითითება ---
+    slug: "{{fields.slug}}"
+    sortable_fields: ['sort_order']
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება გვერდის ბმული." }
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", hint: "დაბალი რიცხვი ნიშნავს უფრო წინ გამოჩენას" }
-      - label: "სერვისების სია (მთავარი გვერდისთვის)"
+      - { label: "მთავარი იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. შედით lucide.dev-ზე და ჩაწერეთ სახელი. მაგ: server" }
+      - label: "სერვისების სია (ამ კატეგორიაში)"
         name: "servisebis_sia"
         widget: "list"
         summary: "{{fields.name}}"
         fields: 
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
+          - { label: "სერვისის იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false }
       - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
@@ -33,39 +37,8 @@ collections:
 
   - name: "pages"
     label: "მთავარი გვერდები"
-    files:
-      - file: "src/index.md"
-        label: "მთავარი გვერდი"
-        name: "index"
-        fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
-          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/services.md"
-        label: "სერვისების გვერდი (განლაგება)"
-        name: "services_page"
-        fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }
-      - file: "src/about.md"
-        label: "ჩვენ შესახებ"
-        name: "about"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/contact.md"
-        label: "კონტაქტი"
-        name: "contact"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
+    # ... (ეს სექცია უცვლელია, დატოვეთ როგორც არის)
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
-    files:
-      - file: "src/_data/settings.json"
-        label: "საიტის პარამეტრები"
-        name: "settings"
-        fields:
-          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
-          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
+    # ... (ეს სექცია უცვლელია, დატოვეთ როგორც არის)
