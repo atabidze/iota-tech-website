@@ -1,47 +1,82 @@
----
-title: ჩვენი სერვისები
-layout: base.njk
-permalink: /services/index.html
-katalogis_dasaxeleba: კატეგორიები
----
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
 
-<section class="services-page-section">
-    <div class="container">
-        <div class="services-page-layout">
-            <aside class="services-nav" data-aos="fade-right">
-                <h3>{{ katalogis_dasaxeleba }}</h3>
-                <ul>
-                    {% for category in collections.categories %}
-                        <li><a href="#{{ category.data.slug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
-                    {% endfor %}
-                </ul>
-            </aside>
+  <div id="tsparticles-bg"></div>
 
-            <div class="services-content">
-                {% for category in collections.categories %}
-                    <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
-                        <div class="category-title-wrapper">
-                            {% if category.data.icon %}
-                                <i data-lucide="{{ category.data.icon }}"></i>
-                            {% endif %}
-                            <h2>{{ category.data.kategoriis_dasaxeleba }}</h2>
-                        </div>
-                        <ul>
-                            {% if category.data.servisebis_sia %}
-                                {% for service in category.data.servisebis_sia %}
-                                    <li>
-                                        {% if service.icon %}
-                                            <i data-lucide="{{ service.icon }}"></i>
-                                        {% endif %}
-                                        <span>{{ service.name }}</span>
-                                    </li>
-                                {% endfor %}
-                            {% endif %}
-                        </ul>
-                        <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+  <header class="site-header glass-panel">
+    <div class="container header-container">
+      <a href="/" class="logo">{{ settings.logo_text }}</a>
+      <nav class="main-nav">
+        <a href="/">მთავარი</a>
+        <a href="/services/">სერვისები</a>
+        <a href="/about/">ჩვენ შესახებ</a>
+        <a href="/contact/">კონტაქტი</a>
+      </nav>
+      <a href="/contact/" class="cta-button header-cta">Get Started</a>
     </div>
-</section>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+        <p>{{ settings.footer_text | safe }}</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    lucide.createIcons();
+    AOS.init({ duration: 800, once: true });
+
+    tsParticles.load("tsparticles-bg", {
+      "fullScreen": { "enable": false },
+      "background": { "color": { "value": "#121212" }},
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
+        "color": { "value": "#e84a5f" }, "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }},
+        "size": { "value": 2, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#333333", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "window",
+        "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }},
+        "modes": { "bubble": { "distance": 250, "size": 4, "duration": 2, "opacity": 1 }, "push": { "particles_nb": 4 }}
+      },
+      "retina_detect": true
+    });
+  </script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
