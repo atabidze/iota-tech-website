@@ -2,9 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-# Editorial Workflow-ს ჩართვა
-publish_mode: editorial_workflow
-
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
@@ -13,8 +10,8 @@ collections:
     label: "სერვისების კატალოგი"
     folder: "src/categories"
     create: true
-    slug: "{{slug}}"
-    sortable_fields: ['sort_order', 'kategoriis_dasaxeleba']
+    # --- მთავარი შესწორება: slug-ის უფრო ზუსტი მითითება ---
+    slug: "{{fields.slug}}"
     fields:
       - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება გვერდის ბმული." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
@@ -22,10 +19,9 @@ collections:
       - label: "სერვისების სია (ამ კატეგორიაში)"
         name: "servisebis_sia"
         widget: "list"
-        summary: "{{fields.name}}"
-        fields: 
+        fields: # <<< ეს იყო მთავარი სინტაქსური შეცდომა
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
+      - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
       - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
@@ -34,6 +30,7 @@ collections:
 
   - name: "pages"
     label: "მთავარი გვერდები"
+    # ... (დანარჩენი კოდი უცვლელია, დატოვეთ როგორც არის)
     files:
       - file: "src/index.md"
         label: "მთავარი გვერდი"
@@ -63,6 +60,7 @@ collections:
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
+    # ... (ეს სექცია უცვლელია, დატოვეთ როგორც არის)
     files:
       - file: "src/_data/settings.json"
         label: "საიტის პარამეტრები"
@@ -70,4 +68,3 @@ collections:
         fields:
           - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
           - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
-

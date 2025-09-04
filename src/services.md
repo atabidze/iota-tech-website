@@ -12,7 +12,7 @@ katalogis_dasaxeleba: კატეგორიები
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
                     {% for category in collections.categories %}
-                        {# ბმული მარცხენა მენიუში #}
+                        {# --- მთავარი შესწორება: ვიყენებთ slug-ს ფაილის სახელის ნაცვლად --- #}
                         <li><a href="#{{ category.data.slug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
                     {% endfor %}
                 </ul>
