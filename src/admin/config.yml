@@ -3,44 +3,35 @@ backend:
   branch: main
 
 publish_mode: editorial_workflow
+
 media_folder: "src/assets/img"
+public_folder: "/assets/img"
 
 collections:
-  - name: "categories"
+  - name: "services"
     label: "სერვისების კატალოგი"
-    folder: "src/categories"
+    folder: "src/services"
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
-    sortable_fields: ['sort_order']
+    sortable_fields: ['sort_order', 'title']
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string" }
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული." }
       - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "აირჩიეთ იკონი"
-        name: "icon"
-        widget: "select"
-        required: false
-        options:
-          - { label: "მომხმარებელთა მართვა", value: "users" }
-          - { label: "ქსელური ინფრასტრუქტურა", value: "network" }
-          - { label: "სერვერები და მონაცემები", value: "server" }
-          - { label: "ღრუბლოვანი სერვისები", value: "cloud" }
-          - { label: "კიბერუსაფრთხოება", value: "shield" }
-          - { label: "ფიზიკური უსაფრთხოება", value: "cctv" }
-          - { label: "კომუნიკაციები", value: "messages" }
-          - { label: "სტრატეგიული სერვისები", value: "briefcase" }
+      - { label: "იკონი (Lucide)", name: "icon", widget: "string", required: false }
       - label: "სერვისების სია (მოკლე აღწერა)"
-        name: "services"
+        name: "service_list"
         widget: "list"
         summary: "{{fields.name}}"
+        field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
+      - label: "სრული აღწერის პუნქტები"
+        name: "detailed_list"
+        widget: "list"
+        summary: "{{fields.point}}"
         fields:
-          - { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - label: "დეტალური აღწერა"
-        name: "body"
-        widget: "markdown"
-        hint: "გამოიყენეთ ბულეტები (`-` სიმბოლო)."
-      - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
+          - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 
@@ -56,3 +47,4 @@ collections:
     label: "ზოგადი პარამეტრები"
     files:
       - { file: "src/_data/settings.json", label: "საიტის პარამეტრები", name: "settings", fields: [{ label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }, { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }] }
+

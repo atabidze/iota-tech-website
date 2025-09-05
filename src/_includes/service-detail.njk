@@ -6,16 +6,20 @@ layout: base.njk
         <div class="service-detail-header" data-aos="fade-up">
             <div class="category-title-wrapper">
                 {% if icon %}
-                    <i data-lucide="{{ icon }}"></i>
+                    <div class="icon-bg lavender">
+                         <i data-lucide="{{ icon }}"></i>
+                    </div>
                 {% endif %}
                 <h1>{{ title }}</h1>
             </div>
         </div>
         <div class="service-detail-content">
             <ul class="main-description-list" data-aos="fade-up" data-aos-delay="100">
-                {% for item in detailed_list %}
-                    <li class="glass-panel">{{ item.point }}</li>
-                {% endfor %}
+                {% if detailed_list %}
+                    {% for item in detailed_list %}
+                        <li class="glass-panel">{{ item.point }}</li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </div>
     </div>
