@@ -12,9 +12,13 @@ collections:
     label: "სერვისების კატალოგი"
     folder: "src/categories"
     create: true
+    # --- მთავარი შესწორება: slug-ის სწორი მითითება ---
+    # 1. ვეუბნებით სისტემას, რომ ამ კოლექციის იდენტიფიკატორი არის "slug" ველი.
+    identifier_field: "slug"
+    # 2. ვეუბნებით, რომ ფაილის სახელი შექმნას ამ იდენტიფიკატორისგან.
     slug: "{{slug}}"
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk. ეს იქნება გვერდის ბმული." }
+      - { label: "ფაილის სახელი (მხოლოდ ლათინური ასოები, ტირე)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", hint: "დაბალი რიცხვი ნიშნავს უფრო წინ გამოჩენას" }
       - { label: "მთავარი იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. შედით lucide.dev-ზე და ჩაწერეთ სახელი. მაგ: server" }
