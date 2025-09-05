@@ -9,9 +9,11 @@ layout: base.njk
             </div>
         </div>
         <div class="service-detail-content">
-            <div class="main-description" data-aos="fade-up" data-aos-delay="100">
-                {{ content | safe }}
-            </div>
+            <ul class="main-description-list" data-aos="fade-up" data-aos-delay="100">
+                {% for item in detailed_points %}
+                    <li class="glass-panel">{{ item.point }}</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </section>
