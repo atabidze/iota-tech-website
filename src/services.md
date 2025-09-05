@@ -4,29 +4,31 @@ layout: base.njk
 permalink: /services/index.html
 katalogis_dasaxeleba: კატეგორიები
 ---
+
 <section class="services-page-section">
     <div class="container">
         <div class="services-page-layout">
             <aside class="services-nav" data-aos="fade-right">
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
-                    {% for category in collections.catalogs %}
-                        <li><a href="#{{ category.data.slug }}">{{ category.data.title }}</a></li>
+                    {% for category in collections.categories %}
+                        <li><a href="#{{ category.data.slug }}">{{ category.data.kategoriis_dasaxeleba }}</a></li>
                     {% endfor %}
                 </ul>
             </aside>
+
             <div class="services-content">
-                {% for category in collections.catalogs %}
+                {% for category in collections.categories %}
                     <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
                             {% if category.data.icon %}
                                 <i data-lucide="{{ category.data.icon }}"></i>
                             {% endif %}
-                            <h2>{{ category.data.title }}</h2>
+                            <h2>{{ category.data.kategoriis_dasaxeleba }}</h2>
                         </div>
                         <ul>
-                            {% if category.data.services %}
-                                {% for service in category.data.services %}
+                            {% if category.data.servisebis_sia %}
+                                {% for service in category.data.servisebis_sia %}
                                     <li>
                                         {% if service.icon %}
                                             <i data-lucide="{{ service.icon }}"></i>
@@ -36,7 +38,7 @@ katalogis_dasaxeleba: კატეგორიები
                                 {% endfor %}
                             {% endif %}
                         </ul>
-                        <a href="/services/{{ category.data.slug }}/" class="details-link">დეტალურად →</a>
+                        <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
                     </div>
                 {% endfor %}
             </div>
