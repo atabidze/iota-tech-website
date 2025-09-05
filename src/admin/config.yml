@@ -2,7 +2,6 @@ backend:
   name: git-gateway
   branch: main
 
-# რთავს "Drafts" / "In Review" / "Ready" ფუნქციონალს
 publish_mode: editorial_workflow
 
 media_folder: "src/assets/img"
@@ -10,24 +9,27 @@ public_folder: "/assets/img"
 
 collections:
   - name: "categories"
-    label: "სერვისების კატალოგი" # <-- შევცვალეთ სახელი
+    label: "სერვისების კატალოგი"
     folder: "src/categories"
     create: true
     slug: "{{slug}}"
-    sortable_fields: ['sort_order', 'kategoriis_dasaxeleba'] # <-- დავამატეთ მთავარი კატეგორიების სორტირება
+    sortable_fields: ['sort_order', 'kategoriis_dasaxeleba']
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება გვერდის ბმული." }
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
       - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number", hint: "დაბალი რიცხვი ნიშნავს უფრო წინ გამოჩენას" }
-      - label: "სერვისების სია (ამ კატეგორიაში)"
+      - { label: "რიგითობა", name: "sort_order", widget: "number" }
+      - { label: "იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. მაგ: server" }
+      - label: "სერვისების სია (მთავარი გვერდისთვის)"
         name: "servisebis_sia"
         widget: "list"
-        summary: "{{fields.name}}" # <-- დავამატეთ, რომ სიაში სახელი გამოჩნდეს
+        summary: "{{fields.name}}"
         fields: 
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - label: "დეტალური აღწერა (გამოჩნდება 'დეტალურად' გვერდზე)"
+          - { label: "იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false }
+      - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
         name: "body"
         widget: "markdown"
+        hint: "სასურველი დიზაინისთვის, გამოიყენეთ ბულეტები. ყოველი პუნქტი დაიწყეთ `-` სიმბოლოთი."
       - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
