@@ -10,13 +10,13 @@ katalogis_dasaxeleba: კატეგორიები
             <aside class="services-nav" data-aos="fade-right">
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
-                    {% for category in collections.categories %}
+                    {% for category in collections.catalogs %}
                         <li><a href="#{{ category.data.slug }}">{{ category.data.title }}</a></li>
                     {% endfor %}
                 </ul>
             </aside>
             <div class="services-content">
-                {% for category in collections.categories %}
+                {% for category in collections.catalogs %}
                     <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
                             {% if category.data.icon %}
@@ -36,7 +36,7 @@ katalogis_dasaxeleba: კატეგორიები
                                 {% endfor %}
                             {% endif %}
                         </ul>
-                        <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
+                        <a href="/services/{{ category.data.slug }}/" class="details-link">დეტალურად →</a>
                     </div>
                 {% endfor %}
             </div>
