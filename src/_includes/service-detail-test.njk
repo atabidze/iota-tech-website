@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+
+<section class="service-detail-section">
+    <div class="container">
+        <div class="service-detail-header" data-aos="fade-up">
+            <div class="category-title-wrapper">
+                {% if icon %}
+                    <i data-lucide="{{ icon }}"></i>
+                {% endif %}
+                <h1>{{ kategoriis_dasaxeleba }}</h1>
+            </div>
+        </div>
+        <div class="service-detail-content">
+            <div class="main-description" data-aos="fade-up" data-aos-delay="100">
+                {{ content | safe }}
+            </div>
+        </div>
+    </div>
+</section>
