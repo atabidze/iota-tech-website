@@ -1,0 +1,17 @@
+<svg width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
+<stop offset="100%" stop-color="#E84A5F"/>
+</linearGradient>
+</defs>
+<rect x="10" y="28" width="28" height="10" rx="2" stroke="#AAAAAA" stroke-width="1.5"/>
+<circle cx="16" cy="33" r="1" fill="#AAAAAA"/>
+<circle cx="22" cy="33" r="1" fill="#AAAAAA"/>
+<path d="M14 23c0-5 4-9 10-9" stroke="url(#grad2)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 4">
+<animate attributeName="stroke-dashoffset" from="0" to="-6" dur="1.5s" repeatCount="indefinite"/>
+</path>
+<path d="M24 14c6 0 10 4 10 9" stroke="url(#grad2)" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 4">
+<animate attributeName="stroke-dashoffset" from="0" to="6" dur="1.5s" repeatCount="indefinite"/>
+</path>
+</svg>

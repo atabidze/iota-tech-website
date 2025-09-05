@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
+<defs>
+<linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
+<stop offset="100%" stop-color="#E84A5F"/>
+</linearGradient>
+</defs>
+<path d="M30 20a8 8 0 1 0-15.5 3A6 6 0 1 0 16 32h14a8 8 0 0 0 0-16z" stroke="#AAAAAA" stroke-width="1.5"/>
+<g>
+<path d="M24 32V24" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round"/>
+<path d="M20 28l4 4 4-4" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round"/>
+<animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+</g>
+</svg>

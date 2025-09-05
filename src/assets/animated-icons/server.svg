@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
+<defs>
+<linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
+<stop offset="100%" stop-color="#E84A5F"/>
+</linearGradient>
+</defs>
+<path d="M10 10H38V16H10V10Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 22H38V28H10V22Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 34H38V40H10V34Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="13" r="1" fill="url(#grad3)">
+<animate attributeName="opacity" values="0.2;1;0.2" dur="2s" begin="0s" repeatCount="indefinite"/>
+</circle>
+<circle cx="32" cy="25" r="1" fill="url(#grad3)">
+<animate attributeName="opacity" values="0.2;1;0.2" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+</circle>
+<circle cx="32" cy="37" r="1" fill="url(#grad3)">
+<animate attributeName="opacity" values="0.2;1;0.2" dur="2s" begin="1s" repeatCount="indefinite"/>
+</circle>
+</svg>

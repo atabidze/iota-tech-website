@@ -4,33 +4,43 @@ backend:
 
 publish_mode: editorial_workflow
 media_folder: "src/assets/img"
-public_folder: "/assets/img"
 
 collections:
-  - name: "services"
+  - name: "categories"
     label: "სერვისების კატალოგი"
-    folder: "src/services"
+    folder: "src/categories"
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
-    sortable_fields: ['sort_order', 'title']
+    sortable_fields: ['sort_order']
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული." }
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string" }
       - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - { label: "იკონი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. lucide.dev-იდან, მაგ: server" }
+      - label: "აირჩიეთ იკონი"
+        name: "icon"
+        widget: "select"
+        required: false
+        options:
+          - { label: "მომხმარებელთა მართვა", value: "users" }
+          - { label: "ქსელური ინფრასტრუქტურა", value: "network" }
+          - { label: "სერვერები და მონაცემები", value: "server" }
+          - { label: "ღრუბლოვანი სერვისები", value: "cloud" }
+          - { label: "კიბერუსაფრთხოება", value: "shield" }
+          - { label: "ფიზიკური უსაფრთხოება", value: "cctv" }
+          - { label: "კომუნიკაციები", value: "messages" }
+          - { label: "სტრატეგიული სერვისები", value: "briefcase" }
       - label: "სერვისების სია (მოკლე აღწერა)"
-        name: "service_list"
+        name: "services"
         widget: "list"
         summary: "{{fields.name}}"
-        field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - label: "სრული აღწერის პუნქტები"
-        name: "detailed_list"
-        widget: "list"
-        summary: "{{fields.point}}"
         fields:
-          - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+          - { label: "სერვისის დასახელება", name: "name", widget: "string" }
+      - label: "დეტალური აღწერა"
+        name: "body"
+        widget: "markdown"
+        hint: "გამოიყენეთ ბულეტები (`-` სიმბოლო)."
+      - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 

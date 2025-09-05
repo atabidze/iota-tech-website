@@ -1,0 +1,19 @@
+<svg width="64" height="64" viewBox="0 0 48 48" fill="none" xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)">
+<defs>
+<linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
+<stop offset="100%" stop-color="#E84A5F"/>
+</linearGradient>
+</defs>
+<path d="M12 28h18v10H20l-8 6V28H12z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38 22H20V11l5-3h13v14z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="32" cy="15" r="1" fill="url(#grad7)">
+<animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
+</circle>
+<circle cx="28" cy="15" r="1" fill="url(#grad7)">
+<animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.2s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
+</circle>
+<circle cx="24" cy="15" r="1" fill="url(#grad7)">
+<animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.4s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
+</circle>
+</svg>
