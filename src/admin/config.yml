@@ -3,72 +3,51 @@ backend:
   branch: main
 
 publish_mode: editorial_workflow
-
 media_folder: "src/assets/img"
-public_folder: "/assets/img"
 
 collections:
-  - name: "categories"
-    label: "სერვისების კატალოგი" # <-- შევცვალეთ სახელი
-    folder: "src/categories"
+  - name: "catalogs"
+    label: "სერვისების კატალოგი"
+    folder: "src/catalogs"
     create: true
     slug: "{{slug}}"
-    sortable_fields: ['sort_order', 'kategoriis_dasaxeleba'] # <-- დავამატეთ მთავარი კატეგორიების სორტირება
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
-      - { label: "კატეგორიის სათაური", name: "kategoriis_dasaxeleba", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number" }
-      - { label: "იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. მაგ: server, shield" }
-      - label: "სერვისების სია (მთავარი გვერდისთვის)"
-        name: "servisebis_sia"
+      - { label: "კატალოგის ID (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
+      - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
+      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
+      - { label: "იკონი (Lucide)", name: "icon", widget: "string", required: false }
+      - label: "სერვისების სია (მოკლე აღწერა)"
+        name: "services"
         widget: "list"
-        summary: "{{fields.name}}" # <-- დავამატეთ, რომ სიაში სახელი გამოჩნდეს
-        fields: 
+        summary: "{{fields.name}}"
+        fields:
           - { label: "სერვისის დასახელება", name: "name", widget: "string" }
-          - { label: "იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false }
-      - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
+          - { label: "იკონი (Lucide)", name: "icon", widget: "string", required: false }
+
+  - name: "details"
+    label: "სერვისების სრული აღწერა"
+    folder: "src/details"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "აირჩიეთ კატალოგი"
+        name: "catalog"
+        widget: "relation"
+        collection: "catalogs"
+        search_fields: ["title"]
+        value_field: "slug"
+        display_fields: ["title"]
+      - label: "დეტალური აღწერა"
         name: "body"
         widget: "markdown"
         hint: "სასურველი დიზაინისთვის, გამოიყენეთ ბულეტები. ყოველი პუნქტი დაიწყეთ `-` სიმბოლოთი."
-      - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "details" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{fields.catalog}}/" }
+      
   - name: "pages"
     label: "მთავარი გვერდები"
-    files:
-      - file: "src/index.md"
-        label: "მთავარი გვერდი"
-        name: "index"
-        fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
-          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/services.md"
-        label: "სერვისების გვერდი (განლაგება)"
-        name: "services_page"
-        fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }
-      - file: "src/about.md"
-        label: "ჩვენ შესახებ"
-        name: "about"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/contact.md"
-        label: "კონტაქტი"
-        name: "contact"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-
+    # ... (ეს სექცია უცვლელია, დატოვეთ როგორც არის) ...
   - name: "settings"
     label: "ზოგადი პარამეტრები"
-    files:
-      - file: "src/_data/settings.json"
-        label: "საიტის პარამეტრები"
-        name: "settings"
-        fields:
-          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
-          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
+    # ... (ეს სექცია უცვლელია, დატოვეთ როგორც არის) ...
