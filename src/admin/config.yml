@@ -3,66 +3,42 @@ backend:
   branch: main
 
 publish_mode: editorial_workflow
+
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "catalogs"
+  - name: "services"
     label: "სერვისების კატალოგი"
-    folder: "src/catalogs"
+    folder: "src/services"
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
     sortable_fields: ['sort_order', 'title']
     fields:
-      - { label: "კატალოგის ID (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
+      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
+        name: "slug"
+        widget: "string"
+        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
       - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "იკონი (Lucide)"
-        name: "icon"
-        widget: "select"
-        required: false
-        options:
-          - { label: "users", value: "users" }
-          - { label: "network", value: "network" }
-          - { label: "server", value: "server" }
-          - { label: "cloud", value: "cloud" }
-          - { label: "shield", value: "shield" }
-          - { label: "video", value: "video" }
-          - { label: "phone", value: "phone" }
-          - { label: "briefcase", value: "briefcase" }
+      - { label: "იკონი (Lucide)", name: "icon", widget: "string", required: false }
       - label: "სერვისების სია (მოკლე აღწერა)"
-        name: "services"
+        name: "service_list"
         widget: "list"
         summary: "{{fields.name}}"
         field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "catalogs" }
-
-  - name: "details"
-    label: "სერვისების სრული აღწერა"
-    folder: "src/details"
-    create: true
-    slug: "{{slug}}"
-    summary: "აღწერა: {{fields.catalog}}"
-    fields:
-      - { label: "ფაილის სახელი (უნდა ემთხვეოდეს კატალოგის ID-ს)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
-      - label: "აირჩიეთ კატალოგი"
-        name: "catalog"
-        widget: "relation"
-        collection: "catalogs"
-        search_fields: ["title"]
-        value_field: "slug"
-        display_fields: ["title"]
-      - label: "დეტალური აღწერის პუნქტები"
-        name: "detailed_points"
+      - label: "სრული აღწერის პუნქტები"
+        name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "details" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{fields.catalog}}/" }
-      
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
+
   - name: "pages"
     label: "მთავარი გვერდები"
     files:
