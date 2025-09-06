@@ -32,18 +32,44 @@ a { text-decoration: none; color: var(--text-primary); }
 .hero-section { padding: 8rem 0; text-align: center; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
 
+/* --- სერვისების გვერდი --- */
 .services-page-section { padding: 4rem 0; }
 .services-page-layout { display: flex; gap: 4rem; align-items: flex-start; max-width: 1240px; }
 .services-nav { flex: 0 0 280px; position: sticky; top: 120px; }
 .services-nav h3 { font-size: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
 .services-nav ul { list-style: none; padding: 0; margin: 0; }
-.services-nav li a { display: block; padding: 0.75rem 0; color: var(--text-secondary); font-weight: 500; transition: color 0.3s; }
+/* --- მთავარი ცვლილება: ვამატებთ სტილებს იკონისთვის --- */
+.services-nav li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.services-nav li a {
+    display: block;
+    padding: 0.75rem 0;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-icon-wrapper {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+}
+.nav-icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+}
 .services-nav li a:hover { color: var(--accent-pink); }
+
 .services-content { flex: 1; }
 .service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
-.category-title-wrapper { display: flex; align-items: center; gap: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem; }
-.icon-wrapper { flex-shrink: 0; width: 64px; height: 64px; }
-.icon-wrapper svg { width: 100%; height: 100%; }
+/* --- მთავარი ცვლილება: ვასწორებთ სათაურის სტილს --- */
+.category-title-wrapper {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+}
 .service-category h2 { border: none; padding: 0; margin: 0; font-size: 2rem; }
 .service-category ul { list-style: none; padding: 0; }
 .service-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
