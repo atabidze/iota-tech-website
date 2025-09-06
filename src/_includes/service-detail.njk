@@ -7,7 +7,8 @@ layout: base.njk
             <div class="category-title-wrapper">
                 {% if icon %}
                     <div class="icon-wrapper">
-                         {% include "assets/animated-icons/" + icon + ".svg" %}
+                         {# --- მთავარი შესწორება: მისამართიდან ამოღებულია "assets/" --- #}
+                         {% include "animated-icons/" + icon + ".svg" %}
                     </div>
                 {% endif %}
                 <h1>{{ title }}</h1>
