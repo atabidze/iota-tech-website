@@ -28,14 +28,14 @@ collections:
         widget: "select"
         required: false
         options:
-          - { label: "Users", value: "users" }
-          - { label: "Network", value: "network" }
-          - { label: "Server", value: "server" }
-          - { label: "Cloud", value: "cloud" }
-          - { label: "Shield", value: "shield" }
-          - { label: "CCTV", value: "cctv" }
-          - { label: "Messages", value: "messages" }
-          - { label: "Briefcase", value: "briefcase" }
+          - { label: "Users (მომხმარებლები)", value: "users" }
+          - { label: "Network (ქსელი)", value: "network" }
+          - { label: "Server (სერვერი)", value: "server" }
+          - { label: "Cloud (ღრუბელი)", value: "cloud" }
+          - { label: "Shield (ფარი)", value: "shield" }
+          - { label: "CCTV (კამერა)", value: "cctv" }
+          - { label: "Messages (კომუნიკაცია)", value: "messages" }
+          - { label: "Briefcase (პორტფელი)", value: "briefcase" }
       - label: "სერვისების სია (მოკლე აღწერა)"
         name: "service_list"
         widget: "list"
