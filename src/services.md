@@ -20,8 +20,8 @@ katalogis_dasaxeleba: კატეგორიები
                     <div id="{{ service_item.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
                             {% if service_item.data.icon %}
-                                <div class="icon-bg {{ 'pink' if loop.index % 2 == 0 else 'lavender' }}">
-                                    <i data-lucide="{{ service_item.data.icon }}"></i>
+                                <div class="icon-wrapper">
+                                    {% include "assets/animated-icons/" + service_item.data.icon + ".svg" %}
                                 </div>
                             {% endif %}
                             <h2>{{ service_item.data.title }}</h2>

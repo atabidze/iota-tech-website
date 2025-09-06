@@ -6,8 +6,8 @@ layout: base.njk
         <div class="service-detail-header" data-aos="fade-up">
             <div class="category-title-wrapper">
                 {% if icon %}
-                    <div class="icon-bg lavender">
-                         <i data-lucide="{{ icon }}"></i>
+                    <div class="icon-wrapper">
+                         {% include "assets/animated-icons/" + icon + ".svg" %}
                     </div>
                 {% endif %}
                 <h1>{{ title }}</h1>
