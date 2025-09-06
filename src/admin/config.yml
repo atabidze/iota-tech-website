@@ -23,7 +23,19 @@ collections:
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
       - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - { label: "იკონი (Lucide)", name: "icon", widget: "string", required: false }
+      - label: "აირჩიეთ იკონი"
+        name: "icon"
+        widget: "select"
+        required: false
+        options:
+          - { label: "users", value: "users" }
+          - { label: "network", value: "network" }
+          - { label: "server", value: "server" }
+          - { label: "cloud", value: "cloud" }
+          - { label: "shield", value: "shield" }
+          - { label: "cctv", value: "cctv" }
+          - { label: "messages", value: "messages" }
+          - { label: "briefcase", value: "briefcase" }
       - label: "სერვისების სია (მოკლე აღწერა)"
         name: "service_list"
         widget: "list"
