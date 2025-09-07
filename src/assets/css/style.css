@@ -43,12 +43,12 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-nav li {
     padding: 0;
     margin: 0;
-    line-height: 1.3; /* ხაზის სიმაღლის რადიკალური შემცირება */
     cursor: pointer;
 }
 .services-nav li a {
-    padding: 0;
+    padding: 2px 0; /* მინიმალური ვერტიკალური დაშორება */
     margin: 0;
+    line-height: 1.2; /* ხაზის სიმაღლის შემცირება */
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
