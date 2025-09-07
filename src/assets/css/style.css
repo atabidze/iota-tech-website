@@ -42,13 +42,13 @@ a { text-decoration: none; color: var(--text-primary); }
 /* --- მთავარი შესწორება --- */
 .services-nav li {
     padding: 0;
-    margin: -2px 0; /* უარყოფითი დაშორება "მიტყუპებისთვის" */
+    margin: 0;
+    line-height: 1.3; /* ხაზის სიმაღლის რადიკალური შემცირება */
     cursor: pointer;
 }
 .services-nav li a {
     padding: 0;
     margin: 0;
-    line-height: 1.2; /* ხაზის სიმაღლის მინიმუმამდე დაყვანა */
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
