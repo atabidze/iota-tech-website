@@ -10,29 +10,27 @@ katalogis_dasaxeleba: კატეგორიები
             <aside class="services-nav" data-aos="fade-right">
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
-                    {% for service_item in collections.services %}
+                    {% for category in collections.categories %}
                         <li>
-                            {# --- იკონი დროებით დამალულია --- #}
-                            <a href="#{{ service_item.data.slug }}">{{ service_item.data.title }}</a>
+                            <a href="#{{ category.data.slug }}">{{ category.data.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </aside>
             <div class="services-content">
-                {% for service_item in collections.services %}
-                    <div id="{{ service_item.data.slug }}" class="service-category" data-aos="fade-up">
+                {% for category in collections.categories %}
+                    <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
-                            {# --- იკონი წაშლილია მარჯვენა სექციიდანაც --- #}
-                            <h2>{{ service_item.data.title }}</h2>
+                            <h2>{{ category.data.title }}</h2>
                         </div>
                         <ul>
-                            {% if service_item.data.service_list %}
-                                {% for service in service_item.data.service_list %}
+                            {% if category.data.service_list %}
+                                {% for service in category.data.service_list %}
                                     <li>{{ service }}</li>
                                 {% endfor %}
                             {% endif %}
                         </ul>
-                        <a href="{{ service_item.url }}" class="details-link">დეტალურად →</a>
+                        <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
                     </div>
                 {% endfor %}
             </div>
