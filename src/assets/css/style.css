@@ -43,7 +43,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-nav li {
     display: flex;
     align-items: center;
-    gap: 0.75rem; /* შევამცირეთ დაშორება 1rem-დან 0.75rem-მდე */
+    gap: 0.5rem; /* შევამცირეთ დაშორება 0.75rem-დან 0.5rem-მდე */
 }
 .services-nav li a {
     display: block;
@@ -87,3 +87,4 @@ a { text-decoration: none; color: var(--text-primary); }
   margin-bottom: 1rem;
   border-left: 5px solid var(--accent-lavender);
 }
+
