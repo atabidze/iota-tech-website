@@ -49,7 +49,7 @@ a { text-decoration: none; color: var(--text-primary); }
 }
 .services-nav li a {
     display: block;
-    padding: 0.4rem 0; /* შევამცირეთ დაშორება */
+    padding: 0.25rem 0; /* შევამცირეთ დაშორება */
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
