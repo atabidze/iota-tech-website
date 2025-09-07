@@ -10,34 +10,38 @@ katalogis_dasaxeleba: კატეგორიები
             <aside class="services-nav" data-aos="fade-right">
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
-                    {% for category in collections.services %}
+                    {% for service_item in collections.services %}
                         <li>
-                            {# --- მთავარი ცვლილება: იკონი გადმოვიტანეთ აქ --- #}
-                            {% if category.data.icon %}
+                            {# --- იკონი დროებით დამალულია --- #}
+                            {# {% if service_item.data.icon %}
                                 <div class="nav-icon-wrapper">
-                                    {% include "animated-icons/" + category.data.icon + ".svg" %}
+                                    {% include "animated-icons/" + service_item.data.icon + ".svg" %}
                                 </div>
-                            {% endif %}
-                            <a href="#{{ category.data.slug }}">{{ category.data.title }}</a>
+                            {% endif %} #}
+                            <a href="#{{ service_item.data.slug }}">{{ service_item.data.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </aside>
             <div class="services-content">
-                {% for category in collections.services %}
-                    <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
+                {% for service_item in collections.services %}
+                    <div id="{{ service_item.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
-                            {# --- იკონი წაიშალა აქედან --- #}
-                            <h2>{{ category.data.title }}</h2>
+                            {% if service_item.data.icon %}
+                                <div class="icon-wrapper">
+                                    {% include "animated-icons/" + service_item.data.icon + ".svg" %}
+                                </div>
+                            {% endif %}
+                            <h2>{{ service_item.data.title }}</h2>
                         </div>
                         <ul>
-                            {% if category.data.service_list %}
-                                {% for service in category.data.service_list %}
+                            {% if service_item.data.service_list %}
+                                {% for service in service_item.data.service_list %}
                                     <li>{{ service }}</li>
                                 {% endfor %}
                             {% endif %}
                         </ul>
-                        <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
+                        <a href="{{ service_item.url }}" class="details-link">დეტალურად →</a>
                     </div>
                 {% endfor %}
             </div>
