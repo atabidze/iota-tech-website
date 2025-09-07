@@ -48,7 +48,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-nav li a {
     padding: 2px 0; /* მინიმალური ვერტიკალური დაშორება */
     margin: 0;
-    line-height: 1.2; /* ხაზის სიმაღლის შემცირება */
+    line-height: 0; /* ხაზის სიმაღლის შემცირება */
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
