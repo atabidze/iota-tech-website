@@ -12,12 +12,7 @@ katalogis_dasaxeleba: კატეგორიები
                 <ul>
                     {% for service_item in collections.services %}
                         <li>
-                            {# --- იკონი დაბრუნდა მარცხენა მენიუში --- #}
-                            {% if service_item.data.icon %}
-                                <div class="nav-icon-wrapper">
-                                    {% include "animated-icons/" + service_item.data.icon + ".svg" %}
-                                </div>
-                            {% endif %}
+                            {# --- იკონი დროებით წაშლილია --- #}
                             <a href="#{{ service_item.data.slug }}">{{ service_item.data.title }}</a>
                         </li>
                     {% endfor %}
@@ -27,7 +22,7 @@ katalogis_dasaxeleba: კატეგორიები
                 {% for service_item in collections.services %}
                     <div id="{{ service_item.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
-                            {# --- იკონი წაიშალა მარჯვენა სექციიდან --- #}
+                            {# --- იკონი წაშლილია მარჯვენა სექციიდანაც --- #}
                             <h2>{{ service_item.data.title }}</h2>
                         </div>
                         <ul>
