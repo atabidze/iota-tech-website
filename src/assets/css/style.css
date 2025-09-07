@@ -39,41 +39,27 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-nav h3 { font-size: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
 .services-nav ul { list-style: none; padding: 0; margin: 0; }
 
-/* --- საბოლოო შესწორება --- */
+/* --- მთავარი შესწორება --- */
 .services-nav li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
     padding: 0;
     margin: 0;
     cursor: pointer;
 }
 .services-nav li a {
-    padding: 2px 0; /* მინიმალური ვერტიკალური დაშორება */
+    padding: 0;
     margin: 0;
-    line-height: 1.2; /* ხაზის სიმაღლის შემცირება */
+    line-height: 1.3; /* ხაზის სიმაღლის რადიკალური შემცირება */
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
-    flex-grow: 1;
-}
-.nav-icon-wrapper {
-    flex-shrink: 0;
-    width: 28px; /* ოდნავ დავაპატარავეთ იკონი */
-    height: 28px;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-.nav-icon-wrapper svg {
-    width: 100%;
-    height: 100%;
-}
-.services-nav li:hover .nav-icon-wrapper {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px var(--accent-lavender));
 }
 .services-nav li:hover a {
     color: var(--accent-pink);
 }
+.nav-icon-wrapper, .icon-wrapper {
+    display: none; /* დროებით ვმალავთ იკონებს */
+}
+
 
 .services-content { flex: 1; }
 .service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
@@ -90,7 +76,6 @@ a { text-decoration: none; color: var(--text-primary); }
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
 .service-detail-header .category-title-wrapper { justify-content: center; }
-.service-detail-header .icon-wrapper { width: 80px; height: 80px; }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .main-description-list { list-style: none; padding: 0; }
 .main-description-list li {
