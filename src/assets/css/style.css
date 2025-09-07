@@ -42,7 +42,8 @@ a { text-decoration: none; color: var(--text-primary); }
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.25rem 0; /* დავამატეთ მცირე დაშორება */
+    padding: 0.25rem 0;
+    cursor: pointer; /* ვამატებთ, რომ მთლიანი ზოლი იყოს კლიკვადი */
 }
 .services-nav li a {
     display: block;
@@ -50,12 +51,12 @@ a { text-decoration: none; color: var(--text-primary); }
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
+    flex-grow: 1; /* ტექსტი იკავებს დარჩენილ ადგილს */
 }
 .nav-icon-wrapper {
     flex-shrink: 0;
     width: 32px;
     height: 32px;
-    /* --- მთავარი ცვლილება: ვამატებთ გარდაქმნის ანიმაციას --- */
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 .nav-icon-wrapper svg {
@@ -63,13 +64,13 @@ a { text-decoration: none; color: var(--text-primary); }
     height: 100%;
 }
 
-/* --- მთავარი ცვლილება: ვამატებთ Hover ეფექტს --- */
+/* --- მთავარი ცვლილება --- */
 .services-nav li:hover .nav-icon-wrapper {
-    transform: scale(1.2); /* იკონის გადიდება */
-    filter: drop-shadow(0 0 8px var(--accent-lavender)); /* მანათობელი ეფექტი */
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px var(--accent-lavender));
 }
 .services-nav li:hover a {
-    color: var(--text-primary); /* ტექსტის ფერის შეცვლა */
+    color: var(--accent-pink); /* ვაბრუნებთ ტექსტის ფერის შეცვლას */
 }
 
 .services-content { flex: 1; }
