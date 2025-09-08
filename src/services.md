@@ -26,11 +26,7 @@ katalogis_dasaxeleba: კატეგორიები
                 {% for service_item in collections.services %}
                     <div id="{{ service_item.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
-                            <div class="icon-wrapper">
-                                {% if service_item.data.icon %}
-                                    {% include "animated-icons/" + service_item.data.icon + ".svg" %}
-                                {% endif %}
-                            </div>
+                            {# --- იკონი წაიშალა მარჯვენა სექციიდან --- #}
                             <h2>{{ service_item.data.title }}</h2>
                         </div>
                         <ul>
