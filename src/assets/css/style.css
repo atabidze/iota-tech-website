@@ -8,77 +8,183 @@
   --accent-lavender: #9A8CFF;
   --font-family: 'Roboto', sans-serif;
 }
+
 html { scroll-behavior: smooth; }
+
 body {
-  font-family: var(--font-family); margin: 0; padding: 0;
-  background-color: transparent; color: var(--text-primary);
-  font-size: 16px; line-height: 1.7;
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
 }
-#tsparticles-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-.container { max-width: 1140px; margin: 0 auto; padding: 0 1rem; }
-h1, h2, h3 { color: var(--text-primary); font-weight: 700; }
+
+#tsparticles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+  font-weight: 700;
+}
 h1 { font-size: 3rem; line-height: 1.2; }
 h2 { font-size: 2.5rem; }
 h3 { font-size: 1.5rem; }
+
 p { color: var(--text-secondary); }
 a { text-decoration: none; color: var(--text-primary); }
 
-.glass-panel { background-color: rgba(30, 30, 30, 0.5); backdrop-filter: blur(10px); border: 1px solid var(--border-color); }
-.site-header { position: sticky; top: 0; z-index: 100; width: 100%; border-width: 0 0 1px 0; padding: 1rem 0; }
-.header-container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 700; font-size: 1.5rem; }
-.main-nav a { margin: 0 1rem; font-weight: 500; transition: color 0.3s; }
-.cta-button.header-cta { background-color: var(--accent-pink); color: #fff; padding: 0.6rem 1.5rem; border-radius: 5px; font-weight: 600; }
+.glass-panel {
+  background-color: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  border-width: 0 0 1px 0;
+  padding: 1rem 0;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.main-nav a {
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.cta-button.header-cta {
+  background-color: var(--accent-pink);
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+}
 .hero-section { padding: 8rem 0; text-align: center; }
-.site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
+
+.site-footer {
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+}
 
 /* --- სერვისების გვერდი --- */
 .services-page-section { padding: 4rem 0; }
-.services-page-layout { display: flex; gap: 4rem; align-items: flex-start; max-width: 1240px; }
-.services-nav { flex: 0 0 280px; position: sticky; top: 120px; }
-.services-nav h3 { font-size: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
-.services-nav ul { list-style: none; padding: 0; margin: 0; }
+.services-page-layout {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  max-width: 1240px;
+}
+.services-nav {
+  flex: 0 0 280px;
+  position: sticky;
+  top: 120px;
+}
+.services-nav h3 {
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+.services-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
 /* --- საბოლოო შესწორება --- */
 .services-nav li {
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    /* ვშლით line-height-ს აქედან, რადგან ის a ელემენტზე უნდა იყოს */
+  padding: 0;
+  margin: 0 0 0.8rem 0;   /* სერვისებს შორის მანძილი */
+  cursor: pointer;
+  list-style: none;
 }
 .services-nav li a {
-    padding: 0; /* <<< მთავარი შესწორება */
-    margin: 200;
-    line-height: 1; /* ვაბრუნებთ ნორმალურ სიმაღლეზე გრძელი ტექსტისთვის */
-    color: var(--text-secondary);
-    font-weight: 500;
-    transition: color 0.3s;
-    display: block;
+  display: flex;
+  align-items: center;
+  line-height: 1.3;       /* შიგნით ხაზებს შორის მანძილი */
+  min-height: 2.8rem;     /* სტანდარტული სიმაღლე ყველა service name-ისთვის */
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 0 0.3rem;
+  border-radius: 5px;
+  transition: color 0.3s, background-color 0.3s;
 }
 .services-nav li:hover a {
-    color: var(--accent-pink);
-}
-.nav-icon-wrapper, .icon-wrapper {
-    display: none; /* დროებით ვმალავთ იკონებს */
+  color: var(--accent-pink);
+  background-color: rgba(255,255,255,0.05);
 }
 
+.nav-icon-wrapper, .icon-wrapper {
+  display: none;
+}
 
 .services-content { flex: 1; }
-.service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
-.category-title-wrapper {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 1.5rem;
+.service-category {
+  margin-bottom: 4rem;
+  scroll-margin-top: 120px;
 }
-.service-category h2 { border: none; padding: 0; margin: 0; font-size: 2rem; }
+.category-title-wrapper {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+.service-category h2 {
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 2rem;
+}
 .service-category ul { list-style: none; padding: 0; }
-.service-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
-.details-link { display: inline-block; margin-top: 1.5rem; color: var(--accent-pink); font-weight: 700; }
+.service-category li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+.details-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--accent-pink);
+  font-weight: 700;
+}
 
 .service-detail-section { padding: 6rem 0; }
-.service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
-.service-detail-header .category-title-wrapper { justify-content: center; }
-.service-detail-content { max-width: 800px; margin: 0 auto; }
+.service-detail-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+.service-detail-header .category-title-wrapper {
+  justify-content: center;
+}
+.service-detail-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
 .main-description-list { list-style: none; padding: 0; }
 .main-description-list li {
   padding: 1.5rem;
@@ -86,4 +192,3 @@ a { text-decoration: none; color: var(--text-primary); }
   margin-bottom: 1rem;
   border-left: 5px solid var(--accent-lavender);
 }
-
