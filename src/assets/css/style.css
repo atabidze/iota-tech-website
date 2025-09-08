@@ -126,7 +126,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-nav li a {
   display: flex;
   align-items: center;
-  line-height: 1.3;       /* შიგნით ხაზებს შორის მანძილი */
+  line-height: 0.5;       /* შიგნით ხაზებს შორის მანძილი */
   min-height: 0.5rem;     /* სტანდარტული სიმაღლე ყველა service name-ისთვის */
   color: var(--text-secondary);
   font-weight: 500;
