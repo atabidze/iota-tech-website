@@ -127,7 +127,7 @@ a { text-decoration: none; color: var(--text-primary); }
   display: flex;
   align-items: center;
   line-height: 1;       /* შიგნით ხაზებს შორის მანძილი */
-  min-height: 1rem;     /* სტანდარტული სიმაღლე ყველა service name-ისთვის */
+  min-height: 0.8rem;     /* სტანდარტული სიმაღლე ყველა service name-ისთვის */
   color: var(--text-secondary);
   font-weight: 500;
   padding: 0 0.3rem;
