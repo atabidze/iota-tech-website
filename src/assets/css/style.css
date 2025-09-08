@@ -44,7 +44,7 @@ a { text-decoration: none; color: var(--text-primary); }
     padding: 0;
     margin: 0;
     cursor: pointer;
-    line-height: 0.2; /* ხაზის სიმაღლის მინიმუმამდე დაყვანა */
+    line-height: 10; /* ხაზის სიმაღლის მინიმუმამდე დაყვანა */
 }
 .services-nav li a {
     padding: 2px 0; /* ვტოვებთ მინიმალურ დაშორებას, რომ კლიკი მარტივი იყოს */
