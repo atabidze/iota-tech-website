@@ -13,10 +13,22 @@ layout: base.njk
                 <h1>{{ title }}</h1>
             </div>
         </div>
+
         <div class="service-detail-content">
-            <div class="main-description" data-aos="fade-up" data-aos-delay="100">
-                {{ content | safe }}
-            </div>
+            {# ახალი ბლოკი ზოგადი აღწერისთვის #}
+            {% if general_description %}
+                <div class="service-general-description" data-aos="fade-up" data-aos-delay="50">
+                    <p>{{ general_description }}</p>
+                </div>
+            {% endif %}
+
+            <ul class="main-description-list" data-aos="fade-up" data-aos-delay="100">
+                {% if detailed_list %}
+                    {% for item in detailed_list %}
+                        <li class="glass-panel">{{ item.point }}</li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
         </div>
     </div>
 </section>
