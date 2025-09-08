@@ -47,8 +47,20 @@ a { text-decoration: none; color: var(--text-primary); }
 }
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr; /* მობილურზე 1 სვეტი */
     gap: 2rem;
+}
+/* ტაბლეტის ზომის ეკრანზე 2 სვეტი */
+@media (min-width: 640px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* კომპიუტერის ეკრანზე 4 სვეტი */
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 .service-card {
     display: flex;
@@ -78,7 +90,7 @@ a { text-decoration: none; color: var(--text-primary); }
     color: var(--text-primary);
 }
 .card-link {
-    margin-top: auto; /* აგზავნის ბმულს ბარათის ბოლოში */
+    margin-top: auto;
     color: var(--accent-pink);
     font-weight: 700;
     transition: transform 0.3s;
