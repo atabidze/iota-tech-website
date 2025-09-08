@@ -1,13 +1,14 @@
 ---
 layout: base.njk
 ---
+
 <section class="service-detail-section">
     <div class="container">
         <div class="service-detail-header" data-aos="fade-up">
             <div class="category-title-wrapper">
                 {% if icon %}
                     <div class="icon-bg lavender">
-                         {% include "animated-icons/" + icon + ".svg" %}
+                         <i data-lucide="{{ icon }}"></i>
                     </div>
                 {% endif %}
                 <h1>{{ title }}</h1>
@@ -23,4 +24,4 @@ layout: base.njk
             </ul>
         </div>
     </div>
-</section>  
+</section>

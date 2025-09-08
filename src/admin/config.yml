@@ -8,58 +8,66 @@ media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "services"
+  - name: "categories"
     label: "სერვისების კატალოგი"
-    folder: "src/services"
+    folder: "src/categories"
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
     sortable_fields: ['sort_order', 'title']
     fields:
-      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
-        name: "slug"
-        widget: "string"
-        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk. ეს იქნება ფაილის სახელი და ბმული." }
       - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "აირჩიეთ იკონი"
-        name: "icon"
-        widget: "select"
-        required: false
-        options:
-          - { label: "Users (მომხმარებლები)", value: "users" }
-          - { label: "Network (ქსელი)", value: "network" }
-          - { label: "Server (სერვერი)", value: "server" }
-          - { label: "Cloud (ღრუბელი)", value: "cloud" }
-          - { label: "Shield (ფარი)", value: "shield" }
-          - { label: "CCTV (კამერა)", value: "cctv" }
-          - { label: "Messages (კომუნიკაცია)", value: "messages" }
-          - { label: "Briefcase (პორტფელი)", value: "briefcase" }
-      - label: "სერვისების სია (მოკლე აღწერა)"
+      - { label: "მთავარი იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. შედით lucide.dev-ზე და ჩაწერეთ სახელი. მაგ: server" }
+      - label: "სერვისების სია (მთავარი გვერდისთვის)"
         name: "service_list"
         widget: "list"
         summary: "{{fields.name}}"
         field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - label: "სრული აღწერის პუნქტები"
-        name: "detailed_list"
-        widget: "list"
-        summary: "{{fields.point}}"
-        fields:
-          - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+      - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
+        name: "body"
+        widget: "markdown"
+        hint: "სასურველი დიზაინისთვის, გამოიყენეთ ბულეტები. ყოველი პუნქტი დაიწყეთ `-` სიმბოლოთი."
+      - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 
   - name: "pages"
     label: "მთავარი გვერდები"
     files:
-      - { file: "src/index.md", label: "მთავარი გვერდი", name: "index", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
-      - { file: "src/services.md", label: "სერვისების გვერდი", name: "services_page", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }] }
-      - { file: "src/about.md", label: "ჩვენ შესახებ", name: "about", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
-      - { file: "src/contact.md", label: "კონტაქტი", name: "contact", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
+      - file: "src/index.md"
+        label: "მთავარი გვერდი"
+        name: "index"
+        fields:
+          - { label: "გვერდის სათაური", name: "title", widget: "string" }
+          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
+          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
+      - file: "src/services.md"
+        label: "სერვისების გვერდი (განლაგება)"
+        name: "services_page"
+        fields:
+          - { label: "გვერდის სათაური", name: "title", widget: "string" }
+          - { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }
+      - file: "src/about.md"
+        label: "ჩვენ შესახებ"
+        name: "about"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
+      - file: "src/contact.md"
+        label: "კონტაქტი"
+        name: "contact"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
     files:
-      - { file: "src/_data/settings.json", label: "საიტის პარამეტრები", name: "settings", fields: [{ label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }, { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }] }
+      - file: "src/_data/settings.json"
+        label: "საიტის პარამეტრები"
+        name: "settings"
+        fields:
+          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
+          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }

@@ -12,12 +12,12 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-family); margin: 0; padding: 0;
   background-color: transparent; color: var(--text-primary);
-  font-size: 16px; line-height: 1;
+  font-size: 16px; line-height: 1.7;
 }
 #tsparticles-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 .container { max-width: 1140px; margin: 0 auto; padding: 0 1rem; }
 h1, h2, h3 { color: var(--text-primary); font-weight: 700; }
-h1 { font-size: 3rem; line-height: 1; }
+h1 { font-size: 3rem; line-height: 1.2; }
 h2 { font-size: 2.5rem; }
 h3 { font-size: 1.5rem; }
 p { color: var(--text-secondary); }
@@ -32,19 +32,16 @@ a { text-decoration: none; color: var(--text-primary); }
 .hero-section { padding: 8rem 0; text-align: center; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
 
-/* --- სერვისების გვერდი --- */
 .services-page-section { padding: 4rem 0; }
 .services-page-layout { display: flex; gap: 4rem; align-items: flex-start; max-width: 1240px; }
 .services-nav { flex: 0 0 280px; position: sticky; top: 120px; }
 .services-nav h3 { font-size: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
 .services-nav ul { list-style: none; padding: 0; margin: 0; }
-
-/* --- მთავარი შესწორება --- */
 .services-nav li {
     padding: 0;
     margin: 0;
+    line-height: 1.2; /* ხაზის სიმაღლის რადიკალური შემცირება */
     cursor: pointer;
-    line-height: 1; /* ხაზის სიმაღლის მინიმუმამდე დაყვანა */
 }
 .services-nav li a {
     padding: 2px 0; /* ვტოვებთ მინიმალურ დაშორებას, რომ კლიკი მარტივი იყოს */
@@ -60,15 +57,17 @@ a { text-decoration: none; color: var(--text-primary); }
 .nav-icon-wrapper, .icon-wrapper {
     display: none; /* დროებით ვმალავთ იკონებს */
 }
-
-
 .services-content { flex: 1; }
 .service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
 .category-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 1.5rem;
 }
+.category-title-wrapper i { width: 32px; height: 32px; color: var(--accent-lavender); flex-shrink: 0; }
 .service-category h2 { border: none; padding: 0; margin: 0; font-size: 2rem; }
 .service-category ul { list-style: none; padding: 0; }
 .service-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
@@ -77,6 +76,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
 .service-detail-header .category-title-wrapper { justify-content: center; }
+.service-detail-header .icon-wrapper { width: 80px; height: 80px; }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .main-description-list { list-style: none; padding: 0; }
 .main-description-list li {
