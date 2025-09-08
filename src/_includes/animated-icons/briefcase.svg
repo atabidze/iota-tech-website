@@ -1,12 +1,12 @@
-<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#9A8CFF"/>
 <stop offset="100%" stop-color="#E84A5F"/>
 </linearGradient>
 </defs>
-<path d="M24 10 L38 24 L24 38 L10 24 Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24 10 L38 24 L24 38 L10 24 Z" stroke="url(#grad8)" stroke-width="2" stroke-dasharray="10 110" stroke-linecap="round" stroke-linejoin="round">
-<animate attributeName="stroke-dashoffset" from="0" to="-120" dur="4s" repeatCount="indefinite"/>
+<rect x="6" y="14" width="36" height="24" rx="2" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M18 14V10C18 8.89543 18.8954 8 20 8H28C29.1046 8 30 8.89543 30 10V14" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M6 24H42" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M8 16L40 36" stroke="url(#grad8)" stroke-width="1.5" stroke-linecap="round">
+    <animate attributeName="d" values="M8 16L40 36; M8 36L40 16; M8 16L40 36" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0; 0.5; 0" dur="3s" repeatCount="indefinite" />
 </path>
 </svg>
+
