@@ -32,78 +32,73 @@ a { text-decoration: none; color: var(--text-primary); }
 .hero-section { padding: 8rem 0; text-align: center; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
 
-/* --- ახალი სტილები სერვისების გვერდისთვის (Grid Layout) --- */
-.services-page-section {
-    padding: 6rem 0;
-}
-.section-title {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem;
-}
-.section-title p {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-}
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* მობილურზე 1 სვეტი */
-    gap: 2rem;
-}
-/* ტაბლეტის ზომის ეკრანზე 2 სვეტი */
-@media (min-width: 640px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-/* კომპიუტერის ეკრანზე 4 სვეტი */
-@media (min-width: 1024px) {
-    .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-.service-card {
+.services-page-section { padding: 4rem 0; }
+.services-page-layout { display: flex; gap: 4rem; align-items: flex-start; max-width: 1240px; }
+.services-nav { flex: 0 0 280px; position: sticky; top: 120px; }
+.services-nav h3 { font-size: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
+.services-nav ul { list-style: none; padding: 0; margin: 0; }
+.services-nav li {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0;
+    margin-bottom: -4px;
+    cursor: pointer;
 }
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+.services-nav li a {
+    padding: 0;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: color 0.3s;
+    flex-grow: 1;
 }
-.card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 1.5rem;
+.nav-icon-wrapper {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
-.card-icon svg {
+.nav-icon-wrapper svg {
     width: 100%;
     height: 100%;
 }
-.card-title {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
+.services-nav li:hover .nav-icon-wrapper {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px var(--accent-lavender));
 }
-.card-link {
-    margin-top: auto;
+.services-nav li:hover a {
     color: var(--accent-pink);
-    font-weight: 700;
-    transition: transform 0.3s;
 }
-.service-card:hover .card-link {
-    transform: translateX(5px);
+.services-content { flex: 1; }
+.service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
+.category-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
 }
+.icon-wrapper {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+}
+.icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+}
+.service-category h2 { border: none; padding: 0; margin: 0; font-size: 2rem; }
+.service-category ul { list-style: none; padding: 0; }
+.service-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
+.details-link { display: inline-block; margin-top: 1.5rem; color: var(--accent-pink); font-weight: 700; }
 
-/* --- სტილები დეტალური გვერდისთვის --- */
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
-.service-detail-header .category-title-wrapper { justify-content: center; display: flex; align-items: center; gap: 1.5rem; }
-.service-detail-header .icon-wrapper { width: 80px; height: 80px; }
+.service-detail-header .category-title-wrapper { justify-content: center; }
+.service-detail-header .icon-bg { width: 60px; height: 60px; }
+.service-detail-header i { width: 32px; height: 32px; }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .main-description-list { list-style: none; padding: 0; }
 .main-description-list li {

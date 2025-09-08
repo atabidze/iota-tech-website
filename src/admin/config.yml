@@ -8,28 +8,46 @@ media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "categories"
+  - name: "services"
     label: "სერვისების კატალოგი"
-    folder: "src/categories"
+    folder: "src/services"
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
     sortable_fields: ['sort_order', 'title']
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk. ეს იქნება ფაილის სახელი და ბმული." }
+      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
+        name: "slug"
+        widget: "string"
+        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
       - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - { label: "მთავარი იკონის სახელი (Lucide)", name: "icon", widget: "string", required: false, hint: "არასავალდებულო. შედით lucide.dev-ზე და ჩაწერეთ სახელი. მაგ: server" }
-      - label: "სერვისების სია (მთავარი გვერდისთვის)"
+      - label: "აირჩიეთ იკონი"
+        name: "icon"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Users", value: "users" }
+          - { label: "Network", value: "network" }
+          - { label: "Server", value: "server" }
+          - { label: "Cloud", value: "cloud" }
+          - { label: "Shield", value: "shield" }
+          - { label: "CCTV", value: "cctv" }
+          - { label: "Messages", value: "messages" }
+          - { label: "Briefcase", value: "briefcase" }
+      - label: "სერვისების სია (მოკლე აღწერა)"
         name: "service_list"
         widget: "list"
         summary: "{{fields.name}}"
         field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - label: "დეტალური აღწერა ('დეტალურად' გვერდზე)"
-        name: "body"
-        widget: "markdown"
-        hint: "სასურველი დიზაინისთვის, გამოიყენეთ ბულეტები. ყოველი პუნქტი დაიწყეთ `-` სიმბოლოთი."
-      - { label: "Tags", name: "tags", widget: "hidden", default: "categories" }
+      - label: "სრული აღწერის პუნქტები"
+        name: "detailed_list"
+        widget: "list"
+        summary: "{{fields.point}}"
+        fields:
+          - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 
@@ -44,7 +62,7 @@ collections:
           - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
       - file: "src/services.md"
-        label: "სერვისების გვერდი (განლაგება)"
+        label: "სერვისების გვერდი"
         name: "services_page"
         fields:
           - { label: "გვერდის სათაური", name: "title", widget: "string" }
