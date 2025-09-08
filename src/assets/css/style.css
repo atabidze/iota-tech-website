@@ -40,7 +40,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-nav li {
     padding: 0;
     margin: 0;
-    line-height: 5; /* ხაზის სიმაღლის რადიკალური შემცირება */
+    line-height: 1.2; /* ხაზის სიმაღლის რადიკალური შემცირება */
     cursor: pointer;
 }
 .services-nav li a {
