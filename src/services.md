@@ -1,26 +1,20 @@
 ---
-title: Iota-Tech - Advanced IT Solutions
+title: ჩვენი სერვისები
 layout: base.njk
-hero_title: Move Into the New Age of Accelerated Analytics
-hero_subtitle: ჩვენ ვქმნით საიმედო IT ინფრასტრუქტურას ბიზნესებისთვის.
-services_title: ჩვენი სერვისები
+permalink: /services/index.html
+section_title: ჩვენი სერვისები
+section_subtitle: გაეცანით ჩვენს მიერ შემოთავაზებულ IT გადაწყვეტილებებს, რომლებიც მორგებულია თქვენი ბიზნესის უნიკალურ საჭიროებებზე.
 ---
 
-<section class="hero-section">
-    <div class="container">
-        <h1>{{ hero_title }}</h1>
-        <p>{{ hero_subtitle }}</p>
-    </div>
-</section>
-
-<section class="services-section">
+<section class="services-page-section">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <h2>{{ services_title }}</h2>
+            <h1>{{ section_title }}</h1>
+            <p>{{ section_subtitle }}</p>
         </div>
+        
         <div class="services-grid">
-            {# მთავარ გვერდზე ვაჩვენებთ პირველ 4 სერვისს #}
-            {%- for item in collections.services | slice(0, 4) -%}
+            {%- for item in collections.services -%}
                 <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
                     <div class="card-header">
                         <div class="card-icon">
