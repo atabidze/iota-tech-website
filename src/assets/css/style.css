@@ -51,7 +51,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-nav li a {
     padding: 0;
     margin: 0;
-    line-height: 1.4; /* <<-- ეს აკონტროლებს მანძილს გრძელი სათაურის ხაზებს შორის */
+    line-height: 5; /* <<-- ეს აკონტროლებს მანძილს გრძელი სათაურის ხაზებს შორის */
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
