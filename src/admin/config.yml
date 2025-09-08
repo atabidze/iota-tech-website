@@ -21,7 +21,7 @@ collections:
         widget: "string"
         hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
+      - { label: "სერვისის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
       - label: "აირჩიეთ იკონი"
         name: "icon"
@@ -58,15 +58,16 @@ collections:
         label: "მთავარი გვერდი"
         name: "index"
         fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
+          - { label: "სათაური", name: "title", widget: "string" }
           - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
       - file: "src/services.md"
         label: "სერვისების გვერდი"
         name: "services_page"
         fields:
-          - { label: "გვერდის სათაური", name: "title", widget: "string" }
-          - { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "სექციის სათაური", name: "section_title", widget: "string" }
+          - { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }
       - file: "src/about.md"
         label: "ჩვენ შესახებ"
         name: "about"
