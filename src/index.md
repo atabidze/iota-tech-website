@@ -18,20 +18,27 @@ services_title: ჩვენი სერვისები
         <div class="section-title" data-aos="fade-up">
             <h2>{{ services_title }}</h2>
         </div>
-        <div class="service-list">
-            {% for service in collections.services %}
-            <div class="service-row glass-panel" data-aos="fade-up" data-aos-delay="{{ service.data.aos_delay }}">
-                <div class="service-icon-container">
-                    <div class="icon-bg {{ service.data.icon_color }}">
-                        <i data-lucide="{{ service.data.icon | default('help-circle') }}"></i>
-                    </div>
-                </div>
-                <div class="service-text">
-                    <h3>{{ service.data.title }}</h3>
-                    <p>{{ service.data.description }}</p>
-                </div>
-            </div>
-            {% endfor %}
+        <div class="services-grid">
+            {# მთავარ გვერდზე ვაჩვენებთ პირველ 4 სერვისს #}
+            {%- for item in collections.services | slice(0, 4) -%}
+                {# ვამოწმებთ სათაურს, რათა ცარიელი ბარათები არ გამოჩნდეს #}
+                {% if item.data.title %}
+                    <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                        <div class="card-icon">
+                            {% if item.data.icon %}
+                                 {% include "animated-icons/" + item.data.icon + ".svg" %}
+                            {% endif %}
+                        </div>
+                        <h3 class="card-title">{{ item.data.title }}</h3>
+                        <ul class="card-description">
+                            {% for service_item in item.data.service_list %}
+                                <li>{{ service_item }}</li>
+                            {% endfor %}
+                        </ul>
+                        <span class="card-link">დეტალურად →</span>
+                    </a>
+                {% endif %}
+            {%- endfor -%}
         </div>
     </div>
 </section>

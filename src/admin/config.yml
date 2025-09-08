@@ -39,8 +39,6 @@ collections:
       - label: "სერვისების სია (მოკლე აღწერა)"
         name: "service_list"
         widget: "list"
-        summary: "{{fields.name}}"
-        field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
       - label: "სრული აღწერის პუნქტები"
         name: "detailed_list"
         widget: "list"
