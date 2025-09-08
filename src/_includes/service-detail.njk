@@ -1,33 +1,26 @@
 ---
 layout: base.njk
 ---
+{# ვპოულობთ შესაბამის კატალოგს, რომ მისი სათაური და იკონი გამოვიყენოთ #}
+{% set catalog = collections.catalogs | findCatalogBySlug(slug) %}
+
 <section class="service-detail-section">
     <div class="container">
         <div class="service-detail-header" data-aos="fade-up">
             <div class="category-title-wrapper">
-                {% if icon %}
+                {% if catalog.data.icon %}
                     <div class="icon-bg lavender">
-                         {% include "animated-icons/" + icon + ".svg" %}
+                         {% include "animated-icons/" + catalog.data.icon + ".svg" %}
                     </div>
                 {% endif %}
-                <h1>{{ title }}</h1>
+                <h1>{{ catalog.data.title }}</h1>
             </div>
         </div>
-
         <div class="service-detail-content">
-            {# ახალი ბლოკი ზოგადი აღწერისთვის #}
-            {% if general_description %}
-                <div class="service-general-description" data-aos="fade-up" data-aos-delay="50">
-                    <p>{{ general_description }}</p>
-                </div>
-            {% endif %}
-
             <ul class="main-description-list" data-aos="fade-up" data-aos-delay="100">
-                {% if detailed_list %}
-                    {% for item in detailed_list %}
-                        <li class="glass-panel">{{ item.point }}</li>
-                    {% endfor %}
-                {% endif %}
+                {% for item in detailed_points %}
+                    <li class="glass-panel">{{ item.point }}</li>
+                {% endfor %}
             </ul>
         </div>
     </div>
