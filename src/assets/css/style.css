@@ -48,11 +48,6 @@ a { text-decoration: none; color: var(--text-primary); }
 .card-link { margin-top: auto; color: var(--accent-pink); font-weight: 700; transition: transform 0.3s; }
 .service-card:hover .card-link { transform: translateX(5px); }
 
-/* ავტომატურად ვმალავთ ბარათს, თუ მას სათაური არ აქვს, რათა ცარიელი კვადრატები არ გამოჩნდეს */
-.service-card:has(.card-title:empty) {
-  display: none;
-}
-
 /* --- სერვისის დეტალური გვერდი --- */
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
