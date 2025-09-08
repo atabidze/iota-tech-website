@@ -3,22 +3,27 @@ backend:
   branch: main
 
 publish_mode: editorial_workflow
+
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "catalogs"
+  - name: "services"
     label: "სერვისების კატალოგი"
-    folder: "src/catalogs"
+    folder: "src/services"
     create: true
     slug: "{{slug}}"
     identifier_field: "slug"
     sortable_fields: ['sort_order', 'title']
     fields:
-      - { label: "კატალოგის ID (ლათინურად, ტირეებით)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
-      - { label: "კატეგორიის სათაური", name: "title", widget: "string" }
+      - label: "1. მისამართი (ლათინურად, ტირეებით)"
+        name: "slug"
+        widget: "string"
+        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
+      - { label: "2. დასახელება (ქართულად)", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "აირჩიეთ იკონი"
+      - label: "3. აიკონი"
         name: "icon"
         widget: "select"
         required: false
@@ -31,47 +36,60 @@ collections:
           - { label: "CCTV", value: "cctv" }
           - { label: "Messages", value: "messages" }
           - { label: "Briefcase", value: "briefcase" }
-      - label: "სერვისების სია (მოკლე აღწერა)"
-        name: "services"
+      - label: "4. ზოგადი აღწერა (დეტალური გვერდისთვის)"
+        name: "general_description"
+        widget: "text"
+        required: false
+      - label: "ბარათზე გამოსატანი მოკლე პუნქტები"
+        name: "service_list"
         widget: "list"
-        summary: "{{fields.name}}"
-        field: { label: "სერვისის დასახელება", name: "name", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "catalogs" }
-
-  - name: "details"
-    label: "სერვისების სრული აღწერა"
-    folder: "src/details"
-    create: true
-    slug: "{{slug}}"
-    summary: "აღწერა: {{fields.catalog}}"
-    fields:
-      - { label: "ფაილის სახელი (უნდა ემთხვეოდეს კატალოგის ID-ს)", name: "slug", widget: "string", hint: "მაგ: help-desk, it-support." }
-      - label: "აირჩიეთ კატალოგი"
-        name: "catalog"
-        widget: "relation"
-        collection: "catalogs"
-        search_fields: ["title"]
-        value_field: "slug"
-        display_fields: ["title"]
-      - label: "დეტალური აღწერის პუნქტები"
-        name: "detailed_points"
+        required: false
+      - label: "5. სრული აღწერის პუნქტები (+ ნიშნით)"
+        name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "details" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{fields.catalog}}/" }
-      
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
+
   - name: "pages"
     label: "მთავარი გვერდები"
     files:
-      - { file: "src/index.md", label: "მთავარი გვერდი", name: "index", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
-      - { file: "src/services.md", label: "სერვისების გვერდი", name: "services_page", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "მარცხენა მენიუს სათაური", name: "katalogis_dasaxeleba", widget: "string" }] }
-      - { file: "src/about.md", label: "ჩვენ შესახებ", name: "about", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
-      - { file: "src/contact.md", label: "კონტაქტი", name: "contact", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
+      - file: "src/index.md"
+        label: "მთავარი გვერდი"
+        name: "index"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
+          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
+      - file: "src/services.md"
+        label: "სერვისების გვერდი"
+        name: "services_page"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "სექციის სათაური", name: "section_title", widget: "string" }
+          - { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }
+      - file: "src/about.md"
+        label: "ჩვენ შესახებ"
+        name: "about"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
+      - file: "src/contact.md"
+        label: "კონტაქტი"
+        name: "contact"
+        fields:
+          - { label: "სათაური", name: "title", widget: "string" }
+          - { label: "ტექსტი", name: "body", widget: "markdown" }
 
   - name: "settings"
     label: "ზოგადი პარამეტრები"
     files:
-      - { file: "src/_data/settings.json", label: "საიტის პარამეტრები", name: "settings", fields: [{ label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }, { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }] }
+      - file: "src/_data/settings.json"
+        label: "საიტის პარამეტრები"
+        name: "settings"
+        fields:
+          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
+          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
