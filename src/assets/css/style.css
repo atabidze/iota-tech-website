@@ -119,7 +119,7 @@ a { text-decoration: none; color: var(--text-primary); }
 /* --- საბოლოო შესწორება --- */
 .services-nav li {
   padding: 0;
-  margin: 0 0 0.8rem 0;   /* სერვისებს შორის მანძილი */
+  margin: 0 0 0.1rem 0;   /* სერვისებს შორის მანძილი */
   cursor: pointer;
   list-style: none;
 }
