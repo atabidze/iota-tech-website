@@ -15,23 +15,20 @@ section_subtitle: გაეცანით ჩვენს მიერ შე�
         
         <div class="services-grid">
             {%- for item in collections.services -%}
-                {# მხოლოდ ის ბარათები გამოჩნდება, რომლებსაც სათაური აქვთ. ეს აგვარებს "მოჩვენება" ბარათების პრობლემას. #}
-                {% if item.data.title %}
-                    <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
-                        <div class="card-icon">
-                            {% if item.data.icon %}
-                                 {% include "animated-icons/" + item.data.icon + ".svg" %}
-                            {% endif %}
-                        </div>
-                        <h3 class="card-title">{{ item.data.title }}</h3>
-                        <ul class="card-description">
-                            {% for service_item in item.data.service_list %}
-                                <li>{{ service_item }}</li>
-                            {% endfor %}
-                        </ul>
-                        <span class="card-link">დეტალურად →</span>
-                    </a>
-                {% endif %}
+                <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                    <div class="card-icon">
+                        {% if item.data.icon %}
+                             {% include "animated-icons/" + item.data.icon + ".svg" %}
+                        {% endif %}
+                    </div>
+                    <h3 class="card-title">{{ item.data.title }}</h3>
+                    <ul class="card-description">
+                        {% for service_item in item.data.service_list %}
+                            <li>{{ service_item }}</li>
+                        {% endfor %}
+                    </ul>
+                    <span class="card-link">დეტალურად →</span>
+                </a>
             {%- endfor -%}
         </div>
     </div>

@@ -21,23 +21,20 @@ services_title: ჩვენი სერვისები
         <div class="services-grid">
             {# მთავარ გვერდზე ვაჩვენებთ პირველ 4 სერვისს #}
             {%- for item in collections.services | slice(0, 4) -%}
-                {# ვამოწმებთ სათაურს, რათა ცარიელი ბარათები არ გამოჩნდეს #}
-                {% if item.data.title %}
-                    <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
-                        <div class="card-icon">
-                            {% if item.data.icon %}
-                                 {% include "animated-icons/" + item.data.icon + ".svg" %}
-                            {% endif %}
-                        </div>
-                        <h3 class="card-title">{{ item.data.title }}</h3>
-                        <ul class="card-description">
-                            {% for service_item in item.data.service_list %}
-                                <li>{{ service_item }}</li>
-                            {% endfor %}
-                        </ul>
-                        <span class="card-link">დეტალურად →</span>
-                    </a>
-                {% endif %}
+                <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                    <div class="card-icon">
+                        {% if item.data.icon %}
+                             {% include "animated-icons/" + item.data.icon + ".svg" %}
+                        {% endif %}
+                    </div>
+                    <h3 class="card-title">{{ item.data.title }}</h3>
+                    <ul class="card-description">
+                        {% for service_item in item.data.service_list %}
+                            <li>{{ service_item }}</li>
+                        {% endfor %}
+                    </ul>
+                    <span class="card-link">დეტალურად →</span>
+                </a>
             {%- endfor -%}
         </div>
     </div>
