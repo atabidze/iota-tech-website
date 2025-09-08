@@ -47,8 +47,8 @@ a { text-decoration: none; color: var(--text-primary); }
     /* ვშლით line-height-ს აქედან, რადგან ის a ელემენტზე უნდა იყოს */
 }
 .services-nav li a {
-    padding: 10; /* <<< მთავარი შესწორება */
-    margin: 0;
+    padding: 0; /* <<< მთავარი შესწორება */
+    margin: 200;
     line-height: 1; /* ვაბრუნებთ ნორმალურ სიმაღლეზე გრძელი ტექსტისთვის */
     color: var(--text-secondary);
     font-weight: 500;
