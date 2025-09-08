@@ -1,12 +1,17 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
 <stop offset="100%" stop-color="#E84A5F"/>
 </linearGradient>
 </defs>
-<path d="M12 36L24 12L36 36H12Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="24" cy="12" r="4" fill="#AAAAAA"/>
-<circle cx="12" cy="36" r="4" fill="#AAAAAA"/>
-<circle cx="36" cy="36" r="4" fill="#AAAAAA"/>
-<circle r="2" fill="url(#grad2)">
-    <animateMotion dur="3s" repeatCount="indefinite" path="M24 12 L 12 36 L 36 36 L 24 12" />
+<circle cx="24" cy="10" r="4" stroke="#AAAAAA" stroke-width="1.5"/>
+<circle cx="10" cy="38" r="4" stroke="#AAAAAA" stroke-width="1.5"/>
+<circle cx="38" cy="38" r="4" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M24 14 v 24" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M12.8,36.5 L22.2,11.5" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M35.2,36.5 L25.8,11.5" stroke="#AAAAAA" stroke-width="1.5"/>
+<circle cx="24" cy="10" r="2.5" fill="url(#grad2)">
+    <animate attributeName="cy" values="10; 38; 10" dur="3s" repeatCount="indefinite" />
 </circle>
 </svg>
-

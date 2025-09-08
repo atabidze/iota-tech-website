@@ -1,15 +1,18 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
 <stop offset="100%" stop-color="#E84A5F"/>
 </linearGradient>
 </defs>
 <path d="M40 8H8C5.79086 8 4 9.79086 4 12V30C4 32.2091 5.79086 34 8 34H14V40L23 34H40C42.2091 34 44 32.2091 44 30V12C44 9.79086 42.2091 8 40 8Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="16" cy="21" r="2" fill="url(#grad7)">
-<animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
+    <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
 </circle>
 <circle cx="24" cy="21" r="2" fill="url(#grad7)">
-<animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.3s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
+    <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.3s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
 </circle>
 <circle cx="32" cy="21" r="2" fill="url(#grad7)">
-<animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.6s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
+    <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.6s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
 </circle>
 </svg>
-

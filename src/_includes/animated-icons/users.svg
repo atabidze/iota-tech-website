@@ -1,11 +1,13 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
 <stop offset="100%" stop-color="#E84A5F"/>
 </linearGradient>
 </defs>
-<circle cx="24" cy="16" r="7" stroke="#AAAAAA" stroke-width="1.5"/>
-<path d="M10 40C10 32.268 16.268 26 24 26C31.732 26 38 32.268 38 40" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round"/>
-<circle cx="24" cy="16" r="10" stroke="url(#grad1)" stroke-width="1.5" fill="none">
-    <animate attributeName="stroke-dasharray" values="1 60; 30 31; 1 60" dur="3s" repeatCount="indefinite" />
-    <animate attributeName="opacity" values="0; 1; 0" dur="3s" repeatCount="indefinite" />
-</circle>
+<circle cx="24" cy="16" r="6" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M14 38v-4c0-4.418 4.477-8 10-8s10 3.582 10 8v4" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M34 18 l 2 -1 l 1 2 l -1 2 l -2 1 l -2 -1 l -1 -2 l 1 -2 Z" stroke="url(#grad1)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <animateTransform attributeName="transform" type="rotate" from="0 34 18" to="360 34 18" dur="5s" repeatCount="indefinite" />
+</path>
 </svg>
-

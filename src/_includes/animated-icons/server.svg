@@ -1,12 +1,16 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
 <stop offset="100%" stop-color="#E84A5F"/>
 </linearGradient>
 </defs>
-<rect x="8" y="10" width="32" height="28" rx="2" stroke="#AAAAAA" stroke-width="1.5"/>
-<path d="M14 16H34" stroke="#AAAAAA" stroke-width="1"/>
-<path d="M14 24H34" stroke="#AAAAAA" stroke-width="1"/>
-<path d="M14 32H34" stroke="#AAAAAA" stroke-width="1"/>
-<path d="M14 12H34" stroke="url(#grad3)" stroke-width="2" stroke-linecap="round">
-    <animate attributeName="d" values="M14 12H34; M14 36H34; M14 12H34" dur="3s" repeatCount="indefinite" />
-</path>
+<ellipse cx="24" cy="14" rx="14" ry="5" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M10 14 V 34" stroke="#AAAAAA" stroke-width="1.5"/>
+<path d="M38 14 V 34" stroke="#AAAAAA" stroke-width="1.5"/>
+<ellipse cx="24" cy="34" rx="14" ry="5" stroke="#AAAAAA" stroke-width="1.5" fill="none"/>
+<ellipse cx="24" cy="24" rx="14" ry="5" stroke="#AAAAAA" stroke-width="1.5" fill="none"/>
+<ellipse cx="24" cy="14" rx="13" ry="4" stroke="url(#grad3)" stroke-width="1.5" fill="none">
+    <animate attributeName="cy" values="14; 34; 14" dur="3s" repeatCount="indefinite" />
+</ellipse>
 </svg>
-
