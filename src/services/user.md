@@ -1,7 +1,7 @@
 ---
 slug: user
 title: მომხმარებლები
-sort_order: -72
+sort_order: 1
 icon: users
 service_list:
   - მოკლე აღწერა
