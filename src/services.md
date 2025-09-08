@@ -2,17 +2,19 @@
 title: ჩვენი სერვისები
 layout: base.njk
 permalink: /services/index.html
+section_title: ჩვენი სერვისები
+section_subtitle: გაეცანით ჩვენს მიერ შემოთავაზებულ IT გადაწყვეტილებებს, რომლებიც მორგებულია თქვენი ბიზნესის უნიკალურ საჭიროებებზე.
 ---
 
 <section class="services-page-section">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <h1>ჩვენი სერვისები</h1>
-            <p>გაეცანით ჩვენს მიერ შემოთავაზებულ IT გადაწყვეტილებებს, რომლებიც მორგებულია თქვენი ბიზნესის უნიკალურ საჭიროებებზე.</p>
+            <h1>{{ section_title }}</h1>
+            <p>{{ section_subtitle }}</p>
         </div>
         
         <div class="services-grid">
-            {% for item in collections.services %}
+            {%- for item in collections.services -%}
                 <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
                     <div class="card-header">
                         <div class="card-icon">
@@ -24,7 +26,7 @@ permalink: /services/index.html
                     </div>
                     <span class="card-link">დეტალურად →</span>
                 </a>
-            {% endfor %}
+            {%- endfor -%}
         </div>
     </div>
 </section>
