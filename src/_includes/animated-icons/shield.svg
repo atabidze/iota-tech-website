@@ -6,8 +6,10 @@
 </linearGradient>
 </defs>
 <path d="M24 6l14 6v8c0 9-6.5 14.5-14 18-7.5-3.5-14-9-14-18v-8l14-6z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M20 22h8v6a4 4 0 0 1-8 0v-6z" stroke="url(#grad5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M24 18v4" stroke="url(#grad5)" stroke-width="1.5" stroke-linecap="round">
-<animate attributeName="stroke-dasharray" values="0 4; 4 0; 0 4" dur="3s" repeatCount="indefinite"/>
-</path>
+<g transform="translate(0, 1)">
+  <path d="M20 22h8v6a4 4 0 0 1-8 0v-6z" stroke="url(#grad5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 18v4" stroke="url(#grad5)" stroke-width="1.5" stroke-linecap="round">
+  <animate attributeName="stroke-dasharray" values="0 4; 4 0; 0 4" dur="3s" repeatCount="indefinite"/>
+  </path>
+</g>
 </svg>
