@@ -46,8 +46,8 @@ a { text-decoration: none; color: var(--text-primary); }
     cursor: pointer;
 }
 .services-nav li a {
-    padding: 10; /* <<-- მთავარი შესწორება: ვაშორებთ შიდა დაშორებას */
-    margin: 0;
+    padding: 0; /* <<-- მთავარი შესწორება: ვაშორებთ შიდა დაშორებას */
+    margin: 10;
     line-height: 1; /* ვაბრუნებთ ნორმალურ სიმაღლეზე გრძელი ტექსტისთვის */
     color: var(--text-secondary);
     font-weight: 500;
