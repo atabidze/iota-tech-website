@@ -45,7 +45,7 @@ a { text-decoration: none; color: var(--text-primary); }
     align-items: center;
     gap: 0.5rem;
     padding: 0;
-    margin-bottom: 0.5rem; /* <<-- ეს აკონტროლებს მანძილს სათაურებს შორის */
+    margin-bottom: 0.2rem; /* <<-- ეს აკონტროლებს მანძილს სათაურებს შორის */
     cursor: pointer;
 }
 .services-nav li a {
