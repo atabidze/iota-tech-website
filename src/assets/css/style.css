@@ -63,8 +63,8 @@ a { text-decoration: none; color: var(--text-primary); }
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 .nav-icon-wrapper svg {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
 }
 .services-nav li:hover .nav-icon-wrapper {
     transform: scale(1.1);
