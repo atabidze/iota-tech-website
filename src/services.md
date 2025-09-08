@@ -24,11 +24,6 @@ section_subtitle: გაეცანით ჩვენს მიერ შე�
                         </div>
                         <h3 class="card-title">{{ item.data.title }}</h3>
                     </div>
-                    <ul class="card-description">
-                        {% for service_item in item.data.service_list %}
-                            <li>{{ service_item }}</li>
-                        {% endfor %}
-                    </ul>
                     <span class="card-link">დეტალურად →</span>
                 </a>
             {%- endfor -%}
