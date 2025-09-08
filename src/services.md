@@ -10,27 +10,37 @@ katalogis_dasaxeleba: კატეგორიები
             <aside class="services-nav" data-aos="fade-right">
                 <h3>{{ katalogis_dasaxeleba }}</h3>
                 <ul>
-                    {% for service_item in collections.services %}
+                    {% for category in collections.categories %}
                         <li>
-                            <a href="#{{ service_item.data.slug }}">{{ service_item.data.title }}</a>
+                            <div class="nav-icon-wrapper">
+                                {% if category.data.icon %}
+                                    {% include "animated-icons/" + category.data.icon + ".svg" %}
+                                {% endif %}
+                            </div>
+                            <a href="#{{ category.data.slug }}">{{ category.data.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </aside>
             <div class="services-content">
-                {% for service_item in collections.services %}
-                    <div id="{{ service_item.data.slug }}" class="service-category" data-aos="fade-up">
+                {% for category in collections.categories %}
+                    <div id="{{ category.data.slug }}" class="service-category" data-aos="fade-up">
                         <div class="category-title-wrapper">
-                            <h2>{{ service_item.data.title }}</h2>
+                            <div class="icon-wrapper">
+                                {% if category.data.icon %}
+                                    {% include "animated-icons/" + category.data.icon + ".svg" %}
+                                {% endif %}
+                            </div>
+                            <h2>{{ category.data.title }}</h2>
                         </div>
                         <ul>
-                            {% if service_item.data.service_list %}
-                                {% for service in service_item.data.service_list %}
-                                    <li>{{ service }}</li>
+                            {% if category.data.services %}
+                                {% for service in category.data.services %}
+                                    <li>{{ service.name }}</li>
                                 {% endfor %}
                             {% endif %}
                         </ul>
-                        <a href="{{ service_item.url }}" class="details-link">დეტალურად →</a>
+                        <a href="{{ category.url }}" class="details-link">დეტალურად →</a>
                     </div>
                 {% endfor %}
             </div>
