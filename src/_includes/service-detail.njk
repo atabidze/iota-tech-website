@@ -13,16 +13,14 @@ layout: base.njk
                 <h1>{{ title }}</h1>
             </div>
         </div>
-
         <div class="service-detail-content">
-            {# ახალი ბლოკი ზოგადი აღწერისთვის #}
-            {% if general_description %}
-                <div class="service-general-description" data-aos="fade-up" data-aos-delay="50">
-                    <p>{{ general_description }}</p>
-                </div>
-            {% endif %}
-
-            <ul class="main-description-list" data-aos="fade-up" data-aos-delay="100">
+            <!-- ზოგადი მიმოხილვა -->
+            <div class="service-general-description" data-aos="fade-up" data-aos-delay="100">
+                {{ general_description | safe }}
+            </div>
+            
+            <!-- ბულეტები "შუშის" ეფექტით -->
+            <ul class="main-description-list" data-aos="fade-up" data-aos-delay="200">
                 {% if detailed_list %}
                     {% for item in detailed_list %}
                         <li class="glass-panel">{{ item.point }}</li>

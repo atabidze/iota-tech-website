@@ -14,7 +14,7 @@ section_subtitle: გაეცანით ჩვენს მიერ შე�
         </div>
         
         <div class="services-grid">
-            {%- for item in collections.services -%}
+            {% for item in collections.services %}
                 <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
                     <div class="card-header">
                         <div class="card-icon">
@@ -26,7 +26,7 @@ section_subtitle: გაეცანით ჩვენს მიერ შე�
                     </div>
                     <span class="card-link">დეტალურად →</span>
                 </a>
-            {%- endfor -%}
+            {% endfor %}
         </div>
     </div>
 </section>
