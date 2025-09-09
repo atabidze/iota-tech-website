@@ -2,31 +2,43 @@
 title: ჩვენი სერვისები
 layout: base.njk
 permalink: /services/index.html
-section_title: ჩვენი სერვისები
-section_subtitle: გაეცანით ჩვენს მიერ შემოთავაზებულ IT გადაწყვეტილებებს, რომლებიც მორგებულია თქვენი ბიზნესის უნიკალურ საჭიროებებზე.
+katalogis_dasaxeleba: კატეგორიები
 ---
-
 <section class="services-page-section">
     <div class="container">
-        <div class="section-title" data-aos="fade-up">
-            <h1>{{ section_title }}</h1>
-            <p>{{ section_subtitle }}</p>
-        </div>
-        
-        <div class="services-grid">
-            {%- for item in collections.services -%}
-                <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            {% if item.data.icon %}
-                                 {% include "animated-icons/" + item.data.icon + ".svg" %}
-                            {% endif %}
+        <div class="services-page-layout">
+            <aside class="services-nav" data-aos="fade-right">
+                <h3>{{ katalogis_dasaxeleba }}</h3>
+                <ul>
+                    {% for service_item in collections.services %}
+                        <li>
+                            <div class="nav-icon-wrapper">
+                                {% if service_item.data.icon %}
+                                    {% include "animated-icons/" + service_item.data.icon + ".svg" %}
+                                {% endif %}
+                            </div>
+                            <a href="#{{ service_item.data.slug }}">{{ service_item.data.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </aside>
+            <div class="services-content">
+                {% for service_item in collections.services %}
+                    <div id="{{ service_item.data.slug }}" class="service-category" data-aos="fade-up">
+                        <div class="category-title-wrapper">
+                            <h2>{{ service_item.data.title }}</h2>
                         </div>
-                        <h3 class="card-title">{{ item.data.title }}</h3>
+                        <ul>
+                            {% if service_item.data.service_list %}
+                                {% for service in service_item.data.service_list %}
+                                    <li>{{ service }}</li>
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                        <a href="{{ service_item.url }}" class="details-link">დეტალურად →</a>
                     </div>
-                    <span class="card-link">დეტალურად →</span>
-                </a>
-            {%- endfor -%}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>
