@@ -1,13 +1,49 @@
-<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#9A8CFF"/>
-<stop offset="100%" stop-color="#E84A5F"/>
-</linearGradient>
-</defs>
-<path d="M8 24C8 24 14 14 24 14C34 14 40 24 40 24C40 24 34 34 24 34C14 34 8 24 8 24Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="24" cy="24" r="5" stroke="#AAAAAA" stroke-width="1.5"/>
-<circle cx="24" cy="24" r="2.5" fill="url(#grad6)">
-    <animate attributeName="cx" values="24; 28; 24; 20; 24" dur="4s" repeatCount="indefinite" />
-</circle>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cctv-icon lucide-cctv">
+  <defs>
+    <linearGradient id="cctv-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9A8CFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E84A5F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .animated-path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw-cctv 2s linear forwards infinite;
+    }
+
+    .animated-dot {
+      transform-origin: center;
+      transform: scale(0);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes draw-cctv {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes pulse-dot {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <path class="animated-path" d="M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97" stroke="url(#cctv-gradient)" style="animation-delay: 0s;"/>
+  <path class="animated-path" d="M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z" stroke="url(#cctv-gradient)" style="animation-delay: 0.5s;"/>
+  <path class="animated-path" d="M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15" stroke="url(#cctv-gradient)" style="animation-delay: 1s;"/>
+  <path class="animated-path" d="M2 21v-4" stroke="url(#cctv-gradient)" style="animation-delay: 1.5s;"/>
+  <path class="animated-dot" d="M7 9h.01" stroke="url(#cctv-gradient)" style="animation-delay: 2s;"/>
 </svg>

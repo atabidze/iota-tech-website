@@ -1,18 +1,28 @@
-<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="grad7" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#9A8CFF"/>
-<stop offset="100%" stop-color="#E84A5F"/>
-</linearGradient>
-</defs>
-<path d="M40 8H8C5.79086 8 4 9.79086 4 12V30C4 32.2091 5.79086 34 8 34H14V40L23 34H40C42.2091 34 44 32.2091 44 30V12C44 9.79086 42.2091 8 40 8Z" stroke="#AAAAAA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<circle cx="16" cy="21" r="2" fill="url(#grad7)">
-    <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
-</circle>
-<circle cx="24" cy="21" r="2" fill="url(#grad7)">
-    <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.3s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
-</circle>
-<circle cx="32" cy="21" r="2" fill="url(#grad7)">
-    <animate attributeName="opacity" values="0;1;1;0" dur="2s" begin="0.6s" repeatCount="indefinite" keyTimes="0;0.2;0.8;1"/>
-</circle>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-satellite-icon lucide-satellite">
+  <defs>
+    <linearGradient id="satellite-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9A8CFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E84A5F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .animated-path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw-satellite 2s linear forwards infinite;
+    }
+
+    @keyframes draw-satellite {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+
+  <path class="animated-path" d="m13.5 6.5-3.148-3.148a1.205 1.205 0 0 0-1.704 0L6.352 5.648a1.205 1.205 0 0 0 0 1.704L9.5 10.5" stroke="url(#satellite-gradient)" style="animation-delay: 0s;"/>
+  <path class="animated-path" d="M16.5 7.5 19 5" stroke="url(#satellite-gradient)" style="animation-delay: 0.5s;"/>
+  <path class="animated-path" d="m17.5 10.5 3.148 3.148a1.205 1.205 0 0 1 0 1.704l-2.296 2.296a1.205 1.205 0 0 1-1.704 0L13.5 14.5" stroke="url(#satellite-gradient)" style="animation-delay: 1s;"/>
+  <path class="animated-path" d="M9 21a6 6 0 0 0-6-6" stroke="url(#satellite-gradient)" style="animation-delay: 1.5s;"/>
+  <path class="animated-path" d="M9.352 10.648a1.205 1.205 0 0 0 0 1.704l2.296 2.296a1.205 1.205 0 0 0 1.704 0l4.296-4.296a1.205 1.205 0 0 0 0-1.704l-2.296-2.296a1.205 1.205 0 0 0-1.704 0z" stroke="url(#satellite-gradient)" style="animation-delay: 2s;"/>
 </svg>
