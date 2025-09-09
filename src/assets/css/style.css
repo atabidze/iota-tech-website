@@ -36,14 +36,13 @@ a { text-decoration: none; color: var(--text-primary); }
 .services-page-section { padding: 6rem 0; }
 .section-title { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
 .section-title p { font-size: 1.1rem; color: var(--text-secondary); }
-
 .services-grid { 
     display: grid; 
     gap: 2rem; 
     grid-template-columns: repeat(1, 1fr);
 }
 @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } } /* 4 სვეტი დიდ ეკრანზე */
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
 
 .service-card { 
   display: flex; 
@@ -62,7 +61,7 @@ a { text-decoration: none; color: var(--text-primary); }
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: auto; /* იკავებს მთელ თავისუფალ ადგილს */
+  margin-bottom: auto;
   width: 100%;
 }
 .card-icon { 
@@ -77,22 +76,22 @@ a { text-decoration: none; color: var(--text-primary); }
   height: 100%; 
 }
 .card-title { 
-  font-size: 1.1rem; /* დაპატარავებული ფონტი */
+  font-size: 1rem; /* <<-- დავაპატარავეთ სათაურის ფონტი */
   margin: 0; 
   color: var(--text-primary); 
   line-height: 1.3; 
   transition: color 0.3s;
 }
 .service-card:hover .card-title {
-    color: var(--accent-pink); /* ფერის შეცვლა hover-ზე */
+    color: var(--accent-pink);
 }
 .card-link { 
-  align-self: flex-end; /* გადატანა მარჯვენა კუთხეში */
-  font-size: 0.85rem; /* დაპატარავებული ფონტი */
-  font-weight: 400; /* bold-ის მოშორება */
-  color: var(--text-primary); /* თეთრი ფერი */
+  align-self: flex-end;
+  font-size: 0.8rem; /* <<-- კიდევ დავაპატარავეთ ფონტი */
+  font-weight: 400;
+  color: var(--text-secondary); /* <<-- შევუცვალეთ ფერი */
   transition: transform 0.3s; 
-  margin-top: 1rem; /* დაშორება ზედა კონტენტისგან */
+  margin-top: 1rem;
 }
 .service-card:hover .card-link { 
   transform: translateX(5px); 
@@ -109,10 +108,10 @@ a { text-decoration: none; color: var(--text-primary); }
     display: flex; 
     align-items: center; 
     justify-content: center;
-    background-color: transparent !important; /* იკონის ფონის გაუქმება */
+    background-color: transparent !important;
 }
 .icon-bg svg { 
-    width: 64px; /* გავზარდეთ იკონის ზომა, რადგან ფონი აღარ აქვს */
+    width: 64px;
     height: 64px; 
 }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
