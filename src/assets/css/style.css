@@ -38,8 +38,9 @@ a { text-decoration: none; color: var(--text-primary); }
 .section-title p { font-size: 1.1rem; color: var(--text-secondary); }
 .services-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
 @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } } /* 4 სვეტი დიდ ეკრანზე */
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
 
+/* --- Service Card Styles --- */
 .service-card { 
   display: flex; 
   flex-direction: column; 
@@ -57,7 +58,7 @@ a { text-decoration: none; color: var(--text-primary); }
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: auto; /* იკავებს მთელ თავისუფალ ადგილს და ბმულს ბოლოში ტოვებს */
+  margin-bottom: 1rem;
   width: 100%;
 }
 .card-icon { 
@@ -72,22 +73,16 @@ a { text-decoration: none; color: var(--text-primary); }
   height: 100%; 
 }
 .card-title { 
-  font-size: 1.1rem; /* დაპატარავებული ფონტი */
+  font-size: 1.2rem; 
   margin: 0; 
   color: var(--text-primary); 
-  line-height: 1.3;
-  transition: color 0.3s;
-}
-.service-card:hover .card-title {
-    color: var(--accent-pink); /* ფერის შეცვლა hover-ზე */
+  line-height: 1.3; 
 }
 .card-link { 
-  align-self: flex-end; /* გადატანა მარჯვენა კუთხეში */
-  font-size: 0.9rem; /* დაპატარავებული ფონტი */
-  font-weight: 400; /* bold-ის მოშორება */
-  color: var(--text-primary); /* თეთრი ფერი */
+  margin-top: auto; 
+  color: var(--accent-pink); 
+  font-weight: 700; 
   transition: transform 0.3s; 
-  margin-top: 1rem; /* დაშორება ზედა კონტენტისგან */
 }
 .service-card:hover .card-link { 
   transform: translateX(5px); 
@@ -97,29 +92,23 @@ a { text-decoration: none; color: var(--text-primary); }
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
 .service-detail-header .category-title-wrapper { justify-content: center; display: flex; align-items: center; gap: 1.5rem; }
-/* იკონის ფონის გაუქმება */
-.service-detail-header .icon-bg { 
-    width: 64px; 
-    height: 64px;
-    background-color: transparent !important; 
-}
-.service-detail-header .icon-bg svg { width: 100%; height: 100%; }
-
+.icon-bg { width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+.icon-bg svg { width: 40px; height: 40px; }
+.icon-bg.lavender { background-color: var(--accent-lavender); }
+.icon-bg.pink { background-color: var(--accent-pink); }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
+
 .service-general-description {
-    margin-bottom: 3rem;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
 }
+
 .main-description-list { list-style: none; padding: 0; }
-/* "შუშის" ეფექტის დამატება ბულეტებზე */
 .main-description-list li {
   padding: 1.5rem;
   border-radius: 10px;
   margin-bottom: 1rem;
   border-left: 5px solid var(--accent-lavender);
-  background-color: rgba(30, 30, 30, 0.5);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-color);
 }
