@@ -3,6 +3,7 @@ backend:
   branch: main
 
 publish_mode: editorial_workflow
+
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
@@ -15,14 +16,14 @@ collections:
     identifier_field: "slug"
     sortable_fields: ['sort_order', 'title']
     fields:
-      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
+      - label: "1. მისამართი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
         hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - { label: "სერვისის სათაური", name: "title", widget: "string" }
+      - { label: "2. დასახელება (ქართულად)", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "აირჩიეთ იკონი"
+      - label: "3. აიკონი"
         name: "icon"
         widget: "select"
         required: false
@@ -35,10 +36,15 @@ collections:
           - { label: "CCTV", value: "cctv" }
           - { label: "Messages", value: "messages" }
           - { label: "Briefcase", value: "briefcase" }
-      - label: "ზოგადი მიმოხილვა (დეტალური გვერდისთვის)"
+      - label: "4. ზოგადი აღწერა (დეტალური გვერდისთვის)"
         name: "general_description"
-        widget: "markdown"
-      - label: "სრული აღწერის პუნქტები"
+        widget: "text"
+        required: false
+      - label: "ბარათზე გამოსატანი მოკლე პუნქტები"
+        name: "service_list"
+        widget: "list"
+        required: false
+      - label: "5. სრული აღწერის პუნქტები (+ ნიშნით)"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
