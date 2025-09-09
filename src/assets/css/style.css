@@ -32,74 +32,79 @@ a { text-decoration: none; color: var(--text-primary); }
 .hero-section { padding: 8rem 0; text-align: center; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
 
-.services-page-section { padding: 4rem 0; }
-.services-page-layout { display: flex; gap: 4rem; align-items: flex-start; max-width: 1240px; }
-.services-nav { flex: 0 0 280px; position: sticky; top: 120px; }
-.services-nav h3 { font-size: 1.2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color); margin-bottom: 1rem; }
-.services-nav ul { list-style: none; padding: 0; margin: 0; }
-.services-nav li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0;
-    margin-bottom: -4px;
-    cursor: pointer;
-}
-.services-nav li a {
-    padding: 0;
-    line-height: 1.4;
-    color: var(--text-secondary);
-    font-weight: 500;
-    transition: color 0.3s;
-    flex-grow: 1;
-}
-.nav-icon-wrapper {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-.nav-icon-wrapper svg {
-    width: 100%;
-    height: 100%;
-}
-.services-nav li:hover .nav-icon-wrapper {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px var(--accent-lavender));
-}
-.services-nav li:hover a {
-    color: var(--accent-pink);
-}
-.services-content { flex: 1; }
-.service-category { margin-bottom: 4rem; scroll-margin-top: 120px; }
-.category-title-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 1.5rem;
-}
-.icon-wrapper {
-    flex-shrink: 0;
-    width: 64px;
-    height: 64px;
-}
-.icon-wrapper svg {
-    width: 100%;
-    height: 100%;
-}
-.service-category h2 { border: none; padding: 0; margin: 0; font-size: 2rem; }
-.service-category ul { list-style: none; padding: 0; }
-.service-category li { padding: 0.5rem 0; color: var(--text-secondary); font-size: 1.1rem; }
-.details-link { display: inline-block; margin-top: 1.5rem; color: var(--accent-pink); font-weight: 700; }
+/* --- სერვისების გვერდი (ბარათები) --- */
+.services-page-section { padding: 6rem 0; }
+.section-title { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+.section-title p { font-size: 1.1rem; color: var(--text-secondary); }
+.services-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
 
+/* --- Service Card Styles --- */
+.service-card { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  padding: 1.5rem;
+  border-radius: 20px; 
+  text-decoration: none; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.service-card:hover { 
+  transform: translateY(-10px); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.card-icon { 
+  width: 48px; 
+  height: 48px; 
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.card-icon svg { 
+  width: 100%; 
+  height: 100%; 
+}
+.card-title { 
+  font-size: 1.2rem; 
+  margin: 0; 
+  color: var(--text-primary); 
+  line-height: 1.3; 
+}
+.card-link { 
+  margin-top: auto; 
+  color: var(--accent-pink); 
+  font-weight: 700; 
+  transition: transform 0.3s; 
+}
+.service-card:hover .card-link { 
+  transform: translateX(5px); 
+}
+
+/* --- სერვისის დეტალური გვერდი --- */
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
-.service-detail-header .category-title-wrapper { justify-content: center; }
-.service-detail-header .icon-bg { width: 60px; height: 60px; }
-.service-detail-header i { width: 32px; height: 32px; }
+.service-detail-header .category-title-wrapper { justify-content: center; display: flex; align-items: center; gap: 1.5rem; }
+.icon-bg { width: 80px; height: 80px; border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+.icon-bg svg { width: 40px; height: 40px; }
+.icon-bg.lavender { background-color: var(--accent-lavender); }
+.icon-bg.pink { background-color: var(--accent-pink); }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
+
+.service-general-description {
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
 .main-description-list { list-style: none; padding: 0; }
 .main-description-list li {
   padding: 1.5rem;
