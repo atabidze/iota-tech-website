@@ -1,25 +1,34 @@
 ---
-title: ჩვენი სერვისები
 layout: base.njk
-permalink: /services/index.html
-section_title: ჩვენი სერვისები
-section_subtitle: გაეცანით ჩვენს მიერ შემოთავაზებულ IT გადაწყვეტილებებს, რომლებიც მორგებულია თქვენი ბიზნესის უნიკალურ საჭიროებებზე.
+title: IOTA Tech
+hero_title: ინოვაციური IT გადაწყვეტილებები თქვენი ბიზნესისთვის
+hero_subtitle: ჩვენ ვქმნით უნიკალურ ვებ-გვერდებს, მობილურ აპლიკაციებსა და პროგრამულ უზრუნველყოფას, რათა დავეხმაროთ თქვენს კომპანიას ზრდასა და განვითარებაში.
+templateEngineOverride: njk, md
 ---
 
-<section class="services-page-section">
+<section class="hero-section">
+    <div class="container hero-content" data-aos="fade-in">
+        <h1>{{ hero_title }}</h1>
+        <p>{{ hero_subtitle }}</p>
+        <a href="/contact/" class="cta-button">დაგვიკავშირდით</a>
+    </div>
+</section>
+
+<section id="home-services" class="home-services-section">
     <div class="container">
-        <div class="section-title" data-aos="fade-up">
-            <h1>{{ section_title }}</h1>
-            <p>{{ section_subtitle }}</p>
+        <div class="section-title text-center" data-aos="fade-up">
+            <h2>ჩვენი სერვისები</h2>
+            <p>გთავაზობთ სრულ IT მომსახურებას, რომელიც დაგეხმარებათ იყოთ კონკურენტუნარიანი ციფრულ სამყაროში.</p>
         </div>
         
         <div class="services-grid">
-            {%- for item in collections.services -%}
+            {# მთავარ გვერდზე ვაჩვენებთ პირველ 4 სერვისს, დალაგებულს რიგითობის მიხედვით #}
+            {%- for item in collections.services | sortBy('data.sort_order') | slice(0, 4) -%}
                 <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
                     <div class="card-header">
                         <div class="card-icon">
                             {% if item.data.icon %}
-                                 {% include "animated-icons/" + item.data.icon + ".svg" %}
+                                {% include "animated-icons/" + item.data.icon + ".svg" %}
                             {% endif %}
                         </div>
                         <h3 class="card-title">{{ item.data.title }}</h3>
@@ -27,6 +36,10 @@ section_subtitle: გაეცანით ჩვენს მიერ შე�
                     <span class="card-link">დეტალურად →</span>
                 </a>
             {%- endfor -%}
+        </div>
+
+        <div class="view-all-services" data-aos="fade-up">
+            <a href="/services/" class="cta-button-secondary">ყველა სერვისის ნახვა</a>
         </div>
     </div>
 </section>
