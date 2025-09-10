@@ -51,13 +51,6 @@ collections:
   - name: "pages"
     label: "მთავარი გვერდები"
     files:
-      - file: "src/index.md"
-        label: "მთავარი გვერდი"
-        name: "index"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
-          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
       - file: "src/services.md"
         label: "სერვისების გვერდი"
         name: "services_page"
@@ -65,19 +58,8 @@ collections:
           - { label: "სათაური", name: "title", widget: "string" }
           - { label: "სექციის სათაური", name: "section_title", widget: "string" }
           - { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }
-      - file: "src/about.md"
-        label: "ჩვენ შესახებ"
-        name: "about"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/contact.md"
-        label: "კონტაქტი"
-        name: "contact"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-
+      # ... (აქ შეიძლება იყოს სხვა გვერდები, როგორიცაა index.md, about.md და ა.შ.)
+      
   - name: "settings"
     label: "ზოგადი პარამეტრები"
     files:
