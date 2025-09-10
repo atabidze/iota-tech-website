@@ -1,19 +1,18 @@
 module.exports = function(eleventyConfig) {
-  // ეს ხაზი უზრუნველყოფს, რომ თქვენი სურათების და სტილების ფოლდერი დაკოპირდეს საბოლოო საიტზე
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/admin");
 
-  // ეს არის ფილტრი, რომელიც სორტირების საშუალებას გვაძლევს
-  eleventyConfig.addFilter("sortBy", (arr, key) => {
-    if (!arr) return [];
-    return arr.slice().sort((a, b) => (a.data[key] < b.data[key] ? -1 : 1));
+  eleventyConfig.addCollection("services", function(collectionApi) {
+    // ეს არის სწორი, ერთადერთი return, რომელიც ჯერ ფილტრავს და შემდეგ ალაგებს.
+    return collectionApi.getFilteredByTag("services")
+      // ვფილტრავთ კოლექციას, რათა წაიშალოს ყველა ჩანაწერი, რომელსაც არ აქვს სათაური.
+      .filter(item => item.data.title && item.data.title.trim() !== "")
+      .sort((a, b) => (a.data.sort_order || 99) - (b.data.sort_order || 99));
   });
 
-  // თქვენი პროექტის კონფიგურაცია
   return {
-    dir: {
-      input: "src",
-      output: "_site",
-      includes: "_includes"
-    }
+    dir: { input: "src", includes: "_includes", output: "_site" },
+    templateFormats: ["md", "njk", "html"],
+    markdownTemplateEngine: "njk",
   };
 };
