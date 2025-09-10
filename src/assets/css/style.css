@@ -130,17 +130,3 @@ a { text-decoration: none; color: var(--text-primary); }
   margin-bottom: 1rem;
   border-left: 5px solid var(--accent-lavender);
 }
-/* =========================================
-   სერვისის ბარათის აიკონის სტილები
-   ========================================= */
-.service-card .card-header .card-icon svg {
-  width: 32px;  /* აიკონის სიგანე */
-  height: 32px; /* აიკონის სიმაღლე */
-  stroke: #e0e0e0; /* აიკონის ხაზების ფერი */
-  transition: all 0.3s ease; /* ფერის ცვლილების ანიმაცია */
-}
-
-/* აიკონის ფერის ცვლილება მაუსის მიტანისას */
-.service-card:hover .card-header .card-icon svg {
-  stroke: #e84a5f; /* აიკონის ფერი, როცა მაუსს მიიტანთ (ვარდისფერი) */
-}
