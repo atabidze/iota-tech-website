@@ -19,7 +19,7 @@ section_subtitle: გაეცანით ჩვენს მიერ შე�
                     <div class="card-header">
                         <div class="card-icon">
                             {% if item.data.icon %}
-                                 {% include "animated-icons/" + item.data.icon + ".svg" %}
+                                {% include "animated-icons/" + item.data.icon + ".svg" %}
                             {% endif %}
                         </div>
                         <h3 class="card-title">{{ item.data.title }}</h3>
