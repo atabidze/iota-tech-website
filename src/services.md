@@ -14,7 +14,7 @@ section_subtitle: გაეცანით ჩვენს მიერ შე�
         </div>
         
         <div class="services-grid">
-            {%- for item in collections.services -%}
+            {%- for item in collections.services | sortBy('data.sort_order') -%}
                 <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
                     <div class="card-header">
                         <div class="card-icon">
