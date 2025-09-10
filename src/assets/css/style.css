@@ -77,6 +77,13 @@ a { text-decoration: none; color: var(--text-primary); }
   height: 100%;
   object-fit: contain;
 }
+.card-icon svg path {
+  stroke: var(--accent-lavender);
+  transition: all 0.3s ease;
+}
+.service-card:hover .card-icon svg path {
+  stroke: var(--accent-pink);
+}
 .card-title { 
   font-size: 1rem;
   margin: 0; 
@@ -99,18 +106,6 @@ a { text-decoration: none; color: var(--text-primary); }
   transform: translateX(5px); 
 }
 
-/* =========================================
-   საბოლოო შესწორება აიკონებისთვის
-   ========================================= */
-.card-icon svg path {
-  stroke: var(--accent-lavender); /* ვანიჭებთ ფერს SVG-ის შიდა ხაზებს */
-  transition: all 0.3s ease;
-}
-.service-card:hover .card-icon svg path {
-  stroke: var(--accent-pink); /* ვცვლით ფერს მაუსის მიტანისას */
-}
-/* ========================================= */
-
 /* --- სერვისის დეტალური გვერდი --- */
 .service-detail-section { padding: 6rem 0; }
 .service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
@@ -127,6 +122,9 @@ a { text-decoration: none; color: var(--text-primary); }
 .icon-bg svg { 
     width: 64px;
     height: 64px; 
+}
+.icon-bg svg path {
+    stroke: var(--accent-lavender); /* ვანიჭებთ ფერს დეტალური გვერდის SVG-ის ხაზებს */
 }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .service-general-description {
