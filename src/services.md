@@ -1,32 +1,33 @@
 ---
-title: ჩვენი სერვისები
 layout: base.njk
-permalink: /services/index.html
-section_title: ჩვენი სერვისები
-section_subtitle: გაეცანით ჩვენს მიერ შემოთავაზებულ IT გადაწყვეტილებებს, რომლებიც მორგებულია თქვენი ბიზნესის უნიკალურ საჭიროებებზე.
+title: ჩვენი სერვისები
 ---
 
-<section class="services-page-section">
+<section class="services-list-section">
     <div class="container">
-        <div class="section-title" data-aos="fade-up">
-            <h1>{{ section_title }}</h1>
-            <p>{{ section_subtitle }}</p>
+        <div class="section-header" data-aos="fade-up">
+            <h1>ჩვენი სერვისები</h1>
+            <p>ჩვენ გთავაზობთ ინოვაციურ ტექნოლოგიურ გადაწყვეტილებებს თქვენი ბიზნესის ზრდისა და ეფექტურობისთვის.</p>
         </div>
-        
-        <div class="services-grid">
-            {%- for item in collections.services -%}
-                <a href="{{ item.url }}" class="service-card glass-panel" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
-                    <div class="card-header">
+
+        <div class="service-cards-container" data-aos="fade-up" data-aos-delay="200">
+            {% for service in collections.services %}
+                <a href="{{ service.url }}" class="service-card-link">
+                    <div class="service-card glass-panel">
                         <div class="card-icon">
-                            {% if item.data.icon %}
-                                 {% include "animated-icons/" + item.data.icon + ".svg" %}
+                            {% if service.data.icon %}
+                                {% include "animated-icons/" + service.data.icon + ".svg" %}
                             {% endif %}
                         </div>
-                        <h3 class="card-title">{{ item.data.title }}</h3>
+                        <h3>{{ service.data.title }}</h3>
+                        <p>{{ service.data.summary }}</p>
+                        <span class="read-more">
+                            გაიგე მეტი
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
                     </div>
-                    <span class="card-link">დეტალურად →</span>
                 </a>
-            {%- endfor -%}
+            {% endfor %}
         </div>
     </div>
 </section>
