@@ -18,7 +18,8 @@ permalink: /
             <p>გაეცანით ჩვენს სერვისებს, რომლებიც დაგეხმარებათ გააუმჯობესოთ თქვენი კომპანიის ეფექტურობა და უსაფრთხოება.</p>
         </div>
         <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
-            {%- for service in collections.services | limit(4) -%}
+            {# --- აქ შევიდა ცვლილება: | limit(4) შეიცვალა .slice(0, 4)-ით --- #}
+            {%- for service in collections.services | reverse | slice(0, 4) -%}
                 <a href="{{ service.url }}" class="service-card glass-panel">
                     <div class="card-header">
                         <div class="card-icon">
