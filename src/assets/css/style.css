@@ -207,7 +207,7 @@ a.service-card:visited .card-title {
     flex-direction: column;
     padding: 1rem 0.1rem; /* <<<--- 2. ცვლილება აქ: დაშორება შემცირდა */
     background: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(1.5rem);
+    backdrop-filter: blur(5rem);
   }
   
   .main-nav a {
