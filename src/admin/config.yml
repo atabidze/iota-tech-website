@@ -6,7 +6,6 @@ publish_mode: editorial_workflow
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
-# === 1. დაემატა i18n-ის მთავარი კონფიგურაცია ===
 i18n:
   structure: multiple_folders
   locales: [ka, en]
@@ -15,33 +14,25 @@ i18n:
 collections:
   - name: "services"
     label: "სერვისების კატალოგი"
-    folder: "src/services/{{lng}}" # <<< შეიცვალა
+    folder: "src/services/{{lng}}"
     create: true
-    i18n: true # <<< დაემატა
+    i18n: true # <-- მხოლოდ ეს არის საჭირო კოლექციის დონეზე
     slug: "{{slug}}"
     identifier_field: "slug"
     sortable_fields: ['sort_order', 'title']
     fields:
-      # --- i18n-ისთვის საჭირო დამალული ველები ---
-      - { label: "ენა", name: "lang", widget: "hidden", i18n: "locale" }
-      - { label: "თარგმანის გასაღები", name: "translationKey", widget: "hidden", i18n: "translationManager" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      # --- ველების i18n მართვა ---
+      # --- წაიშალა ზედმეტი i18n პარამეტრები ველებიდან ---
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
         hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
-        pattern: ['^[a-z0-g]+(?:-[a-z0-g]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-        i18n: "duplicate" # თარგმანისას გადმოკოპირდება
-      - { label: "სერვისის სათაური", name: "title", widget: "string", i18n: "translate" } # სათარგმნი
-      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0, i18n: "duplicate" } # გადმოკოპირდება
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
+      - { label: "სერვისის სათაური", name: "title", widget: "string" }
+      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
       - label: "აირჩიეთ იკონი"
         name: "icon"
         widget: "select"
         required: false
-        i18n: "duplicate" # გადმოკოპირდება
         options:
           - { label: "Users", value: "users" }
           - { label: "Network", value: "network" }
@@ -54,16 +45,16 @@ collections:
       - label: "ზოგადი მიმოხილვა (დეტალური გვერდისთვის)"
         name: "general_description"
         widget: "markdown"
-        i18n: "translate" # სათარგმნი
       - label: "სრული აღწერის პუნქტები"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
-        i18n: "translate" # სათარგმნი
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 
-  # === 2. "pages" კოლექცია გაიყო ორად ===
   - name: "pages_ka"
     label: "მთავარი გვერდები (ქართული)"
     files:
