@@ -6,26 +6,42 @@ publish_mode: editorial_workflow
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
+# === 1. დაემატა i18n-ის მთავარი კონფიგურაცია ===
+i18n:
+  structure: multiple_folders
+  locales: [ka, en]
+  default_locale: ka
+
 collections:
   - name: "services"
     label: "სერვისების კატალოგი"
-    folder: "src/services"
+    folder: "src/services/{{lng}}" # <<< შეიცვალა
     create: true
+    i18n: true # <<< დაემატა
     slug: "{{slug}}"
     identifier_field: "slug"
     sortable_fields: ['sort_order', 'title']
     fields:
+      # --- i18n-ისთვის საჭირო დამალული ველები ---
+      - { label: "ენა", name: "lang", widget: "hidden", i18n: "locale" }
+      - { label: "თარგმანის გასაღები", name: "translationKey", widget: "hidden", i18n: "translationManager" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
+      # --- ველების i18n მართვა ---
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
         hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - { label: "სერვისის სათაური", name: "title", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
+        pattern: ['^[a-z0-g]+(?:-[a-z0-g]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
+        i18n: "duplicate" # თარგმანისას გადმოკოპირდება
+      - { label: "სერვისის სათაური", name: "title", widget: "string", i18n: "translate" } # სათარგმნი
+      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0, i18n: "duplicate" } # გადმოკოპირდება
       - label: "აირჩიეთ იკონი"
         name: "icon"
         widget: "select"
         required: false
+        i18n: "duplicate" # გადმოკოპირდება
         options:
           - { label: "Users", value: "users" }
           - { label: "Network", value: "network" }
@@ -38,46 +54,76 @@ collections:
       - label: "ზოგადი მიმოხილვა (დეტალური გვერდისთვის)"
         name: "general_description"
         widget: "markdown"
+        i18n: "translate" # სათარგმნი
       - label: "სრული აღწერის პუნქტები"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
+        i18n: "translate" # სათარგმნი
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
 
-  - name: "pages"
-    label: "მთავარი გვერდები"
+  # === 2. "pages" კოლექცია გაიყო ორად ===
+  - name: "pages_ka"
+    label: "მთავარი გვერდები (ქართული)"
     files:
-      - file: "src/index.md"
+      - file: "src/ka/index.md"
         label: "მთავარი გვერდი"
-        name: "index"
+        name: "index_ka"
         fields:
           - { label: "სათაური", name: "title", widget: "string" }
           - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
           - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/services.md"
+      - file: "src/ka/services.md"
         label: "სერვისების გვერდი"
-        name: "services_page"
+        name: "services_page_ka"
         fields:
           - { label: "სათაური", name: "title", widget: "string" }
           - { label: "სექციის სათაური", name: "section_title", widget: "string" }
           - { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }
-      - file: "src/about.md"
+      - file: "src/ka/about.md"
         label: "ჩვენ შესახებ"
-        name: "about"
+        name: "about_ka"
         fields:
           - { label: "სათაური", name: "title", widget: "string" }
           - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/contact.md"
+      - file: "src/ka/contact.md"
         label: "კონტაქტი"
-        name: "contact"
+        name: "contact_ka"
         fields:
           - { label: "სათაური", name: "title", widget: "string" }
           - { label: "ტექსტი", name: "body", widget: "markdown" }
 
+  - name: "pages_en"
+    label: "Main Pages (English)"
+    files:
+      - file: "src/en/index.md"
+        label: "Home Page"
+        name: "index_en"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+      - file: "src/en/services.md"
+        label: "Services Page"
+        name: "services_page_en"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Section Title", name: "section_title", widget: "string" }
+          - { label: "Section Subtitle", name: "section_subtitle", widget: "text" }
+      - file: "src/en/about.md"
+        label: "About Us"
+        name: "about_en"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "src/en/contact.md"
+        label: "Contact"
+        name: "contact_en"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          
   - name: "settings"
     label: "ზოგადი პარამეტრები"
     files:
