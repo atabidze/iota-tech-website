@@ -28,6 +28,7 @@ a { text-decoration: none; color: var(--text-primary); }
 .header-container { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-weight: 700; font-size: 1.5rem; }
 
+/* === 1. ცვლილება აქ: მენიუს ლინკები გახდა ვარდისფერი === */
 .main-nav a {
   margin: 0 1rem;
   font-weight: 500;
@@ -35,8 +36,9 @@ a { text-decoration: none; color: var(--text-primary); }
   color: var(--accent-pink);
 }
 .main-nav a:hover {
-  color: var(--text-primary);
+  color: var(--text-primary); /* მაუსის მიტანისას ხდება თეთრი */
 }
+/* ======================================================= */
 
 .hero-section { padding: 8rem 0; text-align: center; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
@@ -162,7 +164,11 @@ a.service-card:visited .card-title {
   .hero-section,
   .services-page-section,
   .service-detail-section { padding: 4rem 0; }
-  
+
+  .main-nav {
+    display: none;
+  }
+
   .mobile-nav-toggle {
     display: block;
     position: relative;
@@ -193,28 +199,20 @@ a.service-card:visited .card-title {
     transform: translateY(-6.5px) rotate(-45deg);
   }
 
-  /* === სრულეკრანიანი მენიუს სტილები (გასწორებული ვერსია) === */
-  .main-nav {
-    display: none; /* საწყის მდგომარეობაში მენიუ დამალულია */
-    transition: none; /* ვშლით ძველ transition-ს */
-  }
-
   .main-nav[data-visible="true"] {
-    display: flex; /* გამოჩენისას ირთვება flex */
+    display: flex;
     position: fixed;
     z-index: 999;
-    inset: 0; /* იკავებს მთლიან ეკრანს */
-    
+    inset: 0 0 0 50%;
     flex-direction: column;
-    justify-content: center; /* კონტენტის ცენტრირება ვერტიკალურად */
-    align-items: center; /* კონტენტის ცენტრირება ჰორიზონტალურად */
-    
-    background: var(--dark-bg); /* მყარი ფონი */
+    padding: 1rem 0.1rem; /* <<<--- 2. ცვლილება აქ: დაშორება შემცირდა */
+    background: rgba(18, 18, 18, 1);
+    backdrop-filter: blur(5rem);
   }
   
   .main-nav a {
-    margin: 1rem 0;
-    font-size: 1.5rem;
+    margin: 0.1rem 0;
+    font-size: 1.2rem;
   }
 
   .service-detail-header .category-title-wrapper {
