@@ -1,9 +1,10 @@
 ---
+lang: ka
+permalink: /about/
+translationKey: aboutPage
 layout: base.njk
 title: ჩვენ შესახებ
-permalink: /about/
 ---
-
 <section class="service-detail-section">
     <div class="container">
         <header class="service-detail-header" data-aos="fade-up">

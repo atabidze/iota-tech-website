@@ -1,7 +1,9 @@
 ---
+lang: ka
+permalink: /contact/
+translationKey: contactPage
 layout: base.njk
 title: კონტაქტი
-permalink: /contact/
 ---
 
 <section class="service-detail-section">
