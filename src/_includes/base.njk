@@ -61,29 +61,38 @@
 
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
+      const particlesBg = document.getElementById('tsparticles-bg'); // ვიპოვეთ ფონის ელემენტი
+
+      const closeMenu = () => {
+        mobileNav.setAttribute('data-visible', 'false');
+        mobileNavToggle.setAttribute('aria-expanded', 'false');
+        particlesBg.style.zIndex = '-1'; // ფონს ვაბრუნებთ უკან
+        window.removeEventListener('scroll', closeMenuOnScroll);
+      };
+
+      const openMenu = () => {
+        mobileNav.setAttribute('data-visible', 'true');
+        mobileNavToggle.setAttribute('aria-expanded', 'true');
+        particlesBg.style.zIndex = '998'; // ფონი გადმოგვაქვს მენიუს უკან
+        window.addEventListener('scroll', closeMenuOnScroll);
+      };
 
       const closeMenuOnScroll = () => {
-        // თუ მენიუ გახსნილია, ვხურავთ
         if (mobileNav.getAttribute('data-visible') === 'true') {
-          mobileNav.setAttribute('data-visible', 'false');
-          mobileNavToggle.setAttribute('aria-expanded', 'false');
+          closeMenu();
         }
       };
 
       mobileNavToggle.addEventListener('click', () => {
         const isVisible = mobileNav.getAttribute('data-visible');
         if (isVisible === 'true') {
-          mobileNav.setAttribute('data-visible', 'false');
-          mobileNavToggle.setAttribute('aria-expanded', 'false');
+          closeMenu();
         } else {
-          mobileNav.setAttribute('data-visible', 'true');
-          mobileNavToggle.setAttribute('aria-expanded', 'true');
+          openMenu();
         }
       });
 
-      // ვამატებთ scroll event listener-ს, რომელიც მუდმივად იმუშავებს
-      window.addEventListener('scroll', closeMenuOnScroll);
-
+      // tsParticles კოდი უცვლელია...
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
         "background": { "color": { "value": "#121212" }},
