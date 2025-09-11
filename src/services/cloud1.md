@@ -1,5 +1,5 @@
 ---
-slug: cloud1
+slug: cloud
 title: ქლაუდი
 sort_order: 1
 icon: cloud
