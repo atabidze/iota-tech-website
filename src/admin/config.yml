@@ -16,13 +16,12 @@ collections:
     label: "სერვისების კატალოგი"
     folder: "src/services/{{lng}}"
     create: true
-    i18n: true # <-- მხოლოდ ეს არის საჭირო კოლექციის დონეზე
+    i18n: true
     slug: "{{slug}}"
-    identifier_field: "slug"
+    identifier_field: "slug" # <<< დავაბრუნეთ: ეს აკავშირებს თარგმანებს
     sortable_fields: ['sort_order', 'title']
     fields:
-      # --- წაიშალა ზედმეტი i18n პარამეტრები ველებიდან ---
-      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
+      - label: "ფაილის სახელი (ლათინურად, ტირეებით)" # <<< დავაბრუნეთ slug ველი
         name: "slug"
         widget: "string"
         hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
@@ -53,8 +52,7 @@ collections:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-
+      
   - name: "pages_ka"
     label: "მთავარი გვერდები (ქართული)"
     files:
