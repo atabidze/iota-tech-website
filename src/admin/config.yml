@@ -11,8 +11,8 @@ collections:
     label: "სერვისები (ქართული)"
     folder: "src/services/ka"
     create: true
-    slug: "{{slug}}"
-    identifier_field: "slug" # <<<--- დაემატა ეს ხაზი
+    slug: "{{fields.slug}}" # <<< შეიცვალა {{slug}} -> {{fields.slug}}
+    identifier_field: "slug"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
@@ -53,8 +53,8 @@ collections:
     label: "Services (English)"
     folder: "src/services/en"
     create: true
-    slug: "{{slug}}"
-    identifier_field: "slug" # <<<--- დაემატა ეს ხაზი
+    slug: "{{fields.slug}}" # <<< შეიცვალა {{slug}} -> {{fields.slug}}
+    identifier_field: "slug"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
