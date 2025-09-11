@@ -7,6 +7,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("./src/assets/");
+  eleventyConfig.addPassthroughCopy("src/admin"); // <<<--- დაემატა ეს ხაზი
 
   return {
     dir: {
