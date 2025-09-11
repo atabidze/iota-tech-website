@@ -137,11 +137,11 @@ a { text-decoration: none; color: var(--text-primary); }
 .animated-path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: draw-icon-animation 1s linear forwards infinite;
+  animation: draw-icon-animation 3s linear forwards infinite;
 }
 
 @keyframes draw-icon-animation {
   to {
-    stroke-dashoffset: 10;
+    stroke-dashoffset: 0;
   }
 }
