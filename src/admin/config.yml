@@ -18,10 +18,10 @@ collections:
     create: true
     i18n: true
     slug: "{{slug}}"
-    identifier_field: "slug" # <<< დავაბრუნეთ: ეს აკავშირებს თარგმანებს
-    sortable_fields: ['sort_order', 'title']
+    identifier_field: "uuid" # <<< 1. იდენტიფიკატორად ვიყენებთ UUID-ს
     fields:
-      - label: "ფაილის სახელი (ლათინურად, ტირეებით)" # <<< დავაბრუნეთ slug ველი
+      - { label: "UUID", name: "uuid", widget: "uuid" } # <<< 2. დაემატა უნიკალური ID-ს ველი
+      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
         hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
