@@ -6,21 +6,7 @@
     </linearGradient>
   </defs>
 
-  <style>
-    .animated-path {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: draw-database 2s linear forwards infinite;
-    }
-
-    @keyframes draw-database {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-  </style>
-
-  <ellipse cx="12" cy="5" rx="9" ry="3" stroke="url(#database-gradient)" class="animated-path" style="animation-delay: 0s;"/>
-  <path d="M3 5V19A9 3 0 0 0 21 19V5" stroke="url(#database-gradient)" class="animated-path" style="animation-delay: 0.5s;"/>
-  <path d="M3 12A9 3 0 0 0 21 12" stroke="url(#database-gradient)" class="animated-path" style="animation-delay: 1s;"/>
+  <ellipse cx="12" cy="5" rx="9" ry="3" stroke="url(#database-gradient)" class="animated-path"/>
+  <path d="M3 5V19A9 3 0 0 0 21 19V5" stroke="url(#database-gradient)" class="animated-path"/>
+  <path d="M3 12A9 3 0 0 0 21 12" stroke="url(#database-gradient)" class="animated-path"/>
 </svg>

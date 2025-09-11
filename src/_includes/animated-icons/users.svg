@@ -6,22 +6,8 @@
     </linearGradient>
   </defs>
 
-  <style>
-    .animated-path {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: draw-users 2s linear infinite; /* შეიცვალა 0.5s-დან 2s-ზე */
-    }
-
-    @keyframes draw-users {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-  </style>
-
   <path class="animated-path" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="url(#users-gradient)"/>
-  <path class="animated-path" d="M16 3.128a4 4 0 0 1 0 7.744" stroke="url(#users-gradient)" style="animation-delay: 0.5s;"/>
-  <path class="animated-path" d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="url(#users-gradient)" style="animation-delay: 1s;"/>
-  <circle cx="9" cy="7" r="4" stroke="url(#users-gradient)" fill="none" class="animated-path" style="animation-delay: 1.5s;"/>
+  <path class="animated-path" d="M16 3.128a4 4 0 0 1 0 7.744" stroke="url(#users-gradient)"/>
+  <path class="animated-path" d="M22 21v-2a4 4 0 0 0-3-3.87" stroke="url(#users-gradient)"/>
+  <circle cx="9" cy="7" r="4" stroke="url(#users-gradient)" fill="none" class="animated-path"/>
 </svg>

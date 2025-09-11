@@ -1,29 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chart-no-axes-combined-icon lucide-chart-no-axes-combined">
   <defs>
-    <linearGradient id="grad1" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+    <linearGradient id="chart-gradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#9A8CFF"/>
       <stop offset="100%" stop-color="#E84A5F"/>
     </linearGradient>
   </defs>
 
-  <style>
-    .animated-path {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: draw-chart 2s linear forwards infinite;
-    }
-
-    @keyframes draw-chart {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-  </style>
-
-  <path class="animated-path" d="M12 16v5" stroke="url(#grad1)" style="animation-delay: 0s;"/>
-  <path class="animated-path" d="M16 14v7" stroke="url(#grad1)" style="animation-delay: 0.2s;"/>
-  <path class="animated-path" d="M20 10v11" stroke="url(#grad1)" style="animation-delay: 0.4s;"/>
-  <path class="animated-path" d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" stroke="url(#grad1)" style="animation-delay: 0.6s;"/>
-  <path class="animated-path" d="M4 18v3" stroke="url(#grad1)" style="animation-delay: 0.8s;"/>
-  <path class="animated-path" d="M8 14v7" stroke="url(#grad1)" style="animation-delay: 1s;"/>
+  <path class="animated-path" d="M12 16v5" stroke="url(#chart-gradient)"/>
+  <path class="animated-path" d="M16 14v7" stroke="url(#chart-gradient)"/>
+  <path class="animated-path" d="M20 10v11" stroke="url(#chart-gradient)"/>
+  <path class="animated-path" d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" stroke="url(#chart-gradient)"/>
+  <path class="animated-path" d="M4 18v3" stroke="url(#chart-gradient)"/>
+  <path class="animated-path" d="M8 14v7" stroke="url(#chart-gradient)"/>
 </svg>

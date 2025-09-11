@@ -6,43 +6,15 @@
     </linearGradient>
   </defs>
 
-  <style>
-    .animated-path {
-      stroke-dasharray: 1000;
-      stroke-dashoffset: 1000;
-      animation: draw-server 2s linear forwards infinite;
-    }
-
-    .animated-circle {
-      transform-origin: center;
-      transform: scale(0);
-      animation: pulse-circle 2s ease-in-out infinite;
-    }
-
-    @keyframes draw-server {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    @keyframes pulse-circle {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-      50% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(0);
-        opacity: 0;
-      }
-    }
-  </style>
-
-  <rect width="20" height="8" x="2" y="2" rx="2" ry="2" stroke="url(#server-gradient)" class="animated-path" style="animation-delay: 0s;"/>
-  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" stroke="url(#server-gradient)" class="animated-path" style="animation-delay: 0.5s;"/>
-  <circle cx="6" cy="6" r="1" fill="url(#server-gradient)" class="animated-circle" style="animation-delay: 1s;"/>
-  <circle cx="6" cy="18" r="1" fill="url(#server-gradient)" class="animated-circle" style="animation-delay: 1.5s;"/>
+  <rect width="20" height="8" x="2" y="2" rx="2" ry="2" stroke="url(#server-gradient)" class="animated-path"/>
+  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" stroke="url(#server-gradient)" class="animated-path"/>
+  
+  <circle cx="6" cy="6" r="1" fill="url(#server-gradient)">
+      <animate attributeName="r" values="1; 2; 1" dur="2s" begin="1s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0; 1; 0" dur="2s" begin="1s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="6" cy="18" r="1" fill="url(#server-gradient)">
+      <animate attributeName="r" values="1; 2; 1" dur="2s" begin="1.5s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0; 1; 0" dur="2s" begin="1.5s" repeatCount="indefinite" />
+  </circle>
 </svg>
