@@ -193,36 +193,28 @@ a.service-card:visited .card-title {
     transform: translateY(-6.5px) rotate(-45deg);
   }
 
-  /* === სრულეკრანიანი მენიუს სტილები === */
+  /* === სრულეკრანიანი მენიუს სტილები (გასწორებული ვერსია) === */
   .main-nav {
-    position: fixed;
-    z-index: 999;
-    inset: 0; /* 1. მენიუ იკავებს მთლიან ეკრანს */
-
-    /* 2. ლინკების ცენტრირება */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
-    background: var(--dark-bg); /* 3. მყარი, მუქი ფონი */
-
-    /* 4. გამოჩენის fade-in ეფექტი */
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+    display: none; /* საწყის მდგომარეობაში მენიუ დამალულია */
+    transition: none; /* ვშლით ძველ transition-ს */
   }
 
   .main-nav[data-visible="true"] {
-    opacity: 1;
-    pointer-events: auto;
-    visibility: visible;
+    display: flex; /* გამოჩენისას ირთვება flex */
+    position: fixed;
+    z-index: 999;
+    inset: 0; /* იკავებს მთლიან ეკრანს */
+    
+    flex-direction: column;
+    justify-content: center; /* კონტენტის ცენტრირება ვერტიკალურად */
+    align-items: center; /* კონტენტის ცენტრირება ჰორიზონტალურად */
+    
+    background: var(--dark-bg); /* მყარი ფონი */
   }
   
   .main-nav a {
     margin: 1rem 0;
-    font-size: 1.5rem; /* ლინკები გავადიდეთ */
+    font-size: 1.5rem;
   }
 
   .service-detail-header .category-title-wrapper {
