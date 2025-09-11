@@ -53,10 +53,6 @@ a { text-decoration: none; color: var(--text-primary); }
   text-decoration: none; 
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
-.service-card:hover { 
-  transform: translateY(-10px); 
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
-}
 .card-header {
   display: flex;
   align-items: center;
@@ -84,17 +80,6 @@ a { text-decoration: none; color: var(--text-primary); }
   line-height: 1.3; 
   transition: color 0.3s;
 }
-.service-card:hover .card-title {
-    color: var(--accent-pink);
-}
-/* === ახალი კოდი მობილურზე დაჭერისა და ნანახი ბმულისთვის === */
-.service-card:active .card-title {
-  color: var(--accent-pink);
-}
-a.service-card:visited .card-title {
-  color: var(--text-primary) !important; /* !important უზრუნველყოფს, რომ ეს წესი ყოველთვის შესრულდეს */
-}
-/* ========================================================== */
 .card-link { 
   align-self: flex-end;
   font-size: 0.8rem;
@@ -103,8 +88,30 @@ a.service-card:visited .card-title {
   transition: transform 0.3s; 
   margin-top: 1rem;
 }
-.service-card:hover .card-link { 
-  transform: translateX(5px); 
+
+/* === შესწორება: Hover ეფექტების გამოყოფა მხოლოდ დესკტოპისთვის === */
+@media (hover: hover) {
+  .service-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
+  }
+  .service-card:hover .card-title {
+    color: var(--accent-pink);
+  }
+  .service-card:hover .card-link { 
+    transform: translateX(5px); 
+  }
+}
+/* ========================================================== */
+
+/* Active (დაჭერის მომენტის) ეფექტი */
+.service-card:active .card-title {
+  color: var(--accent-pink);
+}
+
+/* ნანახი ბმულის ფერის კორექცია */
+a.service-card:visited .card-title {
+  color: var(--text-primary) !important;
 }
 
 /* --- სერვისის დეტალური გვერდი --- */
@@ -123,6 +130,9 @@ a.service-card:visited .card-title {
 .icon-bg svg { 
     width: 64px;
     height: 64px; 
+}
+.icon-bg svg path {
+    stroke: var(--accent-lavender);
 }
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .service-general-description {
@@ -153,7 +163,7 @@ a.service-card:visited .card-title {
   .hero-section,
   .services-page-section,
   .service-detail-section { padding: 4rem 0; }
-
+  
   .desktop-only { display: none !important; }
   .mobile-only { display: block !important; }
 
