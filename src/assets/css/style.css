@@ -87,14 +87,12 @@ a { text-decoration: none; color: var(--text-primary); }
 .service-card:hover .card-title {
     color: var(--accent-pink);
 }
-/* === ახალი კოდი მობილურზე დაჭერისა და ნანახი ბმულისთვის === */
 .service-card:active .card-title {
   color: var(--accent-pink);
 }
 a.service-card:visited .card-title {
-  color: var(--text-primary) !important; /* !important უზრუნველყოფს, რომ ეს წესი ყოველთვის შესრულდეს */
+  color: var(--text-primary) !important;
 }
-/* ========================================================== */
 .card-link { 
   align-self: flex-end;
   font-size: 0.8rem;
@@ -153,7 +151,7 @@ a.service-card:visited .card-title {
   .hero-section,
   .services-page-section,
   .service-detail-section { padding: 4rem 0; }
-
+  
   .desktop-only { display: none !important; }
   .mobile-only { display: block !important; }
 
@@ -198,6 +196,13 @@ a.service-card:visited .card-title {
     transform: translateX(100%);
     transition: transform 0.3s ease-out;
   }
+  
+  /* === ახალი წესი: ვმალავთ დესკტოპის მენიუს ლინკებს === */
+  .main-nav > a:not(.mobile-only) {
+    display: none;
+  }
+  /* ================================================ */
+
   .main-nav[data-visible="true"] {
     transform: translateX(0%);
   }
