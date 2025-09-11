@@ -130,15 +130,3 @@ a { text-decoration: none; color: var(--text-primary); }
   margin-bottom: 1rem;
   border-left: 5px solid var(--accent-lavender);
 }
-
-/* =========================================
-   SVG Icon Styles
-   ========================================= */
-.card-icon svg path,
-.icon-bg svg path {
-  stroke: var(--accent-lavender);
-  transition: all 0.3s ease;
-}
-.service-card:hover .card-icon svg path {
-  stroke: var(--accent-pink);
-}
