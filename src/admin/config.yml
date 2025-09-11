@@ -12,11 +12,12 @@ collections:
     folder: "src/services/ka"
     create: true
     slug: "{{slug}}"
+    identifier_field: "slug" # <<<--- დაემატა ეს ხაზი
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" } # <<< დაემატა ეს ხაზი
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
       - { label: "თარგმანის გასაღები", name: "translationKey", widget: "string", hint: "ქართული და ინგლისური ვერსიისთვის ეს ველი ერთნაირი უნდა იყოს. მაგ: cloudService" }
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
@@ -53,11 +54,12 @@ collections:
     folder: "src/services/en"
     create: true
     slug: "{{slug}}"
+    identifier_field: "slug" # <<<--- დაემატა ეს ხაზი
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" } # <<< დაემატა ეს ხაზი
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
       - { label: "Translation Key", name: "translationKey", widget: "string", hint: "This must be identical to the Georgian version's key. e.g., cloudService" }
       - label: "Filename (slug in latin letters)"
         name: "slug"
