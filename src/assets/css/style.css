@@ -93,10 +93,7 @@ a { text-decoration: none; color: var(--text-primary); }
    ბარათების ინტერაქციის სტილები (Desktop & Mobile)
    ======================================================= */
 
-/* 1. საწყისი მდგომარეობა */
-.service-card .card-icon svg path {
-  transition: stroke 0.3s; /* ვამატებთ ფერის ცვლილების ანიმაციას */
-}
+/* 1. საწყისი მდგომარეობა - არაფერს ვცვლით */
 
 /* 2. ნანახი ბმულის მდგომარეობა - ვაბრუნებთ საწყის ფერზე */
 a.service-card:visited .card-title {
@@ -112,17 +109,11 @@ a.service-card:visited .card-title {
   .service-card:hover .card-title {
     color: var(--accent-pink);
   }
-  .service-card:hover .card-icon svg path {
-    stroke: var(--accent-pink); /* აიკონის ფერს ვცვლით ვარდისფერზე */
-  }
 }
 
 /* 4. Active (დაჭერის მომენტის) ეფექტი - ძირითადად მობილურისთვის */
 .service-card:active .card-title {
   color: var(--accent-pink);
-}
-.service-card:active .card-icon svg path {
-  stroke: var(--accent-pink);
 }
 
 /* ======================================================= */
