@@ -22,9 +22,7 @@
     <div class="container header-container">
       <a href="/" class="logo">{{ settings.logo_text }}</a>
 
-      <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false">
-        <span class="sr-only">Menu</span>
-      </button>
+      <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false"></button>
 
       <nav class="desktop-nav">
         <a href="/" {% if page.url == '/' %} aria-current="page"{% endif %}>მთავარი</a>
@@ -61,19 +59,19 @@
 
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
-      const particlesBg = document.getElementById('tsparticles-bg'); // ვიპოვეთ ფონის ელემენტი
+      const particlesBg = document.getElementById('tsparticles-bg');
 
       const closeMenu = () => {
         mobileNav.setAttribute('data-visible', 'false');
         mobileNavToggle.setAttribute('aria-expanded', 'false');
-        particlesBg.style.zIndex = '-1'; // ფონს ვაბრუნებთ უკან
+        particlesBg.style.zIndex = '-1';
         window.removeEventListener('scroll', closeMenuOnScroll);
       };
 
       const openMenu = () => {
         mobileNav.setAttribute('data-visible', 'true');
         mobileNavToggle.setAttribute('aria-expanded', 'true');
-        particlesBg.style.zIndex = '998'; // ფონი გადმოგვაქვს მენიუს უკან
+        particlesBg.style.zIndex = '998';
         window.addEventListener('scroll', closeMenuOnScroll);
       };
 
@@ -92,7 +90,6 @@
         }
       });
 
-      // tsParticles კოდი უცვლელია...
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
         "background": { "color": { "value": "#121212" }},
