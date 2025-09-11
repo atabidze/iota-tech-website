@@ -116,9 +116,6 @@ a { text-decoration: none; color: var(--text-primary); }
     width: 64px;
     height: 64px; 
 }
-.icon-bg svg path {
-    stroke: var(--accent-lavender);
-}
 .service-detail-content { max-width: 800px; margin: 0 auto; }
 .service-general-description {
   margin-bottom: 3rem;
@@ -135,16 +132,13 @@ a { text-decoration: none; color: var(--text-primary); }
 }
 
 /* =========================================
-   SVG Icon Animation & Styles
+   SVG Icon Styles
    ========================================= */
-.animated-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw-icon-animation 4s linear forwards infinite;
+.card-icon svg path,
+.icon-bg svg path {
+  stroke: var(--accent-lavender);
+  transition: all 0.3s ease;
 }
-
-@keyframes draw-icon-animation {
-  to {
-    stroke-dashoffset: 0;
-  }
+.service-card:hover .card-icon svg path {
+  stroke: var(--accent-pink);
 }
