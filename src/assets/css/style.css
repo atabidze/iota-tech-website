@@ -51,13 +51,12 @@ a { text-decoration: none; color: var(--text-primary); }
 .desktop-nav a:hover {
   color: var(--text-primary);
 }
-/* === შესწორება #2: აქტიური გვერდის მონიშვნა (ორივე მენიუსთვის) === */
 .desktop-nav a[aria-current="page"],
 .mobile-nav a[aria-current="page"] {
   color: var(--text-primary);
   font-weight: 700;
 }
-/* ========================================================== */
+
 
 .hero-section { padding: 8rem 0; text-align: center; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
@@ -230,10 +229,9 @@ a.service-card:visited .card-title {
     padding-left: 2rem;
     padding-right: 2rem;
     
-    /* === შესწორება #1: "სარკისებრი" ფონის დაბრუნება === */
-    background: rgba(18, 18, 18, 0.85);
-    backdrop-filter: blur(1rem);
-    /* ================================================== */
+    /* === შესწორება: ვაბრუნებთ საიტის ძირითად ფონს === */
+    background: var(--dark-bg);
+    /* ============================================== */
     
     transform: translateX(100%);
     transition: transform 0.3s ease-out;
