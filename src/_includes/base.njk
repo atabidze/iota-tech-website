@@ -31,26 +31,15 @@
 
       <div class="header-controls">
         <div class="lang-switcher">
-          {# --- ენის გადამრთველის ახალი ლოგიკა --- #}
           {% set alternatePageUrl = '' %}
           {% for item in collections.all %}
-            {% if item.data.translationKey == translationKey and item.data.lang != lang %}
+            {# ვპოულობთ ალტერნატიულ გვერდს slug-ის და არა translationKey-ს მიხედვით #}
+            {% if item.fileSlug == fileSlug and item.data.lang != lang %}
               {% set alternatePageUrl = item.url %}
             {% endif %}
           {% endfor %}
-          
-          {% if lang == 'ka' %}
-            {% set targetUrl = alternatePageUrl or '/en/' %}
-            {% set targetLabel = en.lang_label %}
-          {% else %}
-            {% set targetUrl = alternatePageUrl or '/' %}
-            {% set targetLabel = ka.lang_label %}
-          {% endif %}
-
-          <a href="{{ targetUrl | url }}">
-            {% include "icons/globe.svg" %}
-            <span>{{ targetLabel }}</span>
-          </a>
+          <a href="{{ page.url | replace('/en', '') if lang == 'en' else page.url }}" {% if lang == 'ka' %}aria-current="page"{% endif %}>{{ ka.lang_label }}</a>
+          <a href="{{ alternatePageUrl or ('/en' + (page.url | replace('/en', ''))) }}" {% if lang == 'en' %}aria-current="page"{% endif %}>{{ en.lang_label }}</a>
         </div>
         <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false"></button>
       </div>

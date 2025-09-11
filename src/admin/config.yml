@@ -11,14 +11,14 @@ collections:
     label: "სერვისები (ქართული)"
     folder: "src/services/ka"
     create: true
-    slug: "{{fields.slug}}" # <<< შეიცვალა {{slug}} -> {{fields.slug}}
+    slug: "{{slug}}"
     identifier_field: "slug"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      - { label: "თარგმანის გასაღები", name: "translationKey", widget: "string", hint: "ქართული და ინგლისური ვერსიისთვის ეს ველი ერთნაირი უნდა იყოს. მაგ: cloudService" }
+      # "translationKey" ველი წაიშალა, რადგან აღარ გვჭირდება
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
@@ -53,25 +53,29 @@ collections:
     label: "Services (English)"
     folder: "src/services/en"
     create: true
-    slug: "{{fields.slug}}" # <<< შეიცვალა {{slug}} -> {{fields.slug}}
+    slug: "{{slug}}"
     identifier_field: "slug"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      - { label: "Translation Key", name: "translationKey", widget: "string", hint: "This must be identical to the Georgian version's key. e.g., cloudService" }
-      - label: "Filename (slug in latin letters)"
-        name: "slug"
-        widget: "string"
-        hint: "e.g., help-desk, it-support. This will be the filename and URL."
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
+      # --- 1. დაემატა Relation ვიჯეტი ---
+      - label: "Select Georgian service to translate"
+        name: "slug" # <<< სახელი არის slug, რათა ავტომატურად შეავსოს slug ველი
+        widget: "relation"
+        collection: "services_ka" # <<< ვეძებთ ქართულ კოლექციაში
+        search_fields: ["title", "slug"] # <<< ძებნა შესაძლებელია სათაურით ან slug-ით
+        display_fields: ["title"] # <<< ჩამოსაშლელში გამოჩნდება ქართული სათაურები
+        value_field: "slug" # <<< არჩევისას, ინგლისურ ვერსიას მიენიჭება ქართულის slug
+        hint: "Select the Georgian service and its Filename (slug) will be automatically copied."
       - { label: "Service Title", name: "title", widget: "string" }
-      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
+      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0, hint: "Please enter the same sort order as the Georgian version." }
       - label: "Select Icon"
         name: "icon"
         widget: "select"
         required: false
+        hint: "Please select the same icon as the Georgian version."
         options:
           - { label: "Users", value: "users" }
           - { label: "Network", value: "network" }
@@ -92,64 +96,21 @@ collections:
           - { label: "List Item", name: "point", widget: "string" }
           
   - name: "pages_ka"
+    # ... დანარჩენი კოლექციები უცვლელია ...
     label: "მთავარი გვერდები (ქართული)"
     files:
-      - file: "src/ka/index.md"
-        label: "მთავარი გვერდი"
-        name: "index_ka"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
-          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/ka/services.md"
-        label: "სერვისების გვერდი"
-        name: "services_page_ka"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "სექციის სათაური", name: "section_title", widget: "string" }
-          - { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }
-      - file: "src/ka/about.md"
-        label: "ჩვენ შესახებ"
-        name: "about_ka"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/ka/contact.md"
-        label: "კონტაქტი"
-        name: "contact_ka"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
+      - { file: "src/ka/index.md", label: "მთავარი გვერდი", name: "index_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
+      - { file: "src/ka/services.md", label: "სერვისების გვერდი", name: "services_page_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "სექციის სათაური", name: "section_title", widget: "string" }, { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }] }
+      - { file: "src/ka/about.md", label: "ჩვენ შესახებ", name: "about_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
+      - { file: "src/ka/contact.md", label: "კონტაქტი", name: "contact_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
 
   - name: "pages_en"
     label: "Main Pages (English)"
     files:
-      - file: "src/en/index.md"
-        label: "Home Page"
-        name: "index_en"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Hero Title", name: "hero_title", widget: "string" }
-          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
-      - file: "src/en/services.md"
-        label: "Services Page"
-        name: "services_page_en"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Section Title", name: "section_title", widget: "string" }
-          - { label: "Section Subtitle", name: "section_subtitle", widget: "text" }
-      - file: "src/en/about.md"
-        label: "About Us"
-        name: "about_en"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/en/contact.md"
-        label: "Contact"
-        name: "contact_en"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+      - { file: "src/en/index.md", label: "Home Page", name: "index_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Hero Title", name: "hero_title", widget: "string" }, { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }] }
+      - { file: "src/en/services.md", label: "Services Page", name: "services_page_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Section Title", name: "section_title", widget: "string" }, { label: "Section Subtitle", name: "section_subtitle", widget: "text" }] }
+      - { file: "src/en/about.md", label: "About Us", name: "about_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
+      - { file: "src/en/contact.md", label: "Contact", name: "contact_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
           
   - name: "settings"
     label: "ზოგადი პარამეტრები"
