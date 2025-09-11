@@ -20,7 +20,7 @@ title: მთავარი
             <p>გაეცანით ჩვენს სერვისებს, რომლებიც დაგეხმარებათ გააუმჯობესოთ თქვენი კომპანიის ეფექტურობა და უსაფრთხოება.</p>
         </div>
         <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
-            {%- for service in collections.services | reverse | slice(0, 4) -%}
+            {%- for service in collections.services | where("data.lang", lang) | reverse | slice(0, 4) -%}
                 <a href="{{ service.url }}" class="service-card glass-panel">
                     <div class="card-header">
                         <div class="card-icon">
