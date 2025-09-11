@@ -27,7 +27,7 @@
         <a href="/about/">ჩვენ შესახებ</a>
         <a href="/contact/">კონტაქტი</a>
       </nav>
-      <a href="/contact/" class="cta-button header-cta">დაგვიკავშირდით</a>
+      <a href="/contact/" class="cta-button header-cta">Get Started</a>
     </div>
   </header>
 
@@ -37,73 +37,42 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>{{ settings.footer_text }}</p>
+        <p>{{ settings.footer_text | safe }}</p>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // lucide.createIcons();
-      AOS.init({ duration: 800, once: true });
+    lucide.createIcons();
+    AOS.init({ duration: 800, once: true });
 
-      // --- ახალი კოდი ანიმაციის თანმიმდევრობისთვის ---
-      const serviceCards = document.querySelectorAll('.services-grid .service-card');
-      
-      if (serviceCards.length > 0) {
-        let currentIndex = 0;
-        const interval = 10000; // 10 წამი მილიწამებში
-
-        const animateNextIcon = () => {
-          // ანიმაციის კლასის მოშორება ყველა ბარათიდან
-          serviceCards.forEach(card => card.classList.remove('is-animating'));
-          
-          // ანიმაციის კლასის დამატება მიმდინარე ბარათზე
-          if (serviceCards[currentIndex]) {
-            serviceCards[currentIndex].classList.add('is-animating');
-          }
-          
-          // გადასვლა შემდეგ ინდექსზე (დაბრუნება თავში, თუ ბოლოა)
-          currentIndex = (currentIndex + 1) % serviceCards.length;
-        };
-        
-        // პირველი ანიმაციის გაშვება საიტის ჩატვირთვისას
-        animateNextIcon(); 
-        
-        // ინტერვალის დაყენება, რომელიც ყოველ 10 წამში გამოიძახებს ფუნქციას
-        setInterval(animateNextIcon, interval);
-      }
-      // --- ახალი კოდის დასასრული ---
-
-      tsParticles.load("tsparticles-bg", {
-        "fullScreen": { "enable": false },
-        "background": { "color": { "value": "#121212" }},
-        "particles": {
-          "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
-          "color": { "value": "#e84a5f" }, "shape": { "type": "circle" },
-          "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }},
-          "size": { "value": 2, "random": true },
-          "line_linked": { "enable": true, "distance": 150, "color": "#333333", "opacity": 0.4, "width": 1 },
-          "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }
-        },
-        "interactivity": {
-          "detect_on": "window",
-          "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }},
-          "modes": { "bubble": { "distance": 250, "size": 4, "duration": 2, "opacity": 1 }, "push": { "particles_nb": 4 }}
-        },
-        "retina_detect": true
-      });
+    tsParticles.load("tsparticles-bg", {
+      "fullScreen": { "enable": false },
+      "background": { "color": { "value": "#121212" }},
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
+        "color": { "value": "#e84a5f" }, "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }},
+        "size": { "value": 2, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#333333", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "window",
+        "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }},
+        "modes": { "bubble": { "distance": 250, "size": 4, "duration": 2, "opacity": 1 }, "push": { "particles_nb": 4 }}
+      },
+      "retina_detect": true
     });
   </script>
-
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
         if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
         }
       });
     }
