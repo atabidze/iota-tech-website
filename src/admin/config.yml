@@ -18,7 +18,8 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      - { label: "თარგმანის გასაღები", name: "translationKey", widget: "string", hint: "ქართული და ინგლისური ვერსიისთვის ეს ველი ერთნაირი უნდა იყოს. მაგ: cloudService" }
+      # --- თარგმანის გასაღები გახდა ავტომატური და უხილავი ---
+      - { label: "Translation Key", name: "translationKey", widget: "hidden", default: "{{slug}}" }
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
@@ -60,7 +61,8 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      - { label: "Translation Key", name: "translationKey", widget: "string", hint: "This must be identical to the Georgian version's key. e.g., cloudService" }
+      # --- თარგმანის გასაღები გახდა ავტომატური და უხილავი ---
+      - { label: "Translation Key", name: "translationKey", widget: "hidden", default: "{{slug}}" }
       - label: "Select Georgian service to translate"
         name: "slug"
         widget: "relation"
@@ -70,10 +72,8 @@ collections:
         value_field: "slug"
         hint: "Select the Georgian service and its Filename (slug) will be automatically copied."
       - { label: "Service Title", name: "title", widget: "string" }
-      # --- ველები, რომლებიც დაიმალა ---
       - { label: "Sort Order", name: "sort_order", widget: "hidden", default: 0 }
       - { label: "Icon", name: "icon", widget: "hidden", default: "" }
-      # ---------------------------------
       - label: "General Description (for detail page)"
         name: "general_description"
         widget: "markdown"
