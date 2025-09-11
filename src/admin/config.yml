@@ -6,21 +6,24 @@ publish_mode: editorial_workflow
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
-i18n:
-  structure: multiple_folders
-  locales: [ka, en]
-  default_locale: ka
+# i18n ბლოკი აღარ გვჭირდება, რადგან კოლექციებს ვყოფთ
+# i18n:
+#   structure: multiple_folders
+#   locales: [ka, en]
+#   default_locale: ka
 
 collections:
-  - name: "services"
-    label: "სერვისების კატალოგი"
-    folder: "src/services/{{lng}}"
+  # === 1. ქართული სერვისების კოლექცია ===
+  - name: "services_ka"
+    label: "სერვისები (ქართული)"
+    folder: "src/services/ka" # <<< კონკრეტული მისამართი
     create: true
-    i18n: true
     slug: "{{slug}}"
-    identifier_field: "uuid" # <<< 1. იდენტიფიკატორად ვიყენებთ UUID-ს
     fields:
-      - { label: "UUID", name: "uuid", widget: "uuid" } # <<< 2. დაემატა უნიკალური ID-ს ველი
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
+      - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
+      - { label: "თარგმანის გასაღები", name: "translationKey", widget: "string", hint: "ქართული და ინგლისური ვერსიისთვის ეს ველი ერთნაირი უნდა იყოს. მაგ: cloudService" }
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
@@ -50,9 +53,48 @@ collections:
         summary: "{{fields.point}}"
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
+
+  # === 2. ინგლისური სერვისების კოლექცია ===
+  - name: "services_en"
+    label: "Services (English)"
+    folder: "src/services/en" # <<< კონკრეტული მისამართი
+    create: true
+    slug: "{{slug}}"
+    fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
+      - { label: "Translation Key", name: "translationKey", widget: "string", hint: "This must be identical to the Georgian version's key. e.g., cloudService" }
+      - label: "Filename (slug in latin letters)"
+        name: "slug"
+        widget: "string"
+        hint: "e.g., help-desk, it-support. This will be the filename and URL."
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
+      - { label: "Service Title", name: "title", widget: "string" }
+      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
+      - label: "Select Icon"
+        name: "icon"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Users", value: "users" }
+          - { label: "Network", value: "network" }
+          - { label: "Server", value: "server" }
+          - { label: "Cloud", value: "cloud" }
+          - { label: "Shield", value: "shield" }
+          - { label: "CCTV", value: "cctv" }
+          - { label: "Messages", value: "messages" }
+          - { label: "Briefcase", value: "briefcase" }
+      - label: "General Description (for detail page)"
+        name: "general_description"
+        widget: "markdown"
+      - label: "Detailed List Items"
+        name: "detailed_list"
+        widget: "list"
+        summary: "{{fields.point}}"
+        fields:
+          - { label: "List Item", name: "point", widget: "string" }
+          
   - name: "pages_ka"
     label: "მთავარი გვერდები (ქართული)"
     files:
