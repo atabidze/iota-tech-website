@@ -130,18 +130,3 @@ a { text-decoration: none; color: var(--text-primary); }
   margin-bottom: 1rem;
   border-left: 5px solid var(--accent-lavender);
 }
-
-/* =========================================
-   SVG Icon Animation Styles
-   ========================================= */
-.animated-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  animation: draw-icon-animation 10s linear forwards infinite;
-}
-
-@keyframes draw-icon-animation {
-  to {
-    stroke-dashoffset: 0;
-  }
-}

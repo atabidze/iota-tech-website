@@ -1,89 +1,13 @@
-backend:
-  name: git-gateway
-  branch: main
-
-publish_mode: editorial_workflow
-media_folder: "src/assets/img"
-public_folder: "/assets/img"
-
-collections:
-  - name: "services"
-    label: "სერვისების კატალოგი"
-    folder: "src/services"
-    create: true
-    slug: "{{slug}}"
-    identifier_field: "slug"
-    sortable_fields: ['sort_order', 'title']
-    fields:
-      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
-        name: "slug"
-        widget: "string"
-        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - { label: "სერვისის სათაური", name: "title", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "აირჩიეთ იკონი"
-        name: "icon"
-        widget: "select"
-        required: false
-        options:
-          - { label: "Users", value: "users" }
-          - { label: "Network", value: "network" }
-          - { label: "Server", value: "server" }
-          - { label: "Cloud", value: "cloud" }
-          - { label: "Shield", value: "shield" }
-          - { label: "CCTV", value: "cctv" }
-          - { label: "Messages", value: "messages" }
-          - { label: "Briefcase", value: "briefcase" }
-      - label: "ზოგადი მიმოხილვა (დეტალური გვერდისთვის)"
-        name: "general_description"
-        widget: "markdown"
-      - label: "სრული აღწერის პუნქტები"
-        name: "detailed_list"
-        widget: "list"
-        summary: "{{fields.point}}"
-        fields:
-          - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-
-  - name: "pages"
-    label: "მთავარი გვერდები"
-    files:
-      - file: "src/index.md"
-        label: "მთავარი გვერდი"
-        name: "index"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }
-          - { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }
-      - file: "src/services.md"
-        label: "სერვისების გვერდი"
-        name: "services_page"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "სექციის სათაური", name: "section_title", widget: "string" }
-          - { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }
-      - file: "src/about.md"
-        label: "ჩვენ შესახებ"
-        name: "about"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-      - file: "src/contact.md"
-        label: "კონტაქტი"
-        name: "contact"
-        fields:
-          - { label: "სათაური", name: "title", widget: "string" }
-          - { label: "ტექსტი", name: "body", widget: "markdown" }
-
-  - name: "settings"
-    label: "ზოგადი პარამეტრები"
-    files:
-      - file: "src/_data/settings.json"
-        label: "საიტის პარამეტრები"
-        name: "settings"
-        fields:
-          - { label: "ლოგოს ტექსტი", name: "logo_text", widget: "string" }
-          - { label: "ტექსტი ფუთერში", name: "footer_text", widget: "string" }
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#9A8CFF"/>
+<stop offset="100%" stop-color="#E84A5F"/>
+</linearGradient>
+</defs>
+<path d="M30 20a8 8 0 1 0-15.5 3A6 6 0 1 0 16 32h14a8 8 0 0 0 0-16z" stroke="#AAAAAA" stroke-width="1.5" fill="none"/>
+<path d="M24 40 V 28 M 20 32 L 24 28 L 28 32" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <animateTransform attributeName="transform" type="translate" values="0 0; 0 -4; 0 0" dur="2.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0; 1; 0" dur="2.5s" repeatCount="indefinite" />
+</path>
+</svg>
