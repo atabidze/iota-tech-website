@@ -12,7 +12,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
 </head>
 <body>
 
@@ -23,17 +23,23 @@
       <a href="{{ '/' | url }}" class="logo">{{ settings.logo_text }}</a>
 
       <nav class="desktop-nav">
-        <a href="{{ '/' | url }}">{{ "nav.home" | i18n(lang) }}</a>
-        <a href="{{ '/services/' | url }}">{{ "nav.services" | i18n(lang) }}</a>
-        <a href="{{ '/about/' | url }}">{{ "nav.about" | i18n(lang) }}</a>
-        <a href="{{ '/contact/' | url }}">{{ "nav.contact" | i18n(lang) }}</a>
+        <a href="{{ '/' | url }}">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
+        <a href="{{ '/services/' | url }}">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
+        <a href="{{ '/about/' | url }}">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
+        <a href="{{ '/contact/' | url }}">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
       </nav>
 
       <div class="header-controls">
+        {# --- ენის გადამრთველის გასწორებული ლოგიკა --- #}
+        {% set alternatePageUrl = '' %}
+        {% for item in collections.all %}
+          {% if item.data.translationKey == translationKey and item.data.lang != lang %}
+            {% set alternatePageUrl = item.url %}
+          {% endif %}
+        {% endfor %}
         <div class="lang-switcher">
-          {%- for link in page.url | i18n_switcher -%}
-            <a href="{{ link.url }}" {% if link.lang == lang %} aria-current="page"{% endif %}>{{ "lang_label" | i18n(link.lang) }}</a>
-          {%- endfor -%}
+            <a href="{{ page.url | replace('/en', '') }}" {% if lang == 'ka' %}aria-current="page"{% endif %}>{{ ka.lang_label }}</a>
+            <a href="{{ alternatePageUrl or ('/en' + page.url) }}" {% if lang == 'en' %}aria-current="page"{% endif %}>{{ en.lang_label }}</a>
         </div>
         <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false"></button>
       </div>
@@ -41,10 +47,10 @@
   </header>
 
   <nav class="mobile-nav" id="main-nav" data-visible="false">
-    <a href="{{ '/' | url }}">{{ "nav.home" | i18n(lang) }}</a>
-    <a href="{{ '/services/' | url }}">{{ "nav.services" | i18n(lang) }}</a>
-    <a href="{{ '/about/' | url }}">{{ "nav.about" | i18n(lang) }}</a>
-    <a href="{{ '/contact/' | url }}">{{ "nav.contact" | i18n(lang) }}</a>
+    <a href="{{ '/' | url }}">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
+    <a href="{{ '/services/' | url }}">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
+    <a href="{{ '/about/' | url }}">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
+    <a href="{{ '/contact/' | url }}">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
   </nav>
 
   <main>
