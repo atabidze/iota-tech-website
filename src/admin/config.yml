@@ -11,14 +11,14 @@ collections:
     label: "სერვისები (ქართული)"
     folder: "src/services/ka"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.slug}}"
     identifier_field: "slug"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      # "translationKey" ველი წაიშალა, რადგან აღარ გვჭირდება
+      - { label: "თარგმანის გასაღები", name: "translationKey", widget: "string", hint: "ქართული და ინგლისური ვერსიისთვის ეს ველი ერთნაირი უნდა იყოს. მაგ: cloudService" }
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
         widget: "string"
@@ -53,38 +53,27 @@ collections:
     label: "Services (English)"
     folder: "src/services/en"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.slug}}"
     identifier_field: "slug"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      # --- 1. დაემატა Relation ვიჯეტი ---
+      - { label: "Translation Key", name: "translationKey", widget: "string", hint: "This must be identical to the Georgian version's key. e.g., cloudService" }
       - label: "Select Georgian service to translate"
-        name: "slug" # <<< სახელი არის slug, რათა ავტომატურად შეავსოს slug ველი
+        name: "slug"
         widget: "relation"
-        collection: "services_ka" # <<< ვეძებთ ქართულ კოლექციაში
-        search_fields: ["title", "slug"] # <<< ძებნა შესაძლებელია სათაურით ან slug-ით
-        display_fields: ["title"] # <<< ჩამოსაშლელში გამოჩნდება ქართული სათაურები
-        value_field: "slug" # <<< არჩევისას, ინგლისურ ვერსიას მიენიჭება ქართულის slug
+        collection: "services_ka"
+        search_fields: ["title", "slug"]
+        display_fields: ["title"]
+        value_field: "slug"
         hint: "Select the Georgian service and its Filename (slug) will be automatically copied."
       - { label: "Service Title", name: "title", widget: "string" }
-      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0, hint: "Please enter the same sort order as the Georgian version." }
-      - label: "Select Icon"
-        name: "icon"
-        widget: "select"
-        required: false
-        hint: "Please select the same icon as the Georgian version."
-        options:
-          - { label: "Users", value: "users" }
-          - { label: "Network", value: "network" }
-          - { label: "Server", value: "server" }
-          - { label: "Cloud", value: "cloud" }
-          - { label: "Shield", value: "shield" }
-          - { label: "CCTV", value: "cctv" }
-          - { label: "Messages", value: "messages" }
-          - { label: "Briefcase", value: "briefcase" }
+      # --- ველები, რომლებიც დაიმალა ---
+      - { label: "Sort Order", name: "sort_order", widget: "hidden", default: 0 }
+      - { label: "Icon", name: "icon", widget: "hidden", default: "" }
+      # ---------------------------------
       - label: "General Description (for detail page)"
         name: "general_description"
         widget: "markdown"
