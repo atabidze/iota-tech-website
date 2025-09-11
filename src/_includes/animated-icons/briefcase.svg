@@ -5,7 +5,6 @@
       <stop offset="100%" stop-color="#E84A5F"/>
     </linearGradient>
   </defs>
-
   <path class="animated-path" d="M12 16v5" stroke="url(#chart-gradient)"/>
   <path class="animated-path" d="M16 14v7" stroke="url(#chart-gradient)"/>
   <path class="animated-path" d="M20 10v11" stroke="url(#chart-gradient)"/>
