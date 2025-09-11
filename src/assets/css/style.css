@@ -187,20 +187,19 @@ a.service-card:visited .card-title {
     transform: translateY(-6.5px) rotate(-45deg);
   }
 
-  /* === აქ შევიდა ცვლილებები === */
   .main-nav[data-visible="true"] {
     display: flex;
     position: fixed;
     z-index: 999;
-    inset: 0 0 0 40%; /* 1. მენიუ გახდა უფრო ვიწრო (იწყება 40%-დან) */
+    inset: 0 0 0 40%;
     flex-direction: column;
-    padding: 8rem 2rem; /* 2. ლინკები აიწია ზემოთ */
-    background: rgba(18, 18, 18, 0.95); /* 3. ფონი გახდა უფრო მუქი */
-    backdrop-filter: blur(1.5rem); /* 3. დაბურვა (blur) გაიზარდა */
+    padding: 7rem 2rem; /* <<<--- 1. ცვლილება აქ: დაშორება შემცირდა */
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(1.5rem);
   }
   
   .main-nav a {
-    margin: 1rem 0;
+    margin: 0.75rem 0; /* <<<--- 2. ცვლილება აქ: ლინკებს შორის მანძილი შემცირდა */
     font-size: 1.2rem;
   }
 
