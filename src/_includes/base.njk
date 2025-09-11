@@ -21,13 +21,20 @@
   <header class="site-header glass-panel">
     <div class="container header-container">
       <a href="/" class="logo">{{ settings.logo_text }}</a>
-      <nav class="main-nav">
+
+      <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" data-visible="false">
         <a href="/">მთავარი</a>
         <a href="/services/">სერვისები</a>
         <a href="/about/">ჩვენ შესახებ</a>
         <a href="/contact/">კონტაქტი</a>
+        <a href="/contact/" class="cta-button header-cta mobile-only">დაგვიკავშირდით</a>
       </nav>
-      <a href="/contact/" class="cta-button header-cta">დაგვიკავშირდით</a>
+
+      <a href="/contact/" class="cta-button header-cta desktop-only">დაგვიკავშირდით</a>
     </div>
   </header>
 
@@ -47,6 +54,22 @@
     document.addEventListener('DOMContentLoaded', () => {
       // lucide.createIcons();
       AOS.init({ duration: 800, once: true });
+
+      // --- მობილური მენიუს მართვის სკრიპტი ---
+      const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+      const mainNav = document.querySelector('.main-nav');
+
+      mobileNavToggle.addEventListener('click', () => {
+        const isVisible = mainNav.getAttribute('data-visible');
+        if (isVisible === 'true') {
+          mainNav.setAttribute('data-visible', 'false');
+          mobileNavToggle.setAttribute('aria-expanded', 'false');
+        } else {
+          mainNav.setAttribute('data-visible', 'true');
+          mobileNavToggle.setAttribute('aria-expanded', 'true');
+        }
+      });
+      // --- სკრიპტის დასასრული ---
 
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
