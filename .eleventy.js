@@ -1,19 +1,23 @@
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/admin");
+const i18n = require("eleventy-plugin-i18n");
 
-  eleventyConfig.addCollection("services", function(collectionApi) {
-    // ეს არის სწორი, ერთადერთი return, რომელიც ჯერ ფილტრავს და შემდეგ ალაგებს.
-    return collectionApi.getFilteredByTag("services")
-      // ვფილტრავთ კოლექციას, რათა წაიშალოს ყველა ჩანაწერი, რომელსაც არ აქვს სათაური.
-      .filter(item => item.data.title && item.data.title.trim() !== "")
-      .sort((a, b) => (a.data.sort_order || 99) - (b.data.sort_order || 99));
+module.exports = function(eleventyConfig) {
+  
+  eleventyConfig.addPlugin(i18n, {
+    defaultLanguage: "ka", // საიტის ძირითადი ენა
   });
 
+  eleventyConfig.addPassthroughCopy("./src/assets/");
+
   return {
-    dir: { input: "src", includes: "_includes", output: "_site" },
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      data: "_data"
+    },
     templateFormats: ["md", "njk", "html"],
     markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
   };
 };
-
