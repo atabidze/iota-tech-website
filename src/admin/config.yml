@@ -6,23 +6,17 @@ publish_mode: editorial_workflow
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
-# i18n ბლოკი აღარ გვჭირდება, რადგან კოლექციებს ვყოფთ
-# i18n:
-#   structure: multiple_folders
-#   locales: [ka, en]
-#   default_locale: ka
-
 collections:
-  # === 1. ქართული სერვისების კოლექცია ===
   - name: "services_ka"
     label: "სერვისები (ქართული)"
-    folder: "src/services/ka" # <<< კონკრეტული მისამართი
+    folder: "src/services/ka"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" } # <<< დაემატა ეს ხაზი
       - { label: "თარგმანის გასაღები", name: "translationKey", widget: "string", hint: "ქართული და ინგლისური ვერსიისთვის ეს ველი ერთნაირი უნდა იყოს. მაგ: cloudService" }
       - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
         name: "slug"
@@ -54,16 +48,16 @@ collections:
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
 
-  # === 2. ინგლისური სერვისების კოლექცია ===
   - name: "services_en"
     label: "Services (English)"
-    folder: "src/services/en" # <<< კონკრეტული მისამართი
+    folder: "src/services/en"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" } # <<< დაემატა ეს ხაზი
       - { label: "Translation Key", name: "translationKey", widget: "string", hint: "This must be identical to the Georgian version's key. e.g., cloudService" }
       - label: "Filename (slug in latin letters)"
         name: "slug"
