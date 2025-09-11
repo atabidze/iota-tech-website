@@ -20,13 +20,13 @@
 
   <header class="site-header glass-panel">
     <div class="container header-container">
-      <a href="{{ '/' | i18n_url(lang) }}" class="logo">{{ settings.logo_text }}</a>
+      <a href="{{ '/' | url }}" class="logo">{{ settings.logo_text }}</a>
 
       <nav class="desktop-nav">
-        <a href="{{ '/' | i18n_url(lang) }}">{{ "nav.home" | i18n(lang) }}</a>
-        <a href="{{ '/services/' | i18n_url(lang) }}">{{ "nav.services" | i18n(lang) }}</a>
-        <a href="{{ '/about/' | i18n_url(lang) }}">{{ "nav.about" | i18n(lang) }}</a>
-        <a href="{{ '/contact/' | i18n_url(lang) }}">{{ "nav.contact" | i18n(lang) }}</a>
+        <a href="{{ '/' | url }}">{{ "nav.home" | i18n(lang) }}</a>
+        <a href="{{ '/services/' | url }}">{{ "nav.services" | i18n(lang) }}</a>
+        <a href="{{ '/about/' | url }}">{{ "nav.about" | i18n(lang) }}</a>
+        <a href="{{ '/contact/' | url }}">{{ "nav.contact" | i18n(lang) }}</a>
       </nav>
 
       <div class="header-controls">
@@ -41,10 +41,10 @@
   </header>
 
   <nav class="mobile-nav" id="main-nav" data-visible="false">
-    <a href="{{ '/' | i18n_url(lang) }}">{{ "nav.home" | i18n(lang) }}</a>
-    <a href="{{ '/services/' | i18n_url(lang) }}">{{ "nav.services" | i18n(lang) }}</a>
-    <a href="{{ '/about/' | i18n_url(lang) }}">{{ "nav.about" | i18n(lang) }}</a>
-    <a href="{{ '/contact/' | i18n_url(lang) }}">{{ "nav.contact" | i18n(lang) }}</a>
+    <a href="{{ '/' | url }}">{{ "nav.home" | i18n(lang) }}</a>
+    <a href="{{ '/services/' | url }}">{{ "nav.services" | i18n(lang) }}</a>
+    <a href="{{ '/about/' | url }}">{{ "nav.about" | i18n(lang) }}</a>
+    <a href="{{ '/contact/' | url }}">{{ "nav.contact" | i18n(lang) }}</a>
   </nav>
 
   <main>
@@ -59,7 +59,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({ duration: 800, once: true });
