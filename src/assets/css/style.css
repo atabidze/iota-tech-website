@@ -27,7 +27,19 @@ a { text-decoration: none; color: var(--text-primary); }
 .site-header { position: sticky; top: 0; z-index: 100; width: 100%; border-width: 0 0 1px 0; padding: 1rem 0; }
 .header-container { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-weight: 700; font-size: 1.5rem; }
-.main-nav a { margin: 0 1rem; font-weight: 500; transition: color 0.3s; }
+
+/* === 1. ცვლილება აქ: მენიუს ლინკები გახდა ვარდისფერი === */
+.main-nav a {
+  margin: 0 1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  color: var(--accent-pink);
+}
+.main-nav a:hover {
+  color: var(--text-primary); /* მაუსის მიტანისას ხდება თეთრი */
+}
+/* ======================================================= */
+
 .hero-section { padding: 8rem 0; text-align: center; }
 .site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
 
@@ -193,13 +205,13 @@ a.service-card:visited .card-title {
     z-index: 999;
     inset: 0 0 0 40%;
     flex-direction: column;
-    padding: 7rem 2rem; /* <<<--- 1. ცვლილება აქ: დაშორება შემცირდა */
+    padding: 5rem 2rem; /* <<<--- 2. ცვლილება აქ: დაშორება შემცირდა */
     background: rgba(18, 18, 18, 0.95);
     backdrop-filter: blur(1.5rem);
   }
   
   .main-nav a {
-    margin: 0.75rem 0; /* <<<--- 2. ცვლილება აქ: ლინკებს შორის მანძილი შემცირდა */
+    margin: 0.75rem 0;
     font-size: 1.2rem;
   }
 
