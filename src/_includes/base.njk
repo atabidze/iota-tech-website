@@ -29,10 +29,10 @@
   </header>
 
   <nav class="main-nav" id="main-nav" data-visible="false">
-    <a href="/">მთავარი</a>
-    <a href="/services/">სერვისები</a>
-    <a href="/about/">ჩვენ შესახებ</a>
-    <a href="/contact/">კონტაქტი</a>
+    <a href="/" {% if page.url == '/' %} aria-current="page"{% endif %}>მთავარი</a>
+    <a href="/services/" {% if page.url.startsWith('/services/') %} aria-current="page"{% endif %}>სერვისები</a>
+    <a href="/about/" {% if page.url == '/about/' %} aria-current="page"{% endif %}>ჩვენ შესახებ</a>
+    <a href="/contact/" {% if page.url == '/contact/' %} aria-current="page"{% endif %}>კონტაქტი</a>
   </nav>
 
   <main>
@@ -49,24 +49,37 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // lucide.createIcons();
       AOS.init({ duration: 800, once: true });
 
-      // --- მობილური მენიუს მართვის სკრიპტი ---
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const mainNav = document.querySelector('.main-nav');
+
+      const closeMenu = () => {
+        mainNav.setAttribute('data-visible', 'false');
+        mobileNavToggle.setAttribute('aria-expanded', 'false');
+        window.removeEventListener('scroll', closeMenuOnScroll);
+      };
+
+      const openMenu = () => {
+        mainNav.setAttribute('data-visible', 'true');
+        mobileNavToggle.setAttribute('aria-expanded', 'true');
+        window.addEventListener('scroll', closeMenuOnScroll);
+      };
+
+      const closeMenuOnScroll = () => {
+        if (mainNav.getAttribute('data-visible') === 'true') {
+          closeMenu();
+        }
+      };
 
       mobileNavToggle.addEventListener('click', () => {
         const isVisible = mainNav.getAttribute('data-visible');
         if (isVisible === 'true') {
-          mainNav.setAttribute('data-visible', 'false');
-          mobileNavToggle.setAttribute('aria-expanded', 'false');
+          closeMenu();
         } else {
-          mainNav.setAttribute('data-visible', 'true');
-          mobileNavToggle.setAttribute('aria-expanded', 'true');
+          openMenu();
         }
       });
-      // --- სკრიპტის დასასრული ---
 
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
