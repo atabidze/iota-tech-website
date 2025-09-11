@@ -30,16 +30,27 @@
       </nav>
 
       <div class="header-controls">
-        {# --- ენის გადამრთველის გასწორებული ლოგიკა --- #}
-        {% set alternatePageUrl = '' %}
-        {% for item in collections.all %}
-          {% if item.data.translationKey == translationKey and item.data.lang != lang %}
-            {% set alternatePageUrl = item.url %}
-          {% endif %}
-        {% endfor %}
         <div class="lang-switcher">
-            <a href="{{ page.url | replace('/en', '') }}" {% if lang == 'ka' %}aria-current="page"{% endif %}>{{ ka.lang_label }}</a>
-            <a href="{{ alternatePageUrl or ('/en' + page.url) }}" {% if lang == 'en' %}aria-current="page"{% endif %}>{{ en.lang_label }}</a>
+          {# --- ენის გადამრთველის ახალი ლოგიკა --- #}
+          {% set alternatePageUrl = '' %}
+          {% for item in collections.all %}
+            {% if item.data.translationKey == translationKey and item.data.lang != lang %}
+              {% set alternatePageUrl = item.url %}
+            {% endif %}
+          {% endfor %}
+          
+          {% if lang == 'ka' %}
+            {% set targetUrl = alternatePageUrl or '/en/' %}
+            {% set targetLabel = en.lang_label %}
+          {% else %}
+            {% set targetUrl = alternatePageUrl or '/' %}
+            {% set targetLabel = ka.lang_label %}
+          {% endif %}
+
+          <a href="{{ targetUrl | url }}">
+            {% include "icons/globe.svg" %}
+            <span>{{ targetLabel }}</span>
+          </a>
         </div>
         <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false"></button>
       </div>

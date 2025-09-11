@@ -5,5 +5,5 @@ module.exports = {
     about: "ჩვენ შესახებ",
     contact: "კონტაქტი"
   },
-  lang_label: "ქარ"
+  lang_label: "Geo"
 };

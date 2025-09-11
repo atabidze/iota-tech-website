@@ -255,31 +255,32 @@ a.service-card:visited .card-title {
     gap: 1rem;
   }
 }
-/* --- ენის გადამრთველის სტილები --- */
+/* --- ენის გადამრთველის ახალი სტილები --- */
 .header-controls {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
-.lang-switcher {
-  display: flex;
-  gap: 0.5rem;
-}
 .lang-switcher a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text-secondary);
   font-weight: 700;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  transition: all 0.3s;
   text-decoration: none;
   font-size: 0.9rem;
+  transition: color 0.3s;
 }
-.lang-switcher a[aria-current="page"] {
+.lang-switcher a:hover {
   color: var(--text-primary);
-  background-color: var(--accent-pink);
+}
+.lang-switcher svg {
+  width: 1rem; /* 16px */
+  height: 1rem;
+  stroke-width: 2.5;
 }
 @media (max-width: 768px) {
   .header-controls {
-    margin-left: auto; /* გადამრთველი და ბურგერი ერთად მოექცეს მარჯვნივ */
+    margin-left: auto;
   }
 }
