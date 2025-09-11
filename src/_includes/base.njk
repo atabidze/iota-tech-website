@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ka">
+<html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,24 +20,31 @@
 
   <header class="site-header glass-panel">
     <div class="container header-container">
-      <a href="/" class="logo">{{ settings.logo_text }}</a>
-
-      <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false"></button>
+      <a href="{{ '/' | i18n_url(lang) }}" class="logo">{{ settings.logo_text }}</a>
 
       <nav class="desktop-nav">
-        <a href="/" {% if page.url == '/' %} aria-current="page"{% endif %}>მთავარი</a>
-        <a href="/services/" {% if page.url.startsWith('/services/') %} aria-current="page"{% endif %}>სერვისები</a>
-        <a href="/about/" {% if page.url == '/about/' %} aria-current="page"{% endif %}>ჩვენ შესახებ</a>
-        <a href="/contact/" {% if page.url == '/contact/' %} aria-current="page"{% endif %}>კონტაქტი</a>
+        <a href="{{ '/' | i18n_url(lang) }}">{{ "nav.home" | i18n(lang) }}</a>
+        <a href="{{ '/services/' | i18n_url(lang) }}">{{ "nav.services" | i18n(lang) }}</a>
+        <a href="{{ '/about/' | i18n_url(lang) }}">{{ "nav.about" | i18n(lang) }}</a>
+        <a href="{{ '/contact/' | i18n_url(lang) }}">{{ "nav.contact" | i18n(lang) }}</a>
       </nav>
+
+      <div class="header-controls">
+        <div class="lang-switcher">
+          {%- for link in page.url | i18n_switcher -%}
+            <a href="{{ link.url }}" {% if link.lang == lang %} aria-current="page"{% endif %}>{{ "lang_label" | i18n(link.lang) }}</a>
+          {%- endfor -%}
+        </div>
+        <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false"></button>
+      </div>
     </div>
   </header>
 
   <nav class="mobile-nav" id="main-nav" data-visible="false">
-    <a href="/" {% if page.url == '/' %} aria-current="page"{% endif %}>მთავარი</a>
-    <a href="/services/" {% if page.url.startsWith('/services/') %} aria-current="page"{% endif %}>სერვისები</a>
-    <a href="/about/" {% if page.url == '/about/' %} aria-current="page"{% endif %}>ჩვენ შესახებ</a>
-    <a href="/contact/" {% if page.url == '/contact/' %} aria-current="page"{% endif %}>კონტაქტი</a>
+    <a href="{{ '/' | i18n_url(lang) }}">{{ "nav.home" | i18n(lang) }}</a>
+    <a href="{{ '/services/' | i18n_url(lang) }}">{{ "nav.services" | i18n(lang) }}</a>
+    <a href="{{ '/about/' | i18n_url(lang) }}">{{ "nav.about" | i18n(lang) }}</a>
+    <a href="{{ '/contact/' | i18n_url(lang) }}">{{ "nav.contact" | i18n(lang) }}</a>
   </nav>
 
   <main>
@@ -56,31 +63,19 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({ duration: 800, once: true });
-
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
       const particlesBg = document.getElementById('tsparticles-bg');
-
       const closeMenu = () => {
         mobileNav.setAttribute('data-visible', 'false');
         mobileNavToggle.setAttribute('aria-expanded', 'false');
         particlesBg.style.zIndex = '-1';
-        window.removeEventListener('scroll', closeMenuOnScroll);
       };
-
       const openMenu = () => {
         mobileNav.setAttribute('data-visible', 'true');
         mobileNavToggle.setAttribute('aria-expanded', 'true');
         particlesBg.style.zIndex = '998';
-        window.addEventListener('scroll', closeMenuOnScroll);
       };
-
-      const closeMenuOnScroll = () => {
-        if (mobileNav.getAttribute('data-visible') === 'true') {
-          closeMenu();
-        }
-      };
-
       mobileNavToggle.addEventListener('click', () => {
         const isVisible = mobileNav.getAttribute('data-visible');
         if (isVisible === 'true') {
@@ -89,28 +84,19 @@
           openMenu();
         }
       });
-
+      window.addEventListener('scroll', () => {
+        if (mobileNav.getAttribute('data-visible') === 'true') {
+          closeMenu();
+        }
+      });
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
         "background": { "color": { "value": "#121212" }},
-        "particles": {
-          "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
-          "color": { "value": "#e84a5f" }, "shape": { "type": "circle" },
-          "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }},
-          "size": { "value": 2, "random": true },
-          "line_linked": { "enable": true, "distance": 150, "color": "#333333", "opacity": 0.4, "width": 1 },
-          "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }
-        },
-        "interactivity": {
-          "detect_on": "window",
-          "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }},
-          "modes": { "bubble": { "distance": 250, "size": 4, "duration": 2, "opacity": 1 }, "push": { "particles_nb": 4 }}
-        },
-        "retina_detect": true
+        "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 }}, "color": { "value": "#e84a5f" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }}, "size": { "value": 2, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#333333", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }},
+        "interactivity": { "detect_on": "window", "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }}, "modes": { "bubble": { "distance": 250, "size": 4, "duration": 2, "opacity": 1 }, "push": { "particles_nb": 4 }}}, "retina_detect": true
       });
     });
   </script>
-
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
@@ -122,6 +108,5 @@
       });
     }
   </script>
-
 </body>
 </html>

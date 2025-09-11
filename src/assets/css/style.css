@@ -255,3 +255,31 @@ a.service-card:visited .card-title {
     gap: 1rem;
   }
 }
+/* --- ენის გადამრთველის სტილები --- */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.lang-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+.lang-switcher a {
+  color: var(--text-secondary);
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.lang-switcher a[aria-current="page"] {
+  color: var(--text-primary);
+  background-color: var(--accent-pink);
+}
+@media (max-width: 768px) {
+  .header-controls {
+    margin-left: auto; /* გადამრთველი და ბურგერი ერთად მოექცეს მარჯვნივ */
+  }
+}
