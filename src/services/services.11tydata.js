@@ -2,25 +2,25 @@ module.exports = {
   eleventyComputed: {
     // ეს ფუნქცია მუშაობს ყოველი სერვისის ფაილისთვის საიტის აწყობისას
     icon: (data) => {
-      // თუ სერვისი ინგლისურია და მას არ აქვს საკუთარი იკონი
-      if (data.lang === 'en' && !data.icon) {
-        // ვიპოვოთ მისი ქართული ვერსია
+      // თუ მიმდინარე სერვისი ინგლისურია
+      if (data.lang === 'en') {
+        // ვპოულობთ მის ქართულ ვერსიას `translationKey`-ს მიხედვით
         const georgianService = data.collections.services.find(
           (service) => service.data.lang === 'ka' && service.data.translationKey === data.translationKey
         );
-        // თუ ვიპოვეთ, დავაბრუნოთ ქართული ვერსიის იკონი
-        return georgianService ? georgianService.data.icon : null;
+        // თუ ვიპოვეთ, ვაბრუნებთ ქართული ვერსიის იკონს. თუ ვერა, ვტოვებთ იმას, რაც აქვს.
+        return georgianService ? georgianService.data.icon : data.icon;
       }
-      // სხვა შემთხვევაში, დავაბრუნოთ ის იკონი, რაც უწერია
+      // თუ სერვისი ქართულია, უბრალოდ ვაბრუნებთ მის საკუთარ იკონს
       return data.icon;
     },
     sort_order: (data) => {
       // იგივე ლოგიკა რიგითობისთვის
-      if (data.lang === 'en' && !data.sort_order) {
+      if (data.lang === 'en') {
         const georgianService = data.collections.services.find(
           (service) => service.data.lang === 'ka' && service.data.translationKey === data.translationKey
         );
-        return georgianService ? georgianService.data.sort_order : 0;
+        return georgianService ? georgianService.data.sort_order : data.sort_order;
       }
       return data.sort_order;
     },
