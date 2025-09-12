@@ -68,20 +68,8 @@ collections:
         value_field: "slug"
         hint: "აირჩიეთ ქართული სერვისი, რომლის Slug-იც ავტომატურად გადმოკოპირდება."
       - { label: "Service Title", name: "title", widget: "string" }
-      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
-      - label: "Icon"
-        name: "icon"
-        widget: "select"
-        required: false
-        options:
-          - { label: "Users", value: "users" }
-          - { label: "Network", value: "network" }
-          - { label: "Server", value: "server" }
-          - { label: "Cloud", value: "cloud" }
-          - { label: "Shield", value: "shield" }
-          - { label: "CCTV", value: "cctv" }
-          - { label: "Messages", value: "messages" }
-          - { label: "Briefcase", value: "briefcase" }
+      - { label: "Sort Order", name: "sort_order", widget: "hidden", default: 0 } # <<< დაიმალა
+      - { label: "Icon", name: "icon", widget: "hidden", default: "" } # <<< დაიმალა
       - label: "General Description (for detail page)"
         name: "general_description"
         widget: "markdown"

@@ -1,13 +1,34 @@
-const i18n = require("eleventy-plugin-i18n");
-
 module.exports = function(eleventyConfig) {
   
-  eleventyConfig.addPlugin(i18n, {
-    defaultLanguage: "ka", // საიტის ძირითადი ენა
-  });
-
   eleventyConfig.addPassthroughCopy("./src/assets/");
-  eleventyConfig.addPassthroughCopy("src/admin"); // <<<--- დაემატა ეს ხაზი
+  eleventyConfig.addPassthroughCopy("src/admin");
+
+  // --- დაემატა ახალი ფილტრი ---
+  eleventyConfig.addFilter("getAndSortServices", (services, lang) => {
+    // 1. ვიღებთ ყველა ქართულ სერვისს ცალკე
+    const kaServices = services.filter(item => item.data.lang === 'ka');
+    
+    // 2. ვფილტრავთ მიმდინარე ენის სერვისებს
+    const filteredServices = services.filter(item => item.data.lang === lang);
+
+    // 3. თუ ინგლისურ ენაზე ვართ, ვამდიდრებთ მონაცემებს
+    if (lang === 'en') {
+      return filteredServices.map(enService => {
+        // ვპოულობთ შესაბამის ქართულ სერვისს slug-ით
+        const kaTwin = kaServices.find(kaService => kaService.fileSlug === enService.fileSlug);
+        // თუ ვიპოვეთ, ინგლისურს ვანიჭებთ ქართულის იკონს და რიგითობას
+        if (kaTwin) {
+          enService.data.icon = kaTwin.data.icon;
+          enService.data.sort_order = kaTwin.data.sort_order;
+        }
+        return enService;
+      }).sort((a, b) => a.data.sort_order - b.data.sort_order);
+    }
+
+    // 4. თუ ქართულ ენაზე ვართ, უბრალოდ ვალაგებთ
+    return filteredServices.sort((a, b) => a.data.sort_order - b.data.sort_order);
+  });
+  // ------------------------------------
 
   return {
     dir: {
