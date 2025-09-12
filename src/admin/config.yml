@@ -23,10 +23,7 @@ collections:
         widget: "string"
         hint: "მაგ: cloud-hosting. ეს ველი ზუსტად უნდა ემთხვეოდეს ინგლისური ვერსიის slug-ს."
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - label: "სერვისის სათაური"
-        name: "title"
-        widget: "string"
-        pattern: ['^[\\u10A0-\\u10FF\\s\\d.,!?-]+$', "გთხოვთ, გამოიყენოთ მხოლოდ ქართული ასოები და სიმბოლოები"] # <<< დაემატა ქართული ენის ვალიდაცია
+      - { label: "სერვისის სათაური", name: "title", widget: "string" } # <<< წაიშალა pattern
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
       - label: "აირჩიეთ იკონი"
         name: "icon"
@@ -67,10 +64,7 @@ collections:
         widget: "string"
         hint: "e.g., cloud-hosting. This field must exactly match the slug of the Georgian version."
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
-      - label: "Service Title"
-        name: "title"
-        widget: "string"
-        pattern: ['^[a-zA-Z0-9\\s.,!?-]+$', "Please use only Latin letters and symbols"] # <<< დაემატა ინგლისური ენის ვალიდაცია
+      - { label: "Service Title", name: "title", widget: "string" } # <<< წაიშალა pattern
       - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
       - label: "Icon"
         name: "icon"
@@ -96,7 +90,6 @@ collections:
           - { label: "List Item", name: "point", widget: "string" }
           
   - name: "pages_ka"
-    # ... დანარჩენი კოლექციები უცვლელია ...
     label: "მთავარი გვერდები (ქართული)"
     files:
       - { file: "src/ka/index.md", label: "მთავარი გვერდი", name: "index_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
