@@ -3,12 +3,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // ვქმნით "services" კოლექციას `src/services/` ფოლდერიდან
   eleventyConfig.addCollection("services", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/services/**/*.md");
   });
 
-  // ვამატებთ "ჭკვიან" ფილტრს, რომელიც ამ კოლექციას ამუშავებს
   eleventyConfig.addFilter("getAndSortServices", (services, lang) => {
     if (!services || !services.length) {
       return [];

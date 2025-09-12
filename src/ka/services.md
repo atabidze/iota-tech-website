@@ -6,7 +6,6 @@ title: სერვისები
 section_title: ყველა სერვისი
 section_subtitle: გაეცანით ჩვენს სერვისებს, რომლებიც დაგეხმარებათ გააუმჯობესოთ თქვენი კომპანიის ეფექტურობა და უსაფრთხოება.
 ---
-
 <section class="services-page-section">
     <div class="container">
         <div class="section-title" data-aos="fade-up">

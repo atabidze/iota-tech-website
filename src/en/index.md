@@ -6,14 +6,12 @@ title: Home
 hero_title: Move Into the New Age of IOTA Technology
 hero_subtitle: We offer innovative technological solutions for the growth and development of your business.
 ---
-
 <section class="hero-section">
   <div class="container" data-aos="fade-up">
     <h1>{{ hero_title }}</h1>
     <p class="section-title-p">{{ hero_subtitle }}</p>
   </div>
 </section>
-
 <section id="home-services" class="services-page-section">
     <div class="container">
         <div class="section-title" data-aos="fade-up">

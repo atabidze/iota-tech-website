@@ -2,35 +2,38 @@
 lang: ka
 permalink: /
 layout: base.njk
-title: დიაგნოსტიკა
+title: მთავარი
+hero_title: Move Into the New Age of IOTA Technology
+hero_subtitle: ჩვენ გთავაზობთ ინოვაციურ ტექნოლოგიურ გადაწყვეტილებებს თქვენი ბიზნესის ზრდისა და განვითარებისთვის.
 ---
-
-<section style="padding-top: 150px; color: white; background: #111; font-family: monospace; font-size: 14px; line-height: 1.6;">
+<section class="hero-section">
+  <div class="container" data-aos="fade-up">
+    <h1>{{ hero_title }}</h1>
+    <p class="section-title-p">{{ hero_subtitle }}</p>
+  </div>
+</section>
+<section id="home-services" class="services-page-section">
     <div class="container">
-        <h1>დიაგნოსტიკის გვერდი</h1>
-        
-        <hr style="border-color: #444;">
-        <h2>`collections.services` ანალიზი:</h2>
-        <p>სერვისების რაოდენობა სულ: <strong>{{ collections.services | length }}</strong></p>
-        
-        <hr style="border-color: #444;">
-        
-        {% for service in collections.services %}
-            <div style="background: #222; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
-                <h3>სერვისის ფაილი: {{ service.inputPath }}</h3>
-                <pre><code>
----
-fileSlug: {{ service.fileSlug }}
-url: {{ service.url }}
-lang: {{ service.data.lang }}
-title: {{ service.data.title }}
-sort_order: {{ service.data.sort_order }}
-icon: {{ service.data.icon }}
-translationKey: {{ service.data.translationKey }}
----
-                </code></pre>
-            </div>
-        {% endfor %}
-        
+        <div class="section-title" data-aos="fade-up">
+            <h2>ჩვენი სერვისები</h2>
+            <p>გაეცანით ჩვენს სერვისებს, რომლებიც დაგეხმარებათ გააუმჯობესოთ თქვენი კომპანიის ეფექტურობა და უსაფრთხოება.</p>
+        </div>
+        <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
+            {%- for service in collections.services | getAndSortServices(lang) | slice(0, 4) -%}
+                <a href="{{ service.url }}" class="service-card glass-panel">
+                    <div class="card-header">
+                        <div class="card-icon">
+                        {% if service.data.icon %}
+                            {% include "animated-icons/" + service.data.icon + ".svg" %}
+                        {% endif %}
+                        </div>
+                        <h3 class="card-title">{{ service.data.title }}</h3>
+                    </div>
+                    <div class="card-link">
+                        მეტის ნახვა →
+                    </div>
+                </a>
+            {%- endfor -%}
+        </div>
     </div>
 </section>
