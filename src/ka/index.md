@@ -6,12 +6,14 @@ title: მთავარი
 hero_title: Move Into the New Age of IOTA Technology
 hero_subtitle: ჩვენ გთავაზობთ ინოვაციურ ტექნოლოგიურ გადაწყვეტილებებს თქვენი ბიზნესის ზრდისა და განვითარებისთვის.
 ---
+
 <section class="hero-section">
   <div class="container" data-aos="fade-up">
     <h1>{{ hero_title }}</h1>
     <p class="section-title-p">{{ hero_subtitle }}</p>
   </div>
 </section>
+
 <section id="home-services" class="services-page-section">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
@@ -19,7 +21,8 @@ hero_subtitle: ჩვენ გთავაზობთ ინოვაციუ
             <p>გაეცანით ჩვენს სერვისებს, რომლებიც დაგეხმარებათ გააუმჯობესოთ თქვენი კომპანიის ეფექტურობა და უსაფრთხოება.</p>
         </div>
         <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
-            {%- for service in collections.services | getAndSortServices(lang) | slice(0, 4) -%}
+            {# --- დროებით წავშალეთ | slice(0, 4) --- #}
+            {%- for service in collections.services | getAndSortServices(lang) -%}
                 <a href="{{ service.url }}" class="service-card glass-panel">
                     <div class="card-header">
                         <div class="card-icon">
