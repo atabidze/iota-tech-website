@@ -6,22 +6,23 @@ publish_mode: editorial_workflow
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
-i18n:
-  structure: multiple_folders
-  locales: [ka, en]
-  default_locale: ka
-
 collections:
-  - name: "services"
-    label: "სერვისების კატალოგი"
-    folder: "src/services/{{locale}}"
+  - name: "services_ka"
+    label: "სერვისები (ქართული)"
+    folder: "src/services/ka"
     create: true
-    i18n: true
     slug: "{{slug}}"
     identifier_field: "slug"
     fields:
-      # --- ველებიდან წაიშალა ყველა i18n პარამეტრი ---
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
+      - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
+      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
+        name: "slug"
+        widget: "string"
+        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
       - { label: "სერვისის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
       - label: "აირჩიეთ იკონი"
@@ -37,19 +38,60 @@ collections:
           - { label: "CCTV", value: "cctv" }
           - { label: "Messages", value: "messages" }
           - { label: "Briefcase", value: "briefcase" }
-      - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown" }
+      - label: "ზოგადი მიმოხილვა (დეტალური გვერდისთვის)"
+        name: "general_description"
+        widget: "markdown"
       - label: "სრული აღწერის პუნქტები"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
+
+  - name: "services_en"
+    label: "Services (English)"
+    folder: "src/services/en"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "slug"
+    fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "ენა", name: "lang", widget: "hidden", default: "{{locale}}" }
-      - { label: "Permalink", name: "permalink", widget: "hidden" }
-      - { label: "Translation Key", name: "translationKey", widget: "hidden", default: "{{slug}}" }
-
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
+      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
+      - label: "Translate from Georgian Service"
+        name: "slug"
+        widget: "relation"
+        collection: "services_ka"
+        search_fields: ["title", "slug"]
+        display_fields: ["title"]
+        value_field: "slug"
+        hint: "აირჩიეთ ქართული სერვისი, რომლის Slug-იც ავტომატურად გადმოკოპირდება."
+      - { label: "Service Title", name: "title", widget: "string" }
+      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
+      - label: "Icon"
+        name: "icon"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Users", value: "users" }
+          - { label: "Network", value: "network" }
+          - { label: "Server", value: "server" }
+          - { label: "Cloud", value: "cloud" }
+          - { label: "Shield", value: "shield" }
+          - { label: "CCTV", value: "cctv" }
+          - { label: "Messages", value: "messages" }
+          - { label: "Briefcase", value: "briefcase" }
+      - label: "General Description (for detail page)"
+        name: "general_description"
+        widget: "markdown"
+      - label: "Detailed List Items"
+        name: "detailed_list"
+        widget: "list"
+        summary: "{{fields.point}}"
+        fields:
+          - { label: "List Item", name: "point", widget: "string" }
+          
   - name: "pages_ka"
     label: "მთავარი გვერდები (ქართული)"
     files:
