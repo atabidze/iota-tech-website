@@ -14,7 +14,7 @@ collections:
     slug: "{{slug}}"
     identifier_field: "slug"
     fields:
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+      # - { label: "Tags", name: "tags", widget: "hidden", default: "services" } # <<< ეს ველი წაიშალა
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
@@ -23,7 +23,7 @@ collections:
         widget: "string"
         hint: "მაგ: cloud-hosting. ეს ველი ზუსტად უნდა ემთხვეოდეს ინგლისური ვერსიის slug-ს."
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - { label: "სერვისის სათაური", name: "title", widget: "string" } # <<< წაიშალა pattern
+      - { label: "სერვისის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
       - label: "აირჩიეთ იკონი"
         name: "icon"
@@ -55,16 +55,19 @@ collections:
     slug: "{{slug}}"
     identifier_field: "slug"
     fields:
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
+      # - { label: "Tags", name: "tags", widget: "hidden", default: "services" } # <<< ეს ველი წაიშალა
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      - label: "Filename (slug in latin letters)"
+      - label: "Translate from Georgian Service"
         name: "slug"
-        widget: "string"
-        hint: "e.g., cloud-hosting. This field must exactly match the slug of the Georgian version."
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
-      - { label: "Service Title", name: "title", widget: "string" } # <<< წაიშალა pattern
+        widget: "relation"
+        collection: "services_ka"
+        search_fields: ["title", "slug"]
+        display_fields: ["title"]
+        value_field: "slug"
+        hint: "აირჩიეთ ქართული სერვისი, რომლის Slug-იც ავტომატურად გადმოკოპირდება."
+      - { label: "Service Title", name: "title", widget: "string" }
       - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
       - label: "Icon"
         name: "icon"
