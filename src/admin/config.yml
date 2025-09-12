@@ -14,7 +14,6 @@ collections:
     slug: "{{slug}}"
     identifier_field: "slug"
     fields:
-      # - { label: "Tags", name: "tags", widget: "hidden", default: "services" } # <<< ეს ველი წაიშალა
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
@@ -55,18 +54,14 @@ collections:
     slug: "{{slug}}"
     identifier_field: "slug"
     fields:
-      # - { label: "Tags", name: "tags", widget: "hidden", default: "services" } # <<< ეს ველი წაიშალა
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      - label: "Translate from Georgian Service"
+      - label: "Filename (slug in latin letters)"
         name: "slug"
-        widget: "relation"
-        collection: "services_ka"
-        search_fields: ["title", "slug"]
-        display_fields: ["title"]
-        value_field: "slug"
-        hint: "აირჩიეთ ქართული სერვისი, რომლის Slug-იც ავტომატურად გადმოკოპირდება."
+        widget: "string"
+        hint: "e.g., cloud-hosting. This field must exactly match the slug of the Georgian version."
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
       - { label: "Service Title", name: "title", widget: "string" }
       - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
       - label: "Icon"
