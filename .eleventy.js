@@ -3,33 +3,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // --- ვტოვებთ მხოლოდ ჩვენს "ჭკვიან" ფილტრს ---
-  eleventyConfig.addFilter("getAndSortServices", (services, lang) => {
-    // თავდაცვის მიზნით, ვამოწმებთ, რომ კოლექცია არსებობს
-    if (!services || !services.length) {
-      return [];
-    }
-    
-    const kaServices = services.filter(item => item.data.lang === 'ka');
-    const filteredServices = services.filter(item => item.data.lang === lang);
-
-    let enrichedServices = filteredServices.map(service => {
-      let finalService = { ...service }; // ვქმნით ასლს, რომ ორიგინალს არ შევეხოთ
-      
-      if (finalService.data.lang === 'en') {
-        const kaTwin = kaServices.find(kaService => kaService.fileSlug === finalService.fileSlug);
-        if (kaTwin) {
-          // ინგლისურს ვანიჭებთ ქართულის იკონს და რიგითობას
-          finalService.data.icon = kaTwin.data.icon;
-          finalService.data.sort_order = kaTwin.data.sort_order;
-        }
-      }
-      return finalService;
+  // ვქმნით "services" კოლექციას, რომელიც ავტომატურად დალაგდება `sort_order`-ის მიხედვით
+  eleventyConfig.addCollection("services", function(collectionApi) {
+    return collectionApi.getFilteredByTag("services").sort(function(a, b) {
+      return (a.data.sort_order || 0) - (b.data.sort_order || 0);
     });
-
-    return enrichedServices.sort((a, b) => a.data.sort_order - b.data.sort_order);
   });
-  // ------------------------------------
 
   return {
     dir: {
