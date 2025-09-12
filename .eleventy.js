@@ -3,16 +3,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // --- განახლდა კოლექციის შექმნის ლოგიკა ---
+  // ვქმნით "services" კოლექციას `src/services/` ფოლდერიდან
   eleventyConfig.addCollection("services", function(collectionApi) {
-    // ვიღებთ ყველა ფაილს `src/services/` ფოლდერიდან და მის ქვემდებარე ფოლდერებიდან
-    return collectionApi.getFilteredByGlob("src/services/**/*.md").sort(function(a, b) {
-      // ვალაგებთ `sort_order`-ის მიხედვით
-      return (a.data.sort_order || 0) - (b.data.sort_order || 0);
-    });
+    return collectionApi.getFilteredByGlob("src/services/**/*.md");
   });
 
-  // --- "ჭკვიანი" ფილტრი უცვლელი რჩება ---
+  // ვამატებთ "ჭკვიან" ფილტრს, რომელიც ამ კოლექციას ამუშავებს
   eleventyConfig.addFilter("getAndSortServices", (services, lang) => {
     if (!services || !services.length) {
       return [];
@@ -22,7 +18,7 @@ module.exports = function(eleventyConfig) {
     const filteredServices = services.filter(item => item.data.lang === lang);
 
     let enrichedServices = filteredServices.map(service => {
-      let finalService = { ...service };
+      let finalService = { ...service }; 
       
       if (finalService.data.lang === 'en') {
         const kaTwin = kaServices.find(kaService => kaService.fileSlug === finalService.fileSlug);
@@ -34,7 +30,7 @@ module.exports = function(eleventyConfig) {
       return finalService;
     });
 
-    return enrichedServices.sort((a, b) => a.data.sort_order - b.data.sort_order);
+    return enrichedServices.sort((a, b) => (a.data.sort_order || 0) - (b.data.sort_order || 0));
   });
 
   return {
