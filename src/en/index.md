@@ -23,6 +23,7 @@ hero_subtitle: We offer innovative technological solutions for the growth and de
         <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
             {% set serviceCounter = 0 %}
             {%- for service in collections.services -%}
+                {# 1. Check the language; 2. Check that the service has a title #}
                 {%- if service.data.lang == lang and service.data.title -%}
                     {% if serviceCounter < 4 %}
                         <a href="{{ service.url }}" class="service-card glass-panel">
