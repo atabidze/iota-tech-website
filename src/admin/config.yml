@@ -6,31 +6,28 @@ publish_mode: editorial_workflow
 media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
+i18n:
+  structure: multiple_folders
+  locales: [ka, en]
+  default_locale: ka
+
 collections:
-  - name: "services_ka"
-    label: "სერვისები (ქართული)"
-    folder: "src/services/ka"
+  - name: "services"
+    label: "სერვისების კატალოგი"
+    folder: "src/services/{{locale}}" # <<< ვიყენებთ {{locale}} ცვლადს
     create: true
-    slug: "{{fields.slug}}"
+    i18n: true
+    slug: "{{slug}}"
     identifier_field: "slug"
     fields:
-      - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      # --- თარგმანის გასაღები გახდა ავტომატური და უხილავი ---
-      - { label: "Translation Key", name: "translationKey", widget: "hidden", default: "{{slug}}" }
-      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
-        name: "slug"
-        widget: "string"
-        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - { label: "სერვისის სათაური", name: "title", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", i18n: "duplicate" }
+      - { label: "სერვისის სათაური", name: "title", widget: "string", i18n: "translate" }
+      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0, i18n: "duplicate" }
       - label: "აირჩიეთ იკონი"
         name: "icon"
         widget: "select"
         required: false
+        i18n: "duplicate"
         options:
           - { label: "Users", value: "users" }
           - { label: "Network", value: "network" }
@@ -40,52 +37,23 @@ collections:
           - { label: "CCTV", value: "cctv" }
           - { label: "Messages", value: "messages" }
           - { label: "Briefcase", value: "briefcase" }
-      - label: "ზოგადი მიმოხილვა (დეტალური გვერდისთვის)"
-        name: "general_description"
-        widget: "markdown"
+      - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown", i18n: "translate" }
       - label: "სრული აღწერის პუნქტები"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
+        i18n: "translate"
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-
-  - name: "services_en"
-    label: "Services (English)"
-    folder: "src/services/en"
-    create: true
-    slug: "{{fields.slug}}"
-    identifier_field: "slug"
-    fields:
+      # --- დამალული ველები, რომლებსაც Eleventy იყენებს ---
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
-      - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      # --- თარგმანის გასაღები გახდა ავტომატური და უხილავი ---
+      - { label: "ენა", name: "lang", widget: "hidden", default: "{{locale}}" }
+      - { label: "Permalink", name: "permalink", widget: "hidden" }
       - { label: "Translation Key", name: "translationKey", widget: "hidden", default: "{{slug}}" }
-      - label: "Select Georgian service to translate"
-        name: "slug"
-        widget: "relation"
-        collection: "services_ka"
-        search_fields: ["title", "slug"]
-        display_fields: ["title"]
-        value_field: "slug"
-        hint: "Select the Georgian service and its Filename (slug) will be automatically copied."
-      - { label: "Service Title", name: "title", widget: "string" }
-      - { label: "Sort Order", name: "sort_order", widget: "hidden", default: 0 }
-      - { label: "Icon", name: "icon", widget: "hidden", default: "" }
-      - label: "General Description (for detail page)"
-        name: "general_description"
-        widget: "markdown"
-      - label: "Detailed List Items"
-        name: "detailed_list"
-        widget: "list"
-        summary: "{{fields.point}}"
-        fields:
-          - { label: "List Item", name: "point", widget: "string" }
-          
+
+  # --- გვერდების კოლექციები უცვლელია ---
   - name: "pages_ka"
-    # ... დანარჩენი კოლექციები უცვლელია ...
     label: "მთავარი გვერდები (ქართული)"
     files:
       - { file: "src/ka/index.md", label: "მთავარი გვერდი", name: "index_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
