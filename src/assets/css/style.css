@@ -256,6 +256,7 @@ a.service-card:visited .card-title {
   }
 }
 /* --- ენის გადამრთველის ახალი სტილები --- */
+/* --- ენის გადამრთველის ახალი სტილები --- */
 .header-controls {
   display: flex;
   align-items: center;
@@ -264,7 +265,7 @@ a.service-card:visited .card-title {
 .lang-switcher a {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.5rem; /* დაშორება იკონსა და ტექსტს შორის */
   color: var(--text-secondary);
   font-weight: 700;
   text-decoration: none;

@@ -20,37 +20,56 @@
 
   <header class="site-header glass-panel">
     <div class="container header-container">
-      <a href="{{ '/' | url }}" class="logo">{{ settings.logo_text }}</a>
+      {# --- პრობლემა 3-ის შესწორება: ენის პრეფიქსის განსაზღვრა --- #}
+      {% set lang_prefix = '' if lang == 'ka' else '/en' %}
+      
+      <a href="{{ lang_prefix }}/" class="logo">{{ settings.logo_text }}</a>
 
+      {# --- პრობლემა 3-ის შესწორება: ნავიგაციის ბმულები იყენებენ ენის პრეფიქსს --- #}
       <nav class="desktop-nav">
-        <a href="{{ '/' | url }}">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
-        <a href="{{ '/services/' | url }}">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
-        <a href="{{ '/about/' | url }}">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
-        <a href="{{ '/contact/' | url }}">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
+        <a href="{{ lang_prefix }}/">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
+        <a href="{{ lang_prefix }}/services/">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
+        <a href="{{ lang_prefix }}/about/">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
+        <a href="{{ lang_prefix }}/contact/">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
       </nav>
 
       <div class="header-controls">
+        {# --- პრობლემა 1 და 2-ის შესწორება: ენის გადამრთველის ახალი ლოგიკა --- #}
         <div class="lang-switcher">
           {% set alternatePageUrl = '' %}
           {% for item in collections.all %}
-            {# ვპოულობთ ალტერნატიულ გვერდს slug-ის და არა translationKey-ს მიხედვით #}
             {% if item.fileSlug == fileSlug and item.data.lang != lang %}
               {% set alternatePageUrl = item.url %}
             {% endif %}
           {% endfor %}
-          <a href="{{ page.url | replace('/en', '') if lang == 'en' else page.url }}" {% if lang == 'ka' %}aria-current="page"{% endif %}>{{ ka.lang_label }}</a>
-          <a href="{{ alternatePageUrl or ('/en' + (page.url | replace('/en', ''))) }}" {% if lang == 'en' %}aria-current="page"{% endif %}>{{ en.lang_label }}</a>
+          
+          {% if lang == 'ka' %}
+            {% set targetUrl = alternatePageUrl or '/en/' %}
+            {% set targetLabel = en.lang_label %}
+            <a href="{{ targetUrl }}">
+              {% include "icons/globe.svg" %}
+              <span>{{ targetLabel }}</span>
+            </a>
+          {% else %}
+            {% set targetUrl = alternatePageUrl or '/' %}
+            {% set targetLabel = ka.lang_label %}
+             <a href="{{ targetUrl }}">
+              {% include "icons/globe.svg" %}
+              <span>{{ targetLabel }}</span>
+            </a>
+          {% endif %}
         </div>
         <button class="mobile-nav-toggle" aria-controls="main-nav" aria-expanded="false"></button>
       </div>
     </div>
   </header>
 
+  {# --- პრობლემა 3-ის შესწორება: მობილური ნავიგაციის ბმულები --- #}
   <nav class="mobile-nav" id="main-nav" data-visible="false">
-    <a href="{{ '/' | url }}">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
-    <a href="{{ '/services/' | url }}">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
-    <a href="{{ '/about/' | url }}">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
-    <a href="{{ '/contact/' | url }}">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
+    <a href="{{ lang_prefix }}/">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
+    <a href="{{ lang_prefix }}/services/">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
+    <a href="{{ lang_prefix }}/about/">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
+    <a href="{{ lang_prefix }}/contact/">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
   </nav>
 
   <main>
