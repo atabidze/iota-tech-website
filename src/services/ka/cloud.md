@@ -6,7 +6,7 @@ slug: cloud
 title: ქლაუდი
 sort_order: 1
 icon: cloud
-general_description: სდსდსად
+general_description: სდასასდა
 detailed_list:
-  - point: სადადასდა
+  - point: სსსაასდად
 ---
