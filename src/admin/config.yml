@@ -14,20 +14,20 @@ i18n:
 collections:
   - name: "services"
     label: "სერვისების კატალოგი"
-    folder: "src/services/{{locale}}" # <<< ვიყენებთ {{locale}} ცვლადს
+    folder: "src/services/{{locale}}"
     create: true
     i18n: true
     slug: "{{slug}}"
     identifier_field: "slug"
     fields:
-      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string", i18n: "duplicate" }
-      - { label: "სერვისის სათაური", name: "title", widget: "string", i18n: "translate" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0, i18n: "duplicate" }
+      # --- ველებიდან წაიშალა ყველა i18n პარამეტრი ---
+      - { label: "ფაილის სახელი (ლათინურად, ტირეებით)", name: "slug", widget: "string" }
+      - { label: "სერვისის სათაური", name: "title", widget: "string" }
+      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
       - label: "აირჩიეთ იკონი"
         name: "icon"
         widget: "select"
         required: false
-        i18n: "duplicate"
         options:
           - { label: "Users", value: "users" }
           - { label: "Network", value: "network" }
@@ -37,22 +37,19 @@ collections:
           - { label: "CCTV", value: "cctv" }
           - { label: "Messages", value: "messages" }
           - { label: "Briefcase", value: "briefcase" }
-      - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown", i18n: "translate" }
+      - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown" }
       - label: "სრული აღწერის პუნქტები"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
-        i18n: "translate"
         fields:
           - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
-      # --- დამალული ველები, რომლებსაც Eleventy იყენებს ---
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "{{locale}}" }
       - { label: "Permalink", name: "permalink", widget: "hidden" }
       - { label: "Translation Key", name: "translationKey", widget: "hidden", default: "{{slug}}" }
 
-  # --- გვერდების კოლექციები უცვლელია ---
   - name: "pages_ka"
     label: "მთავარი გვერდები (ქართული)"
     files:
