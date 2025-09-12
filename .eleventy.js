@@ -1,16 +1,11 @@
 module.exports = function(eleventyConfig) {
   
-  // i18n დანამატი აღარ გვჭირდება, რადგან ხელით ვმართავთ ყველაფერს
-  // const i18n = require("eleventy-plugin-i18n");
-  // eleventyConfig.addPlugin(i18n, {
-  //   defaultLanguage: "ka",
-  // });
-
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // --- განახლებული "ჭკვიანი" ფილტრი ---
+  // --- ვტოვებთ მხოლოდ ჩვენს "ჭკვიან" ფილტრს ---
   eleventyConfig.addFilter("getAndSortServices", (services, lang) => {
+    // თავდაცვის მიზნით, ვამოწმებთ, რომ კოლექცია არსებობს
     if (!services || !services.length) {
       return [];
     }
