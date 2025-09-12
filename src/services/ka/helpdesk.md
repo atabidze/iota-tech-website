@@ -6,7 +6,7 @@ permalink: /services/{{slug}}/
 translationKey: "{{slug}}"
 slug: helpdesk
 title: ჰელპ დესკი
-sort_order: 0
+sort_order: 1
 icon: users
 general_description: სდასდა
 detailed_list:
