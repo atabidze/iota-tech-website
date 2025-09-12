@@ -8,7 +8,7 @@ slug: helpdesk
 title: help desk
 sort_order: 0
 icon: ""
-general_description: asdsda
+general_description: asdsdas
 detailed_list:
   - point: dssads
 ---
