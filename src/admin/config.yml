@@ -8,7 +8,7 @@ public_folder: "/assets/img"
 
 collections:
   - name: "services_ka"
-    label: "სერვისები (ქართული)"
+    label: "სერვისები (ქართული)" # <-- ეს რჩება ქართულად ადმინ პანელის მენიუსთვის
     folder: "src/services/ka"
     create: true
     slug: "{{slug}}"
@@ -16,16 +16,16 @@ collections:
     fields:
       - { label: "Tags", name: "tags", widget: "hidden", default: "services" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
-      - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
+      - { label: "Language", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      - label: "ფაილის სახელი (ლათინურად, ტირეებით)"
+      - label: "Filename (Latin, with dashes)"
         name: "slug"
         widget: "string"
-        hint: "მაგ: help-desk, it-support. ეს იქნება ფაილის სახელი და ბმული."
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
-      - { label: "სერვისის სათაური", name: "title", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "აირჩიეთ იკონი"
+        hint: "e.g., help-desk, it-support. This will be the filename and URL."
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
+      - { label: "Service Title (Georgian)", name: "title", widget: "string" }
+      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
+      - label: "Icon"
         name: "icon"
         widget: "select"
         required: false
@@ -38,15 +38,15 @@ collections:
           - { label: "CCTV", value: "cctv" }
           - { label: "Messages", value: "messages" }
           - { label: "Briefcase", value: "briefcase" }
-      - label: "ზოგადი მიმოხილვა (დეტალური გვერდისთვის)"
+      - label: "General Description (Georgian)"
         name: "general_description"
         widget: "markdown"
-      - label: "სრული აღწერის პუნქტები"
+      - label: "Detailed List Items (Georgian)"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
         fields:
-          - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
+          - { label: "List Item", name: "point", widget: "string" }
 
   - name: "services_en"
     label: "Services (English)"
@@ -66,14 +66,14 @@ collections:
         search_fields: ["title", "slug"]
         display_fields: ["title"]
         value_field: "slug"
-        hint: "აირჩიეთ ქართული სერვისი, რომლის Slug-იც ავტომატურად გადმოკოპირდება."
-      - { label: "Service Title", name: "title", widget: "string" }
-      - { label: "Sort Order", name: "sort_order", widget: "hidden", default: 0 } # <<< დაიმალა
-      - { label: "Icon", name: "icon", widget: "hidden", default: "" } # <<< დაიმალა
-      - label: "General Description (for detail page)"
+        hint: "Select the Georgian service and its Slug will be automatically copied."
+      - { label: "Service Title (English)", name: "title", widget: "string" }
+      - { label: "Sort Order", name: "sort_order", widget: "hidden", default: 0 }
+      - { label: "Icon", name: "icon", widget: "hidden", default: "" }
+      - label: "General Description (English)"
         name: "general_description"
         widget: "markdown"
-      - label: "Detailed List Items"
+      - label: "Detailed List Items (English)"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"

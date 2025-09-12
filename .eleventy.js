@@ -1,18 +1,16 @@
-const i18n = require("eleventy-plugin-i18n");
-
 module.exports = function(eleventyConfig) {
   
-  // 1. ვაბრუნებთ i18n დანამატს, რათა კოლექციები სწორად შეიქმნას
-  eleventyConfig.addPlugin(i18n, {
-    defaultLanguage: "ka",
-  });
+  // i18n დანამატი აღარ გვჭირდება, რადგან ხელით ვმართავთ ყველაფერს
+  // const i18n = require("eleventy-plugin-i18n");
+  // eleventyConfig.addPlugin(i18n, {
+  //   defaultLanguage: "ka",
+  // });
 
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // 2. ვტოვებთ ჩვენს "ჭკვიან" ფილტრს მონაცემების დასამუშავებლად
+  // --- განახლებული "ჭკვიანი" ფილტრი ---
   eleventyConfig.addFilter("getAndSortServices", (services, lang) => {
-    // თავდაცვის მიზნით, ვამოწმებთ, რომ კოლექცია არსებობს
     if (!services || !services.length) {
       return [];
     }
@@ -20,19 +18,23 @@ module.exports = function(eleventyConfig) {
     const kaServices = services.filter(item => item.data.lang === 'ka');
     const filteredServices = services.filter(item => item.data.lang === lang);
 
-    if (lang === 'en') {
-      return filteredServices.map(enService => {
-        const kaTwin = kaServices.find(kaService => kaService.fileSlug === enService.fileSlug);
+    let enrichedServices = filteredServices.map(service => {
+      let finalService = { ...service }; // ვქმნით ასლს, რომ ორიგინალს არ შევეხოთ
+      
+      if (finalService.data.lang === 'en') {
+        const kaTwin = kaServices.find(kaService => kaService.fileSlug === finalService.fileSlug);
         if (kaTwin) {
-          enService.data.icon = kaTwin.data.icon;
-          enService.data.sort_order = kaTwin.data.sort_order;
+          // ინგლისურს ვანიჭებთ ქართულის იკონს და რიგითობას
+          finalService.data.icon = kaTwin.data.icon;
+          finalService.data.sort_order = kaTwin.data.sort_order;
         }
-        return enService;
-      }).sort((a, b) => a.data.sort_order - b.data.sort_order);
-    }
+      }
+      return finalService;
+    });
 
-    return filteredServices.sort((a, b) => a.data.sort_order - b.data.sort_order);
+    return enrichedServices.sort((a, b) => a.data.sort_order - b.data.sort_order);
   });
+  // ------------------------------------
 
   return {
     dir: {
