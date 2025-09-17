@@ -1,262 +1,94 @@
+/* --- ცვლადები და ძირითადი სტილები --- */
 :root {
-  --dark-bg: #121212;
-  --card-bg: #1E1E1E;
-  --border-color: #333333;
-  --text-primary: #FFFFFF;
-  --text-secondary: #AAAAAA;
-  --accent-pink: #E84A5F;
-  --accent-lavender: #9A8CFF;
-  --font-family: 'Roboto', sans-serif;
-  --header-height: 60px;
+  --background-main: #121212;
+  --background-panel: rgba(26, 26, 26, 0.7);
+  --glass-blur: 10px;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #e84a5f;
+  --header-height: 80px;
 }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-family); margin: 0; padding: 0;
-  background-color: transparent; color: var(--text-primary);
-  font-size: 16px; line-height: 1.7;
-}
-#tsparticles-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-.container { max-width: 1140px; margin: 0 auto; padding: 0 1rem; }
-h1, h2, h3 { color: var(--text-primary); font-weight: 700; }
-h1 { font-size: 3rem; line-height: 1.2; }
-h2 { font-size: 2.5rem; }
-h3 { font-size: 1.5rem; }
-p { color: var(--text-secondary); }
-a { text-decoration: none; color: var(--text-primary); }
 
-.glass-panel { background-color: rgba(30, 30, 30, 0.5); backdrop-filter: blur(10px); border: 1px solid var(--border-color); }
-.site-header {
-  position: sticky;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-main);
+  color: var(--text-secondary);
+  margin: 0;
+  padding-top: var(--header-height);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* --- ფონის ნაწილაკები --- */
+#tsparticles-bg {
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
   width: 100%;
-  border-width: 0 0 1px 0;
-  padding: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+/* --- ჰედერი და ნავიგაცია --- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: var(--header-height);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+.glass-panel {
+  background: var(--background-panel);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--border-color);
 }
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
-}
-.logo { font-weight: 700; font-size: 1.5rem; }
-
-.desktop-nav a {
-  margin: 0 1rem;
-  font-weight: 500;
-  transition: color 0.3s;
-  color: var(--accent-pink);
-}
-.desktop-nav a:hover {
-  color: var(--text-primary);
-}
-.desktop-nav a[aria-current="page"],
-.mobile-nav a[aria-current="page"] {
-  color: var(--text-primary);
-  font-weight: 700;
-}
-
-
-.hero-section { padding: 8rem 0; text-align: center; }
-.site-footer { padding: 4rem 0; text-align: center; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
-
-/* --- სერვისების გვერდი (ბარათები) --- */
-.services-page-section { padding: 6rem 0; }
-.section-title { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
-.section-title p { font-size: 1.1rem; color: var(--text-secondary); }
-.services-grid { 
-    display: grid; 
-    gap: 2rem; 
-    grid-template-columns: repeat(1, 1fr);
-}
-@media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-
-.service-card { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: flex-start; 
-  padding: 1.5rem;
-  border-radius: 20px; 
-  text-decoration: none; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
-}
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: auto;
   width: 100%;
 }
-.card-icon { 
-  width: 48px; 
-  height: 48px; 
-  flex-shrink: 0;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
 }
-.card-icon svg { 
-  width: 100%; 
-  height: 100%;
-  object-fit: contain;
+.desktop-nav {
+  display: none;
 }
-.card-title { 
-  font-size: 1rem;
-  margin: 0; 
-  color: var(--text-primary); 
-  line-height: 1.3; 
-  transition: color 0.3s;
-}
-.service-card:active .card-title {
-  color: var(--accent-pink);
-}
-a.service-card:visited .card-title {
-  color: var(--text-primary) !important;
-}
-.card-link { 
-  align-self: flex-end;
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: var(--text-secondary);
-  transition: transform 0.3s; 
-  margin-top: 1rem;
-}
-
-@media (hover: hover) {
-  .service-card:hover { 
-    transform: translateY(-10px); 
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); 
-  }
-  .service-card:hover .card-title {
-    color: var(--accent-pink);
-  }
-  .service-card:hover .card-link { 
-    transform: translateX(5px); 
-  }
-}
-
-/* --- სერვისის დეტალური გვერდი --- */
-.service-detail-section { padding: 6rem 0; }
-.service-detail-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
-.service-detail-header .category-title-wrapper { justify-content: center; display: flex; align-items: center; gap: 1.5rem; }
-.icon-bg { 
-    width: 80px; 
-    height: 80px; 
-    border-radius: 20px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    background-color: transparent !important;
-}
-.icon-bg svg { 
-    width: 64px;
-    height: 64px; 
-}
-.service-detail-content { max-width: 800px; margin: 0 auto; }
-.service-general-description {
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-}
-.main-description-list { list-style: none; padding: 0; }
-.main-description-list li {
-  padding: 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  border-left: 5px solid var(--accent-lavender);
-}
-
-/* =======================================================
-   რესპონსიული დიზაინი (Responsive Design)
-   ======================================================= */
-.mobile-nav-toggle, .mobile-nav { display: none; }
-
-@media (max-width: 768px) {
-  .desktop-nav { display: none; }
-
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  .hero-section,
-  .services-page-section,
-  .service-detail-section,
-  .site-footer { padding: 4rem 0; }
-  
-  .mobile-nav-toggle {
-    display: block;
-    position: relative;
-    z-index: 1001;
-    background: transparent;
-    border: 0;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-  }
-  .mobile-nav-toggle::before,
-  .mobile-nav-toggle::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: var(--text-primary);
-    transition: transform 0.3s ease-out;
-  }
-  .mobile-nav-toggle::before { top: 5px; }
-  .mobile-nav-toggle::after { bottom: 5px; }
-
-  .mobile-nav-toggle[aria-expanded="true"]::before {
-    transform: translateY(6.5px) rotate(45deg);
-  }
-  .mobile-nav-toggle[aria-expanded="true"]::after {
-    transform: translateY(-6.5px) rotate(-45deg);
-  }
-  
-  .mobile-nav {
+@media (min-width: 768px) {
+  .desktop-nav {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    
-    padding-top: var(--header-height);
-    padding-left: 2rem;
-    padding-right: 2rem;
-    
-    background: rgba(18, 18, 18, 0.85);
-    backdrop-filter: blur(1rem);
-    
-    transform: translateX(100%);
-    transition: transform 0.3s ease-out;
+    gap: 2rem;
   }
-
-  .mobile-nav[data-visible="true"] {
-    transform: translateX(0%);
+  .desktop-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
   }
-  
-  .mobile-nav a {
-    margin: 0.75rem 0;
-    font-size: 1.5rem;
-    color: var(--accent-pink); /* <<<--- დაბრუნდა ფერის მითითება */
-  }
-  .mobile-nav a:hover {
+  .desktop-nav a:hover {
     color: var(--text-primary);
   }
-
-  .service-detail-header .category-title-wrapper {
-    flex-direction: column;
-    gap: 1rem;
-  }
 }
-/* --- ენის გადამრთველის ახალი სტილები --- */
-/* --- ენის გადამრთველის ახალი სტილები --- */
+
+/* --- ენის გადამრთველის სტილები --- */
 .header-controls {
   display: flex;
   align-items: center;
@@ -265,18 +97,19 @@ a.service-card:visited .card-title {
 .lang-switcher a {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* დაშორება იკონსა და ტექსტს შორის */
+  gap: 0.5rem;
   color: var(--text-secondary);
   font-weight: 700;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s;
 }
-.lang-switcher a:hover {
+.lang-switcher a:hover,
+.lang-switcher a[aria-current="page"] {
   color: var(--text-primary);
 }
 .lang-switcher svg {
-  width: 1rem; /* 16px */
+  width: 1rem;
   height: 1rem;
   stroke-width: 2.5;
 }
@@ -285,7 +118,151 @@ a.service-card:visited .card-title {
     margin-left: auto;
   }
 }
-/* --- Service Hub Page Styles --- */
+
+/* --- მობილური ნავიგაცია --- */
+.mobile-nav-toggle {
+  display: block;
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cline x1='3' y1='12' x2='21' y2='12'/%3e%3cline x1='3' y1='6' x2='21' y2='6'/%3e%3cline x1='3' y1='18' x2='21' y2='18'/%3e%3c/svg%3e");
+  background-size: cover;
+}
+.mobile-nav-toggle[aria-expanded="true"] {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cline x1='18' y1='6' x2='6' y2='18'/%3e%3cline x1='6' y1='6' x2='18' y2='18'/%3e%3c/svg%3e");
+}
+.mobile-nav {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  background: var(--background-main);
+  padding: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.mobile-nav[data-visible="true"] {
+  transform: translateX(0);
+}
+.mobile-nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+@media (min-width: 768px) {
+  .mobile-nav-toggle, .mobile-nav {
+    display: none;
+  }
+}
+
+/* --- Hero სექცია --- */
+.hero-section {
+  text-align: center;
+  padding: 6rem 0;
+}
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero-section p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- ზოგადი სექციები --- */
+.page-section, .services-page-section {
+  padding: 4rem 0;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-title h1, .section-title h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.section-title p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- სერვისების ბადის სტილები --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 სვეტი მობილურზე */
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 სვეტი პატარა პლანშეტებზე */
+  }
+}
+
+@media (min-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 სვეტი დესკტოპზე */
+  }
+}
+
+@media (min-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 სვეტი დიდ ეკრანებზე */
+  }
+}
+
+/* --- სერვისის ბარათის სტილები --- */
+.service-card {
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  min-height: 200px;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--border-color);
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.card-header {
+  text-align: center;
+}
+.card-icon svg {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-size: 1.2rem;
+  margin: 0;
+  font-weight: 500;
+}
+.card-link {
+  margin-top: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.service-card:hover .card-link {
+  opacity: 1;
+}
+
+/* --- სერვისების ჰაბის გვერდის სტილები --- */
 .service-hub-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -298,6 +275,7 @@ a.service-card:visited .card-title {
   padding: 2.5rem;
   border-radius: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--border-color);
 }
 .hub-card:hover {
   transform: translateY(-10px);
@@ -321,12 +299,12 @@ a.service-card:visited .card-title {
   color: var(--accent-color);
 }
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 .text-center p {
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (min-width: 768px) {
@@ -334,111 +312,11 @@ a.service-card:visited .card-title {
     grid-template-columns: 1fr 1fr;
   }
 }
-/* --- Service Full Content Styles --- */
-.service-content-wrapper {
-  max-width: 800px;
-  margin: 2rem auto 0;
-}
-.service-full-item {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  padding: 2rem;
-  margin-bottom: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.service-full-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 1.5rem;
-}
-.service-full-icon {
-  flex-shrink: 0;
-}
-.service-full-icon svg {
-  width: 50px;
-  height: 50px;
-}
-.service-full-header h2 {
-  margin: 0;
-  font-size: 1.75rem;
-  color: var(--text-primary);
-}
-.service-full-description p {
-  margin-top: 0;
-  line-height: 1.7;
-}
-.service-detailed-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1.5rem;
-}
-.service-detailed-list li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 0.75rem;
-}
-.service-detailed-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--accent-color);
-  font-weight: 700;
-}
-/* --- Accordion Styles --- */
-.accordion-wrapper {
-  max-width: 800px;
-  margin: 2rem auto 0;
-}
-.accordion-item {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 1rem;
-}
-.accordion-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  width: 100%;
-  padding: 1.5rem;
-  background: transparent;
-  border: none;
-  color: var(--text-primary);
-  text-align: left;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-.accordion-header .service-full-icon svg {
-  width: 32px;
-  height: 32px;
-}
-.accordion-title {
-  flex-grow: 1;
-}
-.accordion-indicator {
-  font-size: 2rem;
-  font-weight: 300;
-  color: var(--text-secondary);
-  transition: transform 0.3s ease;
-}
-.accordion-header.is-open .accordion-indicator {
-  transform: rotate(45deg);
-}
-.accordion-panel {
-  overflow: hidden;
-  transition: max-height 0.4s ease-out;
-  max-height: 0;
-}
-.accordion-content {
-  padding: 0 1.5rem 1.5rem 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-.accordion-content .service-full-description p:first-child {
-  margin-top: 1.5rem;
+
+/* --- ფუტერი --- */
+.site-footer {
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  margin-top: 4rem;
 }

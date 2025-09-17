@@ -111,35 +111,7 @@
         }
       });
 
-      // --- აკორდეონის ლოგიკა ---
-      const accordionHeaders = document.querySelectorAll('.accordion-header');
-      accordionHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-          const currentlyOpenHeader = document.querySelector('.accordion-header.is-open');
-          if (currentlyOpenHeader && currentlyOpenHeader !== header) {
-            currentlyOpenHeader.classList.remove('is-open');
-            currentlyOpenHeader.setAttribute('aria-expanded', 'false');
-            const openPanel = currentlyOpenHeader.nextElementSibling;
-            openPanel.style.maxHeight = null;
-            openPanel.setAttribute('hidden', '');
-          }
-
-          header.classList.toggle('is-open');
-          header.setAttribute('aria-expanded', header.classList.contains('is-open'));
-          
-          const panel = header.nextElementSibling;
-          if (panel) {
-            panel.toggleAttribute('hidden');
-
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-          }
-        });
-      });
-      // --- აკორდეონის ლოგიკის დასასრული ---
+      // აკორდეონის ლოგიკა წაიშალა
 
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
