@@ -1,24 +1,24 @@
 ---
-lang: ka
-permalink: /services/
+lang: en
+permalink: /en/services/
 layout: base.njk
-title: "ტექნოლოგიური გადაწყვეტილებები თქვენი ბიზნესისთვის"
-subtitle: "აირჩიეთ პარტნიორობის მოდელი, რომელიც ყველაზე მეტად შეესაბამება თქვენს მიზნებს - უწყვეტი IT მხარდაჭერა თუ კომპლექსური პროექტის განხორციელება."
-card1_title: "IT აუთსორსინგი და მართვადი სერვისები"
-card1_desc: "ჩვენ ვხდებით თქვენი კომპანიის სრულფასოვანი IT გუნდი და პარტნიორი, რომელიც ზრუნავს ტექნოლოგიებზე, რათა თქვენ შეძლოთ ბიზნესის ზრდაზე ფოკუსირება."
+title: "Technological Solutions for Your Business"
+subtitle: "Choose the partnership model that best suits your goals - continuous IT support or complex project implementation."
+card1_title: "IT Outsourcing & Managed Services"
+card1_desc: "We act as your dedicated IT team and partner, managing your technology so you can focus on business growth."
 card1_list:
-  - item: "ყოველდღიური IT მხარდაჭერა (Helpdesk)"
-  - item: "პროაქტიული მონიტორინგი და ადმინისტრირება"
-  - item: "კიბერუსაფრთხოების მართვა"
-  - item: "მონაცემთა დაცვა და აღდგენა"
-  - item: "სტრატეგიული IT კონსულტაცია"
-card2_title: "სისტემური ინტეგრაცია და პროექტები"
-card2_desc: "ჩვენ ვქმნით და ვნერგავთ კომპლექსურ IT ინფრასტრუქტურას თქვენი ბიზნესის ამბიციური მიზნებისთვის."
+  - item: "Daily IT Support (Helpdesk)"
+  - item: "Proactive Monitoring & Administration"
+  - item: "Cybersecurity Management"
+  - item: "Data Protection & Recovery"
+  - item: "Strategic IT Consulting"
+card2_title: "System Integration & Projects"
+card2_desc: "We design and implement complex IT infrastructure to achieve your business's most ambitious goals."
 card2_list:
-  - item: "IT ინფრასტრუქტურის პროექტები"
-  - item: "ქლაუდ ტრანსფორმაცია"
-  - item: "უსაფრთხოების სისტემების დანერგვა"
-  - item: "საკომუნიკაციო გადაწყვეტილებები"
+  - item: "IT Infrastructure Projects"
+  - item: "Cloud Transformation"
+  - item: "Security Systems Implementation"
+  - item: "Communication Solutions"
 ---
 <section class="page-section">
     <div class="container">
@@ -27,7 +27,7 @@ card2_list:
             <p>{{ subtitle }}</p>
         </div>
         <div class="service-hub-grid" data-aos="fade-up" data-aos-delay="200">
-            <a href="/services/managed-services/" class="hub-card glass-panel">
+            <a href="/en/services/managed-services/" class="hub-card glass-panel">
                 <h2>{{ card1_title }}</h2>
                 <p>{{ card1_desc }}</p>
                 {% if card1_list %}
@@ -37,9 +37,9 @@ card2_list:
                     {% endfor %}
                 </ul>
                 {% endif %}
-                <span class="hub-card-cta">სრულად →</span>
+                <span class="hub-card-cta">Details →</span>
             </a>
-            <a href="/services/projects/" class="hub-card glass-panel">
+            <a href="/en/services/projects/" class="hub-card glass-panel">
                 <h2>{{ card2_title }}</h2>
                 <p>{{ card2_desc }}</p>
                 {% if card2_list %}
@@ -49,7 +49,7 @@ card2_list:
                     {% endfor %}
                 </ul>
                 {% endif %}
-                <span class="hub-card-cta">სრულად →</span>
+                <span class="hub-card-cta">Details →</span>
             </a>
         </div>
     </div>
