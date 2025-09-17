@@ -2,13 +2,12 @@
 lang: ka
 permalink: /services/
 layout: base.njk
-# ქვემოთ მოცემული ველები იმართება ადმინ პანელიდან
 title: ტექნოლოგიური გადაწყვეტილებები თქვენი ბიზნესისთვის
 subtitle: აირჩიეთ პარტნიორობის მოდელი, რომელიც ყველაზე მეტად შეესაბამება თქვენს მიზნებს - უწყვეტი IT მხარდაჭერა თუ კომპლექსური პროექტის განხორციელება.
 card1_title: IT აუთსორსინგი და მართვადი სერვისები
-card1_desc: (აქ ჩაჯდება ტექსტი, რომელსაც ადმინ პანელიდან შეცვლით)
+card1_desc: ჩვენ ვხდებით თქვენი კომპანიის სრულფასოვანი IT გუნდი და პარტნიორი, რომელიც ზრუნავს ტექნოლოგიებზე, რათა თქვენ შეძლოთ ბიზნესის ზრდაზე ფოკუსირება.
 card2_title: სისტემური ინტეგრაცია და პროექტები
-card2_desc: (აქ ჩაჯდება ტექსტი, რომელსაც ადმინ პანელიდან შეცვლით)
+card2_desc: ჩვენ ვქმნით და ვნერგავთ კომპლექსურ IT ინფრასტრუქტურას თქვენი ბიზნესის ამბიციური მიზნებისთვის.
 ---
 <section class="page-section">
     <div class="container">
@@ -20,15 +19,13 @@ card2_desc: (აქ ჩაჯდება ტექსტი, რომელს
             <a href="/services/managed-services/" class="hub-card glass-panel">
                 <h2>{{ card1_title }}</h2>
                 <p>{{ card1_desc }}</p>
-                <span class="hub-card-cta">სერვისების ნახვა →</span>
+                <span class="hub-card-cta">სრულად →</span>
             </a>
             <a href="/services/projects/" class="hub-card glass-panel">
                 <h2>{{ card2_title }}</h2>
                 <p>{{ card2_desc }}</p>
-                <span class="hub-card-cta">პროექტების ნახვა →</span>
+                <span class="hub-card-cta">სრულად →</span>
             </a>
         </div>
     </div>
 </section>
-
-{# აქ შეგიძლიათ დაამატოთ "რატომ Iota?" სექცია მომავალში #}
