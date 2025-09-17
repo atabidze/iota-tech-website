@@ -285,3 +285,52 @@ a.service-card:visited .card-title {
     margin-left: auto;
   }
 }
+/* --- Service Hub Page Styles --- */
+.service-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.hub-card {
+  text-decoration: none;
+  color: var(--text-primary);
+  padding: 2.5rem;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.hub-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.hub-card h2 {
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+.hub-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.hub-card-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+.text-center {
+    text-align: center;
+}
+.text-center p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .service-hub-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

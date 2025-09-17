@@ -20,32 +20,19 @@ collections:
       - label: "ფაილის სახელი (ლათინურად, slug)"
         name: "slug"
         widget: "string"
-        hint: "მაგ: cloud-hosting. ეს ველი ზუსტად უნდა ემთხვეოდეს ინგლისური ვერსიის slug-ს."
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
       - { label: "სერვისის სათაური", name: "title", widget: "string" }
-      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - label: "აირჩიეთ იკონი"
-        name: "icon"
+      # --- დაემატა კატეგორიის ველი ---
+      - label: "კატეგორია"
+        name: "category"
         widget: "select"
-        required: false
         options:
-          - { label: "Users", value: "users" }
-          - { label: "Network", value: "network" }
-          - { label: "Server", value: "server" }
-          - { label: "Cloud", value: "cloud" }
-          - { label: "Shield", value: "shield" }
-          - { label: "CCTV", value: "cctv" }
-          - { label: "Messages", value: "messages" }
-          - { label: "Briefcase", value: "briefcase" }
-      - label: "ზოგადი მიმოხილვა"
-        name: "general_description"
-        widget: "markdown"
-      - label: "სრული აღწერის პუნქტები"
-        name: "detailed_list"
-        widget: "list"
-        summary: "{{fields.point}}"
-        fields:
-          - { label: "აღწერის პუნქტი", name: "point", widget: "string" }
+          - { label: "IT აუთსორსინგი და მართვადი სერვისები", value: "managed-services" }
+          - { label: "სისტემური ინტეგრაცია და პროექტები", value: "projects" }
+      - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
+      - { label: "აირჩიეთ იკონი", name: "icon", widget: "select", required: false, options: [{label: "Users", value: "users"}, {label: "Network", value: "network"}, {label: "Server", value: "server"}, {label: "Cloud", value: "cloud"}, {label: "Shield", value: "shield"}, {label: "CCTV", value: "cctv"}, {label: "Messages", value: "messages"}, {label: "Briefcase", value: "briefcase"}] }
+      - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown" }
+      - { label: "სრული აღწერის პუნქტები", name: "detailed_list", widget: "list", summary: "{{fields.point}}", fields: [{label: "აღწერის პუნქტი", name: "point", widget: "string"}] }
 
   - name: "services_en"
     label: "Services (English)"
@@ -60,38 +47,35 @@ collections:
       - label: "Filename (slug in latin letters)"
         name: "slug"
         widget: "string"
-        hint: "e.g., cloud-hosting. This field must exactly match the slug of the Georgian version."
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
       - { label: "Service Title", name: "title", widget: "string" }
-      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
-      - label: "Icon"
-        name: "icon"
+      # --- დაემატა კატეგორიის ველი ---
+      - label: "Category"
+        name: "category"
         widget: "select"
-        required: false
         options:
-          - { label: "Users", value: "users" }
-          - { label: "Network", value: "network" }
-          - { label: "Server", value: "server" }
-          - { label: "Cloud", value: "cloud" }
-          - { label: "Shield", value: "shield" }
-          - { label: "CCTV", value: "cctv" }
-          - { label: "Messages", value: "messages" }
-          - { label: "Briefcase", value: "briefcase" }
-      - label: "General Description"
-        name: "general_description"
-        widget: "markdown"
-      - label: "Detailed List Items"
-        name: "detailed_list"
-        widget: "list"
-        summary: "{{fields.point}}"
-        fields:
-          - { label: "List Item", name: "point", widget: "string" }
+          - { label: "IT Outsourcing & Managed Services", value: "managed-services" }
+          - { label: "System Integration & Projects", value: "projects" }
+      - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
+      - { label: "Icon", name: "icon", widget: "select", required: false, options: [{label: "Users", value: "users"}, {label: "Network", value: "network"}, {label: "Server", value: "server"}, {label: "Cloud", value: "cloud"}, {label: "Shield", value: "shield"}, {label: "CCTV", value: "cctv"}, {label: "Messages", value: "messages"}, {label: "Briefcase", value: "briefcase"}] }
+      - { label: "General Description", name: "general_description", widget: "markdown" }
+      - { label: "Detailed List Items", name: "detailed_list", widget: "list", summary: "{{fields.point}}", fields: [{label: "List Item", name: "point", widget: "string"}] }
           
   - name: "pages_ka"
     label: "მთავარი გვერდები (ქართული)"
     files:
       - { file: "src/ka/index.md", label: "მთავარი გვერდი", name: "index_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
-      - { file: "src/ka/services.md", label: "სერვისების გვერდი", name: "services_page_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "სექციის სათაური", name: "section_title", widget: "string" }, { label: "სექციის ქვესათაური", name: "section_subtitle", widget: "text" }] }
+      # --- განახლდა "სერვისების გვერდის" ველები ---
+      - file: "src/ka/services.md"
+        label: "სერვისების გვერდი (ჰაბი)"
+        name: "services_page_ka"
+        fields:
+          - { label: "სათაური (H1)", name: "title", widget: "string" }
+          - { label: "ქვესათაური", name: "subtitle", widget: "text" }
+          - { label: "ბარათი 1: სათაური", name: "card1_title", widget: "string" }
+          - { label: "ბარათი 1: აღწერა", name: "card1_desc", widget: "text" }
+          - { label: "ბარათი 2: სათაური", name: "card2_title", widget: "string" }
+          - { label: "ბარათი 2: აღწერა", name: "card2_desc", widget: "text" }
       - { file: "src/ka/about.md", label: "ჩვენ შესახებ", name: "about_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
       - { file: "src/ka/contact.md", label: "კონტაქტი", name: "contact_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
 
@@ -99,7 +83,17 @@ collections:
     label: "Main Pages (English)"
     files:
       - { file: "src/en/index.md", label: "Home Page", name: "index_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Hero Title", name: "hero_title", widget: "string" }, { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }] }
-      - { file: "src/en/services.md", label: "Services Page", name: "services_page_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Section Title", name: "section_title", widget: "string" }, { label: "Section Subtitle", name: "section_subtitle", widget: "text" }] }
+      # --- განახლდა "Services Page"-ის ველები ---
+      - file: "src/en/services.md"
+        label: "Services Page (Hub)"
+        name: "services_page_en"
+        fields:
+          - { label: "Title (H1)", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - { label: "Card 1: Title", name: "card1_title", widget: "string" }
+          - { label: "Card 1: Description", name: "card1_desc", widget: "text" }
+          - { label: "Card 2: Title", name: "card2_title", widget: "string" }
+          - { label: "Card 2: Description", name: "card2_desc", widget: "text" }
       - { file: "src/en/about.md", label: "About Us", name: "about_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
       - { file: "src/en/contact.md", label: "Contact", name: "contact_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
           
