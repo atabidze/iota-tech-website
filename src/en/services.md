@@ -1,14 +1,17 @@
 ---
-lang: en
-permalink: /en/services/
 layout: base.njk
-# The fields below are managed from the Admin Panel
+permalink: /en/services/
 title: Technological Solutions for Your Business
-subtitle: Choose the partnership model that best suits your goals - continuous IT support or complex project implementation.
-card1_title: IT Outsourcing & Managed Services
-card1_desc: (Text to be edited from the Admin Panel will go here)
+subtitle: Choose the partnership model that best suits your goals - continuous
+  IT support or complex project implementation.
 card2_title: System Integration & Projects
-card2_desc: (Text to be edited from the Admin Panel will go here)
+card2_desc: (Text to be edWe design and implement complex IT infrastructure to
+  achieve your business's most ambitious goals.ited from the Admin Panel will go
+  here)
+lang: en
+card1_title: IT Outsourcing & Managed Services
+card1_desc: We act as your dedicated IT team and partner, managing your
+  technology so you can focus on business growth.
 ---
 <section class="page-section">
     <div class="container">
