@@ -111,30 +111,13 @@
         }
       });
 
-      const animatedCards = document.querySelectorAll('.hub-card');
-      animatedCards.forEach(card => {
-        card.addEventListener('click', function(event) {
-          event.preventDefault();
-          const destination = this.href;
-          this.classList.add('is-animating');
-          setTimeout(() => {
-            window.location.href = destination;
-          }, 500); // ანიმაციის დროსთან (0.5s) გათანაბრება
-        });
-      });
+      // ანიმაციის ლოგიკა წაშლილია
 
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
         "background": { "color": { "value": "#121212" }},
         "particles": { "number": { "value": 80, "density": { "enable": true, "value_area": 800 }}, "color": { "value": "#e84a5f" }, "shape": { "type": "circle" }, "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }}, "size": { "value": 2, "random": true }, "line_linked": { "enable": true, "distance": 150, "color": "#333333", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 1, "direction": "none", "out_mode": "out" }},
         "interactivity": { "detect_on": "window", "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }}, "modes": { "bubble": { "distance": 250, "size": 4, "duration": 2, "opacity": 1 }, "push": { "particles_nb": 4 }}}, "retina_detect": true
-      });
-    });
-
-    window.addEventListener('pageshow', function (event) {
-      const animatingCards = document.querySelectorAll('.hub-card.is-animating');
-      animatingCards.forEach(card => {
-        card.classList.remove('is-animating');
       });
     });
   </script>

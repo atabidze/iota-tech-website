@@ -127,7 +127,7 @@ h1, h2, h3 {
   width: 24px;
   height: 24px;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cline x1='3' y1='12' x2='21' y2='12'/%3e%3cline x1='3' y1='6' x2='21' y2='6'/%3e%3cline x1='3' y1='18' x2='21' y2='18'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f0f0f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cline x1='3' y1='12' x2='21' y2='12'/%3e%3cline x1='3' y1='6' x2='21' y2='6'/%3e%3cline x1='3' y1='18' x2='21' y2='18'/%3e%3c/svg%3e");
   background-size: cover;
 }
 .mobile-nav-toggle[aria-expanded="true"] {
@@ -250,26 +250,15 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-/* --- სერვისების ჰაბის გვერდის სტილები (განახლებული ანიმაციით) --- */
-@keyframes shatter-effect {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.5);
-    opacity: 0;
-    box-shadow: 
-      0 0 1px 1px rgba(255, 255, 255, 0.2),
-      0 0 3px 2px var(--accent-color),
-      0 0 5px 4px rgba(255, 255, 255, 0.2);
-  }
-}
+/* --- სერვისების ჰაბის გვერდის სტილები (განახლებული ზომებით) --- */
 .service-hub-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 2.5rem; /* გაიზარდა დაშორება */
   margin-top: 3rem;
+  max-width: 1000px; /* შეიზღუდა საერთო სიგანე */
+  margin-left: auto;
+  margin-right: auto;
 }
 .hub-card {
   text-decoration: none;
@@ -278,13 +267,14 @@ h1, h2, h3 {
   border-radius: 15px;
   transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
   border: 1px solid var(--border-color);
+  min-height: 320px; /* დაემატა მინიმალური სიმაღლე */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ტექსტის ვერტიკალური ცენტრირება */
 }
 .hub-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-.hub-card.is-animating {
-  animation: shatter-effect 0.5s ease-out forwards;
 }
 .hub-card h2 {
   font-size: 1.75rem;
