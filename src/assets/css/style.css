@@ -220,7 +220,7 @@ h1, h2, h3 {
   }
 }
 
-/* --- Service Card Styles (განახლებული) --- */
+/* --- Service Card Styles --- */
 .service-card {
   text-decoration: none;
   color: var(--text-primary);
@@ -277,12 +277,18 @@ h1, h2, h3 {
   color: var(--text-primary);
   padding: 2.5rem;
   border-radius: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.4s ease-in, filter 0.4s ease-in;
   border: 1px solid var(--border-color);
 }
 .hub-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.hub-card.is-animating {
+  transform: scale(0.5) rotate(10deg);
+  opacity: 0;
+  filter: blur(10px);
+  box-shadow: none;
 }
 .hub-card h2 {
   font-size: 1.75rem;
