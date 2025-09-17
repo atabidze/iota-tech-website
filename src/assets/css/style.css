@@ -195,7 +195,7 @@ h1, h2, h3 {
   margin: 0 auto;
 }
 
-/* --- სერვისების ბადის სტილები --- */
+/* --- Service Card Grid --- */
 .services-grid {
   display: grid;
   grid-template-columns: 1fr; /* 1 სვეტი მობილურზე */
@@ -220,7 +220,7 @@ h1, h2, h3 {
   }
 }
 
-/* --- სერვისის ბარათის სტილები --- */
+/* --- Service Card Styles (განახლებული) --- */
 .service-card {
   text-decoration: none;
   color: var(--text-primary);
@@ -228,7 +228,6 @@ h1, h2, h3 {
   flex-direction: column;
   justify-content: space-between;
   padding: 1.5rem;
-  min-height: 200px;
   border-radius: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
   border: 1px solid var(--border-color);
@@ -238,15 +237,19 @@ h1, h2, h3 {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 .card-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
 }
 .card-icon svg {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 1rem;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
 .card-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 0;
   font-weight: 500;
 }
@@ -254,7 +257,7 @@ h1, h2, h3 {
   margin-top: 1.5rem;
   font-weight: 700;
   color: var(--accent-color);
-  text-align: center;
+  text-align: right;
   opacity: 0;
   transition: opacity 0.3s;
 }
