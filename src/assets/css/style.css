@@ -334,3 +334,57 @@ a.service-card:visited .card-title {
     grid-template-columns: 1fr 1fr;
   }
 }
+/* --- Service Full Content Styles --- */
+.service-content-wrapper {
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+.service-full-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.service-full-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
+}
+.service-full-icon {
+  flex-shrink: 0;
+}
+.service-full-icon svg {
+  width: 50px;
+  height: 50px;
+}
+.service-full-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+.service-full-description p {
+  margin-top: 0;
+  line-height: 1.7;
+}
+.service-detailed-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+.service-detailed-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 0.75rem;
+}
+.service-detailed-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-color);
+  font-weight: 700;
+}
