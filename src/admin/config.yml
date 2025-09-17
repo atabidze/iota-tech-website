@@ -17,12 +17,8 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      - label: "ფაილის სახელი (ლათინურად, slug)"
-        name: "slug"
-        widget: "string"
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"]
+      - { label: "ფაილის სახელი (ლათინურად, slug)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"] }
       - { label: "სერვისის სათაური", name: "title", widget: "string" }
-      # --- დაემატა კატეგორიის ველი ---
       - label: "კატეგორია"
         name: "category"
         widget: "select"
@@ -44,12 +40,8 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      - label: "Filename (slug in latin letters)"
-        name: "slug"
-        widget: "string"
-        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"]
+      - { label: "Filename (slug in latin letters)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"] }
       - { label: "Service Title", name: "title", widget: "string" }
-      # --- დაემატა კატეგორიის ველი ---
       - label: "Category"
         name: "category"
         widget: "select"
@@ -65,7 +57,6 @@ collections:
     label: "მთავარი გვერდები (ქართული)"
     files:
       - { file: "src/ka/index.md", label: "მთავარი გვერდი", name: "index_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
-      # --- განახლდა "სერვისების გვერდის" ველები ---
       - file: "src/ka/services.md"
         label: "სერვისების გვერდი (ჰაბი)"
         name: "services_page_ka"
@@ -74,8 +65,20 @@ collections:
           - { label: "ქვესათაური", name: "subtitle", widget: "text" }
           - { label: "ბარათი 1: სათაური", name: "card1_title", widget: "string" }
           - { label: "ბარათი 1: აღწერა", name: "card1_desc", widget: "text" }
+          - label: "ბარათი 1: პუნქტების სია"
+            name: "card1_list"
+            widget: "list"
+            summary: "{{fields.item}}"
+            fields:
+              - { label: "პუნქტი", name: "item", widget: "string" }
           - { label: "ბარათი 2: სათაური", name: "card2_title", widget: "string" }
           - { label: "ბარათი 2: აღწერა", name: "card2_desc", widget: "text" }
+          - label: "ბარათი 2: პუნქტების სია"
+            name: "card2_list"
+            widget: "list"
+            summary: "{{fields.item}}"
+            fields:
+              - { label: "პუნქტი", name: "item", widget: "string" }
       - { file: "src/ka/about.md", label: "ჩვენ შესახებ", name: "about_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
       - { file: "src/ka/contact.md", label: "კონტაქტი", name: "contact_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
 
@@ -83,7 +86,6 @@ collections:
     label: "Main Pages (English)"
     files:
       - { file: "src/en/index.md", label: "Home Page", name: "index_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Hero Title", name: "hero_title", widget: "string" }, { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }] }
-      # --- განახლდა "Services Page"-ის ველები ---
       - file: "src/en/services.md"
         label: "Services Page (Hub)"
         name: "services_page_en"
@@ -92,8 +94,20 @@ collections:
           - { label: "Subtitle", name: "subtitle", widget: "text" }
           - { label: "Card 1: Title", name: "card1_title", widget: "string" }
           - { label: "Card 1: Description", name: "card1_desc", widget: "text" }
+          - label: "Card 1: List of Points"
+            name: "card1_list"
+            widget: "list"
+            summary: "{{fields.item}}"
+            fields:
+              - { label: "Point", name: "item", widget: "string" }
           - { label: "Card 2: Title", name: "card2_title", widget: "string" }
           - { label: "Card 2: Description", name: "card2_desc", widget: "text" }
+          - label: "Card 2: List of Points"
+            name: "card2_list"
+            widget: "list"
+            summary: "{{fields.item}}"
+            fields:
+              - { label: "Point", name: "item", widget: "string" }
       - { file: "src/en/about.md", label: "About Us", name: "about_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
       - { file: "src/en/contact.md", label: "Contact", name: "contact_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
           
