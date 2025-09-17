@@ -111,24 +111,17 @@
         }
       });
 
-      // --- დაემატა ანიმაციის ლოგიკა ---
       const animatedCards = document.querySelectorAll('.hub-card');
       animatedCards.forEach(card => {
         card.addEventListener('click', function(event) {
-          // 1. ვაჩერებთ ბმულზე მომენტალურ გადასვლას
           event.preventDefault();
           const destination = this.href;
-
-          // 2. ვამატებთ ანიმაციის კლასს
           this.classList.add('is-animating');
-
-          // 3. ანიმაციის დასრულების შემდეგ გადავდივართ ბმულზე
           setTimeout(() => {
             window.location.href = destination;
-          }, 400); // 400 მილიწამი, იგივე რაც CSS transition-ში
+          }, 500); // ანიმაციის დროსთან (0.5s) გათანაბრება
         });
       });
-      // --- ანიმაციის ლოგიკის დასასრული ---
 
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
@@ -137,6 +130,15 @@
         "interactivity": { "detect_on": "window", "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "push" }}, "modes": { "bubble": { "distance": 250, "size": 4, "duration": 2, "opacity": 1 }, "push": { "particles_nb": 4 }}}, "retina_detect": true
       });
     });
+
+    // --- დაემატა კოდი, რომელიც ასწორებს "უკან დაბრუნებისას" გაქრობის პრობლემას ---
+    window.addEventListener('pageshow', function (event) {
+      const animatingCards = document.querySelectorAll('.hub-card.is-animating');
+      animatingCards.forEach(card => {
+        card.classList.remove('is-animating');
+      });
+    });
+    // --------------------------------------------------------------------------
   </script>
   <script>
     if (window.netlifyIdentity) {
