@@ -388,3 +388,57 @@ a.service-card:visited .card-title {
   color: var(--accent-color);
   font-weight: 700;
 }
+/* --- Accordion Styles --- */
+.accordion-wrapper {
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+.accordion-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+.accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.accordion-header .service-full-icon svg {
+  width: 32px;
+  height: 32px;
+}
+.accordion-title {
+  flex-grow: 1;
+}
+.accordion-indicator {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  transition: transform 0.3s ease;
+}
+.accordion-header.is-open .accordion-indicator {
+  transform: rotate(45deg);
+}
+.accordion-panel {
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  max-height: 0;
+}
+.accordion-content {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.accordion-content .service-full-description p:first-child {
+  margin-top: 1.5rem;
+}

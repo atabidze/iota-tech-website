@@ -10,29 +10,34 @@ title: System Integration & Projects
             <h1>System Integration & Projects</h1>
             <p>Implement complex technological projects with our team.</p>
         </div>
-        <div class="service-content-wrapper" data-aos="fade-up" data-aos-delay="200">
+        <div class="accordion-wrapper" data-aos="fade-up" data-aos-delay="200">
             {%- for service in collections.services -%}
                 {%- if service.data.lang == lang and service.data.category == 'projects' -%}
-                    <article class="service-full-item">
-                        <header class="service-full-header">
+                    <div class="accordion-item">
+                        <button class="accordion-header" aria-expanded="false">
                             <div class="service-full-icon">
                             {% if service.data.icon %}
                                 {% include "animated-icons/" + service.data.icon + ".svg" %}
                             {% endif %}
                             </div>
-                            <h2>{{ service.data.title }}</h2>
-                        </header>
-                        <div class="service-full-description">
-                            {{ service.data.general_description | markdownify | safe }}
+                            <span class="accordion-title">{{ service.data.title }}</span>
+                            <span class="accordion-indicator">+</span>
+                        </button>
+                        <div class="accordion-panel" hidden>
+                            <div class="accordion-content">
+                                <div class="service-full-description">
+                                    {{ service.data.general_description | markdownify | safe }}
+                                </div>
+                                {% if service.data.detailed_list %}
+                                <ul class="service-detailed-list">
+                                    {% for item in service.data.detailed_list %}
+                                    <li>{{ item.point }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
                         </div>
-                        {% if service.data.detailed_list %}
-                        <ul class="service-detailed-list">
-                            {% for item in service.data.detailed_list %}
-                            <li>{{ item.point }}</li>
-                            {% endfor %}
-                        </ul>
-                        {% endif %}
-                    </article>
+                    </div>
                 {%- endif -%}
             {%- endfor -%}
         </div>

@@ -20,12 +20,10 @@
 
   <header class="site-header glass-panel">
     <div class="container header-container">
-      {# --- პრობლემა 3-ის შესწორება: ენის პრეფიქსის განსაზღვრა --- #}
       {% set lang_prefix = '' if lang == 'ka' else '/en' %}
       
       <a href="{{ lang_prefix }}/" class="logo">{{ settings.logo_text }}</a>
 
-      {# --- პრობლემა 3-ის შესწორება: ნავიგაციის ბმულები იყენებენ ენის პრეფიქსს --- #}
       <nav class="desktop-nav">
         <a href="{{ lang_prefix }}/">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
         <a href="{{ lang_prefix }}/services/">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
@@ -34,7 +32,6 @@
       </nav>
 
       <div class="header-controls">
-        {# --- პრობლემა 1 და 2-ის შესწორება: ენის გადამრთველის ახალი ლოგიკა --- #}
         <div class="lang-switcher">
           {% set alternatePageUrl = '' %}
           {% for item in collections.all %}
@@ -64,7 +61,6 @@
     </div>
   </header>
 
-  {# --- პრობლემა 3-ის შესწორება: მობილური ნავიგაციის ბმულები --- #}
   <nav class="mobile-nav" id="main-nav" data-visible="false">
     <a href="{{ lang_prefix }}/">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
     <a href="{{ lang_prefix }}/services/">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
@@ -87,6 +83,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       AOS.init({ duration: 800, once: true });
+
       const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
       const particlesBg = document.getElementById('tsparticles-bg');
@@ -113,6 +110,37 @@
           closeMenu();
         }
       });
+
+      // --- აკორდეონის ლოგიკა ---
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const currentlyOpenHeader = document.querySelector('.accordion-header.is-open');
+          if (currentlyOpenHeader && currentlyOpenHeader !== header) {
+            currentlyOpenHeader.classList.remove('is-open');
+            currentlyOpenHeader.setAttribute('aria-expanded', 'false');
+            const openPanel = currentlyOpenHeader.nextElementSibling;
+            openPanel.style.maxHeight = null;
+            openPanel.setAttribute('hidden', '');
+          }
+
+          header.classList.toggle('is-open');
+          header.setAttribute('aria-expanded', header.classList.contains('is-open'));
+          
+          const panel = header.nextElementSibling;
+          if (panel) {
+            panel.toggleAttribute('hidden');
+
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+          }
+        });
+      });
+      // --- აკორდეონის ლოგიკის დასასრული ---
+
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
         "background": { "color": { "value": "#121212" }},
