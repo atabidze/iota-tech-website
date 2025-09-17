@@ -23,7 +23,7 @@ title: სისტემური ინტეგრაცია და პრ�
                             <h2>{{ service.data.title }}</h2>
                         </header>
                         <div class="service-full-description">
-                            {{ service.data.general_description | markdown | safe }}
+                            {{ service.data.general_description | markdownify | safe }}
                         </div>
                         {% if service.data.detailed_list %}
                         <ul class="service-detailed-list">
