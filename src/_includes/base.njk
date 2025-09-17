@@ -131,14 +131,12 @@
       });
     });
 
-    // --- დაემატა კოდი, რომელიც ასწორებს "უკან დაბრუნებისას" გაქრობის პრობლემას ---
     window.addEventListener('pageshow', function (event) {
       const animatingCards = document.querySelectorAll('.hub-card.is-animating');
       animatingCards.forEach(card => {
         card.classList.remove('is-animating');
       });
     });
-    // --------------------------------------------------------------------------
   </script>
   <script>
     if (window.netlifyIdentity) {

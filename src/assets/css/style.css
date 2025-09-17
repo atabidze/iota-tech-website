@@ -198,27 +198,12 @@ h1, h2, h3 {
 /* --- Service Card Grid --- */
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr; /* 1 სვეტი მობილურზე */
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
-
-@media (min-width: 576px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 სვეტი პატარა პლანშეტებზე */
-  }
-}
-
-@media (min-width: 992px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 სვეტი დესკტოპზე */
-  }
-}
-
-@media (min-width: 1200px) {
-  .services-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 სვეტი დიდ ეკრანებზე */
-  }
-}
+@media (min-width: 576px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
 
 /* --- Service Card Styles --- */
 .service-card {
@@ -265,7 +250,21 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-/* --- სერვისების ჰაბის გვერდის სტილები --- */
+/* --- სერვისების ჰაბის გვერდის სტილები (განახლებული ანიმაციით) --- */
+@keyframes shatter-effect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    box-shadow: 
+      0 0 1px 1px rgba(255, 255, 255, 0.2),
+      0 0 3px 2px var(--accent-color),
+      0 0 5px 4px rgba(255, 255, 255, 0.2);
+  }
+}
 .service-hub-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -277,7 +276,7 @@ h1, h2, h3 {
   color: var(--text-primary);
   padding: 2.5rem;
   border-radius: 15px;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.4s ease-out;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
   border: 1px solid var(--border-color);
 }
 .hub-card:hover {
@@ -285,9 +284,7 @@ h1, h2, h3 {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 .hub-card.is-animating {
-  transform: scale(0) rotate(360deg);
-  opacity: 0;
-  box-shadow: none;
+  animation: shatter-effect 0.5s ease-out forwards;
 }
 .hub-card h2 {
   font-size: 1.75rem;
@@ -314,7 +311,6 @@ h1, h2, h3 {
   margin-left: auto;
   margin-right: auto;
 }
-
 @media (min-width: 768px) {
   .service-hub-grid {
     grid-template-columns: 1fr 1fr;
