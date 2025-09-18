@@ -6,7 +6,7 @@
   --border-color: rgba(255, 255, 255, 0.2);
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
-  --accent-color: #e84a5f; /* <<< მთავარი ფერი ისევ ვარდისფერია */
+  --accent-color: #e84a5f;
   --header-height: 80px;
 }
 
@@ -309,9 +309,9 @@ h1, h2, h3 {
   width: 6px;
   height: 80px;
   border-radius: 3px;
-  /* --- შეიცვალა ფერი: მხოლოდ ნარინჯისფერი --- */
-  background: #FF9900;
-  box-shadow: 0 0 12px 3px #FF9900;
+  /* --- შეიცვალა ფერი: მუქი იისფერი --- */
+  background: #9400D3;
+  box-shadow: 0 0 12px 3px #9400D3;
   filter: blur(3px);
   opacity: 0;
   animation:
@@ -332,8 +332,9 @@ h1, h2, h3 {
   position: relative;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  transition-delay: calc(var(--index) * 250ms);
+  /* --- შეიცვალა ანიმაციის სიჩქარე --- */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition-delay: calc(var(--index) * 350ms); /* დაყოვნება გაიზარდა */
 }
 .feature-timeline.aos-animate .feature-section {
     opacity: 1;
@@ -362,7 +363,7 @@ h1, h2, h3 {
   width: 80px;
   height: 80px;
   stroke-width: 1;
-  color: var(--accent-color); /* <<<< იყენებს მთავარ ვარდისფერ ფერს */
+  color: var(--accent-color);
 }
 .feature-section::after {
   content: '';
@@ -373,7 +374,7 @@ h1, h2, h3 {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: var(--accent-color); /* <<<< იყენებს მთავარ ვარდისფერ ფერს */
+  background-color: var(--accent-color);
   border: 4px solid var(--background-main);
   z-index: 5;
   animation: pulse-node 2.5s infinite 2s;
