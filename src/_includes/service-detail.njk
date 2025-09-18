@@ -14,7 +14,8 @@
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
             {% for item in detailed_list %}
-            <div class="service-card glass-panel">
+            {# --- დაემატა ანიმაციის ატრიბუტები --- #}
+            <div class="service-card glass-panel" data-aos="fade-right" data-aos-delay="{{ loop.index0 * 100 }}">
                 <div class="card-header">
                     {% if item.icon %}
                     <div class="card-icon">

@@ -310,12 +310,13 @@ h1, h2, h3 {
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center; /* <<< შეიცვალა, რათა კონტენტი ცენტრში იყოს */
   padding: 1.5rem;
   border-radius: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
+  border: 1px solid var(--border-color); /* <<< დაემატა საზღვარი */
+  border-top: 3px solid var(--accent-color); /* <<< დაემატა ვიზუალური ბმა */
+  min-height: 200px; /* <<< დაემატა სიმაღლე */
 }
 .service-card:hover {
   transform: translateY(-10px);
@@ -329,11 +330,10 @@ h1, h2, h3 {
 }
 .card-icon {
   color: var(--accent-color);
-  flex-shrink: 0; /* იკონი არ შეიკუმშება */
+  flex-shrink: 0;
 }
-/* ზომის დაყენება ორივე ტიპის იკონისთვის */
-.card-icon .icon, /* Lucide იკონი */
-.card-icon svg {   /* ანიმირებული იკონი */
+.card-icon .icon,
+.card-icon svg {
   width: 32px;
   height: 32px;
 }
