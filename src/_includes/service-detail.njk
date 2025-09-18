@@ -1,6 +1,3 @@
-{% extends "base.njk" %}
-
-{% block content %}
 <section class="page-section service-detail-page">
     <div class="container content-container">
 
@@ -24,7 +21,13 @@
         {# --- დეტალური სიის ბლოკი (თუ არსებობს) --- #}
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="service-detail-card glass-panel" data-aos="fade-up" data-aos-delay="200">
-            <h2 class="card-section-title">ძირითადი მახასიათებლები</h2>
+            {# სათაურის ლოკალიზაცია #}
+            {% if lang == 'ka' %}
+                <h2 class="card-section-title">ძირითადი მახასიათებლები</h2>
+            {% else %}
+                <h2 class="card-section-title">Key Features</h2>
+            {% endif %}
+            
             <ul class="service-detailed-list">
                 {% for item in detailed_list %}
                 <li>{{ item.point }}</li>
@@ -35,4 +38,3 @@
 
     </div>
 </section>
-{% endblock %}
