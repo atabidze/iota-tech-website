@@ -25,10 +25,10 @@
       <a href="{{ lang_prefix }}/" class="logo">{{ settings.logo_text }}</a>
 
       <nav class="desktop-nav">
-        <a href="{{ lang_prefix }}/">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
-        <a href="{{ lang_prefix }}/services/">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
-        <a href="{{ lang_prefix }}/about/">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
-        <a href="{{ lang_prefix }}/contact/">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
+        <a href="{{ (lang_prefix + '/') | url }}" {% if page.url == (lang_prefix + '/') | url %}aria-current="page"{% endif %}>{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
+        <a href="{{ (lang_prefix + '/services/') | url }}" {% if page.url.includes('/services/') %}aria-current="page"{% endif %}>{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
+        <a href="{{ (lang_prefix + '/about/') | url }}" {% if page.url == (lang_prefix + '/about/') | url %}aria-current="page"{% endif %}>{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
+        <a href="{{ (lang_prefix + '/contact/') | url }}" {% if page.url == (lang_prefix + '/contact/') | url %}aria-current="page"{% endif %}>{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
       </nav>
 
       <div class="header-controls">
@@ -62,10 +62,10 @@
   </header>
 
   <nav class="mobile-nav" id="main-nav" data-visible="false">
-    <a href="{{ lang_prefix }}/">{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
-    <a href="{{ lang_prefix }}/services/">{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
-    <a href="{{ lang_prefix }}/about/">{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
-    <a href="{{ lang_prefix }}/contact/">{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
+    <a href="{{ (lang_prefix + '/') | url }}" {% if page.url == (lang_prefix + '/') | url %}aria-current="page"{% endif %}>{{ ka.nav.home if lang == 'ka' else en.nav.home }}</a>
+    <a href="{{ (lang_prefix + '/services/') | url }}" {% if page.url.includes('/services/') %}aria-current="page"{% endif %}>{{ ka.nav.services if lang == 'ka' else en.nav.services }}</a>
+    <a href="{{ (lang_prefix + '/about/') | url }}" {% if page.url == (lang_prefix + '/about/') | url %}aria-current="page"{% endif %}>{{ ka.nav.about if lang == 'ka' else en.nav.about }}</a>
+    <a href="{{ (lang_prefix + '/contact/') | url }}" {% if page.url == (lang_prefix + '/contact/') | url %}aria-current="page"{% endif %}>{{ ka.nav.contact if lang == 'ka' else en.nav.contact }}</a>
   </nav>
 
   <main>
@@ -110,8 +110,6 @@
           closeMenu();
         }
       });
-
-      // ანიმაციის ლოგიკა წაშლილია
 
       tsParticles.load("tsparticles-bg", {
         "fullScreen": { "enable": false },
