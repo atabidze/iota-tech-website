@@ -12,19 +12,25 @@
         </div>
 
         {% if detailed_list and detailed_list.length > 0 %}
-        <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-timeline">
             {% for item in detailed_list %}
-            {# --- დაემატა ანიმაციის ატრიბუტები --- #}
-            <div class="service-card glass-panel" data-aos="fade-right" data-aos-delay="{{ loop.index0 * 100 }}">
-                <div class="card-header">
-                    {% if item.icon %}
-                    <div class="card-icon">
-                        {% lucide item.icon %}
+                {# loop.cycle მონაცვლეობით ამატებს კლასებს #}
+                {% set section_class = loop.cycle('image-left', 'image-right') %}
+                {% set animation_direction = loop.cycle('fade-right', 'fade-left') %}
+                
+                <div class="feature-section {{ section_class }}">
+                    <div class="feature-visual" data-aos="{{ animation_direction }}">
+                        <div class="feature-icon">
+                            {% lucide item.icon %}
+                        </div>
                     </div>
-                    {% endif %}
-                    <h3 class="card-title">{{ item.point }}</h3>
+                    <div class="feature-text glass-panel" data-aos="{{ 'fade-left' if animation_direction == 'fade-right' else 'fade-right' }}">
+                        <h3 class="feature-title">{{ item.point }}</h3>
+                        {% if item.description %}
+                        <p class="feature-desc">{{ item.description }}</p>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
         {% endif %}
