@@ -5,12 +5,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // ვქმნით "services" კოლექციას `src/services/` ფოლდერიდან
-  eleventyConfig.addCollection("services", function(collectionApi) {
+  // კოლექციას დავარქვით managed_services, რათა უფრო აღწერადი იყოს
+  eleventyConfig.addCollection("managed_services", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/services/**/*.md");
   });
 
-  // ვამატებთ "ჭკვიან" ფილტრს, რომელიც ამ კოლექციას ამუშავებს
+  // "ჭკვიანი" ფილტრი უცვლელი რჩება
   eleventyConfig.addFilter("getAndSortServices", (services, lang) => {
     if (!services || !services.length) {
       return [];
@@ -35,14 +35,12 @@ module.exports = function(eleventyConfig) {
     return enrichedServices.sort((a, b) => (a.data.sort_order || 0) - (b.data.sort_order || 0));
   });
 
-  // --- დაემატა markdownify ფილტრი ---
   const md = new markdownIt({
     html: true,
   });
   eleventyConfig.addFilter("markdownify", (content) => {
     return md.render(content);
   });
-  // ------------------------------------
 
   return {
     dir: {

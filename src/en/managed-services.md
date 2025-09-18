@@ -11,22 +11,20 @@ title: IT Outsourcing & Managed Services
             <p>Discover seamless IT support services for your business stability.</p>
         </div>
         <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
-            {%- for service in collections.services -%}
-                {%- if service.data.lang == lang and service.data.category == 'managed-services' -%}
-                    <a href="{{ service.url }}" class="service-card glass-panel">
-                        <div class="card-header">
-                            <div class="card-icon">
-                            {% if service.data.icon %}
-                                {% include "animated-icons/" + service.data.icon + ".svg" %}
-                            {% endif %}
-                            </div>
-                            <h3 class="card-title">{{ service.data.title }}</h3>
+            {%- for service in collections.managed_services | getAndSortServices(lang) -%}
+                <a href="{{ service.url }}" class="service-card glass-panel">
+                    <div class="card-header">
+                        <div class="card-icon">
+                        {% if service.data.icon %}
+                            {% include "animated-icons/" + service.data.icon + ".svg" %}
+                        {% endif %}
                         </div>
-                        <div class="card-link">
-                            Details →
-                        </div>
-                    </a>
-                {%- endif -%}
+                        <h3 class="card-title">{{ service.data.title }}</h3>
+                    </div>
+                    <div class="card-link">
+                        Details →
+                    </div>
+                </a>
             {%- endfor -%}
         </div>
     </div>
