@@ -294,58 +294,61 @@ h1, h2, h3 {
   color: var(--accent-color);
 }
 
-/* --- სერვისების სიის ბარათები (managed-services) --- */
+/* --- Service Card Grid (managed-services) --- */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
-.service-card-new {
-  position: relative;
+@media (min-width: 576px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* --- Service Card Styles (managed-services) --- */
+.service-card {
   text-decoration: none;
-  padding: 2rem;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
   border-radius: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.service-card-new:hover {
+.service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
-.card-new-icon {
-  margin-bottom: 1.5rem;
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
 }
-.card-new-icon svg {
-  width: 40px;
-  height: 40px;
+.card-icon svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0;
+  flex-shrink: 0;
 }
-.card-new-title {
-  font-size: 1.3rem;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
-}
-.card-new-desc {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
+.card-title {
+  font-size: 1.1rem;
   margin: 0;
+  font-weight: 500;
 }
-.card-new-arrow {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  color: var(--text-secondary);
-  transition: color 0.3s, transform 0.3s;
-}
-.service-card-new:hover .card-new-arrow {
+.card-link {
+  margin-top: 1.5rem;
+  font-weight: 700;
   color: var(--accent-color);
-  transform: scale(1.2);
+  text-align: right;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.service-card:hover .card-link {
+  opacity: 1;
 }
 
-
-/* --- სერვისის დეტალური გვერდის ახალი სტილები --- */
-.page-content {
-  line-height: 1.7;
-}
+/* --- სერვისის დეტალური გვერდის სტილები --- */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
