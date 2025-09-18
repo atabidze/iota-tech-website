@@ -76,7 +76,8 @@ h1, h2, h3 {
   .desktop-nav {
     display: flex;
     gap: 2rem;
-    margin-left: auto; /* <<< ეს ხაზი სწევს მენიუს მარჯვნივ */
+    margin-left: auto;
+    margin-right: 2rem; /* <<< დაემატა დაშორება */
   }
   .desktop-nav a {
     color: var(--text-secondary);
@@ -84,9 +85,11 @@ h1, h2, h3 {
     font-weight: 500;
     transition: color 0.3s;
   }
-  .desktop-nav a:hover,
-  .desktop-nav a[aria-current="page"] {
+  .desktop-nav a:hover {
     color: var(--text-primary);
+  }
+  .desktop-nav a[aria-current="page"] {
+    color: var(--accent-color); /* <<< შეიცვალა აქტიური ბმულის ფერი */
   }
 }
 
