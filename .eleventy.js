@@ -1,5 +1,5 @@
 const markdownIt = require("markdown-it");
-const lucide = require("eleventy-plugin-lucide");
+const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
 
 module.exports = function(eleventyConfig) {
   
@@ -7,7 +7,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/admin");
 
   // დავამატეთ lucide icons პლაგინი სწორი სახელით
-  eleventyConfig.addPlugin(lucide, {
+  eleventyConfig.addPlugin(lucideIcons, {
     "class": "icon",
     "width": 32,
     "height": 32,
