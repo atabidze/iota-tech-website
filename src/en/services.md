@@ -2,6 +2,7 @@
 lang: en
 permalink: /en/services/
 layout: base.njk
+templateEngineOverride: njk
 title: "Technological Solutions for Your Business"
 subtitle: "Choose the partnership model that best suits your goals - continuous IT support or complex project implementation."
 card1_title: "IT Outsourcing & Managed Services"
