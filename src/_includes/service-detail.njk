@@ -12,19 +12,18 @@
         </div>
 
         {% if detailed_list and detailed_list.length > 0 %}
-        <div class="feature-timeline" data-aos="fade-in" data-aos-duration="800">
+        <div class="feature-timeline" data-aos="fade-up" data-aos-duration="800">
             {% for item in detailed_list %}
-                {# Corrected logic using modulus operator #}
-                {% set section_class = 'image-left' if loop.index0 % 2 == 0 else 'image-right' %}
-                {% set animation_direction = 'fade-right' if loop.index0 % 2 == 0 else 'fade-left' %}
+                {% set section_class = loop.cycle('image-left', 'image-right') %}
                 
-                <div class="feature-section {{ section_class }}">
-                    <div class="feature-visual" data-aos="{{ animation_direction }}" data-aos-delay="200">
+                {# --- წაიშალა data-aos, დაემატა style --- #}
+                <div class="feature-section {{ section_class }}" style="--index: {{ loop.index0 }};">
+                    <div class="feature-visual">
                         <div class="feature-icon">
                             {% lucide item.icon %}
                         </div>
                     </div>
-                    <div class="feature-text glass-panel" data-aos="{{ 'fade-left' if animation_direction == 'fade-right' else 'fade-right' }}" data-aos-delay="200">
+                    <div class="feature-text glass-panel">
                         <h3 class="feature-title">{{ item.point }}</h3>
                         {% if item.description %}
                         <p class="feature-desc">{{ item.description }}</p>
