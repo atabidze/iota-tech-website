@@ -348,7 +348,10 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-/* --- სერვისის დეტალური გვერდის სტილები --- */
+/* --- სერვისის დეტალური გვერდის ახალი სტილები --- */
+.page-content {
+  line-height: 1.7;
+}
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -363,10 +366,12 @@ h1, h2, h3 {
   min-height: 120px;
   display: flex;
   align-items: center;
+  border-bottom: 3px solid transparent; /* ქვედა ხაზისთვის მომზადება */
 }
 .feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border-bottom-color: var(--accent-color); /* Hover-ზე ხაზის გაფერადება */
 }
 .feature-card-title {
   font-size: 1.1rem;
