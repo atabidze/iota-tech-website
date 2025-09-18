@@ -16,7 +16,7 @@ title: IT აუთსორსინგი და მართვადი ს�
                     <div class="card-header">
                         <div class="card-icon">
                         {% if service.data.icon %}
-                            {% lucide service.data.icon %}
+                            {% include "animated-icons/" + service.data.icon + ".svg" %}
                         {% endif %}
                         </div>
                         <h3 class="card-title">{{ service.data.title }}</h3>

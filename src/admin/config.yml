@@ -20,7 +20,19 @@ collections:
       - { label: "ფაილის სახელი (slug)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"] }
       - { label: "სერვისის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - { label: "მთავარი იკონი (Lucide-ის სახელი)", name: "icon", widget: "string", hint: "შედით lucide.dev/icons, იპოვეთ იკონი და ჩაწერეთ მისი სახელი, მაგ: server" }
+      - label: "მთავარი იკონი (ანიმირებული)"
+        name: "icon"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Users", value: "users" }
+          - { label: "Network", value: "network" }
+          - { label: "Server", value: "server" }
+          - { label: "Cloud", value: "cloud" }
+          - { label: "Shield", value: "shield" }
+          - { label: "CCTV", value: "cctv" }
+          - { label: "Messages", value: "messages" }
+          - { label: "Briefcase", value: "briefcase" }
       - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown" }
       - label: "დეტალური მახასიათებლები (ბარათები)"
         name: "detailed_list"
@@ -28,7 +40,7 @@ collections:
         summary: "{{fields.point}}"
         fields:
           - { label: "ბარათის ტექსტი", name: "point", widget: "string" }
-          - { label: "იკონი (Lucide-ის სახელი)", name: "icon", widget: "string", required: false, hint: "მაგ: shield, database, cloud" }
+          - { label: "იკონი (Lucide-ის სახელი)", name: "icon", widget: "string", required: false, hint: "შედით lucide.dev/icons, იპოვეთ იკონი და ჩაწერეთ მისი სახელი, მაგ: shield" }
 
   - name: "managed_services_en"
     label: "IT Outsourcing (Services)"
@@ -43,7 +55,19 @@ collections:
       - { label: "Filename (slug)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"] }
       - { label: "Service Title", name: "title", widget: "string" }
       - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
-      - { label: "Main Icon (Lucide Name)", name: "icon", widget: "string", hint: "Go to lucide.dev/icons, find an icon and type its name, e.g. server" }
+      - label: "Main Icon (Animated)"
+        name: "icon"
+        widget: "select"
+        required: false
+        options:
+          - { label: "Users", value: "users" }
+          - { label: "Network", value: "network" }
+          - { label: "Server", value: "server" }
+          - { label: "Cloud", value: "cloud" }
+          - { label: "Shield", value: "shield" }
+          - { label: "CCTV", value: "cctv" }
+          - { label: "Messages", value: "messages" }
+          - { label: "Briefcase", value: "briefcase" }
       - { label: "General Description", name: "general_description", widget: "markdown" }
       - label: "Detailed Features (Cards)"
         name: "detailed_list"
@@ -51,7 +75,7 @@ collections:
         summary: "{{fields.point}}"
         fields:
           - { label: "Card Text", name: "point", widget: "string" }
-          - { label: "Icon (Lucide Name)", name: "icon", widget: "string", required: false, hint: "e.g. shield, database, cloud" }
+          - { label: "Icon (Lucide Name)", name: "icon", widget: "string", required: false, hint: "Go to lucide.dev/icons, find an icon and type its name, e.g. shield" }
           
   - name: "pages_ka"
     label: "გვერდების მართვა (ქართული)"
