@@ -55,7 +55,7 @@ h1, h2, h3 {
   background: var(--background-panel);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
-  border-bottom: 1px solid var(--border-color);
+  border: 1px solid var(--border-color);
 }
 .header-container {
   display: flex;
@@ -218,7 +218,6 @@ h1, h2, h3 {
   padding: 2.5rem;
   border-radius: 15px;
   transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-  border: 1px solid var(--border-color);
   min-height: 380px;
   display: flex;
   flex-direction: column;
@@ -233,12 +232,9 @@ h1, h2, h3 {
   font-size: 1.75rem;
   margin-top: 0;
   margin-bottom: 1rem;
-  color: var(--text-primary);
 }
 .hub-card p {
-  color: var(--text-secondary);
   font-size: 1rem;
-  line-height: 1.6;
   transition: color 0.3s ease;
 }
 .hub-card-cta {
@@ -280,7 +276,6 @@ h1, h2, h3 {
   position: relative;
   padding-left: 25px;
   margin-bottom: 0.75rem;
-  color: var(--text-secondary);
   font-size: 0.95rem;
   transition: color 0.3s ease;
 }
@@ -289,26 +284,27 @@ h1, h2, h3 {
   position: absolute;
   left: 0;
   top: 1px;
-  color: var(--text-secondary);
   font-weight: 700;
   transition: color 0.3s ease;
 }
-.hub-card p:hover,
-.hub-card-list li:hover {
-  color: var(--accent-color);
+.hub-card-list li, .hub-card-list li::before {
+    color: var(--text-secondary);
 }
-.hub-card-list li:hover::before {
+.hub-card p:hover, .hub-card-list li:hover, .hub-card-list li:hover::before {
   color: var(--accent-color);
 }
 
-/* --- სერვისების სიის ახალი ბარათები --- */
+/* --- სერვისების სიის ბარათები (managed-services) --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
 .service-card-new {
   position: relative;
   text-decoration: none;
-  color: var(--text-primary);
   padding: 2rem;
   border-radius: 15px;
-  border: 1px solid var(--border-color);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 .service-card-new:hover {
@@ -326,6 +322,7 @@ h1, h2, h3 {
   font-size: 1.3rem;
   margin-top: 0;
   margin-bottom: 0.75rem;
+  color: var(--text-primary);
 }
 .card-new-desc {
   color: var(--text-secondary);
@@ -344,31 +341,35 @@ h1, h2, h3 {
   transform: scale(1.2);
 }
 
+
 /* --- სერვისის დეტალური გვერდის ახალი სტილები --- */
 .page-content {
   line-height: 1.7;
 }
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
 .feature-card {
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   border-radius: 15px;
-  border: 1px solid var(--border-color);
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
 }
 .feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 .feature-card-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
+  color: var(--text-primary);
 }
 
 /* --- ფუტერი --- */

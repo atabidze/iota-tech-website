@@ -1,7 +1,6 @@
 <section class="page-section service-detail-page">
     <div class="container">
 
-        {# --- სათაური და ზოგადი აღწერა --- #}
         <div class="section-title text-center" data-aos="fade-up">
             <h1>{{ title }}</h1>
             <div class="page-content" style="max-width: 800px; margin: 0 auto;">
@@ -9,12 +8,10 @@
             </div>
         </div>
 
-        {# --- დეტალური მახასიათებლების ბარათების ბადე --- #}
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-grid" data-aos="fade-up" data-aos-delay="200">
             {% for item in detailed_list %}
             <div class="feature-card glass-panel">
-                {# მომავალში აქ შეგვიძლია იკონის დამატება #}
                 <h3 class="feature-card-title">{{ item.point }}</h3>
             </div>
             {% endfor %}
