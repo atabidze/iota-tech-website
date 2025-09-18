@@ -295,18 +295,19 @@ h1, h2, h3 {
   transform: translateX(-50%);
   width: 4px;
   height: 100%;
+  /* --- შეიცვალა გრადიენტი, რათა სინათლე უფრო მოკლე იყოს --- */
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    var(--accent-color) 40%,
-    var(--accent-color) 60%,
+    transparent 45%,
+    var(--accent-color) 50%,
+    transparent 55%,
     transparent 100%
   );
-  background-size: 100% 250%;
+  background-size: 100% 300%;
   background-repeat: no-repeat;
   opacity: 0;
-  /* --- შეიცვალა ანიმაციის სიჩქარე --- */
-  animation: scan-line 8s linear 1.5s infinite; /* 8 წამიანი უსასრულო ციკლი */
+  animation: scan-line 8s linear 1.5s infinite;
 }
 .feature-timeline.aos-animate::after {
     opacity: 1;
