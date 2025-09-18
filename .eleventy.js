@@ -1,3 +1,4 @@
+const path = require('path'); // <<< This is the new line that fixes the error
 const markdownIt = require("markdown-it");
 const lucideIcons = require("@grimlink/eleventy-plugin-lucide-icons");
 
@@ -6,7 +7,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
 
-  // დავამატეთ lucide icons პლაგინი სწორი სახელით
   eleventyConfig.addPlugin(lucideIcons, {
     "class": "icon",
     "width": 32,
