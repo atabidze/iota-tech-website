@@ -77,7 +77,7 @@ h1, h2, h3 {
     display: flex;
     gap: 2rem;
     margin-left: auto;
-    margin-right: 2rem; /* <<< დაემატა დაშორება */
+    margin-right: 2rem;
   }
   .desktop-nav a {
     color: var(--text-secondary);
@@ -89,7 +89,7 @@ h1, h2, h3 {
     color: var(--text-primary);
   }
   .desktop-nav a[aria-current="page"] {
-    color: var(--accent-color); /* <<< შეიცვალა აქტიური ბმულის ფერი */
+    color: var(--accent-color);
   }
 }
 
@@ -350,11 +350,7 @@ h1, h2, h3 {
   font-weight: 700;
   transition: color 0.3s ease;
 }
-
-/* --- Hub Card Hover ეფექტები --- */
-.hub-card p:hover {
-  color: var(--accent-color);
-}
+.hub-card p:hover,
 .hub-card-list li:hover {
   color: var(--accent-color);
 }
@@ -362,20 +358,10 @@ h1, h2, h3 {
   color: var(--accent-color);
 }
 
-/* --- ფუტერი --- */
-.site-footer {
-  padding: 2rem 0;
-  text-align: center;
-  border-top: 1px solid var(--border-color);
-  margin-top: 4rem;
-}
-/* --- Content Page Styles --- */
+/* --- Content Page & Service Detail Page Styles --- */
 .content-container {
   max-width: 800px;
   margin: 0 auto;
-}
-.page-content {
-  margin-top: 2rem;
 }
 .page-content p, 
 .page-content ul, 
@@ -399,4 +385,58 @@ h1, h2, h3 {
 }
 .page-content ul, .page-content ol {
   padding-left: 20px;
+}
+.service-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.service-detail-icon svg {
+  width: 64px;
+  height: 64px;
+}
+.service-detail-header h1 {
+  margin: 0;
+  font-size: 2.8rem;
+}
+.service-detail-card {
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+}
+.card-section-title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+.service-detailed-list {
+  list-style: none;
+  padding-left: 0;
+}
+.service-detailed-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 0.75rem;
+}
+.service-detailed-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* --- ფუტერი --- */
+.site-footer {
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  margin-top: 4rem;
 }

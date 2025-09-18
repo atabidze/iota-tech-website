@@ -1,32 +1,38 @@
----
-layout: base.njk
----
-<section class="service-detail-section">
-    <div class="container">
+{% extends "base.njk" %}
+
+{% block content %}
+<section class="page-section service-detail-page">
+    <div class="container content-container">
+
+        {# --- სათაურის ბლოკი იკონით --- #}
         <div class="service-detail-header" data-aos="fade-up">
-            <div class="category-title-wrapper">
-                {% if icon %}
-                    <div class="icon-bg lavender">
-                         {% include "animated-icons/" + icon + ".svg" %}
-                    </div>
-                {% endif %}
-                <h1>{{ title }}</h1>
+            {% if icon %}
+            <div class="service-detail-icon">
+                {% include "animated-icons/" + icon + ".svg" %}
+            </div>
+            {% endif %}
+            <h1>{{ title }}</h1>
+        </div>
+
+        {# --- ზოგადი აღწერის ბლოკი --- #}
+        <div class="service-detail-card glass-panel" data-aos="fade-up" data-aos-delay="100">
+            <div class="page-content">
+                {{ general_description | markdownify | safe }}
             </div>
         </div>
-        <div class="service-detail-content">
-            <!-- ზოგადი მიმოხილვა -->
-            <div class="service-general-description" data-aos="fade-up" data-aos-delay="100">
-                {{ general_description | safe }}
-            </div>
-            
-            <!-- ბულეტები "შუშის" ეფექტით -->
-            <ul class="main-description-list" data-aos="fade-up" data-aos-delay="200">
-                {% if detailed_list %}
-                    {% for item in detailed_list %}
-                        <li class="glass-panel">{{ item.point }}</li>
-                    {% endfor %}
-                {% endif %}
+
+        {# --- დეტალური სიის ბლოკი (თუ არსებობს) --- #}
+        {% if detailed_list and detailed_list.length > 0 %}
+        <div class="service-detail-card glass-panel" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="card-section-title">ძირითადი მახასიათებლები</h2>
+            <ul class="service-detailed-list">
+                {% for item in detailed_list %}
+                <li>{{ item.point }}</li>
+                {% endfor %}
             </ul>
         </div>
+        {% endif %}
+
     </div>
 </section>
+{% endblock %}
