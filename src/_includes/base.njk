@@ -69,7 +69,7 @@
   </nav>
 
   <main>
-    {{ content | safe }}
+    {% block content %}{{ content | safe }}{% endblock %}
   </main>
 
   <footer class="site-footer">
