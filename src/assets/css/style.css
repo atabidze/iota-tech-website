@@ -276,11 +276,10 @@ h1, h2, h3 {
   70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
   100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0); }
 }
-/* ანიმაცია ციმციმისთვის */
 @keyframes flicker-pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
+  0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+  100% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
 }
 
 .feature-timeline {
@@ -307,17 +306,21 @@ h1, h2, h3 {
   content: '';
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  /* --- შეიცვალა ფორმა: მოგრძო სეგმენტი --- */
-  width: 4px;
-  height: 120px;
-  border-radius: 2px;
-  /* --- შეიცვალა ვიზუალი: კაშკაშა, ფეთქებადი ნათება --- */
-  background: linear-gradient(to bottom, transparent 0%, var(--accent-color) 50%, transparent 100%);
-  box-shadow: 0 0 10px 2px var(--accent-color);
-  filter: blur(2px);
+  /* --- შეიცვალა ფორმა და ვიზუალი --- */
+  width: 6px;
+  height: 80px; /* <<<<<<< დამოკლდა სიგრძე */
+  border-radius: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #ADD8E6 30%, /* ღია ცისფერი */
+    var(--accent-color) 70%,
+    transparent 100%
+  );
+  box-shadow: 0 0 8px 1px #ADD8E6, 0 0 12px 3px var(--accent-color);
+  filter: blur(3px);
   opacity: 0;
-  /* --- დაემატა მეორე ანიმაცია ციმციმისთვის --- */
+  /* --- დაემატა ციმციმის ანიმაცია --- */
   animation:
     neural-pulse-move 6s linear 1.5s infinite,
     flicker-pulse 2s ease-in-out 1.5s infinite;
