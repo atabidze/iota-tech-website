@@ -267,60 +267,19 @@ h1, h2, h3 {
 
 /* --- სერვისის დეტალური გვერდი: Timeline დიზაინი --- */
 
-@keyframes neural-pulse-move {
-  0% { top: -10%; }
-  100% { top: 110%; }
-}
 @keyframes pulse-node {
   0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0.7); }
   70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
   100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0); }
 }
-@keyframes flicker-pulse {
-  0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
-  100% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
-}
 
 .feature-timeline {
   position: relative;
   margin-top: 4rem;
-  overflow: hidden;
-}
-.feature-timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 2px;
-  height: 0;
-  background: var(--border-color);
-  transition: height 1.5s ease-out 0.3s;
-}
-.feature-timeline.aos-animate::before {
-  height: 100%;
-}
-
-.feature-timeline::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  width: 6px;
-  height: 80px;
-  border-radius: 3px;
-  /* --- შეიცვალა ფერი: მუქი იისფერი --- */
-  background: #9400D3;
-  box-shadow: 0 0 12px 3px #9400D3;
-  filter: blur(3px);
-  opacity: 0;
-  animation:
-    neural-pulse-move 6s linear 1.5s infinite,
-    flicker-pulse 2s ease-in-out 1.5s infinite;
-}
-.feature-timeline.aos-animate::after {
-    opacity: 1;
-    transition: opacity 0.5s 1.5s;
+  /* --- დაემატა ახალი ფონი --- */
+  background-image: url('/assets/img/circuit-background.svg');
+  background-repeat: repeat-y;
+  background-position: center top;
 }
 
 .feature-section {
@@ -330,17 +289,7 @@ h1, h2, h3 {
   align-items: center;
   margin-bottom: 4rem;
   position: relative;
-  opacity: 0;
-  transform: translateY(30px);
-  /* --- შეიცვალა ანიმაციის სიჩქარე --- */
-  transition: opacity 1s ease-out, transform 1s ease-out;
-  transition-delay: calc(var(--index) * 350ms); /* დაყოვნება გაიზარდა */
 }
-.feature-timeline.aos-animate .feature-section {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .feature-text {
   padding: 2rem;
   border-radius: 15px;
@@ -365,6 +314,7 @@ h1, h2, h3 {
   stroke-width: 1;
   color: var(--accent-color);
 }
+/* პულსირებადი წერტილი */
 .feature-section::after {
   content: '';
   position: absolute;
@@ -376,7 +326,7 @@ h1, h2, h3 {
   border-radius: 50%;
   background-color: var(--accent-color);
   border: 4px solid var(--background-main);
-  z-index: 5;
+  z-index: 1;
   animation: pulse-node 2.5s infinite 2s;
 }
 
