@@ -8,6 +8,8 @@
   --text-secondary: #a0a0a0;
   --accent-color: #e84a5f;
   --header-height: 80px;
+  --card-light-bg: #1e1e1e; /* ღია ფონი ბარათებისთვის */
+  --card-light-border: #333;
 }
 
 body {
@@ -303,8 +305,6 @@ h1, h2, h3 {
 @media (min-width: 576px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-
-/* --- Service Card Styles (managed-services) --- */
 .service-card {
   text-decoration: none;
   color: var(--text-primary);
@@ -358,27 +358,40 @@ h1, h2, h3 {
   gap: 1.5rem;
   margin-top: 3.5rem;
 }
-.feature-card {
-  padding: 2rem 1.5rem;
+.feature-card-rich {
+  background-color: var(--card-light-bg);
+  border: 1px solid var(--card-light-border);
   border-radius: 15px;
+  padding: 2rem;
   text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
-  min-height: 120px;
-  display: flex;
-  align-items: center;
-  border-bottom: 3px solid transparent; /* ქვედა ხაზისთვის მომზადება */
 }
-.feature-card:hover {
+.feature-card-rich:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  border-bottom-color: var(--accent-color); /* Hover-ზე ხაზის გაფერადება */
+}
+.feature-card-icon {
+  margin-bottom: 1.5rem;
+}
+.feature-card-icon svg {
+  width: 40px;
+  height: 40px;
+  color: var(--accent-color);
 }
 .feature-card-title {
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
   color: var(--text-primary);
 }
+.feature-card-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
 
 /* --- ფუტერი --- */
 .site-footer {

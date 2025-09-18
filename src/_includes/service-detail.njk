@@ -14,8 +14,18 @@
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-grid" data-aos="fade-up" data-aos-delay="200">
             {% for item in detailed_list %}
-            <div class="feature-card glass-panel">
-                <h3 class="feature-card-title">{{ item.point }}</h3>
+            <div class="feature-card-rich glass-panel">
+                {% if item.icon %}
+                <div class="feature-card-icon">
+                    {% include "animated-icons/" + item.icon + ".svg" %}
+                </div>
+                {% endif %}
+                <div class="feature-card-content">
+                    <h3 class="feature-card-title">{{ item.point }}</h3>
+                    {% if item.description %}
+                    <p class="feature-card-desc">{{ item.description }}</p>
+                    {% endif %}
+                </div>
             </div>
             {% endfor %}
         </div>
