@@ -3,14 +3,12 @@ layout: service-detail.njk
 lang: ka
 permalink: /services/{{slug}}/
 slug: test
-title: sddassadasd
+title: test
 sort_order: 1
-icon: messages
-general_description: sdsadsadassda
+icon: users
+general_description: sdsadasdasd
 detailed_list:
-  - point: sdasdasdasd
-  - point: gfdfdsfdsf
-  - point: sdggf
-  - point: fddsfdsf
-  - point: nghgfdsfsad
+  - point: პუნტქტი
+    description: პუნქტის მოკლე აღწერა
+    icon: network
 ---
