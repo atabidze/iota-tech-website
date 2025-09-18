@@ -14,7 +14,7 @@
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-timeline">
             {% for item in detailed_list %}
-                {# --- LOGIC MOVED INSIDE THE LOOP --- #}
+                {# This logic has been correctly moved inside the for loop #}
                 {% set section_class = loop.cycle('image-left', 'image-right') %}
                 {% set animation_direction = loop.cycle('fade-right', 'fade-left') %}
                 
