@@ -85,9 +85,7 @@ h1, h2, h3 {
     font-weight: 500;
     transition: color 0.3s;
   }
-  .desktop-nav a:hover {
-    color: var(--text-primary);
-  }
+  .desktop-nav a:hover,
   .desktop-nav a[aria-current="page"] {
     color: var(--accent-color);
   }
@@ -203,61 +201,6 @@ h1, h2, h3 {
   margin: 0 auto;
 }
 
-/* --- Service Card Grid --- */
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-@media (min-width: 576px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-
-/* --- Service Card Styles --- */
-.service-card {
-  text-decoration: none;
-  color: var(--text-primary);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.5rem;
-  border-radius: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid var(--border-color);
-}
-.service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  text-align: left;
-}
-.card-icon svg {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 0;
-  flex-shrink: 0;
-}
-.card-title {
-  font-size: 1.1rem;
-  margin: 0;
-  font-weight: 500;
-}
-.card-link {
-  margin-top: 1.5rem;
-  font-weight: 700;
-  color: var(--accent-color);
-  text-align: right;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.service-card:hover .card-link {
-  opacity: 1;
-}
-
 /* --- სერვისების ჰაბის გვერდის სტილები --- */
 .service-hub-grid {
   display: grid;
@@ -358,79 +301,74 @@ h1, h2, h3 {
   color: var(--accent-color);
 }
 
-/* --- Content Page & Service Detail Page Styles --- */
-.content-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-.page-content p, 
-.page-content ul, 
-.page-content ol {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-.page-content h2 {
-  font-size: 1.75rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
-}
-.page-content h3 {
-  font-size: 1.4rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-.page-content a {
-  color: var(--accent-color);
-  text-decoration: underline;
-}
-.page-content ul, .page-content ol {
-  padding-left: 20px;
-}
-.service-detail-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-color);
-}
-.service-detail-icon svg {
-  width: 64px;
-  height: 64px;
-}
-.service-detail-header h1 {
-  margin: 0;
-  font-size: 2.8rem;
-}
-.service-detail-card {
+/* --- სერვისების სიის ახალი ბარათები --- */
+.service-card-new {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-primary);
   padding: 2rem;
   border-radius: 15px;
-  margin-bottom: 2rem;
   border: 1px solid var(--border-color);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-.card-section-title {
-  margin-top: 0;
-  font-size: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color);
+.service-card-new:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.card-new-icon {
   margin-bottom: 1.5rem;
 }
-.service-detailed-list {
-  list-style: none;
-  padding-left: 0;
+.card-new-icon svg {
+  width: 40px;
+  height: 40px;
 }
-.service-detailed-list li {
-  position: relative;
-  padding-left: 25px;
+.card-new-title {
+  font-size: 1.3rem;
+  margin-top: 0;
   margin-bottom: 0.75rem;
 }
-.service-detailed-list li::before {
-  content: '✓';
+.card-new-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+.card-new-arrow {
   position: absolute;
-  left: 0;
-  top: 1px;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--text-secondary);
+  transition: color 0.3s, transform 0.3s;
+}
+.service-card-new:hover .card-new-arrow {
   color: var(--accent-color);
-  font-weight: 700;
+  transform: scale(1.2);
+}
+
+/* --- სერვისის დეტალური გვერდის ახალი სტილები --- */
+.page-content {
+  line-height: 1.7;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.feature-card {
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.feature-card-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 /* --- ფუტერი --- */

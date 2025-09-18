@@ -1,38 +1,23 @@
 <section class="page-section service-detail-page">
-    <div class="container content-container">
+    <div class="container">
 
-        {# --- სათაურის ბლოკი იკონით --- #}
-        <div class="service-detail-header" data-aos="fade-up">
-            {% if icon %}
-            <div class="service-detail-icon">
-                {% include "animated-icons/" + icon + ".svg" %}
-            </div>
-            {% endif %}
+        {# --- სათაური და ზოგადი აღწერა --- #}
+        <div class="section-title text-center" data-aos="fade-up">
             <h1>{{ title }}</h1>
-        </div>
-
-        {# --- ზოგადი აღწერის ბლოკი --- #}
-        <div class="service-detail-card glass-panel" data-aos="fade-up" data-aos-delay="100">
-            <div class="page-content">
+            <div class="page-content" style="max-width: 800px; margin: 0 auto;">
                 {{ general_description | markdownify | safe }}
             </div>
         </div>
 
-        {# --- დეტალური სიის ბლოკი (თუ არსებობს) --- #}
+        {# --- დეტალური მახასიათებლების ბარათების ბადე --- #}
         {% if detailed_list and detailed_list.length > 0 %}
-        <div class="service-detail-card glass-panel" data-aos="fade-up" data-aos-delay="200">
-            {# სათაურის ლოკალიზაცია #}
-            {% if lang == 'ka' %}
-                <h2 class="card-section-title">ძირითადი მახასიათებლები</h2>
-            {% else %}
-                <h2 class="card-section-title">Key Features</h2>
-            {% endif %}
-            
-            <ul class="service-detailed-list">
-                {% for item in detailed_list %}
-                <li>{{ item.point }}</li>
-                {% endfor %}
-            </ul>
+        <div class="feature-grid" data-aos="fade-up" data-aos-delay="200">
+            {% for item in detailed_list %}
+            <div class="feature-card glass-panel">
+                {# მომავალში აქ შეგვიძლია იკონის დამატება #}
+                <h3 class="feature-card-title">{{ item.point }}</h3>
+            </div>
+            {% endfor %}
         </div>
         {% endif %}
 
