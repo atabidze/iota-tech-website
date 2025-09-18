@@ -257,6 +257,13 @@ h1, h2, h3 {
 }
 
 /* --- სერვისის დეტალური გვერდი: Timeline დიზაინი --- */
+
+/* ანიმაცია "ელვის" ეფექტისთვის */
+@keyframes scan-line {
+  0% { background-position: 0 -100%; }
+  100% { background-position: 0 200%; }
+}
+
 .feature-timeline {
   position: relative;
   margin-top: 4rem;
@@ -269,9 +276,40 @@ h1, h2, h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 100%;
-  background-color: var(--border-color);
+  height: 0; /* <<< საწყისი სიმაღლე 0 */
+  background: var(--border-color);
+  transition: height 1.5s ease-out; /* <<< ანიმაცია სიმაღლეზე */
 }
+/* როდესაც სექცია გამოჩნდება, ხაზი იშლება */
+.feature-timeline.aos-animate::before {
+  height: 100%;
+}
+
+/* "ელვის" ეფექტი ხაზისთვის */
+.feature-timeline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px; /* ოდნავ სქელი */
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--accent-color) 50%,
+    transparent 100%
+  );
+  background-size: 100% 300%;
+  opacity: 0;
+  transition: opacity 1s;
+  animation: scan-line 3s linear infinite; /* ანიმაციის გამოყენება */
+}
+/* როდესაც სექცია გამოჩნდება, ეფექტიც ჩაირთვება */
+.feature-timeline.aos-animate::after {
+    opacity: 1;
+}
+
 .feature-section {
   display: grid;
   grid-template-columns: 1fr;
@@ -291,6 +329,7 @@ h1, h2, h3 {
 }
 .feature-desc {
   margin-bottom: 0;
+  color: var(--text-secondary);
 }
 .feature-visual {
   display: flex;
@@ -325,11 +364,9 @@ h1, h2, h3 {
   .feature-text {
     text-align: left;
   }
-  /* მარცხენა მხარეს ტექსტი, მარჯვნივ იკონი */
   .feature-section.image-right {
     grid-template-areas: "text visual";
   }
-  /* მარცხენა მხარეს იკონი, მარჯვნივ ტექსტი */
   .feature-section.image-left {
     grid-template-areas: "visual text";
   }
