@@ -7,8 +7,9 @@ media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: "services_ka"
-    label: "სერვისები (ქართული)"
+  # --- ძველი "სერვისების" კოლექცია გახდა "მართვადი სერვისები" ---
+  - name: "managed_services_ka"
+    label: "IT აუთსორსინგი (სერვისები)"
     folder: "src/services/ka"
     create: true
     slug: "{{slug}}"
@@ -19,19 +20,13 @@ collections:
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
       - { label: "ფაილის სახელი (ლათინურად, slug)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"] }
       - { label: "სერვისის სათაური", name: "title", widget: "string" }
-      - label: "კატეგორია"
-        name: "category"
-        widget: "select"
-        options:
-          - { label: "IT აუთსორსინგი და მართვადი სერვისები", value: "managed-services" }
-          - { label: "სისტემური ინტეგრაცია და პროექტები", value: "projects" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
       - { label: "აირჩიეთ იკონი", name: "icon", widget: "select", required: false, options: [{label: "Users", value: "users"}, {label: "Network", value: "network"}, {label: "Server", value: "server"}, {label: "Cloud", value: "cloud"}, {label: "Shield", value: "shield"}, {label: "CCTV", value: "cctv"}, {label: "Messages", value: "messages"}, {label: "Briefcase", value: "briefcase"}] }
       - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown" }
       - { label: "სრული აღწერის პუნქტები", name: "detailed_list", widget: "list", summary: "{{fields.point}}", fields: [{label: "აღწერის პუნქტი", name: "point", widget: "string"}] }
 
-  - name: "services_en"
-    label: "Services (English)"
+  - name: "managed_services_en"
+    label: "IT Outsourcing (Services)"
     folder: "src/services/en"
     create: true
     slug: "{{slug}}"
@@ -42,72 +37,38 @@ collections:
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
       - { label: "Filename (slug in latin letters)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"] }
       - { label: "Service Title", name: "title", widget: "string" }
-      - label: "Category"
-        name: "category"
-        widget: "select"
-        options:
-          - { label: "IT Outsourcing & Managed Services", value: "managed-services" }
-          - { label: "System Integration & Projects", value: "projects" }
       - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
       - { label: "Icon", name: "icon", widget: "select", required: false, options: [{label: "Users", value: "users"}, {label: "Network", value: "network"}, {label: "Server", value: "server"}, {label: "Cloud", value: "cloud"}, {label: "Shield", value: "shield"}, {label: "CCTV", value: "cctv"}, {label: "Messages", value: "messages"}, {label: "Briefcase", value: "briefcase"}] }
       - { label: "General Description", name: "general_description", widget: "markdown" }
       - { label: "Detailed List Items", name: "detailed_list", widget: "list", summary: "{{fields.point}}", fields: [{label: "List Item", name: "point", widget: "string"}] }
           
   - name: "pages_ka"
-    label: "მთავარი გვერდები (ქართული)"
+    label: "გვერდების მართვა (ქართული)"
     files:
       - { file: "src/ka/index.md", label: "მთავარი გვერდი", name: "index_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "Hero-ს სათაური", name: "hero_title", widget: "string" }, { label: "Hero-ს ქვესათაური", name: "hero_subtitle", widget: "text" }] }
-      - file: "src/ka/services.md"
-        label: "სერვისების გვერდი (ჰაბი)"
-        name: "services_page_ka"
+      - { file: "src/ka/services.md", label: "სერვისების ჰაბი (2 ბარათი)", name: "services_page_ka", fields: [{ label: "სათაური (H1)", name: "title", widget: "string" }, { label: "ქვესათაური", name: "subtitle", widget: "text" }, { label: "ბარათი 1: სათაური", name: "card1_title", widget: "string" }, { label: "ბარათი 1: აღწერა", name: "card1_desc", widget: "text" }, { label: "ბარათი 1: პუნქტების სია", name: "card1_list", widget: "list", summary: "{{fields.item}}", fields: [{ label: "პუნქტი", name: "item", widget: "string" }] }, { label: "ბარათი 2: სათაური", name: "card2_title", widget: "string" }, { label: "ბარათი 2: აღწერა", name: "card2_desc", widget: "text" }, { label: "ბარათი 2: პუნქტების სია", name: "card2_list", widget: "list", summary: "{{fields.item}}", fields: [{ label: "პუნქტი", name: "item", widget: "string" }] }] }
+      # --- დაემატა "პროექტების" გვერდის მართვა ---
+      - file: "src/ka/projects.md"
+        label: "პროექტების გვერდი"
+        name: "projects_page_ka"
         fields:
           - { label: "სათაური (H1)", name: "title", widget: "string" }
-          - { label: "ქვესათაური", name: "subtitle", widget: "text" }
-          - { label: "ბარათი 1: სათაური", name: "card1_title", widget: "string" }
-          - { label: "ბარათი 1: აღწერა", name: "card1_desc", widget: "text" }
-          - label: "ბარათი 1: პუნქტების სია"
-            name: "card1_list"
-            widget: "list"
-            summary: "{{fields.item}}"
-            fields:
-              - { label: "პუნქტი", name: "item", widget: "string" }
-          - { label: "ბარათი 2: სათაური", name: "card2_title", widget: "string" }
-          - { label: "ბარათი 2: აღწერა", name: "card2_desc", widget: "text" }
-          - label: "ბარათი 2: პუნქტების სია"
-            name: "card2_list"
-            widget: "list"
-            summary: "{{fields.item}}"
-            fields:
-              - { label: "პუნქტი", name: "item", widget: "string" }
+          - { label: "გვერდის სრული ტექსტი", name: "body", widget: "markdown" }
       - { file: "src/ka/about.md", label: "ჩვენ შესახებ", name: "about_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
       - { file: "src/ka/contact.md", label: "კონტაქტი", name: "contact_ka", fields: [{ label: "სათაური", name: "title", widget: "string" }, { label: "ტექსტი", name: "body", widget: "markdown" }] }
 
   - name: "pages_en"
-    label: "Main Pages (English)"
+    label: "Page Management (English)"
     files:
       - { file: "src/en/index.md", label: "Home Page", name: "index_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Hero Title", name: "hero_title", widget: "string" }, { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }] }
-      - file: "src/en/services.md"
-        label: "Services Page (Hub)"
-        name: "services_page_en"
+      - { file: "src/en/services.md", label: "Services Hub (2 Cards)", name: "services_page_en", fields: [{ label: "Title (H1)", name: "title", widget: "string" }, { label: "Subtitle", name: "subtitle", widget: "text" }, { label: "Card 1: Title", name: "card1_title", widget: "string" }, { label: "Card 1: Description", name: "card1_desc", widget: "text" }, { label: "Card 1: List of Points", name: "card1_list", widget: "list", summary: "{{fields.item}}", fields: [{ label: "Point", name: "item", widget: "string" }] }, { label: "Card 2: Title", name: "card2_title", widget: "string" }, { label: "Card 2: Description", name: "card2_desc", widget: "text" }, { label: "Card 2: List of Points", name: "card2_list", widget: "list", summary: "{{fields.item}}", fields: [{ label: "Point", name: "item", widget: "string" }] }] }
+      # --- დაემატა "Projects" გვერდის მართვა ---
+      - file: "src/en/projects.md"
+        label: "Projects Page"
+        name: "projects_page_en"
         fields:
           - { label: "Title (H1)", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "text" }
-          - { label: "Card 1: Title", name: "card1_title", widget: "string" }
-          - { label: "Card 1: Description", name: "card1_desc", widget: "text" }
-          - label: "Card 1: List of Points"
-            name: "card1_list"
-            widget: "list"
-            summary: "{{fields.item}}"
-            fields:
-              - { label: "Point", name: "item", widget: "string" }
-          - { label: "Card 2: Title", name: "card2_title", widget: "string" }
-          - { label: "Card 2: Description", name: "card2_desc", widget: "text" }
-          - label: "Card 2: List of Points"
-            name: "card2_list"
-            widget: "list"
-            summary: "{{fields.item}}"
-            fields:
-              - { label: "Point", name: "item", widget: "string" }
+          - { label: "Full Page Content", name: "body", widget: "markdown" }
       - { file: "src/en/about.md", label: "About Us", name: "about_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
       - { file: "src/en/contact.md", label: "Contact", name: "contact_en", fields: [{ label: "Title", name: "title", widget: "string" }, { label: "Body", name: "body", widget: "markdown" }] }
           
