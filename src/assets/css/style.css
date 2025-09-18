@@ -305,8 +305,8 @@ h1, h2, h3 {
   background-size: 100% 250%;
   background-repeat: no-repeat;
   opacity: 0;
-  /* --- შეიცვალა ანიმაცია --- */
-  animation: scan-line 4s linear 1.5s infinite; /* 4 წამიანი უსასრულო ციკლი */
+  /* --- შეიცვალა ანიმაციის სიჩქარე --- */
+  animation: scan-line 8s linear 1.5s infinite; /* 8 წამიანი უსასრულო ციკლი */
 }
 .feature-timeline.aos-animate::after {
     opacity: 1;
