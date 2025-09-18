@@ -329,8 +329,11 @@ h1, h2, h3 {
 }
 .card-icon {
   color: var(--accent-color);
+  flex-shrink: 0; /* იკონი არ შეიკუმშება */
 }
-.card-icon .icon { /* Lucide icon class */
+/* ზომის დაყენება ორივე ტიპის იკონისთვის */
+.card-icon .icon, /* Lucide იკონი */
+.card-icon svg {   /* ანიმირებული იკონი */
   width: 32px;
   height: 32px;
 }
