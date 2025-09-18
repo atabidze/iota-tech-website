@@ -6,7 +6,7 @@
   --border-color: rgba(255, 255, 255, 0.2);
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
-  --accent-color: #e84a5f;
+  --accent-color: #e84a5f; /* <<< მთავარი ფერი ისევ ვარდისფერია */
   --header-height: 80px;
 }
 
@@ -306,21 +306,14 @@ h1, h2, h3 {
   content: '';
   position: absolute;
   left: 50%;
-  /* --- შეიცვალა ფორმა და ვიზუალი --- */
   width: 6px;
-  height: 80px; /* <<<<<<< დამოკლდა სიგრძე */
+  height: 80px;
   border-radius: 3px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #ADD8E6 30%, /* ღია ცისფერი */
-    var(--accent-color) 70%,
-    transparent 100%
-  );
-  box-shadow: 0 0 8px 1px #ADD8E6, 0 0 12px 3px var(--accent-color);
+  /* --- შეიცვალა ფერი: მხოლოდ ნარინჯისფერი --- */
+  background: #FF9900;
+  box-shadow: 0 0 12px 3px #FF9900;
   filter: blur(3px);
   opacity: 0;
-  /* --- დაემატა ციმციმის ანიმაცია --- */
   animation:
     neural-pulse-move 6s linear 1.5s infinite,
     flicker-pulse 2s ease-in-out 1.5s infinite;
@@ -369,7 +362,7 @@ h1, h2, h3 {
   width: 80px;
   height: 80px;
   stroke-width: 1;
-  color: var(--accent-color);
+  color: var(--accent-color); /* <<<< იყენებს მთავარ ვარდისფერ ფერს */
 }
 .feature-section::after {
   content: '';
@@ -380,9 +373,9 @@ h1, h2, h3 {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: var(--accent-color);
+  background-color: var(--accent-color); /* <<<< იყენებს მთავარ ვარდისფერ ფერს */
   border: 4px solid var(--background-main);
-  z-index: 1;
+  z-index: 5;
   animation: pulse-node 2.5s infinite 2s;
 }
 
