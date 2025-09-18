@@ -14,8 +14,9 @@
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-timeline" data-aos="fade-in" data-aos-duration="800">
             {% for item in detailed_list %}
-                {% set section_class = loop.cycle('image-left', 'image-right') %}
-                {% set animation_direction = loop.cycle('fade-right', 'fade-left') %}
+                {# Corrected logic using modulus operator #}
+                {% set section_class = 'image-left' if loop.index0 % 2 == 0 else 'image-right' %}
+                {% set animation_direction = 'fade-right' if loop.index0 % 2 == 0 else 'fade-left' %}
                 
                 <div class="feature-section {{ section_class }}">
                     <div class="feature-visual" data-aos="{{ animation_direction }}" data-aos-delay="200">
