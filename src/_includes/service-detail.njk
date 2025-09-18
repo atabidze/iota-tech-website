@@ -14,7 +14,7 @@
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-timeline">
             {% for item in detailed_list %}
-                {# loop.cycle მონაცვლეობით ამატებს კლასებს #}
+                {# --- LOGIC MOVED INSIDE THE LOOP --- #}
                 {% set section_class = loop.cycle('image-left', 'image-right') %}
                 {% set animation_direction = loop.cycle('fade-right', 'fade-left') %}
                 
