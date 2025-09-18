@@ -258,12 +258,10 @@ h1, h2, h3 {
 
 /* --- სერვისის დეტალური გვერდი: Timeline დიზაინი --- */
 
-/* "სკანირების" ანიმაცია */
 @keyframes scan-line {
-  0% { background-position: 50% -150%; } /* იწყება ზემოთ */
-  100% { background-position: 50% 250%; } /* მთავრდება ქვემოთ */
+  0% { background-position: 50% -150%; }
+  100% { background-position: 50% 250%; }
 }
-/* "პულსაციის" ანიმაცია */
 @keyframes pulse-node {
   0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0.7); }
   70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
@@ -274,7 +272,6 @@ h1, h2, h3 {
   position: relative;
   margin-top: 4rem;
 }
-/* ცენტრალური ხაზი */
 .feature-timeline::before {
   content: '';
   position: absolute;
@@ -284,13 +281,12 @@ h1, h2, h3 {
   width: 2px;
   height: 0;
   background: var(--border-color);
-  transition: height 1.5s ease-out 0.3s; /* ანიმაცია დაყოვნებით */
+  transition: height 1.5s ease-out 0.3s;
 }
 .feature-timeline.aos-animate::before {
   height: 100%;
 }
 
-/* "ელვის" ეფექტი ხაზისთვის */
 .feature-timeline::after {
   content: '';
   position: absolute;
@@ -309,7 +305,8 @@ h1, h2, h3 {
   background-size: 100% 250%;
   background-repeat: no-repeat;
   opacity: 0;
-  animation: scan-line 2.5s ease-out 1.8s 1 forwards; /* ერთჯერადი ანიმაცია */
+  /* --- შეიცვალა ანიმაცია --- */
+  animation: scan-line 4s linear 1.5s infinite; /* 4 წამიანი უსასრულო ციკლი */
 }
 .feature-timeline.aos-animate::after {
     opacity: 1;
@@ -347,7 +344,6 @@ h1, h2, h3 {
   stroke-width: 1;
   color: var(--accent-color);
 }
-/* Timeline "წერტილი" (ნეირონი) */
 .feature-section::after {
   content: '';
   position: absolute;
@@ -360,7 +356,7 @@ h1, h2, h3 {
   background-color: var(--accent-color);
   border: 4px solid var(--background-main);
   z-index: 1;
-  animation: pulse-node 2.5s infinite 2s; /* პულსაცია იწყება დაყოვნებით */
+  animation: pulse-node 2.5s infinite 2s;
 }
 
 @media (min-width: 768px) {
