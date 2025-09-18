@@ -16,7 +16,7 @@ title: IT Outsourcing & Managed Services
                     <div class="card-header">
                         <div class="card-icon">
                         {% if service.data.icon %}
-                            {% include "animated-icons/" + service.data.icon + ".svg" %}
+                            {% lucide service.data.icon %}
                         {% endif %}
                         </div>
                         <h3 class="card-title">{{ service.data.title }}</h3>

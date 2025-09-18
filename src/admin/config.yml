@@ -17,31 +17,18 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "ენა", name: "lang", widget: "hidden", default: "ka" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/services/{{slug}}/" }
-      - { label: "ფაილის სახელი (ლათინურად, slug)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"] }
+      - { label: "ფაილის სახელი (slug)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "გამოიყენეთ მხოლოდ ლათინური ასოები, ციფრები და ტირე"] }
       - { label: "სერვისის სათაური", name: "title", widget: "string" }
       - { label: "რიგითობა", name: "sort_order", widget: "number", default: 0 }
-      - { label: "მთავარი იკონი", name: "icon", widget: "select", required: false, options: [{label: "Users", value: "users"}, {label: "Network", value: "network"}, {label: "Server", value: "server"}, {label: "Cloud", value: "cloud"}, {label: "Shield", value: "shield"}, {label: "CCTV", value: "cctv"}, {label: "Messages", value: "messages"}, {label: "Briefcase", value: "briefcase"}] }
+      - { label: "მთავარი იკონი (Lucide-ის სახელი)", name: "icon", widget: "string", hint: "შედით lucide.dev/icons, იპოვეთ იკონი და ჩაწერეთ მისი სახელი, მაგ: server" }
       - { label: "ზოგადი მიმოხილვა", name: "general_description", widget: "markdown" }
-      - label: "სრული აღწერის პუნქტები"
+      - label: "დეტალური მახასიათებლები (ბარათები)"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
         fields:
-          - { label: "პუნქტი (სათაური)", name: "point", widget: "string" }
-          - { label: "მოკლე აღწერა", name: "description", widget: "text", required: false }
-          - label: "იკონი (არასავალდებულო)"
-            name: "icon"
-            widget: "select"
-            required: false
-            options:
-              - { label: "Users", value: "users" }
-              - { label: "Network", value: "network" }
-              - { label: "Server", value: "server" }
-              - { label: "Cloud", value: "cloud" }
-              - { label: "Shield", value: "shield" }
-              - { label: "CCTV", value: "cctv" }
-              - { label: "Messages", value: "messages" }
-              - { label: "Briefcase", value: "briefcase" }
+          - { label: "ბარათის ტექსტი", name: "point", widget: "string" }
+          - { label: "იკონი (Lucide-ის სახელი)", name: "icon", widget: "string", required: false, hint: "მაგ: shield, database, cloud" }
 
   - name: "managed_services_en"
     label: "IT Outsourcing (Services)"
@@ -53,31 +40,18 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "service-detail.njk" }
       - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Permalink", name: "permalink", widget: "hidden", default: "/en/services/{{slug}}/" }
-      - { label: "Filename (slug in latin letters)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"] }
+      - { label: "Filename (slug)", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Use only latin letters, numbers, and dashes"] }
       - { label: "Service Title", name: "title", widget: "string" }
       - { label: "Sort Order", name: "sort_order", widget: "number", default: 0 }
-      - { label: "Main Icon", name: "icon", widget: "select", required: false, options: [{label: "Users", value: "users"}, {label: "Network", value: "network"}, {label: "Server", value: "server"}, {label: "Cloud", value: "cloud"}, {label: "Shield", value: "shield"}, {label: "CCTV", value: "cctv"}, {label: "Messages", value: "messages"}, {label: "Briefcase", value: "briefcase"}] }
+      - { label: "Main Icon (Lucide Name)", name: "icon", widget: "string", hint: "Go to lucide.dev/icons, find an icon and type its name, e.g. server" }
       - { label: "General Description", name: "general_description", widget: "markdown" }
-      - label: "Detailed List Items"
+      - label: "Detailed Features (Cards)"
         name: "detailed_list"
         widget: "list"
         summary: "{{fields.point}}"
         fields:
-          - { label: "Point (Title)", name: "point", widget: "string" }
-          - { label: "Short Description", name: "description", widget: "text", required: false }
-          - label: "Icon (optional)"
-            name: "icon"
-            widget: "select"
-            required: false
-            options:
-              - { label: "Users", value: "users" }
-              - { label: "Network", value: "network" }
-              - { label: "Server", value: "server" }
-              - { label: "Cloud", value: "cloud" }
-              - { label: "Shield", value: "shield" }
-              - { label: "CCTV", value: "cctv" }
-              - { label: "Messages", value: "messages" }
-              - { label: "Briefcase", value: "briefcase" }
+          - { label: "Card Text", name: "point", widget: "string" }
+          - { label: "Icon (Lucide Name)", name: "icon", widget: "string", required: false, hint: "e.g. shield, database, cloud" }
           
   - name: "pages_ka"
     label: "გვერდების მართვა (ქართული)"

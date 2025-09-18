@@ -12,19 +12,16 @@
         </div>
 
         {% if detailed_list and detailed_list.length > 0 %}
-        <div class="feature-grid" data-aos="fade-up" data-aos-delay="200">
+        <div class="services-grid" data-aos="fade-up" data-aos-delay="200">
             {% for item in detailed_list %}
-            <div class="feature-card-rich glass-panel">
-                {% if item.icon %}
-                <div class="feature-card-icon">
-                    {% include "animated-icons/" + item.icon + ".svg" %}
-                </div>
-                {% endif %}
-                <div class="feature-card-content">
-                    <h3 class="feature-card-title">{{ item.point }}</h3>
-                    {% if item.description %}
-                    <p class="feature-card-desc">{{ item.description }}</p>
+            <div class="service-card glass-panel">
+                <div class="card-header">
+                    {% if item.icon %}
+                    <div class="card-icon">
+                        {% lucide item.icon %}
+                    </div>
                     {% endif %}
+                    <h3 class="card-title">{{ item.point }}</h3>
                 </div>
             </div>
             {% endfor %}

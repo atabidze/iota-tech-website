@@ -8,8 +8,6 @@
   --text-secondary: #a0a0a0;
   --accent-color: #e84a5f;
   --header-height: 80px;
-  --card-light-bg: #1e1e1e; /* ღია ფონი ბარათებისთვის */
-  --card-light-border: #333;
 }
 
 body {
@@ -296,15 +294,17 @@ h1, h2, h3 {
   color: var(--accent-color);
 }
 
-/* --- Service Card Grid (managed-services) --- */
+/* --- Service Card Grid (გაერთიანებული) --- */
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  margin-top: 3.5rem;
 }
 @media (min-width: 576px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 1200px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* --- Service Card Styles (გაერთიანებული) --- */
 .service-card {
   text-decoration: none;
   color: var(--text-primary);
@@ -314,6 +314,8 @@ h1, h2, h3 {
   padding: 1.5rem;
   border-radius: 15px;
   transition: transform 0.3s, box-shadow 0.3s;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
 .service-card:hover {
   transform: translateY(-10px);
@@ -325,11 +327,12 @@ h1, h2, h3 {
   gap: 1rem;
   text-align: left;
 }
-.card-icon svg {
+.card-icon {
+  color: var(--accent-color);
+}
+.card-icon .icon { /* Lucide icon class */
   width: 32px;
   height: 32px;
-  margin-bottom: 0;
-  flex-shrink: 0;
 }
 .card-title {
   font-size: 1.1rem;
@@ -348,50 +351,10 @@ h1, h2, h3 {
   opacity: 1;
 }
 
-/* --- სერვისის დეტალური გვერდის ახალი სტილები --- */
+/* --- Content Page Styles --- */
 .page-content {
   line-height: 1.7;
 }
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3.5rem;
-}
-.feature-card-rich {
-  background-color: var(--card-light-bg);
-  border: 1px solid var(--card-light-border);
-  border-radius: 15px;
-  padding: 2rem;
-  text-align: left;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.feature-card-rich:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-.feature-card-icon {
-  margin-bottom: 1.5rem;
-}
-.feature-card-icon svg {
-  width: 40px;
-  height: 40px;
-  color: var(--accent-color);
-}
-.feature-card-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  color: var(--text-primary);
-}
-.feature-card-desc {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin: 0;
-  line-height: 1.6;
-}
-
 
 /* --- ფუტერი --- */
 .site-footer {
