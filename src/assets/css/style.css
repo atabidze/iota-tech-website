@@ -270,7 +270,7 @@ h1, h2, h3 {
 .feature-list {
   margin-top: 5rem;
   display: grid;
-  gap: 5rem; /* დაშორება ბლოკებს შორის */
+  gap: 5rem;
 }
 
 .feature-item {
@@ -280,12 +280,11 @@ h1, h2, h3 {
   gap: 3rem;
 }
 
-/* მონაცვლეობის ლოგიკა */
 .feature-item.item-right {
-  direction: rtl; /* მარტივი ხრიკი თანმიმდევრობის შესაცვლელად */
+  direction: rtl;
 }
 .feature-item.item-right > * {
-  direction: ltr; /* შიგთავსის მიმართულების გასწორება */
+  direction: ltr;
 }
 
 .feature-visual {
@@ -295,19 +294,15 @@ h1, h2, h3 {
 }
 
 .feature-icon {
-  width: 150px;
-  height: 150px;
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.03);
+  /* მოშორდა ფონი და ჩარჩო */
 }
 
 .feature-icon .icon {
-  width: 64px;
-  height: 64px;
+  width: 56px;   /* <<< შეიცვალა ზომა */
+  height: 56px;  /* <<< შეიცვალა ზომა */
   stroke-width: 1.5;
   color: var(--accent-color);
 }
@@ -329,7 +324,6 @@ h1, h2, h3 {
   line-height: 1.7;
 }
 
-/* მობილური ვერსიისთვის */
 @media (max-width: 767px) {
   .feature-item {
     grid-template-columns: 1fr;
