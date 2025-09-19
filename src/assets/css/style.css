@@ -265,22 +265,77 @@ h1, h2, h3 {
   color: var(--text-secondary);
 }
 
-/* --- სერვისის დეტალური გვერდი: Timeline დიზაინი --- */
+/* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი --- */
 
+@keyframes pulse-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1800px); } /* დიდი მნიშვნელობა, რომ მთელ სიგრძეზე ჩავიდეს */
+}
+@keyframes pulse-up {
+  0% { transform: translateY(1800px); }
+  100% { transform: translateY(-100%); }
+}
 @keyframes pulse-node {
-  0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0.7); }
-  70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
-  100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(232, 74, 95, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 74, 95, 0); }
 }
 
 .feature-timeline {
   position: relative;
   margin-top: 4rem;
-  /* --- დაემატა ახალი ფონი --- */
-  background-image: url('/assets/img/circuit-background.svg');
-  background-repeat: repeat-y;
-  background-position: center top;
+  padding: 2rem 0;
 }
+/* შრე 1: სტატიკური ოპტიკური კაბელები */
+.feature-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(to right, 
+      transparent, transparent 2px, 
+      rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 3px
+    );
+  background-size: 8px 100%;
+  z-index: 0;
+}
+/* შრე 2: მოძრავი იმპულსები */
+.feature-timeline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  --pulse-size: 4px;
+  /* იმპულსების გენერაცია */
+  background-image: 
+    /* ქვევით მოძრავი (ნარინჯისფერი) */
+    radial-gradient(circle, #FF9900 var(--pulse-size), transparent var(--pulse-size)),
+    radial-gradient(circle, #FF9900 var(--pulse-size), transparent var(--pulse-size)),
+    /* ზევით მოძრავი (ცისფერი) */
+    radial-gradient(circle, #00FFFF var(--pulse-size), transparent var(--pulse-size)),
+    radial-gradient(circle, #00FFFF var(--pulse-size), transparent var(--pulse-size));
+  background-repeat: no-repeat;
+  /* ანიმაციები თითოეული იმპულსისთვის */
+  animation: 
+    pulse-down 8s linear 0s infinite,
+    pulse-down 10s linear 3s infinite,
+    pulse-up 7s linear 1s infinite,
+    pulse-up 9s linear 5s infinite;
+  
+  /* background-position-x-სთვის პროცენტები, რომ სხვადასხვა კაბელში იმოძრაოს */
+  background-position: 
+    48% 0, 
+    50% 0,
+    52% 0,
+    49% 0;
+}
+
 
 .feature-section {
   display: grid;
@@ -288,7 +343,8 @@ h1, h2, h3 {
   gap: 2rem;
   align-items: center;
   margin-bottom: 4rem;
-  position: relative;
+  position: relative; /* z-index-ისთვის */
+  z-index: 1; /* ბარათები ფონზე მაღლაა */
 }
 .feature-text {
   padding: 2rem;
@@ -314,7 +370,7 @@ h1, h2, h3 {
   stroke-width: 1;
   color: var(--accent-color);
 }
-/* პულსირებადი წერტილი */
+/* შრე 3: ციმციმა წერტილები (ბარათების კავშირი) */
 .feature-section::after {
   content: '';
   position: absolute;
@@ -326,7 +382,8 @@ h1, h2, h3 {
   border-radius: 50%;
   background-color: var(--accent-color);
   border: 4px solid var(--background-main);
-  z-index: 1;
+  z-index: 2; /* ყველაზე მაღლა */
+  box-shadow: 0 0 10px 2px var(--accent-color);
   animation: pulse-node 2.5s infinite 2s;
 }
 
