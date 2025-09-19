@@ -296,23 +296,20 @@ h1, h2, h3 {
 .feature-card-item {
   padding: 2rem;
   border-radius: 20px;
-  background: var(--background-panel);
-  border: 1px solid var(--border-color);
   backdrop-filter: blur(var(--glass-blur));
-  position: relative;
-  overflow: hidden;
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 
-/* ბარათი 2: გამორჩეული სტილი */
-.feature-card-item.card-highlight::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--accent-color);
-  box-shadow: 0 0 15px var(--accent-color);
+/* ბარათი 1: თეთრი "მინა" */
+.feature-card-item.card-style-a {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ბარათი 2: იასამნისფერი "მინა" */
+.feature-card-item.card-style-b {
+  background: rgba(215, 215, 255, 0.08); /* #D7D7FF */
+  border: 1px solid rgba(215, 215, 255, 0.15);
 }
 
 .feature-card-header {
