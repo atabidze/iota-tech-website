@@ -7,7 +7,7 @@
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
   --accent-color: #e84a5f;
-  --accent-color-light: rgba(43, 43, 82, 0.5); /* <<< ახალი ფერი მონაცვლეობისთვის */
+  --header-height: 80px;
 }
 
 body {
@@ -266,79 +266,73 @@ h1, h2, h3 {
   color: var(--text-secondary);
 }
 
-/* --- სერვისის დეტალური გვერდი (Solutions სტილი) --- */
-.solutions-grid {
+/* --- სერვისის დეტალური გვერდი (ახალი დიზაინი) --- */
+.detail-page-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1.5fr; /* მარცხენა სვეტი (1) | მარჯვენა სვეტი (1.5) */
+  gap: 5rem;
   align-items: flex-start;
 }
-.solutions-sticky-content {
+.detail-page-sticky-info {
   position: sticky;
-  top: 120px;
+  top: 120px; /* 80px ჰედერის სიმაღლე + 40px დაშორება */
 }
-.solutions-title {
+.detail-page-title {
   font-size: 3rem;
   font-weight: 700;
-  margin: 0.5rem 0 1.5rem;
+  margin: 0 0 1.5rem 0;
   color: var(--text-primary);
 }
-.solutions-description {
+.detail-page-description {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-secondary);
 }
-.solutions-scrolling-cards {
+.detail-page-cards {
   display: grid;
   gap: 2rem;
 }
-.numbered-card {
+.feature-card-new {
   padding: 2rem;
-  border-radius: 20px;
-  background: var(--background-panel);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 15px;
 }
-/* --- დაემატა მონაცვლეობითი ფონი --- */
-.solutions-scrolling-cards .numbered-card:nth-child(even) {
-  background: var(--accent-color-light);
-  border-color: transparent;
-}
-
-.numbered-card-header {
+.feature-card-header {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
 }
-.numbered-card-number {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+.feature-card-icon .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-color);
+  flex-shrink: 0;
 }
-.numbered-card-title {
-  font-size: 1.8rem;
+.feature-card-title {
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-primary);
   margin: 0;
 }
-.numbered-card-body {
-  font-size: 0.95rem;
-  line-height: 1.6;
+.feature-card-divider {
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 1.5rem 0;
+}
+.feature-card-body p {
+  margin: 0;
   color: var(--text-secondary);
 }
-@media(max-width: 992px) {
-  .solutions-grid {
+@media (max-width: 992px) {
+  .detail-page-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .solutions-sticky-content {
+  .detail-page-sticky-info {
     position: static;
     text-align: center;
   }
-  .solutions-title {
+  .detail-page-title {
     font-size: 2.5rem;
   }
 }
