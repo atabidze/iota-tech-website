@@ -14,8 +14,9 @@
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-timeline" data-aos="fade-in" data-aos-duration="800">
             {% for item in detailed_list %}
-                {% set section_class = loop.cycle('image-left', 'image-right') %}
-                
+                {# This is the corrected logic that fixes the error #}
+                {% set section_class = 'image-left' if loop.index0 % 2 == 0 else 'image-right' %}
+
                 <div class="feature-section {{ section_class }}" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 150 }}">
                     <div class="feature-visual">
                         <div class="feature-icon">
