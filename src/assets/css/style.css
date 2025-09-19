@@ -280,12 +280,12 @@ h1, h2, h3 {
   50% { opacity: 1; }
 }
 @keyframes branch-flow-right {
-  from { background-position-x: -10px; }
-  to { background-position-x: calc(100% + 10px); }
+  from { background-position-x: -20%; }
+  to { background-position-x: 120%; }
 }
 @keyframes branch-flow-left {
-  from { background-position-x: calc(100% + 10px); }
-  to { background-position-x: -10px; }
+  from { background-position-x: 120%; }
+  to { background-position-x: -20%; }
 }
 
 .feature-timeline {
@@ -299,7 +299,7 @@ h1, h2, h3 {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 30px;
+  width: 25px; /* <<< კაბელების კონტეინერის სიგანე */
   z-index: -1;
   overflow: hidden;
 }
@@ -308,10 +308,10 @@ h1, h2, h3 {
   height: 100%;
   background-image: 
     repeating-linear-gradient(to right, 
-      transparent, transparent 4px, 
-      rgba(255, 255, 255, 0.05) 4px, rgba(255, 255, 255, 0.05) 5px
+      transparent, transparent 3px, 
+      rgba(255, 255, 255, 0.1) 3px, rgba(255, 255, 255, 0.1) 4px
     );
-  background-size: 5px 100%;
+  background-size: 4px 100%;
 }
 .data-packets {
   position: absolute;
@@ -336,12 +336,13 @@ h1, h2, h3 {
 .packet.orange { color: #FF9900; }
 .packet.cyan { color: #00FFFF; }
 
-.packet:nth-child(1), .packet:nth-child(2), .packet:nth-child(3) { left: 2px; }
+/* --- გასწორდა პაკეტების პოზიცია, რომ კაბელებზე იმოძრაონ --- */
+.packet:nth-child(1), .packet:nth-child(2), .packet:nth-child(3) { left: 3px; }
 .packet:nth-child(4), .packet:nth-child(5), .packet:nth-child(6) { left: 7px; }
-.packet:nth-child(7), .packet:nth-child(8), .packet:nth-child(9) { left: 12px; }
-.packet:nth-child(10), .packet:nth-child(11), .packet:nth-child(12) { left: 17px; }
-.packet:nth-child(13), .packet:nth-child(14), .packet:nth-child(15) { left: 22px; }
-.packet:nth-child(16), .packet:nth-child(17), .packet:nth-child(18) { left: 27px; }
+.packet:nth-child(7), .packet:nth-child(8), .packet:nth-child(9) { left: 11px; }
+.packet:nth-child(10), .packet:nth-child(11), .packet:nth-child(12) { left: 15px; }
+.packet:nth-child(13), .packet:nth-child(14), .packet:nth-child(15) { left: 19px; }
+.packet:nth-child(16), .packet:nth-child(17), .packet:nth-child(18) { left: 23px; }
 
 .packet:nth-child(1) { animation-duration: 12s, 1.5s; animation-delay: -1s; }
 .packet:nth-child(2) { animation-duration: 10s, 1.5s; animation-delay: -3s; }
@@ -420,23 +421,24 @@ h1, h2, h3 {
 .feature-text::after {
   content: '';
   position: absolute;
-  width: 4.5rem; /* განშტოების სიგრძე */
+  width: 3.5rem; /* <<< შეიცვალა სიგრძე, რომ არ გადაფაროს მაგისტრალი */
   height: 1px;
   background-color: rgba(255, 255, 255, 0.1);
   background-repeat: no-repeat;
-  background-size: 8px 3px; /* პაკეტის ზომა */
+  background-size: 8px 3px;
 }
 .feature-text::before {
-  top: calc(50% - 3px);
+  top: calc(50% - 3px); /* 6px დაშორება ხაზებს შორის */
   background-image: radial-gradient(circle at center, #FF9900 2px, transparent 2px);
-  animation: branch-flow-right 2.5s linear infinite, packet-flash 1.5s ease-in-out infinite;
+  animation: branch-flow-right 6s linear infinite, packet-flash 1.5s ease-in-out infinite; /* <<< შეიცვალა სიჩქარე */
 }
 .feature-text::after {
   top: calc(50% + 3px);
   background-image: radial-gradient(circle at center, #00FFFF 2px, transparent 2px);
-  animation: branch-flow-left 2.5s linear -1.2s infinite, packet-flash 1.5s ease-in-out infinite;
+  animation: branch-flow-left 6s linear -3s infinite, packet-flash 1.5s ease-in-out infinite; /* <<< შეიცვალა სიჩქარე */
 }
 
+/* ანიმაციის მიმართულების კონტროლი */
 .feature-section.image-left .feature-text::before { right: 100%; animation-name: branch-flow-left, packet-flash; }
 .feature-section.image-left .feature-text::after { right: 100%; animation-name: branch-flow-right, packet-flash; }
 
