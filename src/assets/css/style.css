@@ -267,7 +267,6 @@ h1, h2, h3 {
 
 /* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი (საბოლოო გასწორებული) --- */
 
-/* --- შეიცვალა ანიმაცია: top თვისებაზე --- */
 @keyframes data-flow-down {
   from { top: -150px; }
   to { top: 110%; }
@@ -287,7 +286,7 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: 1fr 80px 1fr;
   gap: 1.5rem;
-  align-items: center; /* <<< გასწორდა ლოგო და ბარათი */
+  align-items: center;
 }
 
 .optic-fiber-animation {
@@ -323,7 +322,7 @@ h1, h2, h3 {
   height: 3px;
   border-radius: 50%;
   box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
-  animation-name: packet-flash; /* მოძრაობა დაემატება ქვემოთ */
+  animation-name: packet-flash;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 1.5s;
@@ -333,7 +332,6 @@ h1, h2, h3 {
 .packet.orange { color: #FF9900; }
 .packet.cyan { color: #00FFFF; }
 
-/* 18 პაკეტის ანიმაცია */
 .packet:nth-child(1), .packet:nth-child(2), .packet:nth-child(3) { left: 2px; }
 .packet:nth-child(4), .packet:nth-child(5), .packet:nth-child(6) { left: 7px; }
 .packet:nth-child(7), .packet:nth-child(8), .packet:nth-child(9) { left: 12px; }
@@ -360,7 +358,6 @@ h1, h2, h3 {
 .packet:nth-child(17) { animation-duration: 10s, 1.5s; animation-delay: 8.5s; }
 .packet:nth-child(18) { animation-duration: 8s, 1.5s; animation-delay: 10s; }
 
-/* ბარათების და ლოგოების განლაგება */
 .feature-section {
   display: contents;
 }
@@ -374,16 +371,20 @@ h1, h2, h3 {
 .feature-section:nth-of-type(even) .feature-text { grid-column: 1; justify-self: end; }
 
 .feature-text {
-  padding: 2rem;
+  padding: 1.5rem; /* <<< დაპატარავდა */
   border-radius: 15px;
   width: 100%;
+  display: flex; /* <<< დაემატა გასწორებისთვის */
+  flex-direction: column; /* <<< დაემატა გასწორებისთვის */
+  justify-content: center; /* <<< დაემატა გასწორებისთვის */
 }
 .feature-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* <<< დაპატარავდა */
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 .feature-desc {
+  font-size: 0.9rem; /* <<< დაპატარავდა */
   margin-bottom: 0;
   color: var(--text-secondary);
 }
