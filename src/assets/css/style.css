@@ -287,6 +287,7 @@ h1, h2, h3 {
   grid-template-columns: 1fr 80px 1fr;
   gap: 1.5rem;
   align-items: center;
+  row-gap: 5rem; /* <<< დაემატა დაშორება რიგებს შორის */
 }
 
 .optic-fiber-animation {
@@ -361,8 +362,7 @@ h1, h2, h3 {
 .feature-section {
   display: contents;
 }
-.feature-visual, .feature-text {
-  margin-bottom: 5rem;
+.feature-visual {
   position: relative;
 }
 .feature-section:nth-of-type(odd) .feature-visual { grid-column: 1; justify-self: end; }
@@ -371,18 +371,18 @@ h1, h2, h3 {
 .feature-section:nth-of-type(even) .feature-text { grid-column: 1; justify-self: end; }
 
 .feature-text {
-  padding: 1.25rem;
-  border-radius: 15px;
+  padding: 1rem; /* <<< დაპატარავდა */
+  border-radius: 12px;
   width: 100%;
-  max-width: 450px; /* <<< დაემატა მაქსიმალური სიგანე */
+  max-width: 400px; /* <<< დაპატარავდა */
 }
 .feature-title {
-  font-size: 1.1rem;
+  font-size: 1.05rem; /* <<< დაპატარავდა */
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 .feature-desc {
-  font-size: 0.85rem;
+  font-size: 0.8rem; /* <<< დაპატარავდა */
   margin-bottom: 0;
   color: var(--text-secondary);
 }
@@ -392,8 +392,8 @@ h1, h2, h3 {
   align-items: center;
 }
 .feature-icon {
-  width: 90px;
-  height: 90px;
+  width: 80px; /* <<< დაპატარავდა */
+  height: 80px; /* <<< დაპატარავდა */
   border: 1px solid var(--border-color);
   border-radius: 50%;
   display: flex;
@@ -401,8 +401,8 @@ h1, h2, h3 {
   align-items: center;
 }
 .feature-icon .icon {
-  width: 40px;
-  height: 40px;
+  width: 36px; /* <<< დაპატარავდა */
+  height: 36px; /* <<< დაპატარავდა */
   stroke-width: 1.5;
   color: var(--accent-color);
 }
