@@ -288,6 +288,9 @@ h1, h2, h3 {
 .feature-timeline {
   position: relative;
   margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 2rem;
 }
 .optic-fiber-animation {
   position: absolute;
@@ -299,7 +302,6 @@ h1, h2, h3 {
   z-index: 0;
   overflow: hidden;
 }
-/* შრე 1: 6 წვრილი კაბელი */
 .fiber-cables {
   width: 100%;
   height: 100%;
@@ -310,7 +312,6 @@ h1, h2, h3 {
     );
   background-size: 4px 100%;
 }
-/* შრე 2: მოძრავი პაკეტები */
 .data-packets {
   position: absolute;
   top: 0;
@@ -323,7 +324,6 @@ h1, h2, h3 {
   width: 2px;
   height: 3px;
   border-radius: 50%;
-  /* --- შეიცვალა პაკეტის ზომა: 3 წერტილი --- */
   box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
   animation-name: data-flow-down, packet-flash;
   animation-timing-function: linear, ease-in-out;
@@ -334,42 +334,49 @@ h1, h2, h3 {
 .packet.orange { color: #FF9900; }
 .packet.cyan { color: #00FFFF; }
 
-/* --- 18 პაკეტის ინდივიდუალური სტილი --- */
-/* Track 1 (Down) */
-.packet.t1:nth-of-type(1) { left: 2px; animation-duration: 7s, 1.5s; animation-delay: 0s; }
-.packet.t1:nth-of-type(2) { left: 2px; animation-duration: 7s, 1.5s; animation-delay: 2.3s; }
-.packet.t1:nth-of-type(3) { left: 2px; animation-duration: 7s, 1.5s; animation-delay: 4.6s; }
-/* Track 2 (Up) */
-.packet.t2:nth-of-type(1) { left: 6px; animation-duration: 8s, 1.5s; animation-delay: 1s; }
-.packet.t2:nth-of-type(2) { left: 6px; animation-duration: 8s, 1.5s; animation-delay: 3.6s; }
-.packet.t2:nth-of-type(3) { left: 6px; animation-duration: 8s, 1.5s; animation-delay: 6.2s; }
-/* Track 3 (Down) */
-.packet.t3:nth-of-type(1) { left: 10px; animation-duration: 6s, 1.5s; animation-delay: 0.5s; }
-.packet.t3:nth-of-type(2) { left: 10px; animation-duration: 6s, 1.5s; animation-delay: 2.5s; }
-.packet.t3:nth-of-type(3) { left: 10px; animation-duration: 6s, 1.5s; animation-delay: 4.5s; }
-/* Track 4 (Up) */
-.packet.t4:nth-of-type(1) { left: 14px; animation-duration: 9s, 1.5s; animation-delay: 2.2s; }
-.packet.t4:nth-of-type(2) { left: 14px; animation-duration: 9s, 1.5s; animation-delay: 5.2s; }
-.packet.t4:nth-of-type(3) { left: 14px; animation-duration: 9s, 1.5s; animation-delay: 8.2s; }
-/* Track 5 (Down) */
-.packet.t5:nth-of-type(1) { left: 18px; animation-duration: 8.5s, 1.5s; animation-delay: 1.8s; }
-.packet.t5:nth-of-type(2) { left: 18px; animation-duration: 8.5s, 1.5s; animation-delay: 4.6s; }
-.packet.t5:nth-of-type(3) { left: 18px; animation-duration: 8.5s, 1.5s; animation-delay: 7.4s; }
-/* Track 6 (Up) */
-.packet.t6:nth-of-type(1) { left: 22px; animation-duration: 7.5s, 1.5s; animation-delay: 3.1s; }
-.packet.t6:nth-of-type(2) { left: 22px; animation-duration: 7.5s, 1.5s; animation-delay: 5.6s; }
-.packet.t6:nth-of-type(3) { left: 22px; animation-duration: 7.5s, 1.5s; animation-delay: 8.1s; }
+/* 18 პაკეტის ანიმაცია, 3 თითო ხაზზე */
+.packet.t1 { left: 0px; }
+.packet.t1:nth-of-type(1) { animation-duration: 7s, 1.5s; animation-delay: 0s; }
+.packet.t1:nth-of-type(2) { animation-duration: 7s, 1.5s; animation-delay: 2.3s; }
+.packet.t1:nth-of-type(3) { animation-duration: 7s, 1.5s; animation-delay: 4.6s; }
+
+.packet.t2 { left: 4px; }
+.packet.t2:nth-of-type(1) { animation-duration: 8s, 1.5s; animation-delay: 1s; }
+.packet.t2:nth-of-type(2) { animation-duration: 8s, 1.5s; animation-delay: 3.6s; }
+.packet.t2:nth-of-type(3) { animation-duration: 8s, 1.5s; animation-delay: 6.2s; }
+
+.packet.t3 { left: 8px; }
+.packet.t3:nth-of-type(1) { animation-duration: 6s, 1.5s; animation-delay: 0.5s; }
+.packet.t3:nth-of-type(2) { animation-duration: 6s, 1.5s; animation-delay: 2.5s; }
+.packet.t3:nth-of-type(3) { animation-duration: 6s, 1.5s; animation-delay: 4.5s; }
+
+.packet.t4 { left: 12px; }
+.packet.t4:nth-of-type(1) { animation-duration: 9s, 1.5s; animation-delay: 2.2s; }
+.packet.t4:nth-of-type(2) { animation-duration: 9s, 1.5s; animation-delay: 5.2s; }
+.packet.t4:nth-of-type(3) { animation-duration: 9s, 1.5s; animation-delay: 8.2s; }
+
+.packet.t5 { left: 16px; }
+.packet.t5:nth-of-type(1) { animation-duration: 8.5s, 1.5s; animation-delay: 1.8s; }
+.packet.t5:nth-of-type(2) { animation-duration: 8.5s, 1.5s; animation-delay: 4.6s; }
+.packet.t5:nth-of-type(3) { animation-duration: 8.5s, 1.5s; animation-delay: 7.4s; }
+
+.packet.t6 { left: 20px; }
+.packet.t6:nth-of-type(1) { animation-duration: 7.5s, 1.5s; animation-delay: 3.1s; }
+.packet.t6:nth-of-type(2) { animation-duration: 7.5s, 1.5s; animation-delay: 5.6s; }
+.packet.t6:nth-of-type(3) { animation-duration: 7.5s, 1.5s; animation-delay: 8.1s; }
 
 
 .feature-section {
+  grid-row: span 1;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
   align-items: center;
-  margin-bottom: 4rem;
   position: relative;
   z-index: 1;
 }
+/* ბარათების მონაცვლეობა მარჯვნივ და მარცხნივ */
+.feature-section:nth-of-type(odd) { grid-column: 1; }
+.feature-section:nth-of-type(even) { grid-column: 3; }
+
 .feature-text {
   padding: 2rem;
   border-radius: 15px;
@@ -394,7 +401,6 @@ h1, h2, h3 {
   stroke-width: 1;
   color: var(--accent-color);
 }
-/* შრე 3: ციმციმა წერტილები (ბარათების კავშირი) */
 .feature-section::after {
   content: '';
   position: absolute;
@@ -410,26 +416,28 @@ h1, h2, h3 {
   box-shadow: 0 0 10px 2px var(--accent-color);
   animation: pulse-node 2.5s infinite 2s;
 }
+/* პულსირებადი წერტილის პოზიციის გასწორება */
+.feature-section:nth-of-type(odd) .feature-visual { grid-area: visual; }
+.feature-section:nth-of-type(odd) .feature-text { grid-area: text; }
+.feature-section:nth-of-type(odd) { grid-template-areas: "visual text"; }
 
-@media (min-width: 768px) {
-  .feature-section {
-    grid-template-columns: 1fr;
-  }
-  .feature-text {
-    text-align: left;
-  }
-  .feature-section.image-right {
-    grid-template-areas: "text visual";
-  }
-  .feature-section.image-left {
-    grid-template-areas: "visual text";
-  }
-  .feature-visual {
-    grid-area: visual;
-  }
-  .feature-text {
-    grid-area: text;
-  }
+.feature-section:nth-of-type(even) .feature-visual { grid-area: visual; }
+.feature-section:nth-of-type(even) .feature-text { grid-area: text; }
+.feature-section:nth-of-type(even) { grid-template-areas: "text visual"; }
+
+
+@media (max-width: 767px) {
+    .feature-timeline {
+        grid-template-columns: 1fr;
+    }
+    .feature-section,
+    .feature-section:nth-of-type(even),
+    .feature-section:nth-of-type(odd) {
+        grid-column: 1;
+    }
+    .optic-fiber-animation {
+        display: none; /* მობილურზე ვმალავთ კომპლექსურ ანიმაციას */
+    }
 }
 
 /* --- Content Page Styles --- */
