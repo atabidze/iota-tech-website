@@ -7,7 +7,7 @@
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
   --accent-color: #e84a5f;
-  --card-text-dark: #1f1f1f;
+  --card-text-dark: #1f1f1f; /* მუქი ტექსტის ფერი ღია ფონისთვის */
 }
 
 body {
@@ -266,97 +266,92 @@ h1, h2, h3 {
   color: var(--text-secondary);
 }
 
-/* --- სერვისის დეტალური გვერდი (ახალი დიზაინი) --- */
-.detail-page-layout {
+/* --- სერვისის დეტალური გვერდი (განახლებული დიზაინი) --- */
+.solutions-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 5rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
   align-items: flex-start;
 }
-.detail-page-sticky-info {
+.solutions-sticky-content {
   position: sticky;
   top: 120px;
 }
-.detail-page-title {
+.solutions-title {
   font-size: 3rem;
   font-weight: 700;
-  margin: 0 0 1.5rem 0;
+  margin: 0.5rem 0 1.5rem;
   color: var(--text-primary);
 }
-.detail-page-description {
+.solutions-description {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-secondary);
 }
-.detail-page-cards {
+.solutions-scrolling-cards {
   display: grid;
   gap: 2rem;
 }
+
+/* ბარათის ზოგადი სტილი */
 .feature-card-item {
   padding: 2rem;
-  border-radius: 15px;
-  border: 1px solid transparent;
+  border-radius: 20px;
 }
+
+/* ბარათი 1: თეთრი (#FFFFFF) */
 .feature-card-item.card-style-a {
-  background: var(--background-panel);
-  border-color: var(--border-color);
-  backdrop-filter: blur(var(--glass-blur));
+  background: #FFFFFF;
 }
+
+/* ბარათი 2: იასამნისფერი (#D7D7FF) */
 .feature-card-item.card-style-b {
-  background: var(--background-panel);
-  border-color: var(--border-color);
-  backdrop-filter: blur(var(--glass-blur));
-  position: relative;
-  overflow: hidden;
+  background: #D7D7FF;
 }
-.feature-card-item.card-style-b::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--accent-color);
-  box-shadow: 0 0 15px var(--accent-color);
+
+/* ტექსტის და ლოგოს ფერების გასწორება ღია ფონისთვის */
+.feature-card-item,
+.feature-card-item .feature-card-title,
+.feature-card-item .feature-card-body {
+  color: var(--card-text-dark);
 }
+.feature-card-item .feature-card-icon .icon {
+  color: var(--card-text-dark);
+}
+
 
 .feature-card-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 .feature-card-icon .icon {
-  width: 24px;
-  height: 24px;
-  color: var(--accent-color);
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
 }
 .feature-card-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: var(--text-primary);
   margin: 0;
 }
-.feature-card-divider {
-  border: none;
-  height: 1px;
-  background-color: var(--border-color);
-  margin: 1.5rem 0;
+.feature-card-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
-.feature-card-body p {
-  margin: 0;
-  color: var(--text-secondary);
-}
-@media (max-width: 992px) {
-  .detail-page-layout {
+@media(max-width: 992px) {
+  .solutions-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .detail-page-sticky-info {
+  .solutions-sticky-content {
     position: static;
     text-align: center;
   }
-  .detail-page-title {
+  .solutions-title {
     font-size: 2.5rem;
   }
 }
