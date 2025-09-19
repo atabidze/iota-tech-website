@@ -168,7 +168,7 @@ h1, h2, h3 {
   }
 }
 
-/* --- Hero სექცია (გასუფთავებული) --- */
+/* --- Hero სექცია --- */
 .hero-section {
   text-align: center;
   padding: 6rem 0;
@@ -202,7 +202,7 @@ h1, h2, h3 {
   margin: 0 auto;
 }
 
-/* --- Service Card Grid (managed-services) --- */
+/* --- Service Card Grid (managed-services & home page) --- */
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -266,116 +266,71 @@ h1, h2, h3 {
   color: var(--text-secondary);
 }
 
-/* --- სერვისის დეტალური გვერდი (ახალი დიზაინი) --- */
-
-/* რეკომენდაცია 1: შესავალი ტექსტის ბლოკი */
-.intro-block {
-  padding: 1.5rem;
-  border-left: 3px solid var(--accent-color);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 0 8px 8px 0;
-  margin-top: 2rem;
-}
-
-.feature-list {
-  margin-top: 5rem;
+/* --- სერვისის დეტალური გვერდი (Solutions სტილი) --- */
+.solutions-grid {
   display: grid;
-  gap: 5rem;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: flex-start;
 }
-
-.feature-item {
+.solutions-sticky-content {
+  position: sticky;
+  top: 120px;
+}
+.solutions-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1.5rem;
+  color: var(--text-primary);
+}
+.solutions-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.solutions-scrolling-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 3rem;
+  gap: 2rem;
 }
-
-.feature-item.item-right {
-  direction: rtl;
+.numbered-card {
+  padding: 2rem;
+  border-radius: 20px;
 }
-.feature-item.item-right > * {
-  direction: ltr;
-}
-
-.feature-visual {
+.numbered-card-header {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.feature-icon {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-/* რეკომენდაცია 3: ლოგოს გრადიენტული, მოპულსირე ჩარჩო */
-.feature-icon::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  background: conic-gradient(from 180deg at 50% 50%, var(--accent-color), transparent) border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  animation: spin 4s linear infinite;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-.feature-icon .icon {
-  width: 56px;
-  height: 56px;
-  stroke-width: 1.5;
-  color: var(--accent-color);
-}
-
-/* რეკომენდაცია 2: Glass ეფექტი ბარათებზე */
-.feature-content {
-  text-align: left;
-  padding: 2.5rem; /* დაემატა padding Glass ეფექტისთვის */
-  border-radius: 15px;
-}
-
-.feature-title {
-  font-size: 1.8rem;
-  margin-top: 0;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
-
-.feature-desc {
-  font-size: 1rem;
-  margin-bottom: 0;
+.numbered-card-number {
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-secondary);
-  line-height: 1.7;
 }
-
-@media (max-width: 767px) {
-  .feature-item {
+.numbered-card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+.numbered-card-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+@media(max-width: 992px) {
+  .solutions-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 3rem;
+  }
+  .solutions-sticky-content {
+    position: static;
     text-align: center;
   }
-  .feature-item,
-  .feature-item.item-right {
-    direction: ltr;
-  }
-  .feature-content {
-    text-align: center;
-  }
-  .feature-title {
-    font-size: 1.5rem;
+  .solutions-title {
+    font-size: 2.5rem;
   }
 }
 
@@ -390,113 +345,4 @@ h1, h2, h3 {
   text-align: center;
   border-top: 1px solid var(--border-color);
   margin-top: 4rem;
-}
-/* --- Solutions Page Style --- */
-
-:root {
-  --solutions-bg: #F0F2F5;
-  --solutions-text: #080A24;
-  --solutions-accent: #D7D7FF;
-  --solutions-card-bg: #FFFFFF;
-}
-
-.solutions-theme-wrapper {
-  background-color: var(--solutions-bg);
-  color: var(--solutions-text);
-  font-family: 'Poppins', sans-serif;
-}
-
-.solutions-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: flex-start;
-}
-
-.solutions-sticky-content {
-  /* ეს სვეტი მომავალში გახდება "sticky" */
-  position: sticky;
-  top: 120px;
-}
-
-.solutions-subtitle {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--solutions-text);
-}
-
-.solutions-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--solutions-text);
-  margin: 0.5rem 0 1.5rem;
-}
-
-.solutions-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--solutions-text);
-}
-
-.solutions-scrolling-cards {
-  display: grid;
-  gap: 2rem;
-}
-
-.numbered-card {
-  padding: 2rem;
-  border-radius: 20px;
-  background: var(--solutions-card-bg);
-  transition: background-color 0.3s ease;
-}
-
-.numbered-card.is-active {
-  background: var(--solutions-accent);
-}
-
-.numbered-card-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-}
-
-.numbered-card-number {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--solutions-text);
-  opacity: 0.5;
-}
-
-.numbered-card-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: var(--solutions-text);
-  margin: 0;
-}
-
-.numbered-card-body {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--solutions-text);
-  opacity: 0.8;
-}
-
-/* Responsive */
-@media(max-width: 992px) {
-  .solutions-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  .solutions-sticky-content {
-    position: static;
-    text-align: center;
-  }
-  .solutions-title {
-    font-size: 2.5rem;
-  }
 }

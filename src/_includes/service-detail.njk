@@ -3,38 +3,32 @@
 {% block content %}
 <section class="page-section service-detail-page">
     <div class="container">
-
-        <div class="section-title text-center" data-aos="fade-up">
-            <h1>{{ title }}</h1>
-            {# --- დაემატა intro-block კლასი --- #}
-            <div class="page-content intro-block" style="max-width: 800px; margin: 0 auto;">
-                {{ general_description | markdownify | safe }}
+        <div class="solutions-grid">
+            {# --- მარცხენა, "წებოვანი" სვეტი --- #}
+            <div class="solutions-sticky-content" data-aos="fade-right">
+                <h1 class="solutions-title">{{ title }}</h1>
+                <div class="solutions-description page-content">
+                    {{ general_description | markdownify | safe }}
+                </div>
             </div>
-        </div>
 
-        {% if detailed_list and detailed_list.length > 0 %}
-        <div class="feature-list">
-            {% for item in detailed_list %}
-                {% set section_class = 'item-left' if loop.index0 % 2 == 0 else 'item-right' %}
-                
-                <div class="feature-item {{ section_class }}" data-aos="fade-up">
-                    <div class="feature-visual" data-aos="zoom-in">
-                        <div class="feature-icon">
-                            {% lucide item.icon %}
+            {# --- მარჯვენა, "სქროლვადი" სვეტი --- #}
+            {% if detailed_list and detailed_list.length > 0 %}
+            <div class="solutions-scrolling-cards" data-aos="fade-left" data-aos-delay="200">
+                {% for item in detailed_list %}
+                    <div class="numbered-card glass-panel">
+                        <div class="numbered-card-header">
+                            <span class="numbered-card-number">0{{ loop.index }}</span>
+                            <h3 class="numbered-card-title">{{ item.point }}</h3>
                         </div>
-                    </div>
-                    {# --- დაემატა glass-panel კლასი --- #}
-                    <div class="feature-content glass-panel">
-                        <h3 class="feature-title">{{ item.point }}</h3>
                         {% if item.description %}
-                        <p class="feature-desc">{{ item.description }}</p>
+                        <p class="numbered-card-body">{{ item.description }}</p>
                         {% endif %}
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
-
     </div>
 </section>
 {% endblock %}
