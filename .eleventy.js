@@ -6,8 +6,7 @@ module.exports = function(eleventyConfig) {
   
   eleventyConfig.addPassthroughCopy("./src/assets/");
   eleventyConfig.addPassthroughCopy("src/admin");
-  eleventyConfig.addPassthroughCopy("src/assets/js/");
-
+  
   eleventyConfig.addPlugin(lucideIcons, {
     "class": "icon",
     "width": 32,
