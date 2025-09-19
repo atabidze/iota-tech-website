@@ -26,15 +26,13 @@
             </div>
 
             {% for item in detailed_list %}
-                {% set section_class = 'image-left' if loop.index0 % 2 == 0 else 'image-right' %}
-                
-                <div class="feature-section {{ section_class }}" data-aos="fade-up">
-                    <div class="feature-visual">
+                <div class="feature-section">
+                    <div class="feature-visual" data-aos="zoom-in">
                         <div class="feature-icon">
                             {% lucide item.icon %}
                         </div>
                     </div>
-                    <div class="feature-text glass-panel">
+                    <div class="feature-text glass-panel" data-aos="fade-up">
                         <h3 class="feature-title">{{ item.point }}</h3>
                         {% if item.description %}
                         <p class="feature-desc">{{ item.description }}</p>
