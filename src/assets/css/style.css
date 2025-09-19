@@ -286,7 +286,6 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: 1fr 80px 1fr;
   gap: 1.5rem;
-  align-items: center;
 }
 
 .optic-fiber-animation {
@@ -358,33 +357,31 @@ h1, h2, h3 {
 .packet:nth-child(17) { animation-duration: 10s, 1.5s; animation-delay: 8.5s; }
 .packet:nth-child(18) { animation-duration: 8s, 1.5s; animation-delay: 10s; }
 
+/* --- ახალი, Subgrid-ზე დაფუძნებული განლაგება --- */
 .feature-section {
-  display: contents;
+  grid-column: 1 / -1; /* იკავებს მთელ სიგანეს */
+  display: grid;
+  grid-template-columns: subgrid; /* იღებს მშობლის სვეტებს */
+  align-items: center; /* <<< ასწორებს ლოგოს და ბარათს */
+  margin-bottom: 2rem;
 }
-.feature-visual, .feature-text {
-  margin-bottom: 5rem;
-  position: relative;
-}
-.feature-section:nth-of-type(odd) .feature-visual { grid-column: 1; justify-self: end; }
-.feature-section:nth-of-type(odd) .feature-text { grid-column: 3; justify-self: start; }
-.feature-section:nth-of-type(even) .feature-visual { grid-column: 3; justify-self: start; }
-.feature-section:nth-of-type(even) .feature-text { grid-column: 1; justify-self: end; }
+.feature-section.image-left .feature-visual { grid-column: 1; justify-self: end; }
+.feature-section.image-left .feature-text { grid-column: 3; justify-self: start; }
+.feature-section.image-right .feature-visual { grid-column: 3; justify-self: start; }
+.feature-section.image-right .feature-text { grid-column: 1; justify-self: end; }
 
 .feature-text {
-  padding: 1.5rem; /* <<< დაპატარავდა */
+  padding: 1.25rem; /* <<< დაპატარავდა */
   border-radius: 15px;
   width: 100%;
-  display: flex; /* <<< დაემატა გასწორებისთვის */
-  flex-direction: column; /* <<< დაემატა გასწორებისთვის */
-  justify-content: center; /* <<< დაემატა გასწორებისთვის */
 }
 .feature-title {
-  font-size: 1.2rem; /* <<< დაპატარავდა */
+  font-size: 1.1rem; /* <<< დაპატარავდა */
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 .feature-desc {
-  font-size: 0.9rem; /* <<< დაპატარავდა */
+  font-size: 0.85rem; /* <<< დაპატარავდა */
   margin-bottom: 0;
   color: var(--text-secondary);
 }
@@ -394,8 +391,8 @@ h1, h2, h3 {
   align-items: center;
 }
 .feature-icon {
-  width: 100px;
-  height: 100px;
+  width: 90px; /* <<< დაპატარავდა */
+  height: 90px; /* <<< დაპატარავდა */
   border: 1px solid var(--border-color);
   border-radius: 50%;
   display: flex;
@@ -403,8 +400,8 @@ h1, h2, h3 {
   align-items: center;
 }
 .feature-icon .icon {
-  width: 48px;
-  height: 48px;
+  width: 40px; /* <<< დაპატარავდა */
+  height: 40px; /* <<< დაპატარავდა */
   stroke-width: 1.5;
   color: var(--accent-color);
 }
@@ -414,12 +411,16 @@ h1, h2, h3 {
         grid-template-columns: 1fr;
         gap: 0;
     }
-    .feature-section:nth-of-type(odd) .feature-visual,
-    .feature-section:nth-of-type(even) .feature-visual {
+    .feature-section {
+      grid-column: 1 / -1;
+      grid-template-columns: 1fr;
+    }
+    .feature-section.image-left .feature-visual,
+    .feature-section.image-right .feature-visual {
         display: none;
     }
-    .feature-section:nth-of-type(odd) .feature-text,
-    .feature-section:nth-of-type(even) .feature-text {
+    .feature-section.image-left .feature-text,
+    .feature-section.image-right .feature-text {
         grid-column: 1 / -1;
     }
     .optic-fiber-animation {

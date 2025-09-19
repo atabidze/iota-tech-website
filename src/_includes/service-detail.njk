@@ -13,7 +13,6 @@
 
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-timeline">
-            {# --- ანიმაციის კონტეინერი გადავიდა ციკლის გარეთ --- #}
             <div class="optic-fiber-animation">
                 <div class="fiber-cables"></div>
                 <div class="data-packets">
@@ -27,7 +26,10 @@
             </div>
 
             {% for item in detailed_list %}
-                <div class="feature-section">
+                {# ეს ხაზი აუცილებელია სწორი მუშაობისთვის #}
+                {% set section_class = 'image-left' if loop.index0 % 2 == 0 else 'image-right' %}
+                
+                <div class="feature-section {{ section_class }}" data-aos="fade-up">
                     <div class="feature-visual" data-aos="zoom-in" data-aos-duration="600">
                         <div class="feature-icon">
                             {% lucide item.icon %}
