@@ -265,7 +265,7 @@ h1, h2, h3 {
   color: var(--text-secondary);
 }
 
-/* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი (საბოლოო გასწორებული) --- */
+/* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი (საბოლოო Flexbox ვერსია) --- */
 
 @keyframes data-flow-down {
   from { top: -150px; }
@@ -283,11 +283,6 @@ h1, h2, h3 {
 .feature-timeline {
   margin-top: 4rem;
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 80px 1fr;
-  gap: 3rem; /* <<< გაიზარდა დაშორება მაგისტრალსა და ბარათებს შორის */
-  align-items: center;
-  row-gap: 5rem;
 }
 
 .optic-fiber-animation {
@@ -359,41 +354,46 @@ h1, h2, h3 {
 .packet:nth-child(17) { animation-duration: 14s, 1.5s; animation-delay: -7.5s; }
 .packet:nth-child(18) { animation-duration: 11s, 1.5s; animation-delay: -10s; }
 
+/* --- ახალი, Flexbox-ზე დაფუძნებული განლაგება --- */
 .feature-section {
-  display: contents;
+  display: flex;
+  align-items: center; /* <<< მთავარი გასწორება */
+  justify-content: space-between;
+  margin-bottom: 6rem;
 }
-.feature-visual {
-  position: relative;
+.feature-section.image-right {
+  flex-direction: row-reverse;
 }
-.feature-section:nth-of-type(odd) .feature-visual { grid-column: 1; justify-self: end; }
-.feature-section:nth-of-type(odd) .feature-text { grid-column: 3; justify-self: start; }
-.feature-section:nth-of-type(even) .feature-visual { grid-column: 3; justify-self: start; }
-.feature-section:nth-of-type(even) .feature-text { grid-column: 1; justify-self: end; }
+.feature-visual, .feature-text {
+  flex-basis: 42%; /* <<< დაშორება მაგისტრალამდე (42% + 42% = 84%, 16% რჩება შუაში) */
+}
 
 .feature-text {
   padding: 1.25rem;
   border-radius: 12px;
-  width: 100%;
-  max-width: 400px;
 }
 .feature-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
 .feature-desc {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-bottom: 0;
   color: var(--text-secondary);
 }
 .feature-visual {
   display: flex;
-  justify-content: center;
-  align-items: center;
+}
+.feature-section.image-left .feature-visual {
+  justify-content: flex-end;
+}
+.feature-section.image-right .feature-visual {
+  justify-content: flex-start;
 }
 .feature-icon {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border: 1px solid var(--border-color);
   border-radius: 50%;
   display: flex;
@@ -401,28 +401,19 @@ h1, h2, h3 {
   align-items: center;
 }
 .feature-icon .icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   stroke-width: 1.5;
   color: var(--accent-color);
 }
 
 @media (max-width: 767px) {
-    .feature-timeline {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    .feature-section:nth-of-type(odd) .feature-visual,
-    .feature-section:nth-of-type(even) .feature-visual {
-        display: none;
-    }
-    .feature-section:nth-of-type(odd) .feature-text,
-    .feature-section:nth-of-type(even) .feature-text {
-        grid-column: 1 / -1;
-    }
-    .optic-fiber-animation {
-        display: none;
-    }
+  .optic-fiber-animation { display: none; }
+  .feature-visual { display: none; }
+  .feature-section, .feature-section.image-right {
+    flex-direction: column;
+    margin-bottom: 3rem;
+  }
 }
 
 /* --- Content Page Styles --- */
