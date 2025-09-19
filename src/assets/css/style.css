@@ -265,27 +265,12 @@ h1, h2, h3 {
   color: var(--text-secondary);
 }
 
-/* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი --- */
+/* --- სერვისის დეტალური გვერდი: გამარტივებული Timeline დიზაინი --- */
 
-@keyframes data-flow-down {
-  from { top: -150px; }
-  to { top: 110%; }
-}
-@keyframes data-flow-up {
-  from { top: 110%; }
-  to { top: -150px; }
-}
-@keyframes packet-flash {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-@keyframes branch-flow-right {
-  from { background-position-x: -10%; }
-  to { background-position-x: 110%; }
-}
-@keyframes branch-flow-left {
-  from { background-position-x: 110%; }
-  to { background-position-x: -10%; }
+@keyframes pulse-node {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 74, 95, 0); }
 }
 
 .feature-timeline {
@@ -293,84 +278,31 @@ h1, h2, h3 {
   position: relative;
 }
 
-.optic-fiber-animation {
+/* ცენტრალური ვერტიკალური ხაზი */
+.feature-timeline::before {
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 25px;
-  z-index: -1;
-  overflow: hidden;
-}
-.fiber-cables {
-  width: 100%;
-  height: 100%;
-  background-image: 
-    repeating-linear-gradient(to right, 
-      transparent, transparent 3px, 
-      rgba(255, 255, 255, 0.1) 3px, rgba(255, 255, 255, 0.1) 4px
-    );
-  background-size: 4px 100%;
-}
-.data-packets {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.packet {
-  position: absolute;
   width: 2px;
-  height: 3px;
-  border-radius: 50%;
-  box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
-  animation: packet-flash 1.5s ease-in-out infinite;
+  background-color: var(--border-color);
+  z-index: 0;
 }
-.packet.down { animation-name: data-flow-down, packet-flash; }
-.packet.up { animation-name: data-flow-up, packet-flash; }
-.packet.orange { color: #FF9900; }
-.packet.cyan { color: #00FFFF; }
-
-.packet:nth-child(1), .packet:nth-child(2), .packet:nth-child(3) { left: 3px; }
-.packet:nth-child(4), .packet:nth-child(5), .packet:nth-child(6) { left: 7px; }
-.packet:nth-child(7), .packet:nth-child(8), .packet:nth-child(9) { left: 11px; }
-.packet:nth-child(10), .packet:nth-child(11), .packet:nth-child(12) { left: 15px; }
-.packet:nth-child(13), .packet:nth-child(14), .packet:nth-child(15) { left: 19px; }
-.packet:nth-child(16), .packet:nth-child(17), .packet:nth-child(18) { left: 23px; }
-
-.packet:nth-child(1) { animation-duration: 12s, 1.5s; animation-delay: -1s; }
-.packet:nth-child(2) { animation-duration: 10s, 1.5s; animation-delay: -3s; }
-.packet:nth-child(3) { animation-duration: 13s, 1.5s; animation-delay: -5s; }
-.packet:nth-child(4) { animation-duration: 9s, 1.5s; animation-delay: -2s; }
-.packet:nth-child(5) { animation-duration: 14s, 1.5s; animation-delay: -4s; }
-.packet:nth-child(6) { animation-duration: 11s, 1.5s; animation-delay: -6s; }
-.packet:nth-child(7) { animation-duration: 12s, 1.5s; animation-delay: -2.5s; }
-.packet:nth-child(8) { animation-duration: 10s, 1.5s; animation-delay: -4.5s; }
-.packet:nth-child(9) { animation-duration: 13s, 1.5s; animation-delay: -7s; }
-.packet:nth-child(10) { animation-duration: 9s, 1.5s; animation-delay: -1.5s; }
-.packet:nth-child(11) { animation-duration: 14s, 1.5s; animation-delay: -5.5s; }
-.packet:nth-child(12) { animation-duration: 11s, 1.5s; animation-delay: -8s; }
-.packet:nth-child(13) { animation-duration: 12s, 1.5s; animation-delay: -4.2s; }
-.packet:nth-child(14) { animation-duration: 10s, 1.5s; animation-delay: -6.2s; }
-.packet:nth-child(15) { animation-duration: 13s, 1.5s; animation-delay: -9s; }
-.packet:nth-child(16) { animation-duration: 9s, 1.5s; animation-delay: -3.2s; }
-.packet:nth-child(17) { animation-duration: 14s, 1.5s; animation-delay: -7.5s; }
-.packet:nth-child(18) { animation-duration: 11s, 1.5s; animation-delay: -10s; }
 
 .feature-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 6rem;
+  position: relative;
 }
 .feature-section.image-right {
   flex-direction: row-reverse;
 }
 .feature-visual, .feature-text {
   flex-basis: 40%;
-  position: relative;
 }
 
 .feature-text {
@@ -412,56 +344,61 @@ h1, h2, h3 {
   color: var(--accent-color);
 }
 
-/* --- განშტოებების ანიმაცია და ხაზები (საბოლოო ვერსია) --- */
-.feature-text::before,
-.feature-text::after {
+/* პულსირებადი წერტილი ცენტრში */
+.feature-section::after {
   content: '';
   position: absolute;
-  width: 3.5rem; /* <<< გასწორდა სიგრძე, რომ არ გადაფაროს მაგისტრალი */
-  height: 3px;
-  background-repeat: no-repeat;
-  background-image: 
-    repeating-linear-gradient(to bottom, 
-      rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px,
-      transparent 1px, transparent 3px);
-}
-/* Data In (ნარინჯისფერი) */
-.feature-text::before {
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
-  background-image: 
-    radial-gradient(circle at center, #FF9900 2px, transparent 2px),
-    repeating-linear-gradient(to bottom, 
-      rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px,
-      transparent 1px, transparent 3px);
-  animation: branch-flow-right 3s linear infinite, packet-flash 1.5s ease-in-out infinite;
-}
-/* Data Out (ცისფერი) */
-.feature-text::after {
-  top: 50%;
-  transform: translateY(-50%);
-  /* დროებით ვთიშავთ მეორე ხაზს, რომ ლოგიკა გავამარტივოთ */
-  display: none;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: var(--accent-color);
+  border: 4px solid var(--background-main);
+  border-radius: 50%;
+  z-index: 1;
+  animation: pulse-node 2.5s infinite;
 }
 
-/* ანიმაციის მიმართულების კონტროლი */
+/* განშტოების ხაზი წერტილიდან ბარათამდე */
+.feature-text::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 4rem;
+  background: var(--border-color);
+  transform: translateY(-50%);
+}
 .feature-section.image-left .feature-text::before {
   right: 100%;
-  animation-name: branch-flow-left, packet-flash;
 }
 .feature-section.image-right .feature-text::before {
   left: 100%;
-  animation-name: branch-flow-right, packet-flash;
 }
 
 @media (max-width: 767px) {
-  .optic-fiber-animation { display: none; }
-  .feature-visual { display: none; }
+  .feature-timeline::before {
+    left: 1rem;
+  }
   .feature-section, .feature-section.image-right {
     flex-direction: column;
-    margin-bottom: 3rem;
+    align-items: flex-start;
+    padding-left: 3rem;
   }
-  .feature-text::before, .feature-text::after { display: none; }
+  .feature-visual {
+    display: none;
+  }
+  .feature-text {
+    flex-basis: 100%;
+  }
+  .feature-section::after {
+    left: 1rem;
+  }
+  .feature-text::before {
+    left: -2rem;
+    width: 2rem;
+  }
 }
 
 /* --- Content Page Styles --- */

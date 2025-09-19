@@ -13,20 +13,7 @@
 
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-timeline">
-            <div class="optic-fiber-animation">
-                <div class="fiber-cables"></div>
-                <div class="data-packets">
-                    <span class="packet down orange"></span><span class="packet down orange"></span><span class="packet down orange"></span>
-                    <span class="packet up cyan"></span><span class="packet up cyan"></span><span class="packet up cyan"></span>
-                    <span class="packet down orange"></span><span class="packet down orange"></span><span class="packet down orange"></span>
-                    <span class="packet up cyan"></span><span class="packet up cyan"></span><span class="packet up cyan"></span>
-                    <span class="packet down orange"></span><span class="packet down orange"></span><span class="packet down orange"></span>
-                    <span class="packet up cyan"></span><span class="packet up cyan"></span><span class="packet up cyan"></span>
-                </div>
-            </div>
-
             {% for item in detailed_list %}
-                {# ეს ხაზი აუცილებელია სწორი მუშაობისთვის #}
                 {% set section_class = 'image-left' if loop.index0 % 2 == 0 else 'image-right' %}
                 
                 <div class="feature-section {{ section_class }}" data-aos="fade-up">
