@@ -354,18 +354,17 @@ h1, h2, h3 {
 .packet:nth-child(17) { animation-duration: 14s, 1.5s; animation-delay: -7.5s; }
 .packet:nth-child(18) { animation-duration: 11s, 1.5s; animation-delay: -10s; }
 
-/* --- ახალი, Flexbox-ზე დაფუძნებული განლაგება --- */
 .feature-section {
   display: flex;
-  align-items: center; /* <<< მთავარი გასწორება */
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem; /* <<< გაიზარდა დაშორება */
 }
 .feature-section.image-right {
   flex-direction: row-reverse;
 }
 .feature-visual, .feature-text {
-  flex-basis: 45%; /* თითოეული იკავებს სიგანის 45%-ს */
+  flex-basis: 45%;
 }
 
 .feature-text {
