@@ -12,17 +12,18 @@
         </div>
 
         {% if detailed_list and detailed_list.length > 0 %}
-        <div class="feature-timeline">
+        <div class="feature-list">
             {% for item in detailed_list %}
-                {% set section_class = 'image-left' if loop.index0 % 2 == 0 else 'image-right' %}
+                {# ვამატებთ მონაცვლეობით კლასებს #}
+                {% set section_class = 'item-left' if loop.index0 % 2 == 0 else 'item-right' %}
                 
-                <div class="feature-section {{ section_class }}" data-aos="fade-up">
-                    <div class="feature-visual" data-aos="zoom-in" data-aos-duration="600">
+                <div class="feature-item {{ section_class }}" data-aos="fade-up">
+                    <div class="feature-visual" data-aos="zoom-in">
                         <div class="feature-icon">
                             {% lucide item.icon %}
                         </div>
                     </div>
-                    <div class="feature-text glass-panel" data-aos="fade-up" data-aos-duration="600">
+                    <div class="feature-content">
                         <h3 class="feature-title">{{ item.point }}</h3>
                         {% if item.description %}
                         <p class="feature-desc">{{ item.description }}</p>
