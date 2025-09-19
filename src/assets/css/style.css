@@ -279,7 +279,6 @@ h1, h2, h3 {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
 }
-/* --- დაემატა ჰორიზონტალური ანიმაციები --- */
 @keyframes data-flow-right {
   from { left: -30%; }
   to { left: 90%; }
@@ -374,6 +373,7 @@ h1, h2, h3 {
 }
 .feature-visual, .feature-text {
   flex-basis: 40%;
+  position: relative; /* <<< აუცილებელია ::before და ::after-ისთვის */
 }
 
 .feature-text {
@@ -392,7 +392,6 @@ h1, h2, h3 {
 }
 .feature-visual {
   display: flex;
-  position: relative; /* <<< აუცილებელია ::before და ::after-ისთვის */
 }
 .feature-section.image-left .feature-visual {
   justify-content: flex-end;
@@ -417,11 +416,10 @@ h1, h2, h3 {
 }
 
 /* --- დაემატა განშტოებების ანიმაცია (Data In/Out) --- */
-.feature-visual::before,
-.feature-visual::after {
+.feature-text::before,
+.feature-text::after {
   content: '';
   position: absolute;
-  top: 50%;
   width: 2px;
   height: 3px;
   border-radius: 50%;
@@ -430,15 +428,19 @@ h1, h2, h3 {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 1.5s;
+  z-index: 1;
 }
-/* Data In (ნარინჯისფერი) */
-.feature-visual::before {
+
+.feature-text::before {
+  top: 45%;
+  border-top: 1px solid rgba(255, 153, 0, 0.2);
   color: #FF9900;
   animation-name: data-flow-right, packet-flash;
   animation-duration: 5s, 1.5s;
 }
-/* Data Out (ცისფერი) */
-.feature-visual::after {
+.feature-text::after {
+  top: 55%;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
   color: #00FFFF;
   animation-name: data-flow-left, packet-flash;
   animation-duration: 5s, 1.5s;
@@ -446,12 +448,12 @@ h1, h2, h3 {
 }
 
 /* ანიმაციის მიმართულების კონტროლი */
-.feature-section.image-left .feature-visual::before {
-  animation-name: data-flow-left, packet-flash;
-}
-.feature-section.image-left .feature-visual::after {
-  animation-name: data-flow-right, packet-flash;
-}
+.feature-section.image-left .feature-text::before { right: 100%; animation-name: data-flow-left, packet-flash; }
+.feature-section.image-left .feature-text::after { right: 100%; animation-name: data-flow-right, packet-flash; }
+
+.feature-section.image-right .feature-text::before { left: 100%; animation-name: data-flow-right, packet-flash; }
+.feature-section.image-right .feature-text::after { left: 100%; animation-name: data-flow-left, packet-flash; }
+
 
 @media (max-width: 767px) {
   .optic-fiber-animation { display: none; }
@@ -460,6 +462,7 @@ h1, h2, h3 {
     flex-direction: column;
     margin-bottom: 3rem;
   }
+  .feature-text::before, .feature-text::after { display: none; }
 }
 
 /* --- Content Page Styles --- */
