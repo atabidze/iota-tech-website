@@ -449,15 +449,9 @@ h1, h2, h3 {
 }
 
 .hero-animation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#blob-svg {
   width: 100%;
-  max-width: 500px;
-  height: auto;
+  height: 500px; /* ანიმაციის კონტეინერის სიმაღლე */
+  min-height: 400px;
 }
 
 /* მედია-მოთხოვნები მობილურისთვის */
@@ -478,10 +472,9 @@ h1, h2, h3 {
     gap: 3rem;
   }
   .hero-animation {
-    order: -1; /* ანიმაცია გადადის ზემოთ */
-  }
-  #blob-svg {
-    max-width: 300px;
+    order: -1;
+    height: 300px;
+    min-height: 300px;
   }
   .hero-description {
     margin: 0 auto;
