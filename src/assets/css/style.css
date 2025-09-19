@@ -300,16 +300,16 @@ h1, h2, h3 {
   -webkit-backdrop-filter: blur(var(--glass-blur));
 }
 
-/* ბარათი 1: თეთრი "მინა" */
+/* ბარათი 1: თეთრი "მინა" (#FFFFFF) */
 .feature-card-item.card-style-a {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ბარათი 2: იასამნისფერი "მინა" */
+/* ბარათი 2: იასამნისფერი "მინა" (#D7D7FF) */
 .feature-card-item.card-style-b {
-  background: rgba(215, 215, 255, 0.08); /* #D7D7FF */
-  border: 1px solid rgba(215, 215, 255, 0.15);
+  background: rgba(215, 215, 255, 0.15);
+  border: 1px solid rgba(215, 215, 255, 0.25);
 }
 
 .feature-card-header {
