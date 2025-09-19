@@ -268,17 +268,22 @@ h1, h2, h3 {
 /* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი --- */
 
 @keyframes data-flow-down {
-  0% { transform: translateY(-100px); }
+  0% { transform: translateY(-150px); }
   100% { transform: translateY(100vh); }
 }
 @keyframes data-flow-up {
   0% { transform: translateY(100vh); }
-  100% { transform: translateY(-100px); }
+  100% { transform: translateY(-150px); }
 }
 @keyframes pulse-node {
   0% { box-shadow: 0 0 0 0 rgba(232, 74, 95, 0.7); }
   70% { box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
   100% { box-shadow: 0 0 0 0 rgba(232, 74, 95, 0); }
+}
+/* დაემატა კაშკაშის ანიმაცია */
+@keyframes packet-flash {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
 }
 
 .feature-timeline {
@@ -290,20 +295,21 @@ h1, h2, h3 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 30px;
+  width: 24px; /* <<< შეიცვალა სიგანე */
   height: 100%;
   z-index: 0;
+  overflow: hidden; /* <<< მალავს ანიმაციას ფარგლებს გარეთ */
 }
-/* შრე 1: სტატიკური კაბელები */
+/* შრე 1: 6 წვრილი კაბელი */
 .fiber-cables {
   width: 100%;
   height: 100%;
   background-image: 
     repeating-linear-gradient(to right, 
-      transparent, transparent 4px, 
-      rgba(255, 255, 255, 0.05) 4px, rgba(255, 255, 255, 0.05) 5px
+      transparent, transparent 3px, 
+      rgba(255, 255, 255, 0.05) 3px, rgba(255, 255, 255, 0.05) 4px
     );
-  background-size: 10px 100%;
+  background-size: 4px 100%;
 }
 /* შრე 2: მოძრავი პაკეტები */
 .data-packets {
@@ -316,22 +322,26 @@ h1, h2, h3 {
 .packet {
   position: absolute;
   width: 2px;
-  height: 4px;
+  height: 3px;
   border-radius: 50%;
-  box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor, 0 30px 0 0 currentColor;
+  /* --- გაიზარდა პაკეტების ინტენსივობა --- */
+  box-shadow: 0 12px 0 0 currentColor, 0 24px 0 0 currentColor, 0 36px 0 0 currentColor, 0 48px 0 0 currentColor;
+  animation-name: data-flow-down, packet-flash; /* --- დაემატა კაშკაშის ანიმაცია --- */
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
 }
-.packet.down { animation-name: data-flow-down; animation-timing-function: linear; animation-iteration-count: infinite; }
-.packet.up { animation-name: data-flow-up; animation-timing-function: linear; animation-iteration-count: infinite; }
+.packet.down { animation-name: data-flow-down, packet-flash; }
+.packet.up { animation-name: data-flow-up, packet-flash; }
 .packet.orange { color: #FF9900; }
 .packet.cyan { color: #00FFFF; }
 
 /* 6 პაკეტის ინდივიდუალური სტილი */
-.packet:nth-child(1) { left: 5%; animation-duration: 8s; animation-delay: 0s; }
-.packet:nth-child(2) { left: 25%; animation-duration: 6s; animation-delay: 2s; }
-.packet:nth-child(3) { left: 45%; animation-duration: 9s; animation-delay: 4s; }
-.packet:nth-child(4) { left: 65%; animation-duration: 7s; animation-delay: 1s; }
-.packet:nth-child(5) { left: 85%; animation-duration: 10s; animation-delay: 3s; }
-.packet:nth-child(6) { left: 95%; animation-duration: 8s; animation-delay: 5s; }
+.packet:nth-child(1) { left: 2px; animation-duration: 8s, 1.5s; animation-delay: 0s; }
+.packet:nth-child(2) { left: 6px; animation-duration: 7s, 1.5s; animation-delay: 1.5s; }
+.packet:nth-child(3) { left: 10px; animation-duration: 9s, 1.5s; animation-delay: 3s; }
+.packet:nth-child(4) { left: 14px; animation-duration: 6s, 1.5s; animation-delay: 0.5s; }
+.packet:nth-child(5) { left: 18px; animation-duration: 10s, 1.5s; animation-delay: 2.5s; }
+.packet:nth-child(6) { left: 22px; animation-duration: 8s, 1.5s; animation-delay: 4s; }
 
 
 .feature-section {
