@@ -7,6 +7,7 @@
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
   --accent-color: #e84a5f;
+  --card-text-dark: #1f1f1f; /* მუქი ტექსტის ფერი ღია ფონისთვის */
 }
 
 body {
@@ -266,87 +267,82 @@ h1, h2, h3 {
 }
 
 /* --- სერვისის დეტალური გვერდი (განახლებული დიზაინი) --- */
-.solutions-grid {
+.detail-page-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
   align-items: flex-start;
 }
-.solutions-sticky-content {
+.detail-page-sticky-info {
   position: sticky;
   top: 120px;
 }
-.solutions-title {
+.detail-page-title {
   font-size: 3rem;
   font-weight: 700;
-  margin: 0.5rem 0 1.5rem;
+  margin: 0 0 1.5rem 0;
   color: var(--text-primary);
 }
-.solutions-description {
+.detail-page-description {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-secondary);
 }
-.solutions-scrolling-cards {
+.detail-page-cards {
   display: grid;
   gap: 2rem;
 }
-
-/* ბარათის ზოგადი სტილი */
 .feature-card-item {
   padding: 2rem;
-  border-radius: 20px;
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: 15px;
 }
-
-/* ბარათი 1: თეთრი "მინა" (#FFFFFF) */
 .feature-card-item.card-style-a {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(145deg, #FFFFFF, #F5F5F5);
 }
-
-/* ბარათი 2: იასამნისფერი "მინა" (#D7D7FF) */
 .feature-card-item.card-style-b {
-  background: rgba(215, 215, 255, 0.15);
-  border: 1px solid rgba(215, 215, 255, 0.25);
+  background: #E6E0FF;
 }
-
+.feature-card-item,
+.feature-card-item .feature-card-title,
+.feature-card-item .feature-card-body p,
+.feature-card-item .feature-card-icon .icon {
+  color: var(--card-text-dark);
+}
 .feature-card-header {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  gap: 1rem;
 }
 .feature-card-icon .icon {
-  width: 28px;
-  height: 28px;
-  color: var(--accent-color);
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 .feature-card-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-primary);
   margin: 0;
 }
-.feature-card-body {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
+.feature-card-divider {
+  border: none;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
 }
-@media(max-width: 992px) {
-  .solutions-grid {
+.feature-card-body p {
+  margin: 0;
+  line-height: 1.6;
+}
+@media (max-width: 992px) {
+  .detail-page-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
-  .solutions-sticky-content {
+  .detail-page-sticky-info {
     position: static;
     text-align: center;
   }
-  .solutions-title {
+  .detail-page-title {
     font-size: 2.5rem;
   }
 }
