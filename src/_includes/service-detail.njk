@@ -3,37 +3,37 @@
 {% block content %}
 <section class="page-section service-detail-page">
     <div class="container">
-        <div class="solutions-grid">
-            {# --- მარცხენა, "წებოვანი" სვეტი --- #}
-            <div class="solutions-sticky-content" data-aos="fade-right">
-                <h1 class="solutions-title">{{ title }}</h1>
-                <div class="solutions-description page-content">
+        <div class="detail-page-layout">
+            
+            <aside class="detail-page-sticky-info" data-aos="fade-right">
+                <h1 class="detail-page-title">{{ title }}</h1>
+                <div class="detail-page-description page-content">
                     {{ general_description | markdownify | safe }}
                 </div>
-            </div>
+            </aside>
 
-            {# --- მარჯვენა, "სქროლვადი" სვეტი --- #}
-            {% if detailed_list and detailed_list.length > 0 %}
-            <div class="solutions-scrolling-cards" data-aos="fade-left" data-aos-delay="200">
-                {% for item in detailed_list %}
-                    {% set card_style = 'card-style-a' if loop.index0 % 2 == 0 else 'card-style-b' %}
-                    <div class="feature-card-item {{ card_style }}">
-                        <div class="feature-card-header">
-                            <div class="feature-card-icon">
-                                {% lucide item.icon %}
+            <main class="detail-page-cards">
+                {% if detailed_list and detailed_list.length > 0 %}
+                    {% for item in detailed_list %}
+                        {% set card_style = 'card-style-a' if loop.index0 % 2 == 0 else 'card-style-b' %}
+                        <div class="feature-card-item {{ card_style }}">
+                            <div class="feature-card-header">
+                                <div class="feature-card-icon">
+                                    {% lucide item.icon %}
+                                </div>
+                                <h3 class="feature-card-title">{{ item.point }}</h3>
                             </div>
-                            <h3 class="feature-card-title">{{ item.point }}</h3>
+                            <hr class="feature-card-divider">
+                            {% if item.description %}
+                            <div class="feature-card-body">
+                                <p>{{ item.description }}</p>
+                            </div>
+                            {% endif %}
                         </div>
-                        <hr class="feature-card-divider">
-                        {% if item.description %}
-                        <div class="feature-card-body">
-                            <p>{{ item.description }}</p>
-                        </div>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            </div>
-            {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </main>
+
         </div>
     </div>
 </section>
