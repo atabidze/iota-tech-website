@@ -267,29 +267,29 @@ h1, h2, h3 {
 
 /* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი (საბოლოო გასწორებული) --- */
 
+/* --- შეიცვალა ანიმაცია: top თვისებაზე --- */
 @keyframes data-flow-down {
-  from { transform: translateY(-150px); }
-  to { transform: translateY(100vh); }
+  from { top: -150px; }
+  to { top: 110%; }
 }
 @keyframes data-flow-up {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-150px); }
+  from { top: 110%; }
+  to { top: -150px; }
 }
 @keyframes packet-flash {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
 }
 
-/* მთავარი კონტეინერი: ახალი მყარი Grid სტრუქტურა */
 .feature-timeline {
   margin-top: 4rem;
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 80px 1fr; /* მარცხენა | ცენტრი | მარჯვენა */
+  grid-template-columns: 1fr 80px 1fr;
   gap: 1.5rem;
+  align-items: center; /* <<< გასწორდა ლოგო და ბარათი */
 }
 
-/* ანიმაციის კონტეინერი: აბსოლუტური პოზიცია, რათა მთელ სიმაღლეზე გაიჭიმოს */
 .optic-fiber-animation {
   position: absolute;
   top: 0;
@@ -297,7 +297,7 @@ h1, h2, h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 30px;
-  z-index: -1; /* ბარათების უკან */
+  z-index: -1;
   overflow: hidden;
 }
 .fiber-cables {
@@ -323,7 +323,7 @@ h1, h2, h3 {
   height: 3px;
   border-radius: 50%;
   box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
-  animation-name: packet-flash;
+  animation-name: packet-flash; /* მოძრაობა დაემატება ქვემოთ */
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 1.5s;
