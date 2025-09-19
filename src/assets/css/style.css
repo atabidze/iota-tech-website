@@ -265,7 +265,7 @@ h1, h2, h3 {
   color: var(--text-secondary);
 }
 
-/* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი (საბოლოო Flexbox ვერსია) --- */
+/* --- სერვისის დეტალური გვერდი: ოპტიკური ქსელის დიზაინი --- */
 
 @keyframes data-flow-down {
   from { top: -150px; }
@@ -278,6 +278,15 @@ h1, h2, h3 {
 @keyframes packet-flash {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
+}
+/* --- დაემატა ჰორიზონტალური ანიმაციები --- */
+@keyframes data-flow-right {
+  from { left: -30%; }
+  to { left: 90%; }
+}
+@keyframes data-flow-left {
+  from { right: -30%; }
+  to { right: 90%; }
 }
 
 .feature-timeline {
@@ -364,7 +373,7 @@ h1, h2, h3 {
   flex-direction: row-reverse;
 }
 .feature-visual, .feature-text {
-  flex-basis: 40%; /* <<< დაშორება გაიზარდა */
+  flex-basis: 40%;
 }
 
 .feature-text {
@@ -383,6 +392,7 @@ h1, h2, h3 {
 }
 .feature-visual {
   display: flex;
+  position: relative; /* <<< აუცილებელია ::before და ::after-ისთვის */
 }
 .feature-section.image-left .feature-visual {
   justify-content: flex-end;
@@ -404,6 +414,43 @@ h1, h2, h3 {
   height: 40px;
   stroke-width: 1.5;
   color: var(--accent-color);
+}
+
+/* --- დაემატა განშტოებების ანიმაცია (Data In/Out) --- */
+.feature-visual::before,
+.feature-visual::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 3px;
+  border-radius: 50%;
+  box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
+  animation-name: packet-flash;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+}
+/* Data In (ნარინჯისფერი) */
+.feature-visual::before {
+  color: #FF9900;
+  animation-name: data-flow-right, packet-flash;
+  animation-duration: 5s, 1.5s;
+}
+/* Data Out (ცისფერი) */
+.feature-visual::after {
+  color: #00FFFF;
+  animation-name: data-flow-left, packet-flash;
+  animation-duration: 5s, 1.5s;
+  animation-delay: -2.5s;
+}
+
+/* ანიმაციის მიმართულების კონტროლი */
+.feature-section.image-left .feature-visual::before {
+  animation-name: data-flow-left, packet-flash;
+}
+.feature-section.image-left .feature-visual::after {
+  animation-name: data-flow-right, packet-flash;
 }
 
 @media (max-width: 767px) {
