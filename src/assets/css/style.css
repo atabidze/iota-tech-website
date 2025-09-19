@@ -295,8 +295,7 @@ h1, h2, h3 {
 .feature-card-item {
   padding: 2rem;
   border-radius: 15px;
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  /* --- მოშორდა შუშის ეფექტი --- */
 }
 .feature-card-item.card-style-a {
   background: rgba(255, 255, 255, 0.1);
