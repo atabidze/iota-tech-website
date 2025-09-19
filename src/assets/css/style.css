@@ -280,12 +280,12 @@ h1, h2, h3 {
   50% { opacity: 1; }
 }
 @keyframes data-flow-right {
-  from { left: -30%; }
-  to { left: 90%; }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(calc(4rem + 10px)); }
 }
 @keyframes data-flow-left {
-  from { right: -30%; }
-  to { right: 90%; }
+  from { transform: translateX(calc(4rem + 10px)); }
+  to { transform: translateX(-100%); }
 }
 
 .feature-timeline {
@@ -373,7 +373,7 @@ h1, h2, h3 {
 }
 .feature-visual, .feature-text {
   flex-basis: 40%;
-  position: relative; /* <<< აუცილებელია ::before და ::after-ისთვის */
+  position: relative;
 }
 
 .feature-text {
@@ -415,45 +415,30 @@ h1, h2, h3 {
   color: var(--accent-color);
 }
 
-/* --- დაემატა განშტოებების ანიმაცია (Data In/Out) --- */
+/* --- დაემატა განშტოების სტატიკური ხაზები და ანიმაცია --- */
 .feature-text::before,
 .feature-text::after {
   content: '';
   position: absolute;
-  width: 2px;
-  height: 3px;
-  border-radius: 50%;
-  box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
-  animation-name: packet-flash;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-duration: 1.5s;
-  z-index: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  width: calc(100vw - 100% - 30px - 4rem); /* ითვლის მანძილს მაგისტრალამდე */
+  max-width: 40px; /* ზღუდავს სიგრძეს */
 }
-
+.feature-section.image-left .feature-text::before,
+.feature-section.image-left .feature-text::after {
+  right: 100%;
+}
+.feature-section.image-right .feature-text::before,
+.feature-section.image-right .feature-text::after {
+  left: 100%;
+}
 .feature-text::before {
-  top: 45%;
-  border-top: 1px solid rgba(255, 153, 0, 0.2);
-  color: #FF9900;
-  animation-name: data-flow-right, packet-flash;
-  animation-duration: 5s, 1.5s;
+  top: calc(50% - 2px);
 }
 .feature-text::after {
-  top: 55%;
-  border-top: 1px solid rgba(0, 255, 255, 0.2);
-  color: #00FFFF;
-  animation-name: data-flow-left, packet-flash;
-  animation-duration: 5s, 1.5s;
-  animation-delay: -2.5s;
+  top: calc(50% + 2px);
 }
-
-/* ანიმაციის მიმართულების კონტროლი */
-.feature-section.image-left .feature-text::before { right: 100%; animation-name: data-flow-left, packet-flash; }
-.feature-section.image-left .feature-text::after { right: 100%; animation-name: data-flow-right, packet-flash; }
-
-.feature-section.image-right .feature-text::before { left: 100%; animation-name: data-flow-right, packet-flash; }
-.feature-section.image-right .feature-text::after { left: 100%; animation-name: data-flow-left, packet-flash; }
-
 
 @media (max-width: 767px) {
   .optic-fiber-animation { display: none; }
