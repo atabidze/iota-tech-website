@@ -17,7 +17,7 @@
             <div class="solutions-scrolling-cards" data-aos="fade-left" data-aos-delay="200">
                 {% for item in detailed_list %}
                     {# --- გასწორდა მონაცვლეობითი კლასის ლოგიკა --- #}
-                    {% set card_style = 'card-default' if loop.index0 % 2 == 0 else 'card-highlight' %}
+                    {% set card_style = 'card-style-a' if loop.index0 % 2 == 0 else 'card-style-b' %}
                     <div class="feature-card-item {{ card_style }}">
                         <div class="feature-card-header">
                             <div class="feature-card-icon">
@@ -25,8 +25,11 @@
                             </div>
                             <h3 class="feature-card-title">{{ item.point }}</h3>
                         </div>
+                        <hr class="feature-card-divider">
                         {% if item.description %}
-                        <p class="feature-card-body">{{ item.description }}</p>
+                        <div class="feature-card-body">
+                            <p>{{ item.description }}</p>
+                        </div>
                         {% endif %}
                     </div>
                 {% endfor %}
