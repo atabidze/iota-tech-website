@@ -280,7 +280,6 @@ h1, h2, h3 {
   70% { box-shadow: 0 0 0 12px rgba(232, 74, 95, 0); }
   100% { box-shadow: 0 0 0 0 rgba(232, 74, 95, 0); }
 }
-/* დაემატა კაშკაშის ანიმაცია */
 @keyframes packet-flash {
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
@@ -295,10 +294,10 @@ h1, h2, h3 {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 24px; /* <<< შეიცვალა სიგანე */
+  width: 24px;
   height: 100%;
   z-index: 0;
-  overflow: hidden; /* <<< მალავს ანიმაციას ფარგლებს გარეთ */
+  overflow: hidden;
 }
 /* შრე 1: 6 წვრილი კაბელი */
 .fiber-cables {
@@ -324,9 +323,9 @@ h1, h2, h3 {
   width: 2px;
   height: 3px;
   border-radius: 50%;
-  /* --- გაიზარდა პაკეტების ინტენსივობა --- */
-  box-shadow: 0 12px 0 0 currentColor, 0 24px 0 0 currentColor, 0 36px 0 0 currentColor, 0 48px 0 0 currentColor;
-  animation-name: data-flow-down, packet-flash; /* --- დაემატა კაშკაშის ანიმაცია --- */
+  /* --- შეიცვალა პაკეტის ზომა: 3 წერტილი --- */
+  box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
+  animation-name: data-flow-down, packet-flash;
   animation-timing-function: linear, ease-in-out;
   animation-iteration-count: infinite, infinite;
 }
@@ -335,13 +334,31 @@ h1, h2, h3 {
 .packet.orange { color: #FF9900; }
 .packet.cyan { color: #00FFFF; }
 
-/* 6 პაკეტის ინდივიდუალური სტილი */
-.packet:nth-child(1) { left: 2px; animation-duration: 8s, 1.5s; animation-delay: 0s; }
-.packet:nth-child(2) { left: 6px; animation-duration: 7s, 1.5s; animation-delay: 1.5s; }
-.packet:nth-child(3) { left: 10px; animation-duration: 9s, 1.5s; animation-delay: 3s; }
-.packet:nth-child(4) { left: 14px; animation-duration: 6s, 1.5s; animation-delay: 0.5s; }
-.packet:nth-child(5) { left: 18px; animation-duration: 10s, 1.5s; animation-delay: 2.5s; }
-.packet:nth-child(6) { left: 22px; animation-duration: 8s, 1.5s; animation-delay: 4s; }
+/* --- 18 პაკეტის ინდივიდუალური სტილი --- */
+/* Track 1 (Down) */
+.packet.t1:nth-of-type(1) { left: 2px; animation-duration: 7s, 1.5s; animation-delay: 0s; }
+.packet.t1:nth-of-type(2) { left: 2px; animation-duration: 7s, 1.5s; animation-delay: 2.3s; }
+.packet.t1:nth-of-type(3) { left: 2px; animation-duration: 7s, 1.5s; animation-delay: 4.6s; }
+/* Track 2 (Up) */
+.packet.t2:nth-of-type(1) { left: 6px; animation-duration: 8s, 1.5s; animation-delay: 1s; }
+.packet.t2:nth-of-type(2) { left: 6px; animation-duration: 8s, 1.5s; animation-delay: 3.6s; }
+.packet.t2:nth-of-type(3) { left: 6px; animation-duration: 8s, 1.5s; animation-delay: 6.2s; }
+/* Track 3 (Down) */
+.packet.t3:nth-of-type(1) { left: 10px; animation-duration: 6s, 1.5s; animation-delay: 0.5s; }
+.packet.t3:nth-of-type(2) { left: 10px; animation-duration: 6s, 1.5s; animation-delay: 2.5s; }
+.packet.t3:nth-of-type(3) { left: 10px; animation-duration: 6s, 1.5s; animation-delay: 4.5s; }
+/* Track 4 (Up) */
+.packet.t4:nth-of-type(1) { left: 14px; animation-duration: 9s, 1.5s; animation-delay: 2.2s; }
+.packet.t4:nth-of-type(2) { left: 14px; animation-duration: 9s, 1.5s; animation-delay: 5.2s; }
+.packet.t4:nth-of-type(3) { left: 14px; animation-duration: 9s, 1.5s; animation-delay: 8.2s; }
+/* Track 5 (Down) */
+.packet.t5:nth-of-type(1) { left: 18px; animation-duration: 8.5s, 1.5s; animation-delay: 1.8s; }
+.packet.t5:nth-of-type(2) { left: 18px; animation-duration: 8.5s, 1.5s; animation-delay: 4.6s; }
+.packet.t5:nth-of-type(3) { left: 18px; animation-duration: 8.5s, 1.5s; animation-delay: 7.4s; }
+/* Track 6 (Up) */
+.packet.t6:nth-of-type(1) { left: 22px; animation-duration: 7.5s, 1.5s; animation-delay: 3.1s; }
+.packet.t6:nth-of-type(2) { left: 22px; animation-duration: 7.5s, 1.5s; animation-delay: 5.6s; }
+.packet.t6:nth-of-type(3) { left: 22px; animation-duration: 7.5s, 1.5s; animation-delay: 8.1s; }
 
 
 .feature-section {
@@ -396,7 +413,7 @@ h1, h2, h3 {
 
 @media (min-width: 768px) {
   .feature-section {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   .feature-text {
     text-align: left;
