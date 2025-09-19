@@ -332,7 +332,7 @@ h1, h2, h3 {
 .packet.orange { color: #FF9900; }
 .packet.cyan { color: #00FFFF; }
 
-/* --- 18 პაკეტის ასინქრონული ანიმაცია --- */
+/* --- 18 პაკეტის ასინქრონული ანიმაცია (უარყოფითი დაყოვნებით) --- */
 .packet:nth-child(1), .packet:nth-child(2), .packet:nth-child(3) { left: 2px; }
 .packet:nth-child(4), .packet:nth-child(5), .packet:nth-child(6) { left: 7px; }
 .packet:nth-child(7), .packet:nth-child(8), .packet:nth-child(9) { left: 12px; }
@@ -340,25 +340,25 @@ h1, h2, h3 {
 .packet:nth-child(13), .packet:nth-child(14), .packet:nth-child(15) { left: 22px; }
 .packet:nth-child(16), .packet:nth-child(17), .packet:nth-child(18) { left: 27px; }
 
-.packet:nth-child(1) { animation-duration: 8s, 1.5s; animation-delay: 0s; }
-.packet:nth-child(2) { animation-duration: 7s, 1.5s; animation-delay: 1.5s; }
-.packet:nth-child(3) { animation-duration: 9s, 1.5s; animation-delay: 3s; }
-.packet:nth-child(4) { animation-duration: 6s, 1.5s; animation-delay: 0.5s; }
-.packet:nth-child(5) { animation-duration: 10s, 1.5s; animation-delay: 2.5s; }
-.packet:nth-child(6) { animation-duration: 8s, 1.5s; animation-delay: 4s; }
-.packet:nth-child(7) { animation-duration: 8s, 1.5s; animation-delay: 2.6s; }
-.packet:nth-child(8) { animation-duration: 7s, 1.5s; animation-delay: 4.1s; }
-.packet:nth-child(9) { animation-duration: 9s, 1.5s; animation-delay: 6s; }
-.packet:nth-child(10) { animation-duration: 6s, 1.5s; animation-delay: 3.5s; }
-.packet:nth-child(11) { animation-duration: 10s, 1.5s; animation-delay: 5.5s; }
-.packet:nth-child(12) { animation-duration: 8s, 1.5s; animation-delay: 7s; }
-.packet:nth-child(13) { animation-duration: 8s, 1.5s; animation-delay: 5.2s; }
-.packet:nth-child(14) { animation-duration: 7s, 1.5s; animation-delay: 6.7s; }
-.packet:nth-child(15) { animation-duration: 9s, 1.5s; animation-delay: 9s; }
-.packet:nth-child(16) { animation-duration: 6s, 1.5s; animation-delay: 6.5s; }
-.packet:nth-child(17) { animation-duration: 10s, 1.5s; animation-delay: 8.5s; }
-.packet:nth-child(18) { animation-duration: 8s, 1.5s; animation-delay: 10s; }
-
+/* --- სიჩქარეები შენელებულია, დაყოვნება უარყოფითია --- */
+.packet:nth-child(1) { animation-duration: 12s, 1.5s; animation-delay: -1s; }
+.packet:nth-child(2) { animation-duration: 10s, 1.5s; animation-delay: -3s; }
+.packet:nth-child(3) { animation-duration: 13s, 1.5s; animation-delay: -5s; }
+.packet:nth-child(4) { animation-duration: 9s, 1.5s; animation-delay: -2s; }
+.packet:nth-child(5) { animation-duration: 14s, 1.5s; animation-delay: -4s; }
+.packet:nth-child(6) { animation-duration: 11s, 1.5s; animation-delay: -6s; }
+.packet:nth-child(7) { animation-duration: 12s, 1.5s; animation-delay: -2.5s; }
+.packet:nth-child(8) { animation-duration: 10s, 1.5s; animation-delay: -4.5s; }
+.packet:nth-child(9) { animation-duration: 13s, 1.5s; animation-delay: -7s; }
+.packet:nth-child(10) { animation-duration: 9s, 1.5s; animation-delay: -1.5s; }
+.packet:nth-child(11) { animation-duration: 14s, 1.5s; animation-delay: -5.5s; }
+.packet:nth-child(12) { animation-duration: 11s, 1.5s; animation-delay: -8s; }
+.packet:nth-child(13) { animation-duration: 12s, 1.5s; animation-delay: -4.2s; }
+.packet:nth-child(14) { animation-duration: 10s, 1.5s; animation-delay: -6.2s; }
+.packet:nth-child(15) { animation-duration: 13s, 1.5s; animation-delay: -9s; }
+.packet:nth-child(16) { animation-duration: 9s, 1.5s; animation-delay: -3.2s; }
+.packet:nth-child(17) { animation-duration: 14s, 1.5s; animation-delay: -7.5s; }
+.packet:nth-child(18) { animation-duration: 11s, 1.5s; animation-delay: -10s; }
 
 .feature-section {
   display: contents;
