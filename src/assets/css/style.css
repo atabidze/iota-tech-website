@@ -280,12 +280,12 @@ h1, h2, h3 {
   50% { opacity: 1; }
 }
 @keyframes branch-flow-right {
-  from { background-position-x: -10%; }
-  to { background-position-x: 110%; }
+  0% { background-position-x: -15%; }
+  100% { background-position-x: 115%; }
 }
 @keyframes branch-flow-left {
-  from { background-position-x: 110%; }
-  to { background-position-x: -10%; }
+  0% { background-position-x: 115%; }
+  100% { background-position-x: -15%; }
 }
 
 .feature-timeline {
@@ -326,17 +326,13 @@ h1, h2, h3 {
   height: 3px;
   border-radius: 50%;
   box-shadow: 0 10px 0 0 currentColor, 0 20px 0 0 currentColor;
-  animation-name: packet-flash;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-duration: 1.5s;
+  animation: packet-flash 1.5s ease-in-out infinite;
 }
 .packet.down { animation-name: data-flow-down, packet-flash; }
 .packet.up { animation-name: data-flow-up, packet-flash; }
 .packet.orange { color: #FF9900; }
 .packet.cyan { color: #00FFFF; }
 
-/* პაკეტების პოზიცია კაბელების თავზე */
 .packet:nth-child(1), .packet:nth-child(2), .packet:nth-child(3) { left: 3px; }
 .packet:nth-child(4), .packet:nth-child(5), .packet:nth-child(6) { left: 7px; }
 .packet:nth-child(7), .packet:nth-child(8), .packet:nth-child(9) { left: 11px; }
@@ -421,41 +417,37 @@ h1, h2, h3 {
 .feature-text::after {
   content: '';
   position: absolute;
-  width: 5.5rem; /* <<< გაიზარდა სიგრძე */
-  height: 3px; /* <<< სიმაღლე 2 ხაზისთვის */
+  width: 6rem; /* <<< გაიზარდა სიგრძე, რომ მაგისტრალს დაუკავშირდეს */
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
   background-repeat: no-repeat;
-  /* --- გასწორდა ხაზების სტილი --- */
-  background-image: 
-    repeating-linear-gradient(to bottom, 
-      rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px,
-      transparent 1px, transparent 3px);
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
 }
 /* Data In (ნარინჯისფერი) */
 .feature-text::before {
-  top: 50%;
-  transform: translateY(-50%);
-  /* --- დაემატა მოძრავი პაკეტი --- */
-  background-image: 
-    radial-gradient(circle at center, #FF9900 2px, transparent 2px),
-    repeating-linear-gradient(to bottom, 
-      rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 1px,
-      transparent 1px, transparent 3px);
-  animation: branch-flow-right 4s linear infinite, packet-flash 1.5s ease-in-out infinite; /* <<< აჩქარდა */
+  top: calc(50% - 3px);
+  background-image: repeating-linear-gradient(to right, #FF9900, #FF9900 3px, transparent 3px, transparent 10px);
+  background-size: 13px 3px;
+  animation: branch-flow-right 4s, packet-flash 1.5s;
+  animation-delay: 0s, -0.5s;
 }
 /* Data Out (ცისფერი) */
 .feature-text::after {
-  display: none; /* დროებით ვთიშავთ მეორე ხაზს, რომ ლოგიკა გავამარტივოთ */
+  top: calc(50% + 3px);
+  background-image: repeating-linear-gradient(to right, #00FFFF, #00FFFF 3px, transparent 3px, transparent 10px);
+  background-size: 13px 3px;
+  animation: branch-flow-left 4s, packet-flash 1.5s;
+  animation-delay: -2s, 0s;
 }
 
 /* ანიმაციის მიმართულების კონტროლი */
-.feature-section.image-left .feature-text::before {
-  right: 100%;
-  animation-name: branch-flow-left, packet-flash;
-}
-.feature-section.image-right .feature-text::before {
-  left: 100%;
-  animation-name: branch-flow-right, packet-flash;
-}
+.feature-section.image-left .feature-text::before { right: 100%; animation-name: branch-flow-left, packet-flash; }
+.feature-section.image-left .feature-text::after { right: 100%; animation-name: branch-flow-right, packet-flash; }
+
+.feature-section.image-right .feature-text::before { left: 100%; }
+.feature-section.image-right .feature-text::after { left: 100%; }
+
 
 @media (max-width: 767px) {
   .optic-fiber-animation { display: none; }
