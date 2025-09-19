@@ -13,6 +13,7 @@
 
         {% if detailed_list and detailed_list.length > 0 %}
         <div class="feature-timeline">
+            {# --- ანიმაციის კონტეინერი გადავიდა ციკლის გარეთ --- #}
             <div class="optic-fiber-animation">
                 <div class="fiber-cables"></div>
                 <div class="data-packets">
@@ -27,12 +28,12 @@
 
             {% for item in detailed_list %}
                 <div class="feature-section">
-                    <div class="feature-visual" data-aos="zoom-in">
+                    <div class="feature-visual" data-aos="zoom-in" data-aos-duration="600">
                         <div class="feature-icon">
                             {% lucide item.icon %}
                         </div>
                     </div>
-                    <div class="feature-text glass-panel" data-aos="fade-up">
+                    <div class="feature-text glass-panel" data-aos="fade-up" data-aos-duration="600">
                         <h3 class="feature-title">{{ item.point }}</h3>
                         {% if item.description %}
                         <p class="feature-desc">{{ item.description }}</p>
