@@ -1,13 +1,12 @@
 /* --- ცვლადები და ძირითადი სტილები --- */
 :root {
-  --background-main: #121212;
-  --background-panel: rgba(26, 26, 26, 0.7);
+  --background-main: #1A1A1A;
+  --background-panel: rgba(36, 36, 36, 0.7);
   --glass-blur: 10px;
   --border-color: rgba(255, 255, 255, 0.2);
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
   --accent-color: #e84a5f;
-  --card-text-dark: #1f1f1f; /* მუქი ტექსტის ფერი ღია ფონისთვის */
 }
 
 body {
@@ -296,23 +295,16 @@ h1, h2, h3 {
 .feature-card-item {
   padding: 2rem;
   border-radius: 15px;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
-
-/* ბარათი 1: რძისფერი, გარდამავალი თეთრში */
 .feature-card-item.card-style-a {
-  background: linear-gradient(145deg, #FFFFFF, #F5F5F5);
+  background: rgba(245, 245, 245, 0.35); /* <<< ზომიერი გამჭვირვალობა */
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
-
-/* ბარათი 2: ღია იისფერი */
 .feature-card-item.card-style-b {
-  background: #E6E0FF;
-}
-
-/* ტექსტის და ლოგოს ფერების გასწორება ღია ფონისთვის */
-.feature-card-item .feature-card-title,
-.feature-card-item .feature-card-body p,
-.feature-card-item .feature-card-icon .icon {
-  color: var(--card-text-dark);
+  background: rgba(230, 224, 255, 0.35); /* <<< ზომიერი გამჭვირვალობა */
+  border: 1px solid rgba(230, 224, 255, 0.4);
 }
 
 .feature-card-header {
@@ -323,22 +315,25 @@ h1, h2, h3 {
 .feature-card-icon .icon {
   width: 24px;
   height: 24px;
+  color: var(--accent-color);
   flex-shrink: 0;
 }
 .feature-card-title {
   font-size: 1.25rem;
   font-weight: 600;
+  color: var(--text-primary);
   margin: 0;
 }
 .feature-card-divider {
   border: none;
   height: 1px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--border-color);
   margin: 1.5rem 0;
 }
 .feature-card-body p {
   margin: 0;
   line-height: 1.6;
+  color: var(--text-secondary);
 }
 @media (max-width: 992px) {
   .detail-page-layout {
