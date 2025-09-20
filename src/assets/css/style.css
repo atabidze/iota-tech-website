@@ -299,18 +299,20 @@ h1, h2, h3 {
   -webkit-backdrop-filter: blur(10px);
 }
 .feature-card-item.card-style-a {
-  background: rgba(245, 245, 245, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(245, 245, 245, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .feature-card-item.card-style-b {
-  background: rgba(230, 224, 255, 0.35);
-  border: 1px solid rgba(230, 224, 255, 0.4);
+  background: rgba(230, 224, 255, 0.4);
+  border: 1px solid rgba(230, 224, 255, 0.5);
 }
 
 .feature-card-item .feature-card-title,
-.feature-card-item .feature-card-body p,
+.feature-card-item .feature-card-body p {
+  color: var(--text-primary);
+}
 .feature-card-item .feature-card-icon .icon {
-  color: var(--text-primary); /* ტექსტი ისევ ღია ფერის */
+  color: var(--text-primary);
 }
 
 .feature-card-header {
@@ -322,7 +324,6 @@ h1, h2, h3 {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
-  color: var(--accent-color); /* ლოგოს ფერი ისევ წითელი */
 }
 .feature-card-title {
   font-size: 1.25rem;
