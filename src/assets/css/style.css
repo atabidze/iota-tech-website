@@ -295,24 +295,8 @@ h1, h2, h3 {
 .feature-card-item {
   padding: 2rem;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.feature-card-item.card-style-a {
-  background: rgba(245, 245, 245, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-}
-.feature-card-item.card-style-b {
-  background: rgba(230, 224, 255, 0.4);
-  border: 1px solid rgba(230, 224, 255, 0.5);
-}
-
-.feature-card-item .feature-card-title,
-.feature-card-item .feature-card-body p {
-  color: var(--text-primary);
-}
-.feature-card-item .feature-card-icon .icon {
-  color: var(--text-primary);
+  border: 1px solid var(--border-color); /* ჩარჩო რომ გამოჩნდეს */
+  background: transparent; /* სრული გამჭვირვალობა */
 }
 
 .feature-card-header {
@@ -323,11 +307,13 @@ h1, h2, h3 {
 .feature-card-icon .icon {
   width: 24px;
   height: 24px;
+  color: var(--accent-color);
   flex-shrink: 0;
 }
 .feature-card-title {
   font-size: 1.25rem;
   font-weight: 600;
+  color: var(--text-primary);
   margin: 0;
 }
 .feature-card-divider {
@@ -339,6 +325,7 @@ h1, h2, h3 {
 .feature-card-body p {
   margin: 0;
   line-height: 1.6;
+  color: var(--text-secondary);
 }
 @media (max-width: 992px) {
   .detail-page-layout {
