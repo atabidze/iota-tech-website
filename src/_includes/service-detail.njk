@@ -15,21 +15,39 @@
             <main class="detail-page-cards">
                 {% if detailed_list and detailed_list.length > 0 %}
                     {% for item in detailed_list %}
-                        {% set card_style = 'card-style-a' if loop.index0 % 2 == 0 else 'card-style-b' %}
-                        <div class="feature-card-item {{ card_style }}">
-                            <div class="feature-card-header">
-                                <div class="feature-card-icon">
-                                    {% lucide item.icon %}
+                        {% if loop.index0 % 2 == 0 %}
+                            {# --- ბარათი 1: რძისფერი, "მინის" ეფექტით --- #}
+                            <div class="feature-card-item" style="background: rgba(245, 245, 245, 0.4); border: 1px solid rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+                                <div class="feature-card-header">
+                                    <div class="feature-card-icon">
+                                        {% lucide item.icon %}
+                                    </div>
+                                    <h3 class="feature-card-title">{{ item.point }}</h3>
                                 </div>
-                                <h3 class="feature-card-title">{{ item.point }}</h3>
+                                <hr class="feature-card-divider">
+                                {% if item.description %}
+                                <div class="feature-card-body">
+                                    <p>{{ item.description }}</p>
+                                </div>
+                                {% endif %}
                             </div>
-                            <hr class="feature-card-divider">
-                            {% if item.description %}
-                            <div class="feature-card-body">
-                                <p>{{ item.description }}</p>
+                        {% else %}
+                            {# --- ბარათი 2: ღია იისფერი, "მინის" ეფექტით --- #}
+                            <div class="feature-card-item" style="background: rgba(230, 224, 255, 0.4); border: 1px solid rgba(230, 224, 255, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+                                <div class="feature-card-header">
+                                    <div class="feature-card-icon">
+                                        {% lucide item.icon %}
+                                    </div>
+                                    <h3 class="feature-card-title">{{ item.point }}</h3>
+                                </div>
+                                <hr class="feature-card-divider">
+                                {% if item.description %}
+                                <div class="feature-card-body">
+                                    <p>{{ item.description }}</p>
+                                </div>
+                                {% endif %}
                             </div>
-                            {% endif %}
-                        </div>
+                        {% endif %}
                     {% endfor %}
                 {% endif %}
             </main>
