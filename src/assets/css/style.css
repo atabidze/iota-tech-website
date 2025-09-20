@@ -1,7 +1,7 @@
 /* --- ცვლადები და ძირითადი სტილები --- */
 :root {
-  --background-main: #1A1A1A; /* <<< შეიცვალა ფერი, გახდა უფრო ღია */
-  --background-panel: rgba(36, 36, 36, 0.7); /* ოდნავ შეიცვალა, რომ ფონს შეესაბამებოდეს */
+  --background-main: #1A1A1A;
+  --background-panel: rgba(36, 36, 36, 0.7);
   --glass-blur: 10px;
   --border-color: rgba(255, 255, 255, 0.2);
   --text-primary: #f0f0f0;
@@ -296,12 +296,20 @@ h1, h2, h3 {
 .feature-card-item {
   padding: 2rem;
   border-radius: 15px;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 }
+
+/* ბარათი 1: რძისფერი, "მინის" ეფექტით */
 .feature-card-item.card-style-a {
-  background: linear-gradient(145deg, #FFFFFF, #F5F5F5);
+  background: rgba(245, 245, 245, 0.4); /* <<< ზომიერი გამჭვირვალობა */
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+/* ბარათი 2: ღია იისფერი, "მინის" ეფექტით */
 .feature-card-item.card-style-b {
-  background: #E6E0FF;
+  background: rgba(230, 224, 255, 0.4); /* <<< ზომიერი გამჭვირვალობა */
+  border: 1px solid rgba(230, 224, 255, 0.5);
 }
 
 .feature-card-item,
