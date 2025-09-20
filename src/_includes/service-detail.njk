@@ -15,14 +15,15 @@
             <main class="detail-page-cards">
                 {% if detailed_list and detailed_list.length > 0 %}
                     {% for item in detailed_list %}
-                        <div class="feature-card-item" 
-                             style="background: rgba(255, 0, 0, 0.5); border-radius: 15px; padding: 2rem; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                            <div class="feature-card-header" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding-bottom: 1rem; margin-bottom: 1rem;">
+                        {% set card_style = 'card-style-a' if loop.index0 % 2 == 0 else 'card-style-b' %}
+                        <div class="feature-card-item {{ card_style }}">
+                            <div class="feature-card-header">
                                 <div class="feature-card-icon">
                                     {% lucide item.icon %}
                                 </div>
                                 <h3 class="feature-card-title">{{ item.point }}</h3>
                             </div>
+                            <hr class="feature-card-divider">
                             {% if item.description %}
                             <div class="feature-card-body">
                                 <p>{{ item.description }}</p>

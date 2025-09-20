@@ -7,7 +7,6 @@
   --text-primary: #f0f0f0;
   --text-secondary: #a0a0a0;
   --accent-color: #e84a5f;
-  --card-text-dark: #1f1f1f;
 }
 
 body {
@@ -296,19 +295,15 @@ h1, h2, h3 {
 .feature-card-item {
   padding: 2rem;
   border-radius: 15px;
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
-
-/* ბარათი 1: რძისფერი, "მინის" ეფექტით */
 .feature-card-item.card-style-a {
-  background: rgba(245, 245, 245, 0.4); /* <<< ზომიერი გამჭვირვალობა */
+  background: rgba(245, 245, 245, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
-
-/* ბარათი 2: ღია იისფერი, "მინის" ეფექტით */
 .feature-card-item.card-style-b {
-  background: rgba(230, 224, 255, 0.4); /* <<< ზომიერი გამჭვირვალობა */
+  background: rgba(230, 224, 255, 0.6);
   border: 1px solid rgba(230, 224, 255, 0.5);
 }
 
