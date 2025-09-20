@@ -297,28 +297,23 @@ h1, h2, h3 {
   padding: 2rem;
   border-radius: 15px;
 }
-/* ბარათი 1: რძისფერი */
+
+/* ბარათი 1: რძისფერი, გარდამავალი თეთრში */
 .feature-card-item.card-style-a {
   background: linear-gradient(145deg, #FFFFFF, #F5F5F5);
 }
+
 /* ბარათი 2: ღია იისფერი */
 .feature-card-item.card-style-b {
   background: #E6E0FF;
 }
 
-/* --- ტექსტის ფერების გასწორება ღია ფონისთვის --- */
+/* ტექსტის და ლოგოს ფერების გასწორება ღია ფონისთვის */
 .feature-card-item .feature-card-title,
 .feature-card-item .feature-card-body p,
 .feature-card-item .feature-card-icon .icon {
   color: var(--card-text-dark);
 }
-.feature-card-item .numbered-card-number {
-  color: rgba(31, 31, 31, 0.5);
-}
-.feature-card-item .feature-card-divider {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-/* ---------------------------------------------------- */
 
 .feature-card-header {
   display: flex;
@@ -338,6 +333,7 @@ h1, h2, h3 {
 .feature-card-divider {
   border: none;
   height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
   margin: 1.5rem 0;
 }
 .feature-card-body p {
