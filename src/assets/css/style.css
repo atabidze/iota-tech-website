@@ -295,16 +295,22 @@ h1, h2, h3 {
 .feature-card-item {
   padding: 2rem;
   border-radius: 15px;
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 .feature-card-item.card-style-a {
-  background: rgba(245, 245, 245, 0.35); /* <<< ზომიერი გამჭვირვალობა */
+  background: rgba(245, 245, 245, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 .feature-card-item.card-style-b {
-  background: rgba(230, 224, 255, 0.35); /* <<< ზომიერი გამჭვირვალობა */
+  background: rgba(230, 224, 255, 0.35);
   border: 1px solid rgba(230, 224, 255, 0.4);
+}
+
+.feature-card-item .feature-card-title,
+.feature-card-item .feature-card-body p,
+.feature-card-item .feature-card-icon .icon {
+  color: var(--text-primary); /* ტექსტი ისევ ღია ფერის */
 }
 
 .feature-card-header {
@@ -315,13 +321,12 @@ h1, h2, h3 {
 .feature-card-icon .icon {
   width: 24px;
   height: 24px;
-  color: var(--accent-color);
   flex-shrink: 0;
+  color: var(--accent-color); /* ლოგოს ფერი ისევ წითელი */
 }
 .feature-card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--text-primary);
   margin: 0;
 }
 .feature-card-divider {
@@ -333,7 +338,6 @@ h1, h2, h3 {
 .feature-card-body p {
   margin: 0;
   line-height: 1.6;
-  color: var(--text-secondary);
 }
 @media (max-width: 992px) {
   .detail-page-layout {
